@@ -1,0 +1,254 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>life_on_mars.md</title>
+<style>
+body { 
+	font-family: system-ui, Arial, sans-serif;
+	padding: 1rem;
+	line-height: 1.6;
+	column-gap: 2em;
+  }
+
+  /* Two-column layout (default for screen) */
+  #content.two-column {
+    column-count: 2;
+    column-gap: 2em;
+    }
+
+  /* Single-column layout */
+  #content.one-column {
+    column-count: 1;
+    }
+
+      #content.three-column {
+    column-count: 3;
+    column-gap: 2em;
+    }
+
+.chord { color: #b00;
+	font-weight: 600;
+	font-size: 0.9em;
+	vertical-align: super;
+	margin-right: 0.12em; 
+  }
+
+  .tableau {
+  font-family: monospace;
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+
+.big-sup { font-size:1.4em;
+	vertical-align:super;
+	color: red; 
+  }
+
+.highlight {
+	background-color:  #d3d3d3;
+	padding: 10px;
+	border-radius: 5px;
+/*  -webkit-print-color-adjust: exact; /* Chrome, Safari */
+/*  print-color-adjust: exact;         /* Firefox */
+/*  color-adjust: exact;               /* Legacy */
+  border: 2px solid #d3d3d3;
+  padding: 2px;
+  }
+
+.highlight .big-sup {
+	color: #800000ff; /* darker grey for visibility */}
+
+.staff {
+	display: grid;
+	grid-template-rows: repeat(4, 30px); /* 4 horizontal lines */
+	grid-auto-flow: column;
+	gap: 10px;
+  }
+
+.staff div {
+	border-bottom: 2px solid black;
+	text-align: center;
+	line-height: 30px;
+	font-weight: bold;
+  }
+
+
+@media print {
+	/* Double column when toggled */
+	#content.two-column {
+		column-count: 2;
+		column-gap: 2em;}
+	#content.one-column {
+		column-count: 1 !important;}
+  #content.three-column {
+		column-count: 3;
+		column-gap: 2em;}
+	  
+
+/* Toggle button */
+#toggle-columns {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  background: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 999;
+  }
+
+@media print {#toggle-columns { display: none; }
+#toggle-chords { display: none; }
+
+}
+
+uke-chord.hidden {
+  display: none;
+}
+
+</style>
+<script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
+<script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
+</head>
+<body>
+<button id="toggle-columns">2 Colonnes</button>
+<button id="toggle-chords">Masquer accords</button>
+<div id="content" class="two-column">
+<h1>Life on Mars (Cric Crac) - David Bowie</h1>
+<h2>Accords Couplet partie 1 (2 fois)</h2>
+<p><uke-chord name="F" frets="2010"></uke-chord>
+<uke-chord name="Fmaj7" frets="2410"></uke-chord>
+<uke-chord name="F7" frets="2310"></uke-chord>
+<uke-chord name="D7" frets="2223"></uke-chord>
+<uke-chord name="Gm" frets="0231"></uke-chord>
+<uke-chord name="Gm7" frets="0211"></uke-chord>
+<uke-chord name="C7 (X2)" frets="0001"></uke-chord></p>
+<h2>Accords Couplet partie 2</h2>
+<p><uke-chord name="A♭" frets="X343"></uke-chord>
+<uke-chord name="Caug" frets="1003"></uke-chord>
+<uke-chord name="Fm" frets="1013"></uke-chord>
+<uke-chord name="A♭7" frets="1023"></uke-chord>
+<uke-chord name="D♭" frets="1114"></uke-chord>
+<uke-chord name="Faug" frets="2110"></uke-chord>
+<uke-chord name="B♭m" frets="3111"></uke-chord>
+<uke-chord name="D♭7" frets="1112"></uke-chord></p>
+<h2>Accords Refrain partie 1 (2 fois)</h2>
+<p><uke-chord name="B♭" frets="3211"></uke-chord>
+<uke-chord name="E♭" frets="0331"></uke-chord>
+<uke-chord name="Gm7" frets="0211"></uke-chord>
+<uke-chord name="Daug" frets="X221"></uke-chord>
+<uke-chord name="F" frets="2010"></uke-chord>
+<uke-chord name="Fm" frets="1013"></uke-chord>
+<uke-chord name="Cm7" frets="3333"></uke-chord>
+<uke-chord name="E♭m7" frets="3324"></uke-chord></p>
+<h2>Accords Refrain partie 2</h2>
+<p><uke-chord name="Gm7" frets="0211"></uke-chord>
+<uke-chord name="Daug" frets="X221"></uke-chord>
+<uke-chord name="B♭" frets="3211"></uke-chord>
+<uke-chord name="C9" frets="3203"></uke-chord></p>
+<h2>Accords Solo</h2>
+<p><uke-chord name="F" frets="2010"></uke-chord>
+<uke-chord name="D7" frets="2223"></uke-chord>
+<uke-chord name="Gm7" frets="0211"></uke-chord>
+<uke-chord name="D7" frets="2223"></uke-chord>
+<uke-chord name="Ddim" frets="1212"></uke-chord>
+<uke-chord name="Am" frets="2000"></uke-chord>
+<uke-chord name="B♭" frets="3211"></uke-chord>
+<uke-chord name="B♭m" frets="3111"></uke-chord></p>
+<h2>Instructions:</h2>
+<ul>
+<li>Couplet/Refrain: ↓↓ pour chaque accord.</li>
+</ul>
+<h2>Paroles:</h2>
+<h3>Couplet</h3>
+<p><sup class="big-sup">F</sup>It's a <sup class="big-sup">Fmaj7</sup>God-awful small a<sup class="big-sup">F7</sup>ffair<br>
+To the <sup class="big-sup">D7</sup>girl with the mousy hair<sup class="big-sup">Gm</sup><br>
+But her <sup class="big-sup">Gm7</sup>mummy is yelling, &quot;No&quot;<sup class="big-sup">C7</sup><br>
+And her <sup class="big-sup">C7</sup>daddy has told her to <sup class="big-sup">F</sup>go<br>
+But her <sup class="big-sup">Fmaj7</sup>friend is nowhere to be <sup class="big-sup">F7</sup>seen<br>
+Now she<sup class="big-sup">D7</sup> walks through her sunken <sup class="big-sup">Gm</sup>dream<br>
+To the <sup class="big-sup">Gm7</sup>seat with the clearest <sup class="big-sup">C7</sup>view<br>
+And she's <sup class="big-sup">C7</sup>hooked to the silver <sup class="big-sup">A♭</sup>screen<br>
+But the <sup class="big-sup">Caug</sup>film is a saddening <sup class="big-sup">Fm</sup>bore<br>
+For she's <sup class="big-sup">A♭7</sup>lived it ten times or <sup class="big-sup">D♭</sup>more<br>
+She could <sup class="big-sup">Faug</sup>spit in the eyes of <sup class="big-sup">B♭m</sup>fools<br>
+As they <sup class="big-sup">D♭7</sup>ask her to focus on</p>
+<div class="highlight">
+<h3>Refrain</h3>
+<p><sup class="big-sup">B♭</sup>Sailors <sup class="big-sup">E♭</sup>fighting in the dance hall<br>
+<sup class="big-sup">Gm7</sup>Oh man, <sup class="big-sup">Daug</sup>look at those cave<sup class="big-sup">F</sup>men go<sup class="big-sup">Fm</sup><br>
+It's the freakiest <sup class="big-sup">Cm7</sup>show<sup class="big-sup">E♭m7</sup><br>
+Take a look at the <sup class="big-sup">B♭</sup>lawman<br>
+<sup class="big-sup">E♭</sup>Beating up the wrong guy<br>
+<sup class="big-sup">Gm7</sup>Oh man, <sup class="big-sup">Daug</sup>wonder if he'll ever<sup class="big-sup">F</sup> know<sup class="big-sup">Fm</sup><br>
+He's in the best selling <sup class="big-sup">Cm7</sup>show<sup class="big-sup">E♭m7</sup><br>
+Is there life <sup class="big-sup">Gm7</sup>on Mars?<sup class="big-sup">Daug B♭ C9</sup></p>
+</div>
+<h3>Solo guitar ou:</h3>
+<p><sup class="big-sup">F D7 Gm7 Ddim Am B♭ B♭m</sup></p>
+<h3>Couplet</h3>
+<p><sup class="big-sup">F</sup>It's on <sup class="big-sup">Fmaj7</sup>America's tortured <sup class="big-sup">F7</sup>brow<br>
+That Mickey <sup class="big-sup">D7</sup>Mouse has grown up a <sup class="big-sup">Gm</sup>cow<br>
+Now the <sup class="big-sup">Gm7</sup>workers have struck for <sup class="big-sup">C7</sup>fame<br>
+'Cause <sup class="big-sup">C7</sup>Lennon's on sale a<sup class="big-sup">F</sup>gain<br>
+See the <sup class="big-sup">Fmaj7</sup>mice in their million <sup class="big-sup">F7</sup>hordes<br>
+From I<sup class="big-sup">D7</sup>biza to the Norfolk <sup class="big-sup">Gm</sup>Broads<br>
+Rule Brita<sup class="big-sup">Gm7</sup>nnia is out of <sup class="big-sup">C7</sup>bounds<br>
+To my <sup class="big-sup">C7</sup>mother, my dog, and <sup class="big-sup">A♭</sup>clowns<br>
+But the <sup class="big-sup">Caug</sup>film is a saddening <sup class="big-sup">Fm</sup>bore<br>
+'Cause I <sup class="big-sup">A♭7</sup>wrote it ten times or <sup class="big-sup">D♭</sup>more<br>
+It's a<sup class="big-sup">Faug</sup>bout to be writ a<sup class="big-sup">B♭m</sup>gain<br>
+As I <sup class="big-sup">D♭7</sup>ask you to focus on</p>
+<div class="highlight">
+<h3>Refrain</h3>
+</div>
+<h3>Outro:</h3>
+<p><sup class="big-sup">F D7 Gm7 Ddim Am B♭ B♭ B♭ E♭... E♭m7... B♭...</sup></p>
+
+</div>
+  <script>
+  const btn = document.getElementById('toggle-columns');
+    const content = document.getElementById('content');
+
+    // Possible column classes
+    const columnClasses = ['one-column', 'two-column', 'three-column'];
+    let current = 1; // start at 0 = one-column
+
+    btn.addEventListener("click", () => {
+      // Remove old class
+      content.classList.remove(columnClasses[current]);
+
+      // Increment and wrap around
+      current = (current + 1) % columnClasses.length;
+
+      // Add new class
+      content.classList.add(columnClasses[current]);
+
+      // Update button text
+      btn.textContent = (current + 1) + " Colonne" + (current > 0 ? "s" : "");    });
+
+        // 🎸 Uke chord toggle
+  const chordBtn = document.getElementById('toggle-chords');
+  let chordsVisible = true;
+
+  chordBtn.addEventListener("click", () => {
+    document.querySelectorAll("uke-chord").forEach(chord => {
+      chord.style.display = chordsVisible ? "none" : "inline-block";
+    });
+
+        // Toggle only <h2> with text "Accords:"
+    document.querySelectorAll("h2").forEach(h2 => {
+      if (h2.textContent.includes("Accords")) {
+        h2.style.display = chordsVisible ? "none" : "block";
+      }
+    });
+
+    chordsVisible = !chordsVisible;
+    chordBtn.textContent = chordsVisible ? "Masquer accords" : "Montrer accords";
+  });
+  </script>
+  </body>
+</html>

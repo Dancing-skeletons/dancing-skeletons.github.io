@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>aline.md</title>
+<style>
+body { 
+	font-family: system-ui, Arial, sans-serif;
+	padding: 1rem;
+	line-height: 1.6;
+	column-gap: 2em;
+  }
+
+  /* Two-column layout (default for screen) */
+  #content.two-column {
+    column-count: 2;
+    column-gap: 2em;
+    }
+
+  /* Single-column layout */
+  #content.one-column {
+    column-count: 1;
+    }
+
+      #content.three-column {
+    column-count: 3;
+    column-gap: 2em;
+    }
+
+.chord { color: #b00;
+	font-weight: 600;
+	font-size: 0.9em;
+	vertical-align: super;
+	margin-right: 0.12em; 
+  }
+
+  .tableau {
+  font-family: monospace;
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+
+.big-sup { font-size:1.4em;
+	vertical-align:super;
+	color: red; 
+  }
+
+.highlight {
+	background-color:  #d3d3d3;
+	padding: 10px;
+	border-radius: 5px;
+/*  -webkit-print-color-adjust: exact; /* Chrome, Safari */
+/*  print-color-adjust: exact;         /* Firefox */
+/*  color-adjust: exact;               /* Legacy */
+  border: 2px solid #d3d3d3;
+  padding: 2px;
+  }
+
+.highlight .big-sup {
+	color: #800000ff; /* darker grey for visibility */}
+
+.staff {
+	display: grid;
+	grid-template-rows: repeat(4, 30px); /* 4 horizontal lines */
+	grid-auto-flow: column;
+	gap: 10px;
+  }
+
+.staff div {
+	border-bottom: 2px solid black;
+	text-align: center;
+	line-height: 30px;
+	font-weight: bold;
+  }
+
+
+@media print {
+	/* Double column when toggled */
+	#content.two-column {
+		column-count: 2;
+		column-gap: 2em;}
+	#content.one-column {
+		column-count: 1 !important;}
+  #content.three-column {
+		column-count: 3;
+		column-gap: 2em;}
+	  
+
+/* Toggle button */
+#toggle-columns {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  background: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 999;
+  }
+
+@media print {#toggle-columns { display: none; }
+#toggle-chords { display: none; }
+
+}
+
+uke-chord.hidden {
+  display: none;
+}
+
+</style>
+<script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
+<script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
+</head>
+<body>
+<button id="toggle-columns">2 Colonnes</button>
+<button id="toggle-chords">Masquer accords</button>
+<div id="content" class="two-column">
+<h1>Aline (Uku heaven)- Christophe</h1>
+<h2>Accords:</h2>
+<p><uke-chord name="C" frets="0003"></uke-chord>
+<uke-chord name="E7" frets="1202"></uke-chord>
+<uke-chord name="F" frets="2010"></uke-chord>
+<uke-chord name="G" frets="0232"></uke-chord></p>
+<h2>Instructions:</h2>
+<ul>
+<li>Couplets: arpège du type (4321) pour <sup class="big-sup">C E7 F</sup> puis ↓↓↓ sur <sup class="big-sup">G</sup>.</li>
+<li>Chaque accord dure 2 temps</li>
+<li>Refrain: ↓↓↓ pour chaque accord.</li>
+</ul>
+<h2>Paroles:</h2>
+<div class="highlight">
+<h3>Intro: sans paroles</h3>
+<p><sup class="big-sup">C E7 F G</sup></p>
+</div>
+<h3>Couplet</h3>
+<p>J'avais dessi<sup class="big-sup">C</sup>né, sur le <sup class="big-sup">E7</sup>sable<br>
+Son doux vi<sup class="big-sup">F</sup>sage qui me souri<sup class="big-sup">G</sup>ait<br>
+Puis il a <sup class="big-sup">C</sup>plu, sur cette <sup class="big-sup">E7</sup>plage<br>
+Dans cet o<sup class="big-sup">F</sup>rage, elle a dispa<sup class="big-sup">G</sup>ru</p>
+<div class="highlight">
+<h3>Refrain</h3>
+<p>Et j'ai <sup class="big-sup">C</sup>crié, cri<sup class="big-sup">E7</sup>é<br>
+A<sup class="big-sup">F</sup>line, pour qu'elle re<sup class="big-sup">G7</sup>vienne<br>
+Et j'ai pleu<sup class="big-sup">C</sup>ré, pleu<sup class="big-sup">E7</sup>ré<br>
+Oh <sup class="big-sup">F</sup>j'avais trop de <sup class="big-sup">G</sup>peine</p>
+</div>
+<h3>Couplet</h3>
+<p>Je me suis a<sup class="big-sup">C</sup>ssis, auprès de son <sup class="big-sup">E7</sup>âme<br>
+Mais la belle <sup class="big-sup">F</sup>dame s'était en<sup class="big-sup">G</sup>fuie<br>
+Je l'ai cher<sup class="big-sup">C</sup>chée, sans plus y <sup class="big-sup">E7</sup>croire<br>
+Et sans un <sup class="big-sup">F</sup>espoir pour me <sup class="big-sup">G</sup>guider</p>
+<div class="highlight">
+<h3>Refrain</h3>
+</div>
+<h3>Couplet</h3>
+<p>Je n'ai gar<sup class="big-sup">C</sup>dé, que ce doux vi<sup class="big-sup">E7</sup>sage<br>
+Comme une épave <sup class="big-sup">F</sup>sur le sable mou<sup class="big-sup">G</sup>illé</p>
+<div class="highlight">
+<h3>Refrain x2</h3>
+</div>
+
+</div>
+  <script>
+  const btn = document.getElementById('toggle-columns');
+    const content = document.getElementById('content');
+
+    // Possible column classes
+    const columnClasses = ['one-column', 'two-column', 'three-column'];
+    let current = 1; // start at 0 = one-column
+
+    btn.addEventListener("click", () => {
+      // Remove old class
+      content.classList.remove(columnClasses[current]);
+
+      // Increment and wrap around
+      current = (current + 1) % columnClasses.length;
+
+      // Add new class
+      content.classList.add(columnClasses[current]);
+
+      // Update button text
+      btn.textContent = (current + 1) + " Colonne" + (current > 0 ? "s" : "");    });
+
+        // 🎸 Uke chord toggle
+  const chordBtn = document.getElementById('toggle-chords');
+  let chordsVisible = true;
+
+  chordBtn.addEventListener("click", () => {
+    document.querySelectorAll("uke-chord").forEach(chord => {
+      chord.style.display = chordsVisible ? "none" : "inline-block";
+    });
+
+        // Toggle only <h2> with text "Accords:"
+    document.querySelectorAll("h2").forEach(h2 => {
+      if (h2.textContent.includes("Accords")) {
+        h2.style.display = chordsVisible ? "none" : "block";
+      }
+    });
+
+    chordsVisible = !chordsVisible;
+    chordBtn.textContent = chordsVisible ? "Masquer accords" : "Montrer accords";
+  });
+  </script>
+  </body>
+</html>

@@ -1,0 +1,248 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>symphonie_eclairs.md</title>
+<style>
+body { 
+	font-family: system-ui, Arial, sans-serif;
+	padding: 1rem;
+	line-height: 1.6;
+	column-gap: 2em;
+  }
+
+  /* Two-column layout (default for screen) */
+  #content.two-column {
+    column-count: 2;
+    column-gap: 2em;
+    }
+
+  /* Single-column layout */
+  #content.one-column {
+    column-count: 1;
+    }
+
+      #content.three-column {
+    column-count: 3;
+    column-gap: 2em;
+    }
+
+.chord { color: #b00;
+	font-weight: 600;
+	font-size: 0.9em;
+	vertical-align: super;
+	margin-right: 0.12em; 
+  }
+
+  .tableau {
+  font-family: monospace;
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+
+.big-sup { font-size:1.4em;
+	vertical-align:super;
+	color: red; 
+  }
+
+.highlight {
+	background-color:  #d3d3d3;
+	padding: 10px;
+	border-radius: 5px;
+/*  -webkit-print-color-adjust: exact; /* Chrome, Safari */
+/*  print-color-adjust: exact;         /* Firefox */
+/*  color-adjust: exact;               /* Legacy */
+  border: 2px solid #d3d3d3;
+  padding: 2px;
+  }
+
+.highlight .big-sup {
+	color: #800000ff; /* darker grey for visibility */}
+
+.staff {
+	display: grid;
+	grid-template-rows: repeat(4, 30px); /* 4 horizontal lines */
+	grid-auto-flow: column;
+	gap: 10px;
+  }
+
+.staff div {
+	border-bottom: 2px solid black;
+	text-align: center;
+	line-height: 30px;
+	font-weight: bold;
+  }
+
+
+@media print {
+	/* Double column when toggled */
+	#content.two-column {
+		column-count: 2;
+		column-gap: 2em;}
+	#content.one-column {
+		column-count: 1 !important;}
+  #content.three-column {
+		column-count: 3;
+		column-gap: 2em;}
+	  
+
+/* Toggle button */
+#toggle-columns {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  background: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 999;
+  }
+
+@media print {#toggle-columns { display: none; }
+#toggle-chords { display: none; }
+
+}
+
+uke-chord.hidden {
+  display: none;
+}
+
+</style>
+<script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
+<script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
+</head>
+<body>
+<button id="toggle-columns">2 Colonnes</button>
+<button id="toggle-chords">Masquer accords</button>
+<div id="content" class="two-column">
+<h1>La symphonie des éclairs (Uku heaven) - Zaho de Sagasan</h1>
+<h2>Accords débutants:</h2>
+<p><uke-chord name="G" frets="0232"></uke-chord>
+<uke-chord name="Bm" frets="0222"></uke-chord>
+<uke-chord name="Am" frets="2000"></uke-chord>
+<uke-chord name="Am6" frets="2020"></uke-chord>
+<uke-chord name="Cm" frets="0222"></uke-chord>
+<uke-chord name="Fm" frets="1013"></uke-chord></p>
+<h2>Accords avancés arpège:</h2>
+<p><uke-chord name="G" frets="X331" position=5></uke-chord>
+<uke-chord name="Bm" frets="X231" position=5></uke-chord>
+<uke-chord name="Am" frets="X231" position=3></uke-chord>
+<uke-chord name="Am6" frets="X431" position=3></uke-chord>
+<uke-chord name="Cm" frets="X341" position=5></uke-chord>
+<uke-chord name="Fm" frets="X444" position=5></uke-chord></p>
+<h2>Accords avancés strumming:</h2>
+<p><uke-chord name="G" frets="X331" position=5></uke-chord>
+<uke-chord name="Bm" frets="X231" position=5></uke-chord>
+<uke-chord name="Am" frets="2120" position=4></uke-chord>
+<uke-chord name="Am6" frets="2320" position=4></uke-chord></p>
+<h2>Instructions:</h2>
+<ul>
+<li>Intro / Pont: <sup class="big-sup">G Cm G Cm Fm Cm G*2</sup></li>
+<li>Couplet / Refrain /Solo: <sup class="big-sup">G Bm Am Am6</sup></li>
+<li>Chaque accord dure 2 mesures</li>
+<li>Arpège: (1323) par mesure</li>
+<li>5 styles de strumming différents: S1 = arpège</li>
+</ul>
+<pre class="tableau">
+S1: 1 3 2 3
+S2: D . . .
+S3: D . D .
+S4: D dUD .
+S5: dududud
+</pre>
+<h2>Paroles:</h2>
+<h3>S1: Intro</h3>
+<div class="highlight">
+<h3>S2: Refrain</h3>
+<p>Il fait toujours beau au-dessus des nuages<br>
+Mais moi, si j'étais un oiseau, j'irais danser sous l'orage<br>
+Je traverserais les nuages comme le fait la lumière<br>
+J'écouterais sous la pluie la symphonie des éclairs</p>
+</div>
+<h3>S3: Couplet</h3>
+<p>Dès sa plus tendre enfance<br>
+Elle ne savait pas parler autrement<br>
+Qu'en criant tout bas, pas faute d'essayer<br>
+De les retenir, ces cris et ces larmes<br>
+Qui les faisaient tant-</p>
+<div class="highlight">
+<h3>S4: Refrain</h3>
+</div>
+<h3>S1: Couplet</h3>
+<p>En grandissant, rien ne s'est calmé<br>
+Petite tempête s'est trouvé<br>
+Des raisons de pleuvoir autant<br>
+Qui pourrait l'aimer, franchement?<br>
+Personne n'aimerait se retrouver<br>
+Au cœur d'une tempête, avouez<br>
+Il y a des raisons de pleurer<br>
+Elle a ses raisons, mais...</p>
+<div class="highlight">
+<h3>S1: Refrain</h3>
+</div>
+<div class="highlight">
+<h3>S5: Solo</h3>
+</div>
+<h3>S1: Pont: <sup class="big-sup">G Cm</sup> (pré-pont)</h3>
+<p>Quand la tempête a su<br>
+Que des mélodies pouvaient s'échapper du vent<br>
+Et se retrouver dans le cœur des gens<br>
+Celle-ci s'est dit<br>
+&quot;Nulle raison d'envier le soleil<br>
+Je ferai danser les gens au rythme de mes pleurs<br>
+La tourmente de mes chants viendra réchauffer les cœurs<br>
+Réchauffer mon cœur&quot;</p>
+<div class="highlight">
+<h3>S2: Refrain</h3>
+<p>Il fait toujours beau au-dessus des nuages<br>
+Mais moi, je suis de ces oiseaux qui nous font danser sous l'orage
+Je traverserais tous les nuages pour trouver la lumière
+En chantant sous la pluie la symphonie des éclairs</p>
+</div>
+
+</div>
+  <script>
+  const btn = document.getElementById('toggle-columns');
+    const content = document.getElementById('content');
+
+    // Possible column classes
+    const columnClasses = ['one-column', 'two-column', 'three-column'];
+    let current = 1; // start at 0 = one-column
+
+    btn.addEventListener("click", () => {
+      // Remove old class
+      content.classList.remove(columnClasses[current]);
+
+      // Increment and wrap around
+      current = (current + 1) % columnClasses.length;
+
+      // Add new class
+      content.classList.add(columnClasses[current]);
+
+      // Update button text
+      btn.textContent = (current + 1) + " Colonne" + (current > 0 ? "s" : "");    });
+
+        // 🎸 Uke chord toggle
+  const chordBtn = document.getElementById('toggle-chords');
+  let chordsVisible = true;
+
+  chordBtn.addEventListener("click", () => {
+    document.querySelectorAll("uke-chord").forEach(chord => {
+      chord.style.display = chordsVisible ? "none" : "inline-block";
+    });
+
+        // Toggle only <h2> with text "Accords:"
+    document.querySelectorAll("h2").forEach(h2 => {
+      if (h2.textContent.includes("Accords")) {
+        h2.style.display = chordsVisible ? "none" : "block";
+      }
+    });
+
+    chordsVisible = !chordsVisible;
+    chordBtn.textContent = chordsVisible ? "Masquer accords" : "Montrer accords";
+  });
+  </script>
+  </body>
+</html>

@@ -1,0 +1,229 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>wild_world.md</title>
+<style>
+body { 
+	font-family: system-ui, Arial, sans-serif;
+	padding: 1rem;
+	line-height: 1.6;
+	column-gap: 2em;
+  }
+
+  /* Two-column layout (default for screen) */
+  #content.two-column {
+    column-count: 2;
+    column-gap: 2em;
+    }
+
+  /* Single-column layout */
+  #content.one-column {
+    column-count: 1;
+    }
+
+      #content.three-column {
+    column-count: 3;
+    column-gap: 2em;
+    }
+
+.chord { color: #b00;
+	font-weight: 600;
+	font-size: 0.9em;
+	vertical-align: super;
+	margin-right: 0.12em; 
+  }
+
+  .tableau {
+  font-family: monospace;
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+
+.big-sup { font-size:1.4em;
+	vertical-align:super;
+	color: red; 
+  }
+
+.highlight {
+	background-color:  #d3d3d3;
+	padding: 10px;
+	border-radius: 5px;
+/*  -webkit-print-color-adjust: exact; /* Chrome, Safari */
+/*  print-color-adjust: exact;         /* Firefox */
+/*  color-adjust: exact;               /* Legacy */
+  border: 2px solid #d3d3d3;
+  padding: 2px;
+  }
+
+.highlight .big-sup {
+	color: #800000ff; /* darker grey for visibility */}
+
+.staff {
+	display: grid;
+	grid-template-rows: repeat(4, 30px); /* 4 horizontal lines */
+	grid-auto-flow: column;
+	gap: 10px;
+  }
+
+.staff div {
+	border-bottom: 2px solid black;
+	text-align: center;
+	line-height: 30px;
+	font-weight: bold;
+  }
+
+
+@media print {
+	/* Double column when toggled */
+	#content.two-column {
+		column-count: 2;
+		column-gap: 2em;}
+	#content.one-column {
+		column-count: 1 !important;}
+  #content.three-column {
+		column-count: 3;
+		column-gap: 2em;}
+	  
+
+/* Toggle button */
+#toggle-columns {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  background: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 999;
+  }
+
+@media print {#toggle-columns { display: none; }
+#toggle-chords { display: none; }
+
+}
+
+uke-chord.hidden {
+  display: none;
+}
+
+</style>
+<script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
+<script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
+</head>
+<body>
+<button id="toggle-columns">2 Colonnes</button>
+<button id="toggle-chords">Masquer accords</button>
+<div id="content" class="two-column">
+<h1>Wild world (All For Uke) - Cat Stevens</h1>
+<h2>Accords:</h2>
+<p><uke-chord name="Am" frets="2000"></uke-chord>
+<uke-chord name="D7" frets="2223"></uke-chord>
+<uke-chord name="G" frets="0232"></uke-chord>
+<uke-chord name="C" frets="0003"></uke-chord>
+<uke-chord name="F" frets="2010"></uke-chord>
+<uke-chord name="Dm" frets="2210"></uke-chord>
+<uke-chord name="E7" frets="1202"></uke-chord></p>
+<h2>Instructions:</h2>
+<ul>
+<li>
+<p>Pour chaque accord: ↓↓</p>
+</li>
+<li>
+<p>Accords avec &quot;/&quot; comme <sup class="big-sup">G/</sup>: ↓</p>
+</li>
+<li>
+<p><sup class="big-sup">X</sup> = muted</p>
+</li>
+<li>
+<p>Dans le refrain <sup class="big-sup">F*</sup> peut être remplacé par un <sup class="big-sup">F</sup> ou le Riff 1 et <sup class="big-sup">C*</sup> par <sup class="big-sup">C</sup> ou le Riff 2</p>
+<pre><code>A|—3—2—0————————————————|     A|—————0—3—3—3—0————————|
+E|———————3—1—0——————————|     E|—3—3———————————3——————|
+C|—————————————2—0——————|     C|——————————————————————|
+G|——————————————————————|     G|——————————————————————|
+  Riff 1                        Riff 2
+</code></pre>
+</li>
+</ul>
+<h2>Paroles:</h2>
+<h3>Couplet</h3>
+<p><sup class="big-sup">Am</sup>Now that I've <sup class="big-sup">D7</sup>lost everything to <sup class="big-sup">G</sup>you<br>
+You say you <sup class="big-sup">C</sup>wanna start something <sup class="big-sup">F</sup>new<br>
+And it's <sup class="big-sup">Dm</sup>breaking my heart you're <sup class="big-sup">E7</sup>leaving,  Baby, I'm <sup class="big-sup">E7</sup>grievin'<br>
+<sup class="big-sup">Am</sup>But if you want to <sup class="big-sup">D7</sup>leave, take good <sup class="big-sup">G</sup>care,<br>
+Hope you have a <sup class="big-sup">C</sup>lot of nice things to <sup class="big-sup">F</sup>wear<br>
+But then a <sup class="big-sup">Dm</sup>lot of nice things turn <sup class="big-sup">C</sup>bad, <sup class="big-sup">X</sup>out <sup class="big-sup">G/</sup>there <sup class="big-sup">G G</sup></p>
+<div class="highlight">
+<h3>Refrain</h3>
+<p><sup class="big-sup">C</sup>Oh <sup class="big-sup">G</sup>baby, baby, it's a wild <sup class="big-sup">F</sup>world <sup class="big-sup">F*</sup><br>
+<sup class="big-sup">G</sup>It's hard to get <sup class="big-sup">F</sup>by, just upon a <sup class="big-sup">C</sup>smile <sup class="big-sup">C*</sup><br>
+<sup class="big-sup">C</sup>Oh <sup class="big-sup">G</sup>baby, baby, it's a wild <sup class="big-sup">F</sup>world <sup class="big-sup">F*</sup><br>
+<sup class="big-sup">G</sup>I'll always remem<sup class="big-sup">F</sup>ber you like a <sup class="big-sup">C</sup>child, girl <sup class="big-sup">Dm/ E7/</sup></p>
+</div>
+<h3>Couplet</h3>
+<p><sup class="big-sup">Am</sup>You know I've seen a <sup class="big-sup">D7</sup>lot of what the world can <sup class="big-sup">G</sup>do<br>
+And it's <sup class="big-sup">C</sup>breaking my heart in <sup class="big-sup">F</sup>two<br>
+Because I <sup class="big-sup">Dm</sup>never want to see you <sup class="big-sup">E7</sup>sad, girl, Don't be a <sup class="big-sup">E7</sup>bad girl<br>
+<sup class="big-sup">Am</sup>But if you want to <sup class="big-sup">D7</sup>leave, take good <sup class="big-sup">G</sup>care,<br>
+Hope you make a lot of nice friends out there<br>
+But just <sup class="big-sup">Dm</sup>remember there's a lot of <sup class="big-sup">E7/</sup>bad, <sup class="big-sup">X</sup>out <sup class="big-sup">G/</sup>there <sup class="big-sup">G G</sup></p>
+<div class="highlight">
+<h3>Refrain</h3>
+</div>
+<h3>Couplet</h3>
+<p><sup class="big-sup">Am</sup> La-la-la-<sup class="big-sup">D7</sup>la-la-la-la, <sup class="big-sup">G</sup>la, la<br>
+La-la-la-<sup class="big-sup">C</sup>la-la-la-la, <sup class="big-sup">F</sup>la, la<br>
+La-la-la-<sup class="big-sup">Dm</sup>la-la-la-la-la la <sup class="big-sup">E7</sup>la-la, la, Baby, I l<sup class="big-sup">E7</sup>ove you<br>
+<sup class="big-sup">Am</sup>But if you want to <sup class="big-sup">D7</sup>leave, take good <sup class="big-sup">G</sup>care,<br>
+Hope you make a lot of nice friends out there<br>
+But just <sup class="big-sup">Dm</sup>remember there's a lot of <sup class="big-sup">E7/</sup>bad <sup class="big-sup">X</sup>and <sup class="big-sup">G/</sup>beware <sup class="big-sup">G G</sup></p>
+<div class="highlight">
+<h3>Refrain x2 et termine sur C/</h3>
+</div>
+
+</div>
+  <script>
+  const btn = document.getElementById('toggle-columns');
+    const content = document.getElementById('content');
+
+    // Possible column classes
+    const columnClasses = ['one-column', 'two-column', 'three-column'];
+    let current = 1; // start at 0 = one-column
+
+    btn.addEventListener("click", () => {
+      // Remove old class
+      content.classList.remove(columnClasses[current]);
+
+      // Increment and wrap around
+      current = (current + 1) % columnClasses.length;
+
+      // Add new class
+      content.classList.add(columnClasses[current]);
+
+      // Update button text
+      btn.textContent = (current + 1) + " Colonne" + (current > 0 ? "s" : "");    });
+
+        // 🎸 Uke chord toggle
+  const chordBtn = document.getElementById('toggle-chords');
+  let chordsVisible = true;
+
+  chordBtn.addEventListener("click", () => {
+    document.querySelectorAll("uke-chord").forEach(chord => {
+      chord.style.display = chordsVisible ? "none" : "inline-block";
+    });
+
+        // Toggle only <h2> with text "Accords:"
+    document.querySelectorAll("h2").forEach(h2 => {
+      if (h2.textContent.includes("Accords")) {
+        h2.style.display = chordsVisible ? "none" : "block";
+      }
+    });
+
+    chordsVisible = !chordsVisible;
+    chordBtn.textContent = chordsVisible ? "Masquer accords" : "Montrer accords";
+  });
+  </script>
+  </body>
+</html>

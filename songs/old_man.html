@@ -1,0 +1,292 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>old_man.md</title>
+<style>
+body { 
+	font-family: system-ui, Arial, sans-serif;
+	padding: 1rem;
+	line-height: 1.6;
+	column-gap: 2em;
+  }
+
+  /* Two-column layout (default for screen) */
+  #content.two-column {
+    column-count: 2;
+    column-gap: 2em;
+    }
+
+  /* Single-column layout */
+  #content.one-column {
+    column-count: 1;
+    }
+
+      #content.three-column {
+    column-count: 3;
+    column-gap: 2em;
+    }
+
+.chord { color: #b00;
+	font-weight: 600;
+	font-size: 0.9em;
+	vertical-align: super;
+	margin-right: 0.12em; 
+  }
+
+  .tableau {
+  font-family: monospace;
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+
+.big-sup { font-size:1.4em;
+	vertical-align:super;
+	color: red; 
+  }
+
+.highlight {
+	background-color:  #d3d3d3;
+	padding: 10px;
+	border-radius: 5px;
+/*  -webkit-print-color-adjust: exact; /* Chrome, Safari */
+/*  print-color-adjust: exact;         /* Firefox */
+/*  color-adjust: exact;               /* Legacy */
+  border: 2px solid #d3d3d3;
+  padding: 2px;
+  }
+
+.highlight .big-sup {
+	color: #800000ff; /* darker grey for visibility */}
+
+.staff {
+	display: grid;
+	grid-template-rows: repeat(4, 30px); /* 4 horizontal lines */
+	grid-auto-flow: column;
+	gap: 10px;
+  }
+
+.staff div {
+	border-bottom: 2px solid black;
+	text-align: center;
+	line-height: 30px;
+	font-weight: bold;
+  }
+
+
+@media print {
+	/* Double column when toggled */
+	#content.two-column {
+		column-count: 2;
+		column-gap: 2em;}
+	#content.one-column {
+		column-count: 1 !important;}
+  #content.three-column {
+		column-count: 3;
+		column-gap: 2em;}
+	  
+
+/* Toggle button */
+#toggle-columns {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  background: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 999;
+  }
+
+@media print {#toggle-columns { display: none; }
+#toggle-chords { display: none; }
+
+}
+
+uke-chord.hidden {
+  display: none;
+}
+
+</style>
+<script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
+<script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
+</head>
+<body>
+<button id="toggle-columns">2 Colonnes</button>
+<button id="toggle-chords">Masquer accords</button>
+<div id="content" class="two-column">
+<h1>Old man (Cric Crac) - Neil Young</h1>
+<h2>Accords:</h2>
+<p><uke-chord name="Fmaj7" frets="5500" length=5></uke-chord>
+<uke-chord name="Dsus2" frets="2200"></uke-chord>
+<uke-chord name="D" frets="2220"></uke-chord>
+<uke-chord name="F" frets="2010"></uke-chord>
+<uke-chord name="C" frets="0003"></uke-chord>
+<uke-chord name="G" frets="0232"></uke-chord>
+<uke-chord name="Am" frets="2000"></uke-chord></p>
+<h2>Instructions:</h2>
+<h2>Paroles:</h2>
+<h3>Pré-couplet</h3>
+<p><sup class="big-sup">Fmaj7</sup>Old <sup class="big-sup">Fmaj7</sup>man, <sup class="big-sup">Fmaj7</sup>look at my li<sup class="big-sup">Fmaj7</sup>fe<br>
+<sup class="big-sup">Fmaj7</sup>I'm a <sup class="big-sup">Fmaj7</sup>lot like <sup class="big-sup">Dsus2</sup>you <sup class="big-sup">D</sup>were<br>
+<sup class="big-sup">Fmaj7</sup>Old <sup class="big-sup">Fmaj7</sup>man, <sup class="big-sup">Fmaj7</sup>look at my li<sup class="big-sup">Fmaj7</sup>fe<br>
+<sup class="big-sup">Fmaj7</sup>I'm a <sup class="big-sup">Fmaj7</sup>lot like <sup class="big-sup">D</sup>you <sup class="big-sup">D</sup>were<br>
+<sup class="big-sup">F*2 C*2 G*2</sup><br>
+<sup class="big-sup">D*2 F*2 C*2 F*2</sup></p>
+<h3>Couplet</h3>
+<p><sup class="big-sup">D</sup>Old <sup class="big-sup">D</sup>man, <sup class="big-sup">F</sup>look at my <sup class="big-sup">F</sup>life<br>
+<sup class="big-sup">C</sup>Twenty <sup class="big-sup">C</sup>four and there's <sup class="big-sup">G</sup>so much <sup class="big-sup">G</sup>more<br>
+<sup class="big-sup">D</sup>Live a<sup class="big-sup">D</sup>lone in a <sup class="big-sup">F</sup>paradise <sup class="big-sup">F</sup><br>
+That <sup class="big-sup">C</sup>makes me think<sup class="big-sup">C</sup> of two <sup class="big-sup">F F</sup><br>
+<sup class="big-sup">D</sup>Love <sup class="big-sup">D</sup>lost, <sup class="big-sup">F</sup>such a <sup class="big-sup">F</sup>cost<br>
+<sup class="big-sup">C</sup>Give me <sup class="big-sup">C</sup>things that <sup class="big-sup">G</sup>don't get <sup class="big-sup">G</sup>lost<br>
+<sup class="big-sup">D</sup>Like a <sup class="big-sup">D</sup>coin that <sup class="big-sup">C</sup>won't get <sup class="big-sup">C</sup>tossed<br>
+<sup class="big-sup">F</sup>Rolling home <sup class="big-sup">F</sup>to you <sup class="big-sup">G G</sup></p>
+<div class="highlight">
+<h3>Pré-refrain</h3>
+<p><code>|D  |   |   |   |Ds2|D  |Ds2|D  |  |D  |   |   |Ds2|   |   |   |</code><br>
+<code>|⬇  |.  |↓  |↑  |↓  |↑  |↓  |↑  |. |↑  |↓  |↑  |  ↓|.  |↓  |.  |</code></p>
+<table>
+<thead>
+<tr>
+<th><code>D  </code></th>
+<th><code> </code></th>
+<th><code> </code></th>
+<th><code> </code></th>
+<th><code>Ds2</code></th>
+<th><code>D  </code></th>
+<th><code>Ds2</code></th>
+<th><code>D  </code></th>
+<th><code>  </code></th>
+<th><code>D  </code></th>
+<th><code> </code></th>
+<th><code> </code></th>
+<th><code>Ds2</code></th>
+<th><code> </code></th>
+<th><code> </code></th>
+<th><code> </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⬇</td>
+<td>.</td>
+<td>↓</td>
+<td>↑</td>
+<td>↓</td>
+<td>↑</td>
+<td>↓</td>
+<td>↑</td>
+<td>.</td>
+<td>↑</td>
+<td>↓</td>
+<td>↑</td>
+<td>↓</td>
+<td>.</td>
+<td>↓</td>
+<td>.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><code>Am </code></th>
+<th><code> </code></th>
+<th><code>Am </code></th>
+<th><code> </code></th>
+<th><code> </code></th>
+<th><code> </code></th>
+<th><code>Em </code></th>
+<th><code> </code></th>
+<th><code>G  </code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>↓</td>
+<td>.</td>
+<td>↓</td>
+<td>.</td>
+<td>↓</td>
+<td>↑</td>
+<td>↓</td>
+<td>.</td>
+<td>↓</td>
+</tr>
+</tbody>
+</table>
+<h3>Refrain</h3>
+<p><sup class="big-sup">D</sup>Old <sup class="big-sup">D</sup>man, take a <sup class="big-sup">D</sup>look at my life, <sup class="big-sup">D</sup>I'm a <sup class="big-sup">Am</sup>lot like <sup class="big-sup">Am</sup>you <sup class="big-sup">Em G</sup><br>
+<sup class="big-sup">D</sup>I <sup class="big-sup">D</sup>need <sup class="big-sup">D</sup>someone to love <sup class="big-sup">D</sup>me the <sup class="big-sup">Am</sup>whole day <sup class="big-sup">Am</sup>through <sup class="big-sup">Em G</sup><br>
+<sup class="big-sup">D</sup>Ah, <sup class="big-sup">D</sup>one <sup class="big-sup">D</sup>look in my eyes <sup class="big-sup">D</sup>and you can <sup class="big-sup">Am</sup>tell that's <sup class="big-sup">Am</sup>true <sup class="big-sup">Em G</sup></p>
+</div>
+<h3>Pré-couplet</h3>
+<p><sup class="big-sup">D*2 F*2 C*2 G*2</sup><br>
+<sup class="big-sup">D*2 F*2 C*2 F*2</sup></p>
+<h3>Couplet</h3>
+<p><sup class="big-sup">D</sup>Lulla<sup class="big-sup">D</sup>bies, <sup class="big-sup">F</sup>look in your <sup class="big-sup">F</sup>eyes<br>
+<sup class="big-sup">C</sup>Run a<sup class="big-sup">C</sup>round the <sup class="big-sup">G</sup>same old <sup class="big-sup">G</sup>town<br>
+<sup class="big-sup">D</sup>Doesn't <sup class="big-sup">D</sup>mean that <sup class="big-sup">F</sup>much to me <sup class="big-sup">F</sup><br>
+<sup class="big-sup">C</sup>To mean that much <sup class="big-sup">C</sup>to you <sup class="big-sup">F F</sup><br>
+<sup class="big-sup">D</sup>I've <sup class="big-sup">D</sup>been <sup class="big-sup">F</sup>first and last <sup class="big-sup">F</sup><br>
+<sup class="big-sup">C</sup>Look at <sup class="big-sup">C</sup>how the <sup class="big-sup">G</sup>time goes <sup class="big-sup">G</sup>past<br>
+<sup class="big-sup">D</sup>But I'm <sup class="big-sup">D</sup>all <sup class="big-sup">C</sup>alone at <sup class="big-sup">C</sup>last<br>
+<sup class="big-sup">F</sup>Rolling home <sup class="big-sup">F</sup>to you <sup class="big-sup">G G</sup></p>
+<div class="highlight">
+<h3>Pré-refrain</h3>
+<h3>Refrain</h3>
+</div>
+<h3>Outro</h3>
+<p><sup class="big-sup">Fmaj7</sup>Old <sup class="big-sup">Fmaj7</sup>man, <sup class="big-sup">Fmaj7</sup>look at my li<sup class="big-sup">Fmaj7</sup>fe<br>
+<sup class="big-sup">Fmaj7</sup>I'm a <sup class="big-sup">Fmaj7</sup>lot like <sup class="big-sup">Dsus2</sup>you <sup class="big-sup">D</sup>were <sup class="big-sup">Dsus2 D</sup><br>
+<sup class="big-sup">Fmaj7</sup>Old <sup class="big-sup">Fmaj7</sup>man, <sup class="big-sup">Fmaj7</sup>look at my li<sup class="big-sup">Fmaj7</sup>fe<br>
+<sup class="big-sup">Fmaj7</sup>I'm a <sup class="big-sup">Fmaj7</sup>lot like <sup class="big-sup">D</sup>you <sup class="big-sup">D</sup>were<br>
+<sup class="big-sup">F*2 C*2 G*2 D(2225)</sup></p>
+
+</div>
+  <script>
+  const btn = document.getElementById('toggle-columns');
+    const content = document.getElementById('content');
+
+    // Possible column classes
+    const columnClasses = ['one-column', 'two-column', 'three-column'];
+    let current = 1; // start at 0 = one-column
+
+    btn.addEventListener("click", () => {
+      // Remove old class
+      content.classList.remove(columnClasses[current]);
+
+      // Increment and wrap around
+      current = (current + 1) % columnClasses.length;
+
+      // Add new class
+      content.classList.add(columnClasses[current]);
+
+      // Update button text
+      btn.textContent = (current + 1) + " Colonne" + (current > 0 ? "s" : "");    });
+
+        // 🎸 Uke chord toggle
+  const chordBtn = document.getElementById('toggle-chords');
+  let chordsVisible = true;
+
+  chordBtn.addEventListener("click", () => {
+    document.querySelectorAll("uke-chord").forEach(chord => {
+      chord.style.display = chordsVisible ? "none" : "inline-block";
+    });
+
+        // Toggle only <h2> with text "Accords:"
+    document.querySelectorAll("h2").forEach(h2 => {
+      if (h2.textContent.includes("Accords")) {
+        h2.style.display = chordsVisible ? "none" : "block";
+      }
+    });
+
+    chordsVisible = !chordsVisible;
+    chordBtn.textContent = chordsVisible ? "Masquer accords" : "Montrer accords";
+  });
+  </script>
+  </body>
+</html>

@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>les_petits_papiers.md</title>
+<style>
+body { 
+	font-family: system-ui, Arial, sans-serif;
+	padding: 1rem;
+	line-height: 1.6;
+	column-gap: 2em;
+  }
+
+  /* Two-column layout (default for screen) */
+  #content.two-column {
+    column-count: 2;
+    column-gap: 2em;
+    }
+
+  /* Single-column layout */
+  #content.one-column {
+    column-count: 1;
+    }
+
+      #content.three-column {
+    column-count: 3;
+    column-gap: 2em;
+    }
+
+.chord { color: #b00;
+	font-weight: 600;
+	font-size: 0.9em;
+	vertical-align: super;
+	margin-right: 0.12em; 
+  }
+
+  .tableau {
+  font-family: monospace;
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+
+.big-sup { font-size:1.4em;
+	vertical-align:super;
+	color: red; 
+  }
+
+.highlight {
+	background-color:  #d3d3d3;
+	padding: 10px;
+	border-radius: 5px;
+/*  -webkit-print-color-adjust: exact; /* Chrome, Safari */
+/*  print-color-adjust: exact;         /* Firefox */
+/*  color-adjust: exact;               /* Legacy */
+  border: 2px solid #d3d3d3;
+  padding: 2px;
+  }
+
+.highlight .big-sup {
+	color: #800000ff; /* darker grey for visibility */}
+
+.staff {
+	display: grid;
+	grid-template-rows: repeat(4, 30px); /* 4 horizontal lines */
+	grid-auto-flow: column;
+	gap: 10px;
+  }
+
+.staff div {
+	border-bottom: 2px solid black;
+	text-align: center;
+	line-height: 30px;
+	font-weight: bold;
+  }
+
+
+@media print {
+	/* Double column when toggled */
+	#content.two-column {
+		column-count: 2;
+		column-gap: 2em;}
+	#content.one-column {
+		column-count: 1 !important;}
+  #content.three-column {
+		column-count: 3;
+		column-gap: 2em;}
+	  
+
+/* Toggle button */
+#toggle-columns {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  background: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 999;
+  }
+
+@media print {#toggle-columns { display: none; }
+#toggle-chords { display: none; }
+
+}
+
+uke-chord.hidden {
+  display: none;
+}
+
+</style>
+<script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
+<script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
+</head>
+<body>
+<button id="toggle-columns">2 Colonnes</button>
+<button id="toggle-chords">Masquer accords</button>
+<div id="content" class="two-column">
+<h1>Les petits papiers (Cric Crac) - Régine</h1>
+<h2>Accords:</h2>
+<p><uke-chord name="Am" frets="2000"></uke-chord>
+<uke-chord name="E7" frets="1202"></uke-chord>
+<uke-chord name="Dm6" frets="2212"></uke-chord></p>
+<h2>Instructions:</h2>
+<ul>
+<li>Sur chaque accord: (↓↑X↑↓↑X.)</li>
+<li>Arpège (4321.23.)</li>
+</ul>
+<h2>Paroles:</h2>
+<p><sup class="big-sup">Am///</sup>Laissez parler<sup class="big-sup">E7*2</sup> les p'tits papiers<br>
+À l'occasion<sup class="big-sup">Am*2</sup>, papier chiffon<br>
+Puissent-ils un soir<sup class="big-sup">E7*2</sup>, papier buvard<br>
+Vous consoler<sup class="big-sup">Am/</sup></p>
+<p><sup class="big-sup">Am///</sup>Laissez brû<sup class="big-sup">Dm6*2</sup>ler les p'tits papiers<br>
+Papier de riz<sup class="big-sup">Am*2</sup> ou d'Arménie<br>
+Qu'un soir, ils <sup class="big-sup">E7*2</sup>puissent, papier maïs<br>
+Vous réchauffer<sup class="big-sup">Am/</sup></p>
+<p><sup class="big-sup">Am///</sup>Un peu d'a<sup class="big-sup">E7*2</sup>mour, papier velours<br>
+Et d'esthé<sup class="big-sup">Am*2</sup>tique, papier musique<br>
+C'est du cha<sup class="big-sup">E7*2</sup>grin, papier dessin<br>
+Avant longtemps<sup class="big-sup">Am/</sup></p>
+<p><sup class="big-sup">Am///</sup>Laissez glisser<sup class="big-sup">Dm6*2</sup>, papier glacé<br>
+Les senti<sup class="big-sup">Am*2</sup>ments, papier collant<br>
+Ça impressio<sup class="big-sup">E7*2</sup>nne, papier carbone<br>
+Mais c'est du vent<sup class="big-sup">Am/</sup></p>
+<p><sup class="big-sup">Am///</sup>Machin ma<sup class="big-sup">E7*2</sup>chine, papier machine<br>
+Faut pas s'leu<sup class="big-sup">Am*2</sup>rrer, papier doré<br>
+Celui qu'y <sup class="big-sup">E7*2</sup>touche, papier tue-mouches<br>
+Est moitié fou<sup class="big-sup">Am/</sup></p>
+<p><sup class="big-sup">Am///</sup>C'est pas brillant<sup class="big-sup">Dm6*2</sup>, papier d'argent<br>
+C'est pas donné<sup class="big-sup">Am*2</sup>, papier-monnaie<br>
+Où l'on en <sup class="big-sup">E7*2</sup>meurt, papier à fleurs<br>
+Où l'on s'en fout<sup class="big-sup">Am/</sup></p>
+<p><sup class="big-sup">Am///</sup>Laissez par<sup class="big-sup">E7*2</sup>ler les p'tits papiers<br>
+À l'occasion<sup class="big-sup">Am*2</sup>, papier chiffon<br>
+Puissent-ils un <sup class="big-sup">E7*2</sup>soir, papier buvard<br>
+Vous consoler<sup class="big-sup">Am/</sup></p>
+<p><sup class="big-sup">Am///</sup>Laissez brûler<sup class="big-sup">Dm6*2</sup> les p'tits papiers<br>
+Papier de <sup class="big-sup">Am*2</sup>riz ou d'Arménie<br>
+Qu'un soir, ils <sup class="big-sup">E7*2</sup>puissent, papier maïs<br>
+Vous réchauffer<sup class="big-sup">Am/ E7/ Am/ (rasgueado)</sup></p>
+
+</div>
+  <script>
+  const btn = document.getElementById('toggle-columns');
+    const content = document.getElementById('content');
+
+    // Possible column classes
+    const columnClasses = ['one-column', 'two-column', 'three-column'];
+    let current = 1; // start at 0 = one-column
+
+    btn.addEventListener("click", () => {
+      // Remove old class
+      content.classList.remove(columnClasses[current]);
+
+      // Increment and wrap around
+      current = (current + 1) % columnClasses.length;
+
+      // Add new class
+      content.classList.add(columnClasses[current]);
+
+      // Update button text
+      btn.textContent = (current + 1) + " Colonne" + (current > 0 ? "s" : "");    });
+
+        // 🎸 Uke chord toggle
+  const chordBtn = document.getElementById('toggle-chords');
+  let chordsVisible = true;
+
+  chordBtn.addEventListener("click", () => {
+    document.querySelectorAll("uke-chord").forEach(chord => {
+      chord.style.display = chordsVisible ? "none" : "inline-block";
+    });
+
+        // Toggle only <h2> with text "Accords:"
+    document.querySelectorAll("h2").forEach(h2 => {
+      if (h2.textContent.includes("Accords")) {
+        h2.style.display = chordsVisible ? "none" : "block";
+      }
+    });
+
+    chordsVisible = !chordsVisible;
+    chordBtn.textContent = chordsVisible ? "Masquer accords" : "Montrer accords";
+  });
+  </script>
+  </body>
+</html>
