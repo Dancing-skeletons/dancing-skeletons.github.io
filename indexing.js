@@ -30,7 +30,7 @@ function buildIndex() {
   const mdLines = ["# Songbook 💀︎🎸", ""];
 
   // Songs section
-  mdLines.push("## Songs (HTML)", "");
+  mdLines.push("## Songs", "");
   if (htmlFiles.length > 0) {
     for (const file of htmlFiles) {
       const title = extractTitle(path.join(SONGS_FOLDER, file));
@@ -42,7 +42,7 @@ function buildIndex() {
 
   // PDFs section
   if (pdfFiles.length > 0) {
-    mdLines.push("", "## Tabs & PDFs", "");
+    mdLines.push("", "## Tabs - Ne pas reproduire", "");
     for (const pdf of pdfFiles) {
       const title = path.basename(pdf, ".pdf").replace(/_/g, " ");
       const url = encodeURI(`pdf/${pdf}`);  // this ensures spaces and special characters work
