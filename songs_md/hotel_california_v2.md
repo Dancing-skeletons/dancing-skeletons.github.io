@@ -13,15 +13,23 @@
 ## Instructions:
 
 - Intro: Picking: ((4321)-2-3 - 1-2-3 - 1 - 2) ((4321)-2-3 - 1-2-3 - 1 - )
-- Pour les couplets, les accords: (↓.↓↑X↑↓↑)*2
-- Riff sur le second refrain + outro:
+```
+  A|—0—————0—————0———|—2—————2—————0——|  
+  E|—0—0—————0—————0—|—0—0—————0——————|  
+  C|—0———0—————0—————|—2———2—————2————|  
+  G|—2———————————————|—1——————————————|  
+     Am                E7
+```
+
+- Pour les couplets, les accords: (D.DUXUDU)*2
+- Riff sur le second refrain + outro en remplacement de [C*]:
 
 ```
   A|—3————5——7———————|  
   E|—0————0——8———————|  
   C|—0————0——0———————|  
   G|—0————0——0———————|  
-     ↓.↓↑X↑.↑↓.↓↑X↑↓↑   
+     D.DUXU.UD.DUXUDU   
 ```
 
 ## Paroles:
@@ -71,9 +79,9 @@ Any [Dm]time of year, any time of year, You can [E7]find it [E7/]here
 
 ### Refrain
 
-[F]Welcome to the Hotel Cali[C\*\]fornia  
+[F]Welcome to the Hotel Cali[C*]fornia  
 Such a [E7]lovely place, such a lovely place, Such a [Am]lovely face  
-They [F]livin' it up at the Hotel Cali[C\*\]fornia  
+They [F]livin' it up at the Hotel Cali[C*]fornia  
 What a [Dm]nice surprise, what a nice surprise,  Bring your [E7]alibis [E7/ (laisser sonner)]
 :::
 

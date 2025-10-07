@@ -120,6 +120,11 @@ body {
 	column-gap: 2em;
   }
 
+ pre code {
+  font-size: 1.5em;
+  font-family: monospace; /* keeps alignment of tabs */
+}
+
   /* Two-column layout (default for screen) */
   #content.two-column {
     column-count: 2;

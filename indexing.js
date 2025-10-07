@@ -2,39 +2,53 @@ const fs = require("fs");
 const path = require("path");
 const MarkdownIt = require("markdown-it");
 
-const SONGS_FOLDER = path.join(__dirname, "songs");  // where song HTML files live
-const ROOT_FOLDER = __dirname; // main folder where scripts + index.html go
+const SONGS_FOLDER = path.join(__dirname, "songs");
+const PDF_FOLDER = path.join(__dirname, "pdf");
+const ROOT_FOLDER = __dirname;
+
 const md = new MarkdownIt();
 
+// Extract title from HTML file (use <h1> or fallback to filename)
 function extractTitle(filePath) {
   const content = fs.readFileSync(filePath, "utf8");
-
-  // Try to extract the first <h1>...</h1>
   const match = content.match(/<h1[^>]*>(.*?)<\/h1>/i);
-  if (match) return match[1].trim();
-
-  // fallback to filename if no <h1> is found
-  return path.basename(filePath, ".html");
+  return match ? match[1].trim() : path.basename(filePath, ".html");
 }
 
 function buildIndex() {
-  const files = fs.readdirSync(SONGS_FOLDER)
-    .filter(f => f.endsWith(".html"))
-    .sort();
+  // --- HTML Songs ---
+  const htmlFiles = fs.existsSync(SONGS_FOLDER)
+    ? fs.readdirSync(SONGS_FOLDER).filter(f => f.endsWith(".html")).sort()
+    : [];
 
-  // Build Markdown list of songs
+  // --- PDFs ---
+  const pdfFiles = fs.existsSync(PDF_FOLDER)
+    ? fs.readdirSync(PDF_FOLDER).filter(f => f.endsWith(".pdf")).sort()
+    : [];
+
+  // Build Markdown content
   const mdLines = ["# Songbook 💀︎🎸", ""];
-  for (const file of files) {
-    const filePath = path.join(SONGS_FOLDER, file);
-    const title = extractTitle(filePath);
-    mdLines.push(`- [${title}](songs/${file})`); // link relative to root
+
+  // Songs section
+  mdLines.push("## Songs (HTML)", "");
+  if (htmlFiles.length > 0) {
+    for (const file of htmlFiles) {
+      const title = extractTitle(path.join(SONGS_FOLDER, file));
+      mdLines.push(`- [${title}](songs/${file})`);
+    }
+  } else {
+    mdLines.push("_No songs found._");
   }
 
-  const mdContent = mdLines.join("\n");
-
-  // Optional: save an index.md in the songs folder for reference
-//  const mdPath = path.join(SONGS_FOLDER, "index.md");
-//  fs.writeFileSync(mdPath, mdContent, "utf8");
+  // PDFs section
+  if (pdfFiles.length > 0) {
+    mdLines.push("", "## Tabs & PDFs", "");
+    for (const pdf of pdfFiles) {
+      const title = path.basename(pdf, ".pdf").replace(/_/g, " ");
+      const url = encodeURI(`pdf/${pdf}`);  // this ensures spaces and special characters work
+      mdLines.push(`- [${title}](${url})`);
+    }
+  }
 
   // Convert Markdown to HTML
   const htmlContent = `
@@ -50,21 +64,22 @@ function buildIndex() {
       line-height: 1.6;
       column-gap: 2em;
     }
-    pre {
-      font-size: 18px;
-    }
+    pre { font-size: 18px; }
+    h2 { margin-top: 2rem; color: #333; }
+    a { color: darkblue; text-decoration: none; }
+    a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
-${md.render(mdContent)}
+${md.render(mdLines.join("\n"))}
 </body>
 </html>`;
 
-  // Save index.html in root folder
+  // Write to root folder
   const htmlPath = path.join(ROOT_FOLDER, "index.html");
   fs.writeFileSync(htmlPath, htmlContent, "utf8");
 
-  console.log(`✅ Created index.html in root with ${files.length} songs.`);
+  console.log(`✅ Created index.html with ${htmlFiles.length} songs and ${pdfFiles.length} PDFs.`);
 }
 
 buildIndex();

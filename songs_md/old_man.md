@@ -33,17 +33,17 @@ That [C]makes me think[C] of two [F F]
 [F]Rolling home [F]to you [G G]  
 
 ::: highlight
-### Pré-refrain
-`|D  |   |   |   |Ds2|D  |Ds2|D  |  |D  |   |   |Ds2|   |   |   |`  
-`|⬇  |.  |↓  |↑  |↓  |↑  |↓  |↑  |. |↑  |↓  |↑  |  ↓|.  |↓  |.  |`
+### Pré-refrain *2
+<pre class="tableau">
+temps:  1  &  2  &  3   &  4   &  1  &  2  &  3  &  4  & 
+accord: D           Ds2 D  Ds2 D              Ds2   
+up/down:D  .  D  U  D   U  D   U  .  U  D  U  D  .  D  .
 
-|`D  `|`   `|`   `|`   `|`Ds2`|`D  `|`Ds2`|`D  `|`  `|`D  `|`   `|`   `|`Ds2`|`   `|`   `|`   `|
-|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
-|⬇  |.  |↓  |↑  |↓  |↑  |↓  |↑  |.  |↑  |↓  |↑  |  ↓|.  |↓  |.  |
+temps:  1  &  2  &  3   &  4   &  1  &  2  &  3  &  4  & 
+accord: Am                        Em          G            
+up/down:D  .  .  .  D   .  D   U   D .  .  .  D  .  .  .
 
-|`Am `|`   `|`Am `|`   `|`   `|`   `|`Em `|`   `|`G  `|
-|-|-|-|-|-|-|-|-|-|
-|↓|.|↓|.|↓|↑|↓|.|↓|
+</pre>
 
 ### Refrain
 [D]Old [D]man, take a [D]look at my life, [D]I'm a [Am]lot like [Am]you [Em G]  
@@ -66,7 +66,7 @@ That [C]makes me think[C] of two [F F]
 [F]Rolling home [F]to you [G G]  
 
 ::: highlight
-### Pré-refrain
+### Pré-refrain *2
 ### Refrain
 :::
 
