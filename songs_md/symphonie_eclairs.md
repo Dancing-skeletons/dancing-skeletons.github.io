@@ -13,7 +13,7 @@
 <uke-chord name="Bm" frets="X231" position=5></uke-chord> 
 <uke-chord name="Am" frets="X231" position=3></uke-chord> 
 <uke-chord name="Am6" frets="X431" position=3></uke-chord> 
-<uke-chord name="Cm" frets="X341" position=5></uke-chord> 
+<uke-chord name="Cm" frets="X342" position=5></uke-chord> 
 <uke-chord name="Fm" frets="X444" position=5></uke-chord> 
 
 ## Accords avancés strumming:

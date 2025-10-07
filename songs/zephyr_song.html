@@ -1,0 +1,282 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>zephyr_song.md</title>
+<style>
+body { 
+	font-family: system-ui, Arial, sans-serif;
+	padding: 1rem;
+	line-height: 1.6;
+	column-gap: 2em;
+  }
+
+  /* Two-column layout (default for screen) */
+  #content.two-column {
+    column-count: 2;
+    column-gap: 2em;
+    }
+
+  /* Single-column layout */
+  #content.one-column {
+    column-count: 1;
+    }
+
+      #content.three-column {
+    column-count: 3;
+    column-gap: 2em;
+    }
+
+.chord { color: #b00;
+	font-weight: 600;
+	font-size: 0.9em;
+	vertical-align: super;
+	margin-right: 0.12em; 
+  }
+
+  .tableau {
+  font-family: monospace;
+  font-size: 1.5em;
+  line-height: 1.5em;
+}
+
+.big-sup { font-size:1.4em;
+	vertical-align:super;
+	color: red; 
+  }
+
+.highlight {
+	background-color:  #d3d3d3;
+	padding: 10px;
+	border-radius: 5px;
+/*  -webkit-print-color-adjust: exact; /* Chrome, Safari */
+/*  print-color-adjust: exact;         /* Firefox */
+/*  color-adjust: exact;               /* Legacy */
+  border: 2px solid #d3d3d3;
+  padding: 2px;
+  }
+
+.highlight .big-sup {
+	color: #800000ff; /* darker grey for visibility */}
+
+.staff {
+	display: grid;
+	grid-template-rows: repeat(4, 30px); /* 4 horizontal lines */
+	grid-auto-flow: column;
+	gap: 10px;
+  }
+
+.staff div {
+	border-bottom: 2px solid black;
+	text-align: center;
+	line-height: 30px;
+	font-weight: bold;
+  }
+
+
+@media print {
+	/* Double column when toggled */
+	#content.two-column {
+		column-count: 2;
+		column-gap: 2em;}
+	#content.one-column {
+		column-count: 1 !important;}
+  #content.three-column {
+		column-count: 3;
+		column-gap: 2em;}
+	  
+
+/* Toggle button */
+#toggle-columns {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  background: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 999;
+  }
+
+@media print {#toggle-columns { display: none; }
+#toggle-chords { display: none; }
+
+}
+
+uke-chord.hidden {
+  display: none;
+}
+
+</style>
+<script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
+<script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
+</head>
+<body>
+<button id="toggle-columns">2 Colonnes</button>
+<button id="toggle-chords">Masquer accords</button>
+<div id="content" class="two-column">
+<h1>The zephyr song (TenThumbs prod)- RHCP</h1>
+<h2>Accords couplets:</h2>
+<p><uke-chord name="Am" frets="2000"></uke-chord>
+<uke-chord name="G" frets="0232"></uke-chord>
+<uke-chord name="Em" frets="0432"></uke-chord>
+<uke-chord name="F" frets="2010"></uke-chord></p>
+<h2>Accords refrain:</h2>
+<p><uke-chord name="D" frets="2220"></uke-chord>
+<uke-chord name="G" frets="0232"></uke-chord>
+<uke-chord name="A" frets="2100"></uke-chord></p>
+<h2>Instructions:</h2>
+<h3>Intro:</h3>
+<pre><code>  A|——10———8———2———3—|  
+  E|—8————7———3———5——|  
+  C|9————7———4———5———|  
+  G|—————————————————|
+    Am   G   Em  F
+</code></pre>
+<h3>Couplets:</h3>
+<p>Suivre la progression <sup class="big-sup">Am G Em F</sup>*4 via:</p>
+<pre class="tableau">
+1 & 2 & 3 & 4 &
+D U D U   U D U
+</pre>
+<h3>Pré-refrain: une mesure de <sup class="big-sup">X</sup> en DUDUDUDU.</h3>
+<h3>Refrain:</h3>
+<p>Suivre la progression <sup class="big-sup">D D G A</sup> via:</p>
+<pre class="tableau">
+1 & 2 & 3 & 4 &
+D   D U   U D U
+</pre>
+<h3>Couplets avancés:</h3>
+<pre><code>  A|——7—10—8—7—|——5—8—7—5—|——2—5—3—2—|——3—5s7—5—3—3—|  
+  E|—8—————————|—7————————|—3————————|—5————————————|  
+  C|9——9———————|7——7——————|4——4——————|5—————————————|  
+  G|———————————|——————————|——————————|——————————————|
+    Am          G7         Em         F
+
+  A|——7—10—12—7|——5—8—7—5—|——2—5—7—3—|—2—3—7————2—3—|  
+  E|—8—————————|—7————————|—3————————|——————————————|  
+  C|9——————————|7—————————|4——4——————|5——————5——————|  
+  G|———————————|——————————|——————————|——————————————|
+    Am          G7         Em         F
+</code></pre>
+<h3>Solo</h3>
+<p>La notation 7u-5: bending 1/2 up</p>
+<pre><code>  A|7—5—7—7——7—|5—7———————|5—3—5———5—|5—7————————|  
+  E|———————————|————7u—5——|——————————|————7u—5———|  
+  C|———————————|——————————|——————————|———————————|  
+  G|———————————|——————————|——————————|———————————|
+    Am          G7         Em         F
+
+  A|7—5—7—7————|5—7———————|5—3—5—5——5—3|5—7——————|  
+  E|———————————|————7u—5——|————————————|————7u—5—|  
+  C|———————————|——————————|————————————|—————————|  
+  G|———————————|——————————|————————————|—————————|
+    Am          G7         Em         F
+</code></pre>
+<h2>Paroles:</h2>
+<h3>Couplet</h3>
+<p><sup class="big-sup">Am</sup>Can I get your hand to write on<br>
+<sup class="big-sup">G</sup>Just a piece of leg to bite on<br>
+<sup class="big-sup">Em</sup>What a night to fly my kite on<br>
+<sup class="big-sup">F</sup>Do you want to flash your light on?</p>
+<p><sup class="big-sup">Am</sup>Take a look, it's on display <sup class="big-sup">G</sup>for you<br>
+<sup class="big-sup">Em</sup>Coming down, no, not today<sup class="big-sup">F</sup></p>
+<p><sup class="big-sup">Am</sup>Did you meet your fortune teller<br>
+<sup class="big-sup">G</sup>Get it off with no propeller<br>
+<sup class="big-sup">Em</sup>Do it up, it's on with Stella<br>
+<sup class="big-sup">F</sup>What a way to finally smell her<br>
+<sup class="big-sup">Am</sup>Pick it up, but not too strong <sup class="big-sup">G</sup>for you<br>
+<sup class="big-sup">Em</sup>Take a piece and pass it on<sup class="big-sup">F</sup></p>
+<div class="highlight">
+<h3>Refrain: pré-refrain <sup class="big-sup">X</sup></h3>
+<p><sup class="big-sup">D</sup>Fly away on my zephyr<br>
+<sup class="big-sup">G</sup>I feel it <sup class="big-sup">A</sup>more than ever<br>
+<sup class="big-sup">D</sup>And in this perfect weather<br>
+<sup class="big-sup">G</sup>We'll find a <sup class="big-sup">A</sup>place together<br>
+<sup class="big-sup">Am</sup>Fly <sup class="big-sup">G</sup>on <sup class="big-sup">Em</sup>my <sup class="big-sup">F</sup>wind</p>
+</div>
+<h3>Couplet</h3>
+<p><sup class="big-sup">Am</sup>Rebel and a liberator<br>
+<sup class="big-sup">G</sup>Find a way to be a skater<br>
+<sup class="big-sup">Em</sup>Rev it up to levitate her<br>
+<sup class="big-sup">F</sup>Super friendly aviator<br>
+<sup class="big-sup">Am</sup>Take a look, it's on display <sup class="big-sup">G</sup>for you<br>
+<sup class="big-sup">Em</sup>Coming down, no, not today<sup class="big-sup">F</sup></p>
+<div class="highlight">
+<h3>Refrain: pré-refrain <sup class="big-sup">X</sup></h3>
+<p><sup class="big-sup">D</sup>Fly away on my zephyr<br>
+<sup class="big-sup">G</sup>I feel it <sup class="big-sup">A</sup>more than ever<br>
+<sup class="big-sup">D</sup>And in this perfect weather<br>
+<sup class="big-sup">G</sup>We'll find a <sup class="big-sup">A</sup>place together</p>
+<p><sup class="big-sup">D</sup>In the water, where I center my emotion<br>
+<sup class="big-sup">G</sup>All the world can <sup class="big-sup">A</sup>pass me by<br>
+<sup class="big-sup">D</sup>Fly away on my zephyr<br>
+<sup class="big-sup">G</sup>We'll find a <sup class="big-sup">A</sup>place together</p>
+</div>
+<h3>Solo</h3>
+<p><sup class="big-sup">Am G Em F</sup>*2</p>
+<p><sup class="big-sup">Am</sup>whoa, whoa, whoa, whoa, <sup class="big-sup">G</sup>whoa, whoa, do you<br>
+<sup class="big-sup">Em</sup>(Yeah) yeah, yeah, yeah, yeah, yeah, <sup class="big-sup">F</sup>yeah<br>
+<sup class="big-sup">Am</sup>whoa, whoa, whoa, whoa, <sup class="big-sup">G</sup>whoa, whoa, want to?<br>
+<sup class="big-sup">Em</sup>(Yeah) yeah, yeah, yeah, yeah, yeah, <sup class="big-sup">F</sup>yeah</p>
+<div class="highlight">
+<h3>Refrain: pré-refrain <sup class="big-sup">X</sup></h3>
+<p><sup class="big-sup">D</sup>Fly away on my zephyr<br>
+<sup class="big-sup">G</sup>I feel it <sup class="big-sup">A</sup>more than ever<br>
+<sup class="big-sup">D</sup>And in this perfect weather<br>
+<sup class="big-sup">G</sup>We'll find a <sup class="big-sup">A</sup>place together</p>
+<p><sup class="big-sup">D</sup>In the water, where I center my emotion<br>
+<sup class="big-sup">G</sup>All the world can <sup class="big-sup">A</sup>pass me by<br>
+<sup class="big-sup">D</sup>Fly away on my zephyr<br>
+<sup class="big-sup">G</sup>We'll gonna live <sup class="big-sup">A</sup> forever<br>
+forever<br>
+<sup class="big-sup">D D G A</sup><br>
+<sup class="big-sup">D D G A\ . G\ A\ D\</sup></p>
+</div>
+
+</div>
+  <script>
+  const btn = document.getElementById('toggle-columns');
+    const content = document.getElementById('content');
+
+    // Possible column classes
+    const columnClasses = ['one-column', 'two-column', 'three-column'];
+    let current = 1; // start at 0 = one-column
+
+    btn.addEventListener("click", () => {
+      // Remove old class
+      content.classList.remove(columnClasses[current]);
+
+      // Increment and wrap around
+      current = (current + 1) % columnClasses.length;
+
+      // Add new class
+      content.classList.add(columnClasses[current]);
+
+      // Update button text
+      btn.textContent = (current + 1) + " Colonne" + (current > 0 ? "s" : "");    });
+
+        // 🎸 Uke chord toggle
+  const chordBtn = document.getElementById('toggle-chords');
+  let chordsVisible = true;
+
+  chordBtn.addEventListener("click", () => {
+    document.querySelectorAll("uke-chord").forEach(chord => {
+      chord.style.display = chordsVisible ? "none" : "inline-block";
+    });
+
+        // Toggle only <h2> with text "Accords:"
+    document.querySelectorAll("h2").forEach(h2 => {
+      if (h2.textContent.includes("Accords")) {
+        h2.style.display = chordsVisible ? "none" : "block";
+      }
+    });
+
+    chordsVisible = !chordsVisible;
+    chordBtn.textContent = chordsVisible ? "Masquer accords" : "Montrer accords";
+  });
+  </script>
+  </body>
+</html>
