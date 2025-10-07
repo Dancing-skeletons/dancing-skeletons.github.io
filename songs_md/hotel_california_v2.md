@@ -1,4 +1,4 @@
-# Hotel California (Cynthai Lin - intermédiaire) - The Eagles
+# Hotel California (Cynthia Lin - intermédiaire) - The Eagles
 
 ## Accords:
 
