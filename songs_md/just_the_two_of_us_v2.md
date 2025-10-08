@@ -10,7 +10,6 @@
 
 
 ## Instructions:
-- Strumming funky: (↓.↓↑X↑↓↑) par accord.
 
 ## Paroles:
 

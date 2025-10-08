@@ -39,11 +39,23 @@ body {
 	margin-right: 0.12em; 
   }
 
-  .tableau {
-  font-family: monospace;
-  font-size: 1.5em;
-  line-height: 1.5em;
+
+.tableau-group {
+  display: inline-block;      /* keep the whole 3-line group together */
+  vertical-align: top;
+  max-width: 100%;            /* allow wrapping to next line if needed */
+  margin-right: 1em;          /* optional spacing between groups */
 }
+
+pre.tableau {
+  font-family: monospace;
+  white-space: pre;           /* preserve alignment */
+  font-size: 1.4em;
+  line-height: 1.4em;
+  margin: 0;
+  overflow-x: auto;           /* scroll if the group is wider than container */
+}
+
 
 .big-sup { font-size:1.4em;
 	vertical-align:super;
@@ -133,24 +145,27 @@ uke-chord.hidden {
 <uke-chord name="Dm" frets="2210"></uke-chord></p>
 <h2>Instructions:</h2>
 <ul>
-<li>Intro: Picking: ((4321)-2-3 - 1-2-3 - 1 - 2) ((4321)-2-3 - 1-2-3 - 1 - )</li>
+<li>Intro: Picking: ((4321)-2-3 - 1-2-3 - 1 - 2) ((4321)-2-3 - 1-2-3 - 1 - )
+Exemple sur les 2 premiers accords:</li>
 </ul>
-<pre><code>  A|—0—————0—————0———|—2—————2—————0——|  
+<pre class="tableau">
+  A|—0—————0—————0———|—2—————2—————0——|  
   E|—0—0—————0—————0—|—0—0—————0——————|  
   C|—0———0—————0—————|—2———2—————2————|  
   G|—2———————————————|—1——————————————|  
      Am                E7
-</code></pre>
+</pre>
 <ul>
 <li>Pour les couplets, les accords: (D.DUXUDU)*2</li>
 <li>Riff sur le second refrain + outro en remplacement de <sup class="big-sup">C*</sup>:</li>
 </ul>
-<pre><code>  A|—3————5——7———————|  
+<pre class="tableau">
+  A|—3————5——7———————|  
   E|—0————0——8———————|  
   C|—0————0——0———————|  
   G|—0————0——0———————|  
      D.DUXU.UD.DUXUDU   
-</code></pre>
+</pre>
 <h2>Paroles:</h2>
 <div class="highlight">
 <h3>Intro sans paroles:</h3>

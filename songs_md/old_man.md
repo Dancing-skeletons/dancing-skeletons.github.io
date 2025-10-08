@@ -35,14 +35,15 @@ That [C]makes me think[C] of two [F F]
 ::: highlight
 ### Pré-refrain *2
 <pre class="tableau">
-temps:  1  &  2  &  3   &  4   &  1  &  2  &  3  &  4  & 
-accord: D           Ds2 D  Ds2 D              Ds2   
-up/down:D  .  D  U  D   U  D   U  .  U  D  U  D  .  D  .
+temps:  1  &  2  &  3   &  4   &  |1  &  2  &  3  &  4  & 
+accord: D           Ds2 D  Ds2 D  |            Ds2   
+up/down:D  .  D  U  D   U  D   U  |.  U  D  U  D  .  D  .
+</pre>
 
-temps:  1  &  2  &  3   &  4   &  1  &  2  &  3  &  4  & 
-accord: Am                        Em          G            
-up/down:D  .  .  .  D   .  D   U   D .  .  .  D  .  .  .
-
+<pre class="tableau">
+temps:  1  &  2  &  3   &  4   &  |1  &  2  &  3  &  4  & 
+accord: Am                        |Em          G            
+up/down:D  .  .  .  D   .  D   U  |D  .  .  .  D  .  .  .
 </pre>
 
 ### Refrain

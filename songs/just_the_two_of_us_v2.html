@@ -39,11 +39,23 @@ body {
 	margin-right: 0.12em; 
   }
 
-  .tableau {
-  font-family: monospace;
-  font-size: 1.5em;
-  line-height: 1.5em;
+
+.tableau-group {
+  display: inline-block;      /* keep the whole 3-line group together */
+  vertical-align: top;
+  max-width: 100%;            /* allow wrapping to next line if needed */
+  margin-right: 1em;          /* optional spacing between groups */
 }
+
+pre.tableau {
+  font-family: monospace;
+  white-space: pre;           /* preserve alignment */
+  font-size: 1.4em;
+  line-height: 1.4em;
+  margin: 0;
+  overflow-x: auto;           /* scroll if the group is wider than container */
+}
+
 
 .big-sup { font-size:1.4em;
 	vertical-align:super;
@@ -131,9 +143,6 @@ uke-chord.hidden {
 <uke-chord name="Em" frets="0432"></uke-chord>
 <uke-chord name="A♭maj7" frets="1333"></uke-chord></p>
 <h2>Instructions:</h2>
-<ul>
-<li>Strumming funky: (↓.↓↑X↑↓↑) par accord.</li>
-</ul>
 <h2>Paroles:</h2>
 <h3>Couplet: Uniquement un ↓ par accord.</h3>
 <p><sup class="big-sup">Cmaj7</sup>I see the <sup class="big-sup">B7</sup>crystal raindrops <sup class="big-sup">Em7</sup>fall<br>

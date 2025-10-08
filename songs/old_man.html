@@ -39,11 +39,23 @@ body {
 	margin-right: 0.12em; 
   }
 
-  .tableau {
-  font-family: monospace;
-  font-size: 1.5em;
-  line-height: 1.5em;
+
+.tableau-group {
+  display: inline-block;      /* keep the whole 3-line group together */
+  vertical-align: top;
+  max-width: 100%;            /* allow wrapping to next line if needed */
+  margin-right: 1em;          /* optional spacing between groups */
 }
+
+pre.tableau {
+  font-family: monospace;
+  white-space: pre;           /* preserve alignment */
+  font-size: 1.4em;
+  line-height: 1.4em;
+  margin: 0;
+  overflow-x: auto;           /* scroll if the group is wider than container */
+}
+
 
 .big-sup { font-size:1.4em;
 	vertical-align:super;
@@ -152,14 +164,14 @@ That <sup class="big-sup">C</sup>makes me think<sup class="big-sup">C</sup> of t
 <div class="highlight">
 <h3>Pré-refrain *2</h3>
 <pre class="tableau">
-temps:  1  &  2  &  3   &  4   &  1  &  2  &  3  &  4  & 
-accord: D           Ds2 D  Ds2 D              Ds2   
-up/down:D  .  D  U  D   U  D   U  .  U  D  U  D  .  D  .
-
-temps:  1  &  2  &  3   &  4   &  1  &  2  &  3  &  4  & 
-accord: Am                        Em          G            
-up/down:D  .  .  .  D   .  D   U   D .  .  .  D  .  .  .
-
+temps:  1  &  2  &  3   &  4   &  |1  &  2  &  3  &  4  & 
+accord: D           Ds2 D  Ds2 D  |            Ds2   
+up/down:D  .  D  U  D   U  D   U  |.  U  D  U  D  .  D  .
+</pre>
+<pre class="tableau">
+temps:  1  &  2  &  3   &  4   &  |1  &  2  &  3  &  4  & 
+accord: Am                        |Em          G            
+up/down:D  .  .  .  D   .  D   U  |D  .  .  .  D  .  .  .
 </pre>
 <h3>Refrain</h3>
 <p><sup class="big-sup">D</sup>Old <sup class="big-sup">D</sup>man, take a <sup class="big-sup">D</sup>look at my life, <sup class="big-sup">D</sup>I'm a <sup class="big-sup">Am</sup>lot like <sup class="big-sup">Am</sup>you <sup class="big-sup">Em G</sup><br>

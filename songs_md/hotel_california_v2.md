@@ -13,24 +13,25 @@
 ## Instructions:
 
 - Intro: Picking: ((4321)-2-3 - 1-2-3 - 1 - 2) ((4321)-2-3 - 1-2-3 - 1 - )
-```
+Exemple sur les 2 premiers accords:
+<pre class="tableau">
   A|—0—————0—————0———|—2—————2—————0——|  
   E|—0—0—————0—————0—|—0—0—————0——————|  
   C|—0———0—————0—————|—2———2—————2————|  
   G|—2———————————————|—1——————————————|  
      Am                E7
-```
+</pre>
 
 - Pour les couplets, les accords: (D.DUXUDU)*2
 - Riff sur le second refrain + outro en remplacement de [C*]:
 
-```
+<pre class="tableau">
   A|—3————5——7———————|  
   E|—0————0——8———————|  
   C|—0————0——0———————|  
   G|—0————0——0———————|  
      D.DUXU.UD.DUXUDU   
-```
+</pre>
 
 ## Paroles:
 

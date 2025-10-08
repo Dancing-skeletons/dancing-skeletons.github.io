@@ -39,11 +39,23 @@ body {
 	margin-right: 0.12em; 
   }
 
-  .tableau {
-  font-family: monospace;
-  font-size: 1.5em;
-  line-height: 1.5em;
+
+.tableau-group {
+  display: inline-block;      /* keep the whole 3-line group together */
+  vertical-align: top;
+  max-width: 100%;            /* allow wrapping to next line if needed */
+  margin-right: 1em;          /* optional spacing between groups */
 }
+
+pre.tableau {
+  font-family: monospace;
+  white-space: pre;           /* preserve alignment */
+  font-size: 1.4em;
+  line-height: 1.4em;
+  margin: 0;
+  overflow-x: auto;           /* scroll if the group is wider than container */
+}
+
 
 .big-sup { font-size:1.4em;
 	vertical-align:super;

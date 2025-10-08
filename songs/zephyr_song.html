@@ -39,11 +39,23 @@ body {
 	margin-right: 0.12em; 
   }
 
-  .tableau {
-  font-family: monospace;
-  font-size: 1.5em;
-  line-height: 1.5em;
+
+.tableau-group {
+  display: inline-block;      /* keep the whole 3-line group together */
+  vertical-align: top;
+  max-width: 100%;            /* allow wrapping to next line if needed */
+  margin-right: 1em;          /* optional spacing between groups */
 }
+
+pre.tableau {
+  font-family: monospace;
+  white-space: pre;           /* preserve alignment */
+  font-size: 1.4em;
+  line-height: 1.4em;
+  margin: 0;
+  overflow-x: auto;           /* scroll if the group is wider than container */
+}
+
 
 .big-sup { font-size:1.4em;
 	vertical-align:super;
@@ -134,12 +146,13 @@ uke-chord.hidden {
 <uke-chord name="A" frets="2100"></uke-chord></p>
 <h2>Instructions:</h2>
 <h3>Intro:</h3>
-<pre><code>  A|——10———8———2———3—|  
+<pre class="tableau">
+  A|——10———8———2———3—|  
   E|—8————7———3———5——|  
   C|9————7———4———5———|  
   G|—————————————————|
     Am   G   Em  F
-</code></pre>
+</pre>
 <h3>Couplets:</h3>
 <p>Suivre la progression <sup class="big-sup">Am G Em F</sup>*4 via:</p>
 <pre class="tableau">
@@ -154,32 +167,36 @@ D U D U   U D U
 D   D U   U D U
 </pre>
 <h3>Couplets avancés:</h3>
-<pre><code>  A|——7—10—8—7—|——5—8—7—5—|——2—5—3—2—|——3—5s7—5—3—3—|  
+<pre class="tableau">
+  A|——7—10—8—7—|——5—8—7—5—|——2—5—3—2—|——3—5s7—5—3—3—|  
   E|—8—————————|—7————————|—3————————|—5————————————|  
   C|9——9———————|7——7——————|4——4——————|5—————————————|  
   G|———————————|——————————|——————————|——————————————|
     Am          G7         Em         F
-
+</pre>
+<pre class="tableau">
   A|——7—10—12—7|——5—8—7—5—|——2—5—7—3—|—2—3—7————2—3—|  
   E|—8—————————|—7————————|—3————————|——————————————|  
   C|9——————————|7—————————|4——4——————|5——————5——————|  
   G|———————————|——————————|——————————|——————————————|
     Am          G7         Em         F
-</code></pre>
+</pre>
 <h3>Solo</h3>
 <p>La notation 7u-5: bending 1/2 up</p>
-<pre><code>  A|7—5—7—7——7—|5—7———————|5—3—5———5—|5—7————————|  
+<pre class="tableau">
+  A|7—5—7—7——7—|5—7———————|5—3—5———5—|5—7————————|  
   E|———————————|————7u—5——|——————————|————7u—5———|  
   C|———————————|——————————|——————————|———————————|  
   G|———————————|——————————|——————————|———————————|
     Am          G7         Em         F
-
+</pre>
+<pre class="tableau">
   A|7—5—7—7————|5—7———————|5—3—5—5——5—3|5—7——————|  
   E|———————————|————7u—5——|————————————|————7u—5—|  
   C|———————————|——————————|————————————|—————————|  
   G|———————————|——————————|————————————|—————————|
     Am          G7         Em         F
-</code></pre>
+</pre>
 <h2>Paroles:</h2>
 <h3>Couplet</h3>
 <p><sup class="big-sup">Am</sup>Can I get your hand to write on<br>
