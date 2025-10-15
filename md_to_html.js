@@ -95,12 +95,52 @@ function staffPlugin(md) {
 
 md.use(staffPlugin);
 
+/* -------------------------
+   MUSICXML BLOCK / FILE SUPPORT
+-------------------------- */
+function musicXmlBlockPlugin(md, baseDir) {
+  function renderMusicXml(state, startLine, endLine, silent) {
+    const lines = state.src.split('\n');
+    let line = lines[startLine].trim();
+    if (!line.startsWith('musicxml:')) return false;
+
+    const filePath = line.slice('musicxml:'.length).trim();
+    if (!filePath) return false;
+
+    const fullPath = path.resolve(baseDir, filePath);
+    if (!fs.existsSync(fullPath)) {
+      console.warn('⚠️ Missing MusicXML file:', fullPath);
+      return false;
+    }
+
+    const xmlData = fs.readFileSync(fullPath, 'utf8');
+    const encoded = encodeURIComponent(xmlData);
+
+    if (!silent) {
+      const html = `<div class="osmd-block" data-musicxml="${encoded}"></div>`;
+      state.tokens.push({
+        type: 'html_block',
+        content: html,
+        block: true,
+      });
+    }
+
+    state.line = startLine + 1;
+    return true;
+  }
+
+  md.block.ruler.before('paragraph', 'musicxml_file', renderMusicXml);
+}
 
 const input = process.argv[2];
 if (!input) {
   console.error('Usage: node md_to_html.js input.md [output.html]');
   process.exit(1);
 }
+const baseDir = path.dirname(path.resolve(input));
+md.use(musicXmlBlockPlugin, baseDir);
+
+
 const out = process.argv[3] || input.replace(/\.md$/, '.html');
 const src = fs.readFileSync(input, 'utf8');
 const body = md.render(src);
@@ -199,6 +239,13 @@ pre.tableau {
 	font-weight: bold;
   }
 
+  .osmd-block {
+  margin: 1.5em 0;
+  border: 1px solid #ddd;
+  padding: 0.5em;
+  border-radius: 8px;
+  background: #fafafa;
+}
 
 @media print {
 	/* Double column when toggled */
@@ -238,6 +285,7 @@ uke-chord.hidden {
 </style>
 <script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
 <script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/opensheetmusicdisplay@1.7.6/build/opensheetmusicdisplay.min.js"></script>
 </head>
 <body>
 <button id="toggle-columns">2 Colonnes</button>
@@ -285,6 +333,29 @@ ${body}
     chordsVisible = !chordsVisible;
     chordBtn.textContent = chordsVisible ? "Masquer accords" : "Montrer accords";
   });
+
+
+  /* --- OSMD Rendering --- */
+document.addEventListener("DOMContentLoaded", async () => {
+  const blocks = document.querySelectorAll(".osmd-block");
+  for (const block of blocks) {
+    const xmlData = decodeURIComponent(block.dataset.musicxml);
+    const osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay(block, {
+      drawingParameters: "compact",
+      drawTitle: false,
+      drawPartNames: false,
+      drawMeasureNumbers: false,
+      guitarPro: true, // enables tab rendering when XML includes it
+    });
+    try {
+      await osmd.load(xmlData);
+      osmd.render();
+    } catch (e) {
+      block.innerHTML = "<pre style='color:red'>OSMD failed to load MusicXML.</pre>";
+      console.error(e);
+    }
+  }
+});
   </script>
   </body>
 </html>`;

@@ -35,7 +35,6 @@
 <uke-chord name="F" frets="2010"></uke-chord> 
 <uke-chord name="D7" frets="2223"></uke-chord> 
 <uke-chord name="Gm7" frets="0211"></uke-chord> 
-<uke-chord name="D7" frets="2223"></uke-chord> 
 <uke-chord name="Ddim" frets="1212"></uke-chord> 
 <uke-chord name="Am" frets="2000"></uke-chord> 
 <uke-chord name="B♭" frets="3211"></uke-chord> 
