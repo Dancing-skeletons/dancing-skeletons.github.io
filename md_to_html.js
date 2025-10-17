@@ -285,8 +285,7 @@ uke-chord.hidden {
 </style>
 <script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
 <script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
-//<script src="https://cdn.jsdelivr.net/npm/opensheetmusicdisplay@1.7.6/build/opensheetmusicdisplay.min.js"></script>
-<script src="opensheetmusicdisplay.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/opensheetmusicdisplay@1.7.6/build/opensheetmusicdisplay.min.js"></script>
 </head>
 <body>
 <button id="toggle-columns">2 Colonnes</button>
