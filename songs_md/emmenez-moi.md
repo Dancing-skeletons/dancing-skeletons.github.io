@@ -21,7 +21,7 @@
 [Am E7 Am E7]
 
 ### Couplet
-Vers les [Am]docks où le poids et [G]l'ennui me cour[Am]bent le [E7]dos  
+Vers les [Am]docks où le poids et [G]l'ennui me courbent le [Am]dos[E7]  
 Ils [Am]arrivent le ventre [G]alourdi de fruits [Am]les ba[(E7)]teaux [(Am)]  
 Ils [(F)]viennent du [(G)]bout du monde apportant [(F)]avec eux   
 Des idées va[(G)]gabondes aux reflets de ciels [F]bleus de [C]mirages  
