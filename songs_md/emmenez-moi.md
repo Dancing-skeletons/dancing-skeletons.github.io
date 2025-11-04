@@ -12,7 +12,7 @@
 ## Instructions:
 - 6 temps sur chaque accord, 3 temps pour [(X)]
 - Possibilité de remplacer le [(F*)] par un (2013)
-- [(Am*)] en (2003)
+- Début du refrain, [Amadd9] en (2002), [(Am*)] en (2003)
 
 
 ## Paroles:
@@ -32,7 +32,7 @@ J'aimer[Am]ais débarbouiller ce [G]gris En virant de [Am]bord [Am/]
 
 :::highlight
 ### Refrain
-[(Am)]Emme[(E7)]nez-[(Am*)]moi au[G7] bout de la terre[C]  
+[(Am)]Emme[(Amadd9)]nez-[(Am*)]moi au[G7] bout de la terre[C]  
 Emmenez-[G7]moi au pays des mer[C]veilles  
 Il me [E7]semble que la mi[Am]sère  
 [(F)]Serait moins péni[(E7)]ble au [Am/]soleil  

@@ -13,7 +13,7 @@
 - Refrain: ↓↓↓ pour chaque accord.
 
 
-musicxml: ./HC_Solo.musicxml
+musicxml: ./HC_Solo2.musicxml
 
 ## Paroles:
 

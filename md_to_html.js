@@ -285,7 +285,7 @@ uke-chord.hidden {
 </style>
 <script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
 <script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/opensheetmusicdisplay@1.7.6/build/opensheetmusicdisplay.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/opensheetmusicdisplay/build/opensheetmusicdisplay.min.js"></script>
 </head>
 <body>
 <button id="toggle-columns">2 Colonnes</button>
@@ -334,26 +334,68 @@ ${body}
     chordBtn.textContent = chordsVisible ? "Masquer accords" : "Montrer accords";
   });
 
-
-  /* --- OSMD Rendering --- */
 document.addEventListener("DOMContentLoaded", async () => {
   const blocks = document.querySelectorAll(".osmd-block");
   for (const block of blocks) {
-    const xmlData = decodeURIComponent(block.dataset.musicxml);
-    const osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay(block, {
-      drawingParameters: "compact",
-      drawTitle: false,
-      drawPartNames: false,
-      drawMeasureNumbers: false,
-      guitarPro: true, // enables tab rendering when XML includes it
-      drawNoteDurations: true
-    });
     try {
+      const xmlData = decodeURIComponent(block.dataset.musicxml);
+
+      // Create OSMD with conservative defaults
+      const osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay(block, {
+        // Use most verbose drawing parameters so nothing is suppressed
+        drawingParameters: "all",
+        drawTitle: true,
+        drawPartNames: false,
+        drawMeasureNumbers: false,
+        guitarPro: false,              // disable GP heuristics while debugging
+        drawNoteDurations: true
+      });
+
+      // Load, then set options again to ensure they apply after parsing
       await osmd.load(xmlData);
+
+      // Re-apply important options after load
+      osmd.setOptions({
+        drawingParameters: "all",
+        guitarPro: false,
+        drawNoteDurations: true,
+        drawNoteHead: true,
+        drawStem: true
+      });
+
+      // Render
       osmd.render();
-    } catch (e) {
-      block.innerHTML = "<pre style='color:red'>OSMD failed to load MusicXML.</pre>";
-      console.error(e);
+
+      // ---- Debugging / inspection helpers ----
+      // 1) A short automatic report printed to console about rendered SVG content
+      console.group('OSMD debug for block');
+      console.log('OSMD instance:', osmd);
+      // Number of SVG elements inside the osmd-block
+      const svg = block.querySelector('svg');
+      console.log('SVG element present?', !!svg);
+      console.log('SVG total child elements:', svg ? svg.querySelectorAll('*').length : 0);
+
+      // 2) Count candidate notehead / stem elements (generic)
+      // These selectors are intentionally broad (VexFlow/OSMD class names vary across versions)
+      const noteheads = svg ? svg.querySelectorAll('path, circle, ellipse') : [];
+      console.log('Potential notehead path/circle/ellipse count:', noteheads.length);
+
+      // 3) Show the block inner HTML snapshot (short)
+      console.log('SVG outerHTML snapshot (first 1000 chars):', svg ? svg.outerHTML.slice(0,1000) : 'no svg');
+
+      console.groupEnd();
+
+      // 4) Handy functions you can paste in the Browser Console to inspect or force visible:
+      //   - Highlight noteheads/stems visually:
+      //       document.querySelectorAll('.osmd-block svg *').forEach(e=>{ if (e.tagName==='path' || e.tagName==='circle' || e.tagName==='ellipse') { e.style.stroke='red'; e.style.fill='red'; }});
+      //   - Print all text nodes in the SVG (sometimes durations are text elements)
+      //       Array.from(document.querySelectorAll('.osmd-block svg text')).forEach(t=>console.log(t.textContent, t));
+      //
+      // Try the above in the console after load to see if durations or noteheads exist but are invisible.
+
+    } catch (err) {
+      console.error('OSMD debug/load error:', err);
+      block.innerHTML = "<pre style='color:red'>OSMD failed to load MusicXML (see console).</pre>";
     }
   }
 });

@@ -1,16 +1,25 @@
 # Aline (Uku heaven)- Christophe
 
-## Accords:
+## Accords uku 1:
 <uke-chord name="C" frets="0003"></uke-chord> 
 <uke-chord name="E7" frets="1202"></uke-chord> 
 <uke-chord name="F" frets="2010"></uke-chord> 
 <uke-chord name="G" frets="0232"></uke-chord> 
+<uke-chord name="G7" frets="0212"></uke-chord> 
+
+## Accords uku 2:
+<uke-chord name="C" frets="3211" position=3></uke-chord> 
+<uke-chord name="E7" frets="2225" position=3></uke-chord> 
+<uke-chord name="F6" frets="0333" position=3></uke-chord> 
+<uke-chord name="G" frets="0553" position=3></uke-chord> 
+<uke-chord name="G7" frets="0353" position=3></uke-chord> 
 
 
 ## Instructions:
-- Couplets: arpège du type (4321) pour [C E7 F] puis ↓↓↓ sur [G].
-- Chaque accord dure 2 temps
-- Refrain: ↓↓↓ pour chaque accord.
+- Intro: chaque accord dure 4 temps, joué ↓↓↓.
+- Couplets: chaque accord dure 4 temps, arpège du type (4321) pour [C E7 F], ↓↓↓ sur [G], suivi de [G7].
+- Refrain: chaque accord dure 2 temps, ↓↓↓ pour chaque accord.
+- Refrain: re[G]vienne à faire en [G G G7].
 
 ## Paroles:
 
@@ -29,7 +38,7 @@ Dans cet o[F]rage, elle a dispa[G]ru
 ::: highlight
 ### Refrain
 Et j'ai [C]crié, cri[E7]é  
-A[F]line, pour qu'elle re[G7]vienne  
+A[F]line, pour qu'elle re[G]vienne  
 Et j'ai pleu[C]ré, pleu[E7]ré  
 Oh [F]j'avais trop de [G]peine  
 :::
