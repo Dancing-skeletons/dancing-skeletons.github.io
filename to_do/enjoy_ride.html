@@ -1,0 +1,334 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>enjoy_ride.md</title>
+<style>
+body { 
+	font-family: system-ui, Arial, sans-serif;
+	padding: 1rem;
+	line-height: 1.6;
+	column-gap: 2em;
+  }
+
+ pre code {
+  font-size: 1.5em;
+  font-family: monospace; /* keeps alignment of tabs */
+}
+
+  /* Two-column layout (default for screen) */
+  #content.two-column {
+    column-count: 2;
+    column-gap: 2em;
+    }
+
+  /* Single-column layout */
+  #content.one-column {
+    column-count: 1;
+    }
+
+      #content.three-column {
+    column-count: 3;
+    column-gap: 2em;
+    }
+
+.chord { color: #b00;
+	font-weight: 600;
+	font-size: 0.9em;
+	vertical-align: super;
+	margin-right: 0.12em; 
+  }
+
+
+.tableau-group {
+  display: inline-block;      /* keep the whole 3-line group together */
+  vertical-align: top;
+  max-width: 100%;            /* allow wrapping to next line if needed */
+  margin-right: 1em;          /* optional spacing between groups */
+}
+
+pre.tableau {
+  font-family: monospace;
+  white-space: pre;           /* preserve alignment */
+  font-size: 1.4em;
+  line-height: 1.4em;
+  margin: 0;
+  overflow-x: auto;           /* scroll if the group is wider than container */
+}
+
+
+.big-sup { font-size:1.4em;
+	vertical-align:super;
+	color: red; 
+  }
+
+.highlight {
+	background-color:  #d3d3d3;
+	padding: 10px;
+	border-radius: 5px;
+/*  -webkit-print-color-adjust: exact; /* Chrome, Safari */
+/*  print-color-adjust: exact;         /* Firefox */
+/*  color-adjust: exact;               /* Legacy */
+  border: 2px solid #d3d3d3;
+  padding: 2px;
+  }
+
+.highlight .big-sup {
+	color: #800000ff; /* darker grey for visibility */}
+
+.staff {
+	display: grid;
+	grid-template-rows: repeat(4, 30px); /* 4 horizontal lines */
+	grid-auto-flow: column;
+	gap: 10px;
+  }
+
+.staff div {
+	border-bottom: 2px solid black;
+	text-align: center;
+	line-height: 30px;
+	font-weight: bold;
+  }
+
+  .osmd-block {
+  margin: 1.5em 0;
+  border: 1px solid #ddd;
+  padding: 0.5em;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+@media print {
+	/* Double column when toggled */
+	#content.two-column {
+		column-count: 2;
+		column-gap: 2em;}
+	#content.one-column {
+		column-count: 1 !important;}
+  #content.three-column {
+		column-count: 3;
+		column-gap: 2em;}
+	  
+
+/* Toggle button */
+#toggle-columns {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  background: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 999;
+  }
+
+@media print {#toggle-columns { display: none; }
+#toggle-chords { display: none; }
+
+}
+
+uke-chord.hidden {
+  display: none;
+}
+
+</style>
+<script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
+<script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/opensheetmusicdisplay/build/opensheetmusicdisplay.min.js"></script>
+</head>
+<body>
+<button id="toggle-columns">2 Colonnes</button>
+<button id="toggle-chords">Masquer accords</button>
+<div id="content" class="two-column">
+<h1>Enjoy the ride (Uku cheat)- Morcheeba</h1>
+<h2>Accords:</h2>
+<p><uke-chord name="Gm" frets="0231"></uke-chord>
+<uke-chord name="Cm" frets="0333"></uke-chord>
+<uke-chord name="Eb" frets="0331"></uke-chord>
+<uke-chord name="Dm" frets="2210"></uke-chord>
+<uke-chord name="F" frets="2010"></uke-chord>
+<uke-chord name="Bb" frets="3211"></uke-chord>
+<uke-chord name="C" frets="0003"></uke-chord></p>
+<h2>Instructions:</h2>
+<ul>
+<li>Chaque accord dure 2 temps, sauf <sup class="big-sup">X-Y</sup> où chacun dure 1 temps.</li>
+<li>Intro, sur <sup class="big-sup">Gm</sup>:</li>
+</ul>
+<pre class="tableau">
+  A|——————1————————|—————————|  
+  E|——————————3————|———————3—|  
+  C|0h2—————————2——|0—2——————|  
+  G|———————————————|—————————|
+</pre>
+<ul>
+<li>Intro sur <sup class="big-sup">Cm</sup>: (3123 - (123))</li>
+<li>Intro sur <sup class="big-sup">Eb</sup> et <sup class="big-sup">Dm</sup>: (3123)</li>
+<li>Strumming pour le reste:</li>
+</ul>
+<pre class="tableau">
+1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 &
+D       D   D U   U D   D   D U
+</pre>
+<h2>Paroles:</h2>
+<h3>Intro</h3>
+<p><sup class="big-sup">Gm Gm Gm Gm</sup><br>
+<sup class="big-sup">Cm Gm Eb-Dm Gm</sup></p>
+<h3>Couplet</h3>
+<p><sup class="big-sup">Gm</sup>Shut the gates at sunset <sup class="big-sup">Gm</sup>after that you can't get out<br>
+You can <sup class="big-sup">Cm</sup>see the bigger picture find out <sup class="big-sup">Gm</sup>what it's all about<br>
+You're <sup class="big-sup">Eb-Dm</sup>open to the skyline you won't <sup class="big-sup">Gm</sup>want to go back home<br>
+In a <sup class="big-sup">Cm</sup>garden full of angels you will <sup class="big-sup">Gm</sup>never be alone</p>
+<h3>Pré-refrain</h3>
+<p>But <sup class="big-sup">Eb-Dm</sup>oh, the <sup class="big-sup">Gm</sup>road is long,<br>
+The stones that you are <sup class="big-sup">Eb-Dm</sup>walking on have <sup class="big-sup">Gm</sup>gone</p>
+<div class="highlight">
+<h3>Refrain</h3>
+<p><sup class="big-sup">Chorus</sup>
+With the <sup class="big-sup">Gm</sup>moonlight to guide you<br>
+Feel the <sup class="big-sup">F</sup>joy of being alive<br>
+The <sup class="big-sup">Bb-C</sup>day that you stop running<br>
+Is the <sup class="big-sup">Gm</sup>day that you arrive</p>
+<p>And the <sup class="big-sup">Gm</sup>night that you got locked in<br>
+Was the <sup class="big-sup">F</sup>time to decide<br>
+Stop <sup class="big-sup">Bb-C</sup>chasing shadows<br>
+Just enjoy the <sup class="big-sup">Gm</sup>ride</p>
+</div>
+<h3>Couplet</h3>
+<p><sup class="big-sup">Gm</sup>If you close the door to your house<br>
+<sup class="big-sup">Gm</sup>Don't let anybody in<br>
+It's a <sup class="big-sup">Cm</sup>room that's full of nothing<br>
+All that <sup class="big-sup">Gm</sup>underneath your skin<br>
+<sup class="big-sup">Eb-Dm</sup>Face against the window<br>
+You can't <sup class="big-sup">Gm</sup>watch it fade to grey<br>
+And you'll <sup class="big-sup">Cm</sup>never catch the fickle wind<br>
+<sup class="big-sup">Gm</sup>If you choose to stay</p>
+<h3>Pré-refrain</h3>
+<div class="highlight">
+<h3>Refrain</h3>
+</div>
+<h3>Pont</h3>
+<p><sup class="big-sup">Gm F Bb-C Gm</sup>
+<sup class="big-sup">Gm F Bb-C Gm</sup></p>
+<div class="highlight">
+<h3>Refrain X2</h3>
+</div>
+<h3>Outro</h3>
+<p><sup class="big-sup">Bb-C</sup>Stop chasing shadows<br>
+Just enjoy the <sup class="big-sup">Gm</sup>ride<br>
+<sup class="big-sup">Bb-C</sup>Stop chasing shadows<br>
+Just enjoy the <sup class="big-sup">Gm</sup>ride<br>
+<sup class="big-sup">Bb/</sup>Stop <sup class="big-sup">C/</sup>chasing shadows<br>
+Just enjoy the <sup class="big-sup">Gm/</sup>ride</p>
+
+</div>
+  <script>
+  const btn = document.getElementById('toggle-columns');
+    const content = document.getElementById('content');
+
+    // Possible column classes
+    const columnClasses = ['one-column', 'two-column', 'three-column'];
+    let current = 1; // start at 0 = one-column
+
+    btn.addEventListener("click", () => {
+      // Remove old class
+      content.classList.remove(columnClasses[current]);
+
+      // Increment and wrap around
+      current = (current + 1) % columnClasses.length;
+
+      // Add new class
+      content.classList.add(columnClasses[current]);
+
+      // Update button text
+      btn.textContent = (current + 1) + " Colonne" + (current > 0 ? "s" : "");    });
+
+        // 🎸 Uke chord toggle
+  const chordBtn = document.getElementById('toggle-chords');
+  let chordsVisible = true;
+
+  chordBtn.addEventListener("click", () => {
+    document.querySelectorAll("uke-chord").forEach(chord => {
+      chord.style.display = chordsVisible ? "none" : "inline-block";
+    });
+
+        // Toggle only <h2> with text "Accords:"
+    document.querySelectorAll("h2").forEach(h2 => {
+      if (h2.textContent.includes("Accords")) {
+        h2.style.display = chordsVisible ? "none" : "block";
+      }
+    });
+
+    chordsVisible = !chordsVisible;
+    chordBtn.textContent = chordsVisible ? "Masquer accords" : "Montrer accords";
+  });
+
+document.addEventListener("DOMContentLoaded", async () => {
+  const blocks = document.querySelectorAll(".osmd-block");
+  for (const block of blocks) {
+    try {
+      const xmlData = decodeURIComponent(block.dataset.musicxml);
+
+      // Create OSMD with conservative defaults
+      const osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay(block, {
+        // Use most verbose drawing parameters so nothing is suppressed
+        drawingParameters: "all",
+        drawTitle: true,
+        drawPartNames: false,
+        drawMeasureNumbers: false,
+        guitarPro: false,              // disable GP heuristics while debugging
+        drawNoteDurations: true
+      });
+
+      // Load, then set options again to ensure they apply after parsing
+      await osmd.load(xmlData);
+
+      // Re-apply important options after load
+      osmd.setOptions({
+        drawingParameters: "all",
+        guitarPro: false,
+        drawNoteDurations: true,
+        drawNoteHead: true,
+        drawStem: true
+      });
+
+      // Render
+      osmd.render();
+
+      // ---- Debugging / inspection helpers ----
+      // 1) A short automatic report printed to console about rendered SVG content
+      console.group('OSMD debug for block');
+      console.log('OSMD instance:', osmd);
+      // Number of SVG elements inside the osmd-block
+      const svg = block.querySelector('svg');
+      console.log('SVG element present?', !!svg);
+      console.log('SVG total child elements:', svg ? svg.querySelectorAll('*').length : 0);
+
+      // 2) Count candidate notehead / stem elements (generic)
+      // These selectors are intentionally broad (VexFlow/OSMD class names vary across versions)
+      const noteheads = svg ? svg.querySelectorAll('path, circle, ellipse') : [];
+      console.log('Potential notehead path/circle/ellipse count:', noteheads.length);
+
+      // 3) Show the block inner HTML snapshot (short)
+      console.log('SVG outerHTML snapshot (first 1000 chars):', svg ? svg.outerHTML.slice(0,1000) : 'no svg');
+
+      console.groupEnd();
+
+      // 4) Handy functions you can paste in the Browser Console to inspect or force visible:
+      //   - Highlight noteheads/stems visually:
+      //       document.querySelectorAll('.osmd-block svg *').forEach(e=>{ if (e.tagName==='path' || e.tagName==='circle' || e.tagName==='ellipse') { e.style.stroke='red'; e.style.fill='red'; }});
+      //   - Print all text nodes in the SVG (sometimes durations are text elements)
+      //       Array.from(document.querySelectorAll('.osmd-block svg text')).forEach(t=>console.log(t.textContent, t));
+      //
+      // Try the above in the console after load to see if durations or noteheads exist but are invisible.
+
+    } catch (err) {
+      console.error('OSMD debug/load error:', err);
+      block.innerHTML = "<pre style='color:red'>OSMD failed to load MusicXML (see console).</pre>";
+    }
+  }
+});
+  </script>
+  </body>
+</html>
