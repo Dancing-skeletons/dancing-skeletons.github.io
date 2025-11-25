@@ -8,7 +8,7 @@
 
 
 ## Instructions:
-- Strumming funky: (↓.↓↑X↑↓↑) par accord.
+- Strumming funky: (🠟.🠟🠝X🠝🠟🠝) par accord.
 
 ## Paroles:
 

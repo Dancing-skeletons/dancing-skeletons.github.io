@@ -31,10 +31,10 @@
 - 5 styles de strumming différents: S1 = arpège
 <pre class="tableau">
 S1: 1 3 2 3
-S2: D . . .
-S3: D . D .
-S4: D dUD .
-S5: dududud
+S2: 🠟 . . .
+S3: 🠟 . 🠟 .
+S4: 🠟 🠧🠝🠟 .
+S5: 🠧🠥🠧🠥🠧🠥🠧
 </pre>
 
 ## Paroles:

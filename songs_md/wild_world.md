@@ -11,8 +11,8 @@
 
 
 ## Instructions:
-- Pour chaque accord: ↓↓
-- Accords avec "/" comme [G/]: ↓
+- Pour chaque accord: 🠟🠟
+- Accords avec "/" comme [G/]: 🠟
 - [X] = muted
 - Dans le refrain [F*] peut être remplacé par un [F] ou le Riff 1 et [C*] par [C] ou le Riff 2
 

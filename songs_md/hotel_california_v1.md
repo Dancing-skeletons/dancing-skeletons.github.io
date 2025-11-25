@@ -13,8 +13,8 @@
 ## Instructions:
 
 - Intro: descente en arpège + descente gratté doux
-- Pour les couplets, les accords: (↓..↑↓.)*2
-- Pour le refrain: (↓↓.↑↓↑)*2
+- Pour les couplets, les accords: (🠟..🠝🠟.)*2
+- Pour le refrain: (🠟🠟.🠝🠟🠝)*2
 
 ## Paroles:
 

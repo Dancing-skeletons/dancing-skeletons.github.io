@@ -13,7 +13,7 @@
 
 ## Paroles:
 
-### Couplet: Uniquement un ↓ par accord.
+### Couplet: Uniquement un 🠟 par accord.
 [Cmaj7]I see the [B7]crystal raindrops [Em7]fall  
 And the [G7]beauty of it all  
 [Cmaj7]Is when the [B7]sun comes shining [Em*2]through  
