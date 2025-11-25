@@ -13,7 +13,7 @@
 - Pour chaque accord:
 <pre class="tableau">
 1 & 2 & 3 & 4 & |1 & 2 & 3 & 4 &
-D   D U   U D U |D   D U   U D U
+🠟   🠟 🠝   🠝 🠟 🠝 |🠟   🠟 🠝   🠝 🠟 🠝
 </pre>
 
 ## Paroles:
@@ -23,12 +23,12 @@ D   D U   U D U |D   D U   U D U
 Pour chaque accord: [Eb Dm Cm]
 <pre class="tableau">
 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 &
-D                       D
+🠟                       🠟
 </pre>
 Pour l'accord [F]
 <pre class="tableau">
 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 &
-D                       D U D U
+🠟                       🠟 🠝 🠟 🠝
 </pre>
 
 :::

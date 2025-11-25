@@ -136,13 +136,13 @@ uke-chord.hidden {
 </style>
 <script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
 <script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/opensheetmusicdisplay@1.7.6/build/opensheetmusicdisplay.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/opensheetmusicdisplay/build/opensheetmusicdisplay.min.js"></script>
 </head>
 <body>
 <button id="toggle-columns">2 Colonnes</button>
 <button id="toggle-chords">Masquer accords</button>
 <div id="content" class="two-column">
-<h1>You are my sunshine (Uku heaven)- Johnny Cash</h1>
+<h1>You are my sunshine (Uku heaven) - Johnny Cash</h1>
 <h2>Accords:</h2>
 <p><uke-chord name="C" frets="0003"></uke-chord>
 <uke-chord name="C7" frets="0001"></uke-chord>
@@ -152,32 +152,32 @@ uke-chord.hidden {
 <h2>Instructions:</h2>
 <h2>Paroles:</h2>
 <h3>Couplet</h3>
-<p>The other <sup class="big-sup">C</sup>night dear, as I lay <sup class="big-sup">C7</sup>sleeping<br>
+<p>The other <sup class="big-sup">C</sup>night dear, as I lay <sup class="big-sup">(C C7)</sup>sleeping<br>
 I dreamed I <sup class="big-sup">F</sup>held you in my <sup class="big-sup">C</sup>arms<br>
 But when I <sup class="big-sup">F</sup>awoke, dear, I was <sup class="big-sup">(C Am)</sup>mistaken<br>
 So I hung <sup class="big-sup">(C G7)</sup>my head and I <sup class="big-sup">C</sup>cried.</p>
 <div class="highlight">
 <h3>Refrain</h3>
-<p>You are my <sup class="big-sup">C</sup>sunshine, my only sunshine<sup class="big-sup">C7</sup><br>
+<p>You are my <sup class="big-sup">C</sup>sunshine, my only sunshine<sup class="big-sup">(C C7)</sup><br>
 You make me <sup class="big-sup">F</sup>happy when skies are <sup class="big-sup">C</sup>gray<br>
 You'll never <sup class="big-sup">F</sup>know dear, how much I <sup class="big-sup">(C Am)</sup>love you<br>
 Please don't <sup class="big-sup">(C G7)</sup>take my sunshine <sup class="big-sup">C</sup>away</p>
 </div>
-<p>I'll always <sup class="big-sup">C</sup>love you and make you <sup class="big-sup">C7</sup>happy,<br>
+<p>I'll always <sup class="big-sup">C</sup>love you and make you <sup class="big-sup">(C C7)</sup>happy,<br>
 If you will <sup class="big-sup">F</sup>only say the <sup class="big-sup">C</sup>same.<br>
 But if you <sup class="big-sup">F</sup>leave me and love <sup class="big-sup">(C Am)</sup>another,<br>
 You'll <sup class="big-sup">(C G7)</sup>regret it all some <sup class="big-sup">C</sup>day.</p>
 <div class="highlight">
 <h3>Refrain</h3>
 </div>
-<p>You told me <sup class="big-sup">C</sup>once, dear, you really <sup class="big-sup">C7</sup>loved me<br>
+<p>You told me <sup class="big-sup">C</sup>once, dear, you really <sup class="big-sup">(C C7)</sup>loved me<br>
 And no one <sup class="big-sup">F</sup>else could come <sup class="big-sup">C</sup>between.<br>
 But now <sup class="big-sup">F</sup>you've left me and love <sup class="big-sup">(C Am)</sup>another;<br>
 You have <sup class="big-sup">(C G7)</sup>shattered all of my <sup class="big-sup">C</sup>dreams:</p>
 <div class="highlight">
 <h3>Refrain</h3>
 </div>
-<p>In all my <sup class="big-sup">C</sup>dreams, dear, you seem to <sup class="big-sup">C7</sup>leave me<br>
+<p>In all my <sup class="big-sup">C</sup>dreams, dear, you seem to <sup class="big-sup">(C C7)</sup>leave me<br>
 When I awake <sup class="big-sup">F</sup>my poor heart <sup class="big-sup">C</sup>pains.<br>
 So when you <sup class="big-sup">F</sup>come back and make <sup class="big-sup">(C Am)</sup>me happy<br>
 I'll <sup class="big-sup">(C G7)</sup>forgive you dear, I'll take all the <sup class="big-sup">C</sup>blame.</p>
@@ -227,26 +227,68 @@ I'll <sup class="big-sup">(C G7)</sup>forgive you dear, I'll take all the <sup c
     chordBtn.textContent = chordsVisible ? "Masquer accords" : "Montrer accords";
   });
 
-
-  /* --- OSMD Rendering --- */
 document.addEventListener("DOMContentLoaded", async () => {
   const blocks = document.querySelectorAll(".osmd-block");
   for (const block of blocks) {
-    const xmlData = decodeURIComponent(block.dataset.musicxml);
-    const osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay(block, {
-      drawingParameters: "compact",
-      drawTitle: false,
-      drawPartNames: false,
-      drawMeasureNumbers: false,
-      guitarPro: true, // enables tab rendering when XML includes it
-      drawNoteDurations: true
-    });
     try {
+      const xmlData = decodeURIComponent(block.dataset.musicxml);
+
+      // Create OSMD with conservative defaults
+      const osmd = new opensheetmusicdisplay.OpenSheetMusicDisplay(block, {
+        // Use most verbose drawing parameters so nothing is suppressed
+        drawingParameters: "all",
+        drawTitle: true,
+        drawPartNames: false,
+        drawMeasureNumbers: false,
+        guitarPro: false,              // disable GP heuristics while debugging
+        drawNoteDurations: true
+      });
+
+      // Load, then set options again to ensure they apply after parsing
       await osmd.load(xmlData);
+
+      // Re-apply important options after load
+      osmd.setOptions({
+        drawingParameters: "all",
+        guitarPro: false,
+        drawNoteDurations: true,
+        drawNoteHead: true,
+        drawStem: true
+      });
+
+      // Render
       osmd.render();
-    } catch (e) {
-      block.innerHTML = "<pre style='color:red'>OSMD failed to load MusicXML.</pre>";
-      console.error(e);
+
+      // ---- Debugging / inspection helpers ----
+      // 1) A short automatic report printed to console about rendered SVG content
+      console.group('OSMD debug for block');
+      console.log('OSMD instance:', osmd);
+      // Number of SVG elements inside the osmd-block
+      const svg = block.querySelector('svg');
+      console.log('SVG element present?', !!svg);
+      console.log('SVG total child elements:', svg ? svg.querySelectorAll('*').length : 0);
+
+      // 2) Count candidate notehead / stem elements (generic)
+      // These selectors are intentionally broad (VexFlow/OSMD class names vary across versions)
+      const noteheads = svg ? svg.querySelectorAll('path, circle, ellipse') : [];
+      console.log('Potential notehead path/circle/ellipse count:', noteheads.length);
+
+      // 3) Show the block inner HTML snapshot (short)
+      console.log('SVG outerHTML snapshot (first 1000 chars):', svg ? svg.outerHTML.slice(0,1000) : 'no svg');
+
+      console.groupEnd();
+
+      // 4) Handy functions you can paste in the Browser Console to inspect or force visible:
+      //   - Highlight noteheads/stems visually:
+      //       document.querySelectorAll('.osmd-block svg *').forEach(e=>{ if (e.tagName==='path' || e.tagName==='circle' || e.tagName==='ellipse') { e.style.stroke='red'; e.style.fill='red'; }});
+      //   - Print all text nodes in the SVG (sometimes durations are text elements)
+      //       Array.from(document.querySelectorAll('.osmd-block svg text')).forEach(t=>console.log(t.textContent, t));
+      //
+      // Try the above in the console after load to see if durations or noteheads exist but are invisible.
+
+    } catch (err) {
+      console.error('OSMD debug/load error:', err);
+      block.innerHTML = "<pre style='color:red'>OSMD failed to load MusicXML (see console).</pre>";
     }
   }
 });

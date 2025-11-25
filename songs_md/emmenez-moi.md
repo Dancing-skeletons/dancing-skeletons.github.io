@@ -1,4 +1,4 @@
-# Emmenez-moi (Uku heaven)- Charles Aznavour
+# Emmenez-moi (Uku heaven) - Charles Aznavour
 
 ## Accords:
 <uke-chord name="Am" frets="2000"></uke-chord> 
@@ -13,6 +13,15 @@
 - 6 temps sur chaque accord, 3 temps pour [(X)]
 - Possibilité de remplacer le [(F*)] par un (2013)
 - Début du refrain, [Amadd9] en (2002), [(Am*)] en (2003)
+- Rythmique:
+    - Sur le temps
+    - Couplet partie rapide (entre "Ils viennent..." et "...plages") en triolé
+    - Refrain:
+    <pre class="tableau">
+    1 & 2 & 3 & 1 & 2 & 3 &
+    🠟     🠝 🠟   🠟     🠝 🠟
+    </pre>
+
 
 
 ## Paroles:
@@ -65,5 +74,5 @@ Je fuirais [Am]laissant là mon [G]passé Sans aucun re[Am]mords[E7]
 Sans [Am]bagage et le coeur li[G]béré En chantant très[Am] fort[Am/]  
 
 :::highlight
-### Refrain
+### Refrain X2 + refrain avec [(Am) G7 C] au début
 :::

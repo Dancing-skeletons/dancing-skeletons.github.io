@@ -1,4 +1,4 @@
-# Enjoy the ride (Uku cheat)- Morcheeba
+# Enjoy the ride (Uku cheat) - Morcheeba
 
 ## Accords:
 <uke-chord name="Gm" frets="0231"></uke-chord> 
@@ -23,7 +23,7 @@
 - Strumming pour le reste:
 <pre class="tableau">
 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 &
-D       D   D U   U D   D   D U
+🠟       🠟   🠟 🠝   🠝 🠟   🠟   🠟 🠝
 </pre>
 
 ## Paroles:

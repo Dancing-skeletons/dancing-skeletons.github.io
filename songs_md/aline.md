@@ -1,4 +1,4 @@
-# Aline (Uku heaven)- Christophe
+# Aline (Uku heaven) - Christophe
 
 ## Accords uku 1:
 <uke-chord name="C" frets="0003"></uke-chord> 
@@ -16,9 +16,9 @@
 
 
 ## Instructions:
-- Intro: chaque accord dure 4 temps, joué ↓↓↓.
-- Couplets: chaque accord dure 4 temps, arpège du type (4321) pour [C E7 F], ↓↓↓ sur [G], suivi de [G7].
-- Refrain: chaque accord dure 2 temps, ↓↓↓ pour chaque accord.
+- Intro: chaque accord dure 4 temps, joué 🠟🠟🠟.
+- Couplets: chaque accord dure 4 temps, arpège du type (4321) pour [C E7 F], 🠟🠟🠟 sur [G], suivi de [G7].
+- Refrain: chaque accord dure 2 temps, 🠟🠟🠟 pour chaque accord.
 - Refrain: re[G]vienne à faire en [G G G7].
 
 ## Paroles:

@@ -1,4 +1,4 @@
-# The zephyr song (TenThumbs prod)- RHCP
+# The zephyr song (TenThumbs prod) - RHCP
 
 ## Accords couplets:
 <uke-chord name="Am" frets="2000"></uke-chord> 
@@ -26,16 +26,16 @@
 Suivre la progression [Am G Em F]*4 via:
 <pre class="tableau">
 1 & 2 & 3 & 4 &
-D U D U   U D U
+🠟 🠝 🠟 🠝   🠝 🠟 🠝
 </pre>
 
-### Pré-refrain: une mesure de [X] en DUDUDUDU.
+### Pré-refrain: une mesure de [X] en 🠟🠝🠟🠝🠟🠝🠟🠝.
 
 ### Refrain:
 Suivre la progression [D D G A] via:
 <pre class="tableau">
 1 & 2 & 3 & 4 &
-D   D U   U D U
+🠟   🠟 🠝   🠝 🠟 🠝
 </pre>
 
 ### Couplets avancés:
