@@ -20,11 +20,18 @@ G7 G7 D  D
 A  A7 D  D
 </pre>
 
-- Chaque accord dure 1 mesure, rythmique:
-<pre class="tableau">
-1 & 2 & 3 & 4 &
-🠟   🠟 🠝   🠝 🠟   
-</pre>
+- Chaque accord dure 1 mesure
+- Rythmique refrain:
+    <pre class="tableau">
+    1 & 2 & 3 & 4 &
+    ▼   ▼ ▲   ▼ ▲    
+    </pre>
+    Possibilité de remplacer le ▼ sur le temps 2 par X ou une descente en arpège
+- Rythmique couplet:
+    <pre class="tableau">
+    1 & 2 & 3 & 4 &
+    ▼   X     X      
+    </pre>
 
 
 ## Paroles:

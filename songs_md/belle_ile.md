@@ -17,8 +17,7 @@
 
 
 ## Instructions:
-
-
+- Arpège: (14) 232 pour un accord entre parenthèse (x2 pour les autres)
 ## Paroles:
 
 
