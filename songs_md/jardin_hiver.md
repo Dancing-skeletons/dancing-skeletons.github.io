@@ -16,8 +16,8 @@
 
 ### Intro
 
-[B7]Tadada dada dada
-Tadada dada [Em]dada
+[B7]Tadada dada dada  
+Tadada dada [Em]dada  
 
 ### Couplet
 Je voudrais du [B7]soleil vert  
