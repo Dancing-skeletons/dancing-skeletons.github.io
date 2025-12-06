@@ -5,6 +5,7 @@
 <uke-chord name="Em" frets="0432"></uke-chord> 
 <uke-chord name="E7" frets="1202"></uke-chord> 
 <uke-chord name="Am" frets="2000"></uke-chord> 
+<uke-chord name="D7" frets="2223"></uke-chord> 
 <uke-chord name="G" frets="0232"></uke-chord> 
 
 
@@ -14,8 +15,7 @@
 
 ## Paroles:
 
-### Intro
-
+### Intro X2
 [B7]Tadada dada dada  
 Tadada dada [Em]dada  
 
@@ -59,4 +59,6 @@ Dans mon jardin [(Em)]d'hiver[(E7)]
 ### Refrain
 :::
 
-### Outro
+### Outro X2
+[B7]Tadada dada dada  
+Tadada dada [Em]dada  
