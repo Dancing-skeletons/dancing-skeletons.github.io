@@ -8,9 +8,9 @@
 
 
 ## Instructions:
-- Simple : (P.🠟🠝)*4 par accord (P:pouce sur corde 4)
-- Avancé: (P.🠟🠝)*3 + (P🠝🠟🠝) par accord.
-- Accord [Em*] avant refrain: uniquement (P.🠟🠝)*3
+- Simple : (P.▼▲)*4 par accord (P:pouce sur corde 4)
+- Avancé: (P.▼▲)*3 + (P▲▼▲) par accord.
+- Accord [Em*] avant refrain: uniquement (P.▼▲)*3
 ## Paroles:
 
 ### Couplet
@@ -19,7 +19,7 @@
 [D]C'était ta préférée je [G]crois  
 [B7]Qu'elle est de Prévert et [Em*]Kosma  
 
-:::highliht
+:::highlight
 ### Refrain
 Et chaque [C]fois "Les feuilles [G]mortes"  
 [D]Te rappellent à mon souve[G]nir  

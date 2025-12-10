@@ -7,7 +7,7 @@
 
 
 ## Instructions:
-- Sur chaque accord: (🠟🠝X🠝🠟🠝X.)
+- Sur chaque accord: (▼▲X▲▼▲X.)
 - Arpège (4321.23.)
 ## Paroles:
 

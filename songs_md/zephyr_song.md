@@ -26,16 +26,16 @@
 Suivre la progression [Am G Em F]*4 via:
 <pre class="tableau">
 1 & 2 & 3 & 4 &
-🠟 🠝 🠟 🠝   🠝 🠟 🠝
+▼ ▲ ▼ ▲   ▲ ▼ ▲
 </pre>
 
-### Pré-refrain: une mesure de [X] en 🠟🠝🠟🠝🠟🠝🠟🠝.
+### Pré-refrain: une mesure de [X] en ▼▲▼▲▼▲▼▲.
 
 ### Refrain:
 Suivre la progression [D D G A] via:
 <pre class="tableau">
 1 & 2 & 3 & 4 &
-🠟   🠟 🠝   🠝 🠟 🠝
+▼   ▼ ▲   ▲ ▼ ▲
 </pre>
 
 ### Couplets avancés:
@@ -122,7 +122,8 @@ La notation 7u-5: bending 1/2 up
 :::
 
 ### Solo  
-[Am G Em F]*2  
+[Am G Em F]  
+[Am G Em F]  
 
 [Am]whoa, whoa, whoa, whoa, [G]whoa, whoa, do you  
 [Em](Yeah) yeah, yeah, yeah, yeah, yeah, [F]yeah  

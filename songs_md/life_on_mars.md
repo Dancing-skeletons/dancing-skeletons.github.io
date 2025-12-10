@@ -43,7 +43,7 @@
 
 
 ## Instructions:
-- Couplet/Refrain: 🠟🠟 pour chaque accord.
+- Couplet/Refrain: ▼▼ pour chaque accord.
 - Arpège: ((14)232)
 
 ## Paroles:

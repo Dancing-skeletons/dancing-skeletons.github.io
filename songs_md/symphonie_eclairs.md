@@ -27,14 +27,13 @@
 - Intro / Pont: [G Cm G Cm Fm Cm G*2] 
 - Couplet / Refrain /Solo: [G Bm Am Am6]
 - Chaque accord dure 2 mesures
-- Arpège: (1323) par mesure 
-- 5 styles de strumming différents: S1 = arpège
+- 5 styles de strumming différents: S1 = arpège, (1323) par mesure 
 <pre class="tableau">
 S1: 1 3 2 3
-S2: 🠟 . . .
-S3: 🠟 . 🠟 .
-S4: 🠟 🠧🠝🠟 .
-S5: 🠧🠥🠧🠥🠧🠥🠧
+S2: ▼ . . .
+S3: ▼ . ▼ .
+S4: ▼ 🠧▲▼ .
+S5: ▼▲▼▲▼▲▼
 </pre>
 
 ## Paroles:

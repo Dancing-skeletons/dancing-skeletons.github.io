@@ -23,7 +23,7 @@
 - Strumming pour le reste:
 <pre class="tableau">
 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 &
-🠟       🠟   🠟 🠝   🠝 🠟   🠟   🠟 🠝
+▼       ▼   ▼ ▲   ▲ ▼   ▼   ▼ ▲
 </pre>
 
 ## Paroles:

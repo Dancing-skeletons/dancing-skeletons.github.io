@@ -22,7 +22,7 @@ Exemple sur les 2 premiers accords:
      Am                E7
 </pre>
 
-- Pour les couplets, les accords: (🠟.🠟🠝X🠝🠟🠝)*2
+- Pour les couplets, les accords: (▼.▼▲X▲▼▲)*2
 - Riff sur le second refrain + outro en remplacement de [C*]:
 
 <pre class="tableau">
@@ -30,7 +30,7 @@ Exemple sur les 2 premiers accords:
   E|—0————0——8———————|  
   C|—0————0——0———————|  
   G|—0————0——0———————|  
-     🠟.🠟🠝X🠝.🠝🠟.🠟🠝X🠝🠟🠝   
+     ▼.▼▲X▲.▲▼.▼▲X▲▼▲   
 </pre>
 
 ## Paroles:

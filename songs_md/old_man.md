@@ -37,13 +37,13 @@ That [C]makes me think[C] of two [F F]
 <pre class="tableau">
 temps:  1  &  2  &  3   &  4   &  |1  &  2  &  3  &  4  & 
 accord: D           Ds2 D  Ds2 D  |            Ds2   
-up/down:🠟  .  🠟  🠝  🠟   🠝  🠟   🠝  |.  🠝  🠟  🠝  🠟  .  🠟  .
+up/down:▼  .  ▼  ▲  ▼   ▲  ▼   ▲  |.  ▲  ▼  ▲  ▼  .  ▼  .
 </pre>
 
 <pre class="tableau">
 temps:  1  &  2  &  3   &  4   &  |1  &  2  &  3  &  4  & 
 accord: Am                        |Em          G            
-up/down:🠟  .  .  .  🠟   .  🠟   🠝  |🠟  .  .  .  🠟  .  .  .
+up/down:▼  .  .  .  ▼   .  ▼   ▲  |▼  .  .  .  ▼  .  .  .
 </pre>
 
 ### Refrain
