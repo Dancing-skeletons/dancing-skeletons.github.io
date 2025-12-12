@@ -11,6 +11,7 @@
 - Couplets: arpège du type (4321) pour [C E7 F] puis ↓↓↓ sur [G].
 - Chaque accord dure 2 temps
 - Refrain: ↓↓↓ pour chaque accord.
+- ▼▲▼▲▼▲▼
 
 
 musicxml: ./HC_Solo2.musicxml

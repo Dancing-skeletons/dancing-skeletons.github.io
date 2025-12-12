@@ -42,31 +42,31 @@ S5: ▼▲▼▲▼▲▼
 
 :::highlight
 ### S2: Refrain
-Il fait toujours beau au-dessus des nuages  
-Mais moi, si j'étais un oiseau, j'irais danser sous l'orage  
-Je traverserais les nuages comme le fait la lumière  
-J'écouterais sous la pluie la symphonie des éclairs  
+[G]Il fait toujours beau au-[Bm]dessus des nuages  
+Mais moi, si [Am]j'étais un oiseau, j'irais [Am6]danser sous l'orage  
+Je traver[G]serais les nuages comme le [Bm]fait la lumière  
+J'écouterais [Am]sous la pluie la sym[Am6]phonie des éclairs  
 :::
 
 ### S3: Couplet
-Dès sa plus tendre enfance  
-Elle ne savait pas parler autrement  
-Qu'en criant tout bas, pas faute d'essayer  
-De les retenir, ces cris et ces larmes  
-Qui les faisaient tant-  
+[G]Dès sa plus tendre en[Bm]fance  
+Elle ne savait [Am]pas parler au[Am6]trement  
+Qu'en criant [G]tout bas, pas faute d'es[Bm]sayer  
+De les re[Am]tenir, ces cris et ces [Am6]larmes  
+Qui les faisaient tant...  
 
 :::highlight
 ### S4: Refrain
 :::
 
 ### S1: Couplet
-En grandissant, rien ne s'est calmé  
-Petite tempête s'est trouvé  
-Des raisons de pleuvoir autant  
-Qui pourrait l'aimer, franchement?  
-Personne n'aimerait se retrouver  
-Au cœur d'une tempête, avouez  
-Il y a des raisons de pleurer  
+[G]En grandissant, rien ne s'est calmé[Bm]  
+Petite tempête s'est trou[Am]vée  
+Des raisons de pleuvoir au[Am6]tant  
+Qui pourrait l'aimer, fran[G]chement?  
+Personne n'aimerait se retrou[Bm]ver  
+Au cœur d'une tempête, avouez[Am]  
+Il y a des raisons de pleurer[Am6]  
 Elle a ses raisons, mais...  
 
 :::highlight
@@ -78,19 +78,19 @@ Elle a ses raisons, mais...
 :::
 
 ### S1: Pont: [G Cm] (pré-pont)
-Quand la tempête a su  
-Que des mélodies pouvaient s'échapper du vent  
-Et se retrouver dans le cœur des gens  
-Celle-ci s'est dit  
-"Nulle raison d'envier le soleil  
-Je ferai danser les gens au rythme de mes pleurs  
-La tourmente de mes chants viendra réchauffer les cœurs  
-Réchauffer mon cœur"  
+[G]Quand la tempête a [Cm]su  
+Que des mélo[G]dies pouvaient s'échapper du [Cm]vent  
+Et se retrou[Fm]ver dans le cœur des [Cm]gens  
+Celle-ci s'est [G]dit  
+"[G]Nulle raison d'envier le so[Cm]leil  
+Je ferai danser les [G]gens au rythme de mes [Cm]pleurs  
+La tourmente de mes [Fm]chants viendra réchauffer les [Cm]cœurs  
+Réchauffer mon [G]cœur"[G]  
 
 :::highlight
 ### S2: Refrain
-Il fait toujours beau au-dessus des nuages  
-Mais moi, je suis de ces oiseaux qui nous font danser sous l'orage
-Je traverserais tous les nuages pour trouver la lumière
-En chantant sous la pluie la symphonie des éclairs
+[G]Il fait toujours beau au-[Bm]dessus des nuages  
+Mais moi, je [Am]suis de ces oiseaux qui nous font [Am6]danser sous l'orage
+Je traver[G]serais tous les nuages pour [Bm]trouver la lumière
+En chan[Am]tant sous la pluie la sym[Am6]phonie des éclairs
 :::
