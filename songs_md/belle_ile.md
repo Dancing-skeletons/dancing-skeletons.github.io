@@ -1,20 +1,23 @@
 # Belle ile en mer (Uku heaven) - Laurent Voulzy
 
-## Accords:
-<uke-chord name="Am" frets="2000"></uke-chord> 
-<uke-chord name="Am6(C6)" frets="0000"></uke-chord> 
+## Accords refrain:
+<uke-chord name="G" frets="0232"></uke-chord> 
 <uke-chord name="C" frets="0003"></uke-chord> 
-<uke-chord name="C7" frets="0001"></uke-chord> 
-<uke-chord name="D" frets="2220"></uke-chord> 
-<uke-chord name="D7" frets="2020"></uke-chord> 
-<uke-chord name="Dm" frets="2210"></uke-chord> 
 <uke-chord name="D6" frets="2222"></uke-chord> 
 <uke-chord name="E7" frets="1202"></uke-chord> 
+<uke-chord name="D6" frets="2222"></uke-chord> 
+<uke-chord name="Gmaj7" frets="0222"></uke-chord> 
+<uke-chord name="Am7(C6)" frets="0000"></uke-chord> 
+<uke-chord name="D" frets="2220"></uke-chord> 
+
+## Accords couplet:
 <uke-chord name="G" frets="0232"></uke-chord> 
 <uke-chord name="G7" frets="0212"></uke-chord> 
-<uke-chord name="Gmaj7" frets="0222"></uke-chord> 
+<uke-chord name="C" frets="0003"></uke-chord> 
+<uke-chord name="E7" frets="1202"></uke-chord> 
+<uke-chord name="C7" frets="0001"></uke-chord> 
 <uke-chord name="F" frets="2010"></uke-chord> 
-
+<uke-chord name="Am7(C6)" frets="0000"></uke-chord> 
 
 ## Instructions:
 - Arpège: (14) 232 pour un accord entre parenthèse (x2 pour les autres)

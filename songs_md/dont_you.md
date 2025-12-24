@@ -24,13 +24,13 @@ A  A7 D  D
 - Rythmique refrain:
     <pre class="tableau">
     1 & 2 & 3 & 4 &
-    ▼   ▼ ▲   ▼ ▲    
+    ▼   ▼ ▲   ▲ ▼    
     </pre>
     Possibilité de remplacer le ▼ sur le temps 2 par X ou une descente en arpège
 - Rythmique couplet:
     <pre class="tableau">
     1 & 2 & 3 & 4 &
-    ▼   X     X      
+    ▼   X       X      
     </pre>
 
 
