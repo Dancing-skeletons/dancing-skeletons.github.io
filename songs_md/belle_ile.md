@@ -14,6 +14,7 @@
 <uke-chord name="G" frets="0232"></uke-chord> 
 <uke-chord name="G7" frets="0212"></uke-chord> 
 <uke-chord name="C" frets="0003"></uke-chord> 
+<uke-chord name="Dm" frets="2210"></uke-chord> 
 <uke-chord name="E7" frets="1202"></uke-chord> 
 <uke-chord name="C7" frets="0001"></uke-chord> 
 <uke-chord name="F" frets="2010"></uke-chord> 
@@ -38,11 +39,11 @@ Qui [(Gm7)]vous sépare[(Am7)]
 
  
 [(G) (G7)] Moi des souvenirs [(C)]d'enfance  
-[(E7)]En Fran[(C)]ce  
-[(E7)]Vio[(C)]lence  
+[(Dm)]En Fran[(C)]ce  
+[(Dm)]Vio[(C)]lence  
 [(G7)] Manque d'indul[(C)]gence  
-[(E7)]Par les différences que [(C)]j'ai  
-Café[(G7)] Léger[(C)]  
+[(Dm)]Par les différences que [(C)]j'ai  
+Café[(Dm) (C)] Léger[(Dm) (C)]  
 Au[(G7)] lait [(C)]mélangé  
 Séparé [(C7)]petit [(F)]enfant  
 [(G7)]Tout comme [(C)]vous  
@@ -55,11 +56,11 @@ Je con[(C7)]nais ce [(F)]sentiment
 
 ### Couplet
 [(G) (G7)] Comme laissé tout seul [(C)]en mer  
-[(E7)]Corsai[(C)]re  
-[(E7)]Sur[(C)]Terre  
+[(Dm)]Corsai[(C)]re  
+[(Dm)]Sur[(C)]Terre  
 [(G7)] Un peu soli[(C)]taire  
-[(E7)]L'amour je le voyais  pas[(C)]ser  
-Ohé[(G7)] Ohé[(C)]  
+[(Dm)]L'amour je le voyais  pas[(C)]ser  
+Ohé[(Dm) (C)] Ohé[ (Dm) (C)]  
 Je[(G7)] le voyais [(C)]passer  
 Séparé [(C7)]petit [(F)]enfant  
 [(G7)]Tout comme [(C)]vous  
