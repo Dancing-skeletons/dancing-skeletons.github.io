@@ -18,6 +18,8 @@
 <uke-chord name="C7" frets="0001"></uke-chord> 
 <uke-chord name="F" frets="2010"></uke-chord> 
 <uke-chord name="Am7(C6)" frets="0000"></uke-chord> 
+<uke-chord name="D7" frets="2020"></uke-chord> 
+
 
 ## Instructions:
 - Arpège: (14) 232 pour un accord entre parenthèse (x2 pour les autres)
