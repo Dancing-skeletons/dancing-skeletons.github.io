@@ -16,20 +16,20 @@
 ## Paroles:
 
 
-[Dm]The falling [Gm7] leaves [C7] drift by the [Fmaj7] window
-[Bbmaj7]The Autumn [Gm6] leaves [A7]
-of red and [Dm] gold
-I  see your [Gm7] lips, [C7] the summer [Fmaj7] kisses
-The [Bbmaj7] sun-burned [Gm6] hands [A7]
-I used to [Dm] hold
+[Dm]The falling [Gm7] leaves [C7] drift by the [Fmaj7] window  
+[Bbmaj7]The Autumn [Gm6] leaves [A7]  
+of red and [Dm] gold  
+I  see your [Gm7] lips, [C7] the summer [Fmaj7] kisses  
+The [Bbmaj7] sun-burned [Gm6] hands [A7]  
+I used to [Dm] hold  
 
-[Dm]Since you went [Gm6]away [A7]
-the days grow [Dm] long
-[Dm] And soon I'll [Gm7] hear
-[C7] old winter's [Fmaj7] song
-[Fmaj7] But I [Gm6] miss you most of [A7] all
-my [Dm] dar-ling [Dm]
-When [Gm6] Au-tumn [A7] leaves 
+[Dm]Since you went [Gm6]away [A7]  
+the days grow [Dm] long  
+[Dm] And soon I'll [Gm7] hear  
+[C7] old winter's [Fmaj7] song  
+[Fmaj7] But I [Gm6] miss you most of [A7] all  
+my [Dm] dar-ling [Dm]  
+When [Gm6] Au-tumn [A7] leaves   
 start to [Dm] fall
 
 :::highlight
@@ -39,17 +39,17 @@ start to [Dm] fall
 :::
 
 
-[Dm]Since you went [Gm6]away [A7]
-the days grow [Dm] long
-[Dm] And soon I'll [Gm7] hear
-[C7] old winter's [Fmaj7] song
-[Fmaj7] But I [Gm6] miss you most of [A7] all
-my [Dm] dar-ling [Dm]
-When [Gm6] Au-tumn [A7] leaves 
-start to [Dm] fall
-[Fmaj7] Yes I [Gm6] miss you most of [A7] all
-my [Dm] dar-ling [Dm]
-When [Gm6] Au-tumn [A7] leaves 
+[Dm]Since you went [Gm6]away [A7]  
+the days grow [Dm] long  
+[Dm] And soon I'll [Gm7] hear  
+[C7] old winter's [Fmaj7] song  
+[Fmaj7] But I [Gm6] miss you most of [A7] all  
+my [Dm] dar-ling [Dm]  
+When [Gm6] Au-tumn [A7] leaves   
+start to [Dm] fall  
+[Fmaj7] Yes I [Gm6] miss you most of [A7] all  
+my [Dm] dar-ling [Dm]  
+When [Gm6] Au-tumn [A7] leaves   
 start to [Dm] fall
 
 :::highlight
