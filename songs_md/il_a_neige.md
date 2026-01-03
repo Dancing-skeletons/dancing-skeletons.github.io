@@ -1,4 +1,4 @@
-# Il a neigé sur Yesterday (Dsus2)- Marie Laforêt
+# Il a neigé sur Yesterday (Dsus2) - Marie Laforêt
 
 ## Accords:
 <uke-chord name="G" frets="0232"></uke-chord>
