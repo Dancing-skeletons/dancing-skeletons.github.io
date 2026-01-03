@@ -1,0 +1,171 @@
+body { 
+  font-family: system-ui, Arial, sans-serif;
+  padding: 1rem;
+  line-height: 1.6;
+}
+
+/* Code blocks */
+pre code {
+  font-size: 1.5em;
+  font-family: monospace;
+}
+
+/* Column layouts */
+#content.two-column {
+  column-count: 2;
+  column-gap: 2em;
+}
+
+#content.one-column {
+  column-count: 1;
+}
+
+#content.three-column {
+  column-count: 3;
+  column-gap: 2em;
+}
+
+/* Chords */
+.chord {
+  color: #b00;
+  font-weight: 600;
+  font-size: 0.9em;
+  vertical-align: super;
+  margin-right: 0.12em;
+}
+
+
+/* Tableau */
+.tableau-group {
+  display: inline-block;
+  vertical-align: top;
+  max-width: 100%;
+  margin-right: 1em;
+}
+
+pre.tableau {
+  font-family: monospace;
+  white-space: pre;
+  font-size: 1.4em;
+  line-height: 1.4em;
+  margin: 0;
+  overflow-x: auto;
+}
+
+/* Superscripts */
+.big-sup {
+  font-size: 1.4em;
+  vertical-align: super;
+  color: red;
+}
+
+/* Highlight box */
+.highlight {
+  background-color: #d3d3d3;
+  border: 2px solid #d3d3d3;
+  border-radius: 5px;
+  padding: 10px;
+
+  /* Uncomment if you need exact print colors */
+  /*
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+  color-adjust: exact;
+  */
+}
+
+.highlight .big-sup {
+  color: #800000;
+}
+
+/* Staff */
+.staff {
+  display: grid;
+  grid-template-rows: repeat(4, 30px);
+  grid-auto-flow: column;
+  gap: 10px;
+}
+
+.staff div {
+  border-bottom: 2px solid black;
+  text-align: center;
+  line-height: 30px;
+  font-weight: bold;
+}
+
+/* OSMD */
+.osmd-block {
+  margin: 1.5em 0;
+  border: 1px solid #ddd;
+  padding: 0.5em;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+.verovio-block svg {
+  max-width: 100%;
+  height: auto;
+  margin: 1.5em 0;
+  border: 1px solid #ddd;
+  padding: 0.5em;
+  border-radius: 8px;
+  background: #fafafa;
+}
+
+
+#toggle-columns {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  padding: 8px 12px;
+  background: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+#toggle-chords {
+  position: fixed;
+  top: 55px;
+  right: 10px;
+  padding: 8px 12px;
+  background: #007acc;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  z-index: 9999;
+}
+
+
+/* Print rules */
+@media print {
+  #content.two-column {
+    column-count: 2;
+    column-gap: 2em;
+  }
+
+  #content.one-column {
+    column-count: 1 !important;
+  }
+
+  #content.three-column {
+    column-count: 3;
+    column-gap: 2em;
+  }
+
+  #toggle-columns,
+  #toggle-chords {
+    display: none;
+  }
+}
+
+/* Hidden chords */
+uke-chord.hidden {
+  display: none;
+}
+
+.chord-small { display: none; }
+.chord-large { display: inline-block; }
