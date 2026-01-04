@@ -125,36 +125,77 @@ document.querySelectorAll(".chord-small").forEach(el => el.style.display = chord
 (() => {
   const toolkit = new verovio.toolkit();
 
-  function renderAllVerovio() {
-    const blocks = document.querySelectorAll(".verovio-block");
-
-    blocks.forEach(block => {
-      try {
+function renderAllVerovio() {
+  const blocks = document.querySelectorAll(".verovio-block");
+  blocks.forEach(block => {
+    try {
       const xml = decodeURIComponent(block.dataset.musicxml);
-        const width = block.clientWidth || 800;
-        const containerWidth = block.clientWidth || 800; // px
-
-        const svg = toolkit.renderData(xml, {
+    
+        let options;
+        // Screen: use container width
+        const containerWidth = block.clientWidth || 800;
+        options = {
           scale: 105,
-          pageWidth: containerWidth * 2,  // width in tenths
+          pageWidth: containerWidth * 2,
           pageHeight: 2000,
-          spacingStaff: 14,
-          spacingSystem: 22,
+          spacingStaff: 0,
+          spacingSystem: 0,
           adjustPageHeight: true,
           breaks: "auto",
           header: "none",
-          footer: "none"
-        });
+          footer: "none",
+          pageMarginLeft: 10,
+          pageMarginRight: 10,
+          pageMarginTop: 10,
+          pageMarginBottom: 10,
+          mnumInterval: 4
+        };
 
-        block.innerHTML = svg;
-      } catch (e) {
-        console.error("Verovio error:", e);
-        block.innerHTML =
-          "<pre style='color:red'>MusicXML failed to render</pre>";
-      }
-    });
-  }
+      const svg = toolkit.renderData(xml, options);
+      block.innerHTML = svg;
+    } catch (e) {
+      console.error("Verovio error:", e);
+      block.innerHTML =
+        "<pre style='color:red'>MusicXML failed to render</pre>";
+    }
+  });
+}
 
+function renderAllVerovioprint() {
+  const blocks = document.querySelectorAll(".verovio-block");
+  blocks.forEach(block => {
+    try {
+      const xml = decodeURIComponent(block.dataset.musicxml);
+      let options;
+        // Screen: use container width
+        const containerWidth = block.clientWidth || 800;
+        options = {
+          scale: 125,
+          pageWidth: containerWidth * 1,
+          pageHeight: 2000,
+          spacingStaff: 0,
+          spacingSystem: 0,
+          adjustPageHeight: true,
+          breaks: "auto",
+          header: "none",
+          footer: "none",
+          pageMarginLeft: 10,
+          pageMarginRight: 10,
+          pageMarginTop: 10,
+          pageMarginBottom: 10,
+          mnumInterval: 4,
+        };
+
+      let svg = toolkit.renderData(xml, options);
+      // Force SVG dimensions for print
+      block.innerHTML = svg;
+    } catch (e) {
+      console.error("Verovio error:", e);
+      block.innerHTML =
+        "<pre style='color:red'>MusicXML failed to render</pre>";
+    }
+  });
+}
   // Initial render
   document.addEventListener("DOMContentLoaded", renderAllVerovio);
 
@@ -166,8 +207,11 @@ document.querySelectorAll(".chord-small").forEach(el => el.style.display = chord
   });
 
   // Print support
-  window.addEventListener("beforeprint", renderAllVerovio);
+  window.addEventListener("beforeprint", renderAllVerovioprint);
   window.addEventListener("afterprint", renderAllVerovio);
+/*  window.addEventListener("afterprint", () => {
+    setTimeout(renderAllVerovio, 50);
+  });*/
 
   // Manual trigger (column button)
   document.addEventListener("verovio:rerender", renderAllVerovio);

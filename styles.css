@@ -168,6 +168,24 @@ pre.tableau {
   #toggle-chords {
     display: none;
   }
+
+.verovio-block svg {
+    width: 100% !important;
+    height: auto !important;
+    max-width: 100% !important;
+    page-break-inside: avoid;
+    transform: scale(1) !important;
+    transform-origin: 0 0 !important;
+  }
+
+    .verovio-block {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    break-inside: avoid;
+  }
+
 }
 
 /* Hidden chords */

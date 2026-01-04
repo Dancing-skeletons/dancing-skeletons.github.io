@@ -50,55 +50,19 @@ md.use(container, 'highlight', {
   }
 });
 
-function staffPlugin(md) {
-  function renderStaff(state, startLine, endLine, silent) {
-    const lines = state.src.split('\n');
-    let lineText = lines[startLine].trim();
-    if (!lineText.startsWith('staff:')) return false;
-
-    // Determine how many lines belong to this staff block
-    let currentLine = startLine + 1;
-    const staffLines = [lineText.slice(6).trim()]; // first line after 'staff:'
-
-    while (currentLine < lines.length) {
-      const l = lines[currentLine].trim();
-      if (l === '' || l.startsWith('-') || l.match(/^#+\s/)) break; // stop at empty line or next block
-      staffLines.push(l);
-      currentLine++;
-    }
-
-    if (!silent) {
-      const rows = staffLines.map(r => r.split('|').map(c => c.trim()));
-      let html = '<div class="staff">';
-
-      // Lines are rendered bottom-up
-      for (let row = rows.length - 1; row >= 0; row--) {
-        for (const cell of rows[row]) {
-          html += `<div>${cell || ''}</div>`;
-        }
-      }
-
-      html += '</div>';
-      state.tokens.push({
-        type: 'html_block',
-        content: html,
-        block: true,
-      });
-    }
-
-    state.line = currentLine;
-    return true;
-  }
-
-  md.block.ruler.before('paragraph', 'staff', renderStaff);
-}
-
-md.use(staffPlugin);
 
 /* -------------------------
    MUSICXML BLOCK / FILE SUPPORT
 -------------------------- */
 function musicXmlBlockPlugin(md, baseDir) {
+  function removePartNames(xml) {
+  // Remove content between <part-name> and </part-name>
+  let cleanedXml = xml.replace(/<part-name>[^<]*<\/part-name>/g, '<part-name></part-name>');
+  // Remove content between <part-abbreviation> and </part-abbreviation>
+  cleanedXml = cleanedXml.replace(/<part-abbreviation>[^<]*<\/part-abbreviation>/g, '<part-abbreviation></part-abbreviation>');
+  return cleanedXml;
+}
+
   function renderMusicXml(state, startLine, endLine, silent) {
     const lines = state.src.split('\n');
     let line = lines[startLine].trim();
@@ -113,8 +77,9 @@ function musicXmlBlockPlugin(md, baseDir) {
       return false;
     }
 
-    const xmlData = fs.readFileSync(fullPath, 'utf8');
-    const encoded = encodeURIComponent(xmlData);
+  let xmlData = fs.readFileSync(fullPath, 'utf8');
+  xmlData = removePartNames(xmlData); // <-- Clean the XML here
+  const encoded = encodeURIComponent(xmlData);
 
     if (!silent) {
      const html = `<div class="verovio-block" data-musicxml="${encoded}"></div>`;
@@ -225,36 +190,77 @@ document.querySelectorAll(".chord-small").forEach(el => el.style.display = chord
 (() => {
   const toolkit = new verovio.toolkit();
 
-  function renderAllVerovio() {
-    const blocks = document.querySelectorAll(".verovio-block");
-
-    blocks.forEach(block => {
-      try {
+function renderAllVerovio() {
+  const blocks = document.querySelectorAll(".verovio-block");
+  blocks.forEach(block => {
+    try {
       const xml = decodeURIComponent(block.dataset.musicxml);
-        const width = block.clientWidth || 800;
-        const containerWidth = block.clientWidth || 800; // px
-
-        const svg = toolkit.renderData(xml, {
+    
+        let options;
+        // Screen: use container width
+        const containerWidth = block.clientWidth || 800;
+        options = {
           scale: 105,
-          pageWidth: containerWidth * 2,  // width in tenths
+          pageWidth: containerWidth * 2,
           pageHeight: 2000,
-          spacingStaff: 14,
-          spacingSystem: 22,
+          spacingStaff: 0,
+          spacingSystem: 0,
           adjustPageHeight: true,
           breaks: "auto",
           header: "none",
-          footer: "none"
-        });
+          footer: "none",
+          pageMarginLeft: 10,
+          pageMarginRight: 10,
+          pageMarginTop: 10,
+          pageMarginBottom: 10,
+          mnumInterval: 4
+        };
 
-        block.innerHTML = svg;
-      } catch (e) {
-        console.error("Verovio error:", e);
-        block.innerHTML =
-          "<pre style='color:red'>MusicXML failed to render</pre>";
-      }
-    });
-  }
+      const svg = toolkit.renderData(xml, options);
+      block.innerHTML = svg;
+    } catch (e) {
+      console.error("Verovio error:", e);
+      block.innerHTML =
+        "<pre style='color:red'>MusicXML failed to render</pre>";
+    }
+  });
+}
 
+function renderAllVerovioprint() {
+  const blocks = document.querySelectorAll(".verovio-block");
+  blocks.forEach(block => {
+    try {
+      const xml = decodeURIComponent(block.dataset.musicxml);
+      let options;
+        // Screen: use container width
+        const containerWidth = block.clientWidth || 800;
+        options = {
+          scale: 125,
+          pageWidth: containerWidth * 1,
+          pageHeight: 2000,
+          spacingStaff: 0,
+          spacingSystem: 0,
+          adjustPageHeight: true,
+          breaks: "auto",
+          header: "none",
+          footer: "none",
+          pageMarginLeft: 10,
+          pageMarginRight: 10,
+          pageMarginTop: 10,
+          pageMarginBottom: 10,
+          mnumInterval: 4,
+        };
+
+      let svg = toolkit.renderData(xml, options);
+      // Force SVG dimensions for print
+      block.innerHTML = svg;
+    } catch (e) {
+      console.error("Verovio error:", e);
+      block.innerHTML =
+        "<pre style='color:red'>MusicXML failed to render</pre>";
+    }
+  });
+}
   // Initial render
   document.addEventListener("DOMContentLoaded", renderAllVerovio);
 
@@ -266,8 +272,11 @@ document.querySelectorAll(".chord-small").forEach(el => el.style.display = chord
   });
 
   // Print support
-  window.addEventListener("beforeprint", renderAllVerovio);
+  window.addEventListener("beforeprint", renderAllVerovioprint);
   window.addEventListener("afterprint", renderAllVerovio);
+/*  window.addEventListener("afterprint", () => {
+    setTimeout(renderAllVerovio, 50);
+  });*/
 
   // Manual trigger (column button)
   document.addEventListener("verovio:rerender", renderAllVerovio);
