@@ -114,6 +114,8 @@ pre.tableau {
 
 
 #toggle-columns {
+  font-size: 1.5rem;
+  font-weight: bold;
   position: fixed;
   top: 10px;
   right: 10px;
@@ -124,11 +126,15 @@ pre.tableau {
   border-radius: 6px;
   cursor: pointer;
   z-index: 9999;
+  width: 220px;          /* ← same width */
+  text-align: center;
 }
 
 #toggle-chords {
+  font-size: 1.5rem;
+  font-weight: bold;
   position: fixed;
-  top: 55px;
+  top: 70px;
   right: 10px;
   padding: 8px 12px;
   background: #007acc;
@@ -137,6 +143,8 @@ pre.tableau {
   border-radius: 6px;
   cursor: pointer;
   z-index: 9999;
+  width: 220px;          /* ← same width */
+  text-align: center;
 }
 
 
