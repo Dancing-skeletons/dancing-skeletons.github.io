@@ -15,7 +15,7 @@
 
 ## Paroles:
 
-
+### Couplet
 [Dm]The falling [Gm7] leaves [C7] drift by the [Fmaj7] window  
 [Bbmaj7]The Autumn [Gm6] leaves [A7]  
 of red and [Dm] gold  
@@ -23,6 +23,7 @@ I  see your [Gm7] lips, [C7] the summer [Fmaj7] kisses
 The [Bbmaj7] sun-burned [Gm6] hands [A7]  
 I used to [Dm] hold  
 
+### Refrain
 [Dm]Since you went [Gm6]away [A7]  
 the days grow [Dm] long  
 [Dm] And soon I'll [Gm7] hear  
@@ -38,7 +39,7 @@ start to [Dm] fall
 [Bbmaj7 Gm6 A7 Dm]
 :::
 
-
+ ### Refrain
 [Dm]Since you went [Gm6]away [A7]  
 the days grow [Dm] long  
 [Dm] And soon I'll [Gm7] hear  

@@ -21,6 +21,7 @@
 
 ## Paroles:
 
+### Couplet
 [Dm] The falling [Gm7] leaves [C7] drift by the [Fmaj7] window  
 [Bbmaj7] The Autumn [C9] leaves [A7]  
 of [A7+5] red and [Dm] gold [Dm7]  
@@ -28,6 +29,7 @@ I  see your [Gm7] lips, [C7] the summer [Fmaj7] kisses
 The [Bbmaj7] sun-burned [C9] hands [A7]  
 I [A7+5] used to [Dm] hold [Dm7]  
 
+### Refrain
 Since you went a[A7]way  
 [A7sus4] the [A7] days grow [Dm] long  
 [Dm7] And soon I'll [Csus4] hear  
@@ -37,8 +39,13 @@ my [Dm] dar-ling [B7]
 When [C9] Au-tumn [A7] leaves [A7sus4]  
 [A7+5] start to [Dm] fall  
 
-Since you went a-[A7]way [A7sus4] the [A7] days grow [Dm] long  
-[Dm7] And soon I'll [Csus4] hear [C7sus4] old [C7] winter's [Dm] song  
-[Dm7] But I [C9] miss you most of [A7] all my [Dm] dar-ling [B7]  
-When [C9] Au-tumn [A7] leaves [A7sus4] [A7+5] start to [Dm] fall  
+### Refrain
+Since you went a-[A7]way [A7sus4]  
+the [A7] days grow [Dm] long  
+[Dm7] And soon I'll [Csus4] hear  
+[C7sus4] old [C7] winter's [Dm] song  
+[Dm7] But I [C9] miss you most of [A7] all  
+my [Dm] dar-ling [B7]  
+When [C9] Au-tumn [A7] leaves [A7sus4]  
+[A7+5] start to [Dm] fall  
 [Dm6]

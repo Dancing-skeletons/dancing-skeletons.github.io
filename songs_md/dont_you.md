@@ -9,16 +9,16 @@
 
 ## Instructions:
 - Couplets accords:
-<pre class="tableau">
-D  D  D  D
-D  D  D  D
-</pre>
+    <pre class="tableau">
+    D  D  D  D
+    D  D  D  D
+    </pre>
 - Refrain accords:
-<pre class="tableau">
-D  D  D  D
-G7 G7 D  D
-A  A7 D  D
-</pre>
+    <pre class="tableau">
+    D  D  D  D
+    G7 G7 D  D
+    A  A7 D  D
+    </pre>
 
 - Chaque accord dure 1 mesure
 - Rythmique refrain:
