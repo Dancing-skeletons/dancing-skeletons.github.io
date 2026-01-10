@@ -1,0 +1,222 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>heroes.md</title>
+<link rel="stylesheet" href="../styles.css"> 
+<script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
+<script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
+<script src="https://www.verovio.org/javascript/latest/verovio-toolkit.js"></script>
+</head>
+<body>
+<button id="toggle-columns">Colonnes</button>
+<button id="toggle-chords">Vue accords</button>
+<div id="content" class="two-column">
+<h1>Heroes (Dsus2) - David Bowie</h1>
+<h2>Accords:</h2>
+<p><uke-chord name="C" frets="0003" size="1" class="chord-large"></uke-chord><uke-chord name="C" frets="0003" size="0.7" class="chord-small"></uke-chord>
+<uke-chord name="D" frets="2220" size="1" class="chord-large"></uke-chord><uke-chord name="D" frets="2220" size="0.7" class="chord-small"></uke-chord>
+<uke-chord name="Am" frets="2000" size="1" class="chord-large"></uke-chord><uke-chord name="Am" frets="2000" size="0.7" class="chord-small"></uke-chord>
+<uke-chord name="Em" frets="0432" size="1" class="chord-large"></uke-chord><uke-chord name="Em" frets="0432" size="0.7" class="chord-small"></uke-chord>
+<uke-chord name="G" frets="0232" size="1" class="chord-large"></uke-chord><uke-chord name="G" frets="0232" size="0.7" class="chord-small"></uke-chord></p>
+<h2>Instructions:</h2>
+<ul>
+<li>Strumming:  <pre class="tableau">
+  1 & 2 & 3 & 4 &
+  ▾   ▾   ▼   ▾  
+  </pre>
+</li>
+</ul>
+<h2>Paroles:</h2>
+<div class="highlight">
+<h3>Intro</h3>
+<p><sup class="big-sup">D G D G</sup></p>
+</div>
+<h3>Couplet</h3>
+<p><sup class="big-sup">D</sup>I - I wish you could <sup class="big-sup">G</sup>swim<br>
+Like the <sup class="big-sup">D</sup>dolphins - like dolphins can <sup class="big-sup">G</sup>swim<br>
+Though <sup class="big-sup">C</sup>nothing - nothing will keep us to<sup class="big-sup">D</sup>gether<br>
+We can <sup class="big-sup">(Am)</sup>beat them <sup class="big-sup">(Em)</sup>forever and <sup class="big-sup">D</sup>ever<br>
+Oh we can be <sup class="big-sup">(C)</sup>Heroes <sup class="big-sup">(G)</sup>just for one <sup class="big-sup">D</sup>day</p>
+<div class="highlight">
+<h3>Instrumental</h3>
+<p><sup class="big-sup">D G D G</sup></p>
+</div>
+<h3>Couplet</h3>
+<p><sup class="big-sup">D</sup>I - I will be <sup class="big-sup">G</sup>King<br>
+And <sup class="big-sup">D</sup>you - you will be <sup class="big-sup">G</sup>Queen<br>
+For <sup class="big-sup">C</sup>nothing will drive them a<sup class="big-sup">D</sup>way<br>
+We can be <sup class="big-sup">(Am)</sup>Heroes <sup class="big-sup">(Em)</sup>just for one <sup class="big-sup">D</sup>day<br>
+We can be <sup class="big-sup">(C)</sup>us <sup class="big-sup">(G)</sup> just for one <sup class="big-sup">D</sup>day</p>
+<h3>Pont</h3>
+<p><sup class="big-sup">D</sup>I - I can re<sup class="big-sup">G</sup>member (I remember)<br>
+<sup class="big-sup">D</sup>Standing by the <sup class="big-sup">G</sup>wall (By the wall)<br>
+And the <sup class="big-sup">D</sup>guards shot a<sup class="big-sup">G</sup>bove our heads (Over our heads)<br>
+And we <sup class="big-sup">D</sup>kissed as though nothing would <sup class="big-sup">G</sup>fall (Nothing could fall)</p>
+<p>And the <sup class="big-sup">C</sup>shame was on the <sup class="big-sup">D</sup>other side<br>
+Oh we can <sup class="big-sup">(Am)</sup>beat them fore<sup class="big-sup">(Em)</sup>ver and <sup class="big-sup">D</sup>ever<br>
+Then we can be <sup class="big-sup">(C)</sup>Heroes <sup class="big-sup">(G)</sup> just for one <sup class="big-sup">D</sup>day</p>
+<div class="highlight">
+<h3>Instrumental</h3>
+<p><sup class="big-sup">D G D G</sup></p>
+</div>
+<div class="highlight">
+<h3>Outro</h3>
+<p><sup class="big-sup">D</sup>We can be <sup class="big-sup">G</sup>Heroes<sup class="big-sup">D</sup><br>
+We can be <sup class="big-sup">G</sup>Heroes<sup class="big-sup">D</sup><br>
+We can be <sup class="big-sup">G</sup>Heroes just for one <sup class="big-sup">D</sup>day<br>
+We can be <sup class="big-sup">G</sup>Heroes</p>
+</div>
+
+</div>
+  <script>
+  const btn = document.getElementById('toggle-columns');
+    const content = document.getElementById('content');
+
+    // Possible column classes
+    const columnClasses = ['one-column', 'two-column', 'three-column'];
+    let current = 1; // start at 0 = one-column
+
+    btn.addEventListener("click", () => {
+      // Remove old class
+      content.classList.remove(columnClasses[current]);
+
+      // Increment and wrap around
+      current = (current + 1) % columnClasses.length;
+
+      // Add new class
+      content.classList.add(columnClasses[current]);
+
+      // Update button text
+//      btn.textContent = (current + 1) + " Colonne" + (current > 0 ? "s" : "");    
+       setTimeout(() => {
+  document.dispatchEvent(new Event("verovio:rerender"));
+}, 0);
+      });
+
+        // 🎸 Uke chord toggle
+  const chordBtn = document.getElementById('toggle-chords');
+  let chordsVisible = true;
+  let chordsSize = 1;
+
+  chordBtn.addEventListener("click", () => {
+    chordsSize = (chordsSize + 1) % 3;
+    chordsVisible = (chordsSize > 0);
+    document.querySelectorAll("uke-chord").forEach(chord => {
+      chord.style.display = chordsVisible ? "inline-block" : "none";
+    });
+document.querySelectorAll(".chord-large").forEach(el => el.style.display = chordsSize === 1 ? "inline-block" : "none");
+document.querySelectorAll(".chord-small").forEach(el => el.style.display = chordsSize === 2 ? "inline-block" : "none");
+
+
+    
+   // Toggle only <h2> with text "Accords:"
+    document.querySelectorAll("h2").forEach(h2 => {
+      if (h2.textContent.includes("Accords")) {
+        h2.style.display = chordsVisible ? "block" : "none";
+      }
+    });
+    //chordBtn.textContent = chordsSize;
+    
+
+  });
+
+(() => {
+  const toolkit = new verovio.toolkit();
+
+function renderAllVerovio() {
+  const blocks = document.querySelectorAll(".verovio-block");
+  blocks.forEach(block => {
+    try {
+      const xml = decodeURIComponent(block.dataset.musicxml);
+    
+        let options;
+        // Screen: use container width
+        const containerWidth = block.clientWidth || 800;
+        options = {
+          scale: 105,
+          pageWidth: containerWidth * 2,
+          pageHeight: 2000,
+          spacingStaff: 0,
+          spacingSystem: 0,
+          adjustPageHeight: true,
+          breaks: "auto",
+          header: "none",
+          footer: "none",
+          pageMarginLeft: 10,
+          pageMarginRight: 10,
+          pageMarginTop: 10,
+          pageMarginBottom: 10,
+          mnumInterval: 4
+        };
+
+      const svg = toolkit.renderData(xml, options);
+      block.innerHTML = svg;
+    } catch (e) {
+      console.error("Verovio error:", e);
+      block.innerHTML =
+        "<pre style='color:red'>MusicXML failed to render</pre>";
+    }
+  });
+}
+
+function renderAllVerovioprint() {
+  const blocks = document.querySelectorAll(".verovio-block");
+  blocks.forEach(block => {
+    try {
+      const xml = decodeURIComponent(block.dataset.musicxml);
+      let options;
+        // Screen: use container width
+        const containerWidth = block.clientWidth || 800;
+        options = {
+          scale: 125,
+          pageWidth: containerWidth * 1,
+          pageHeight: 2000,
+          spacingStaff: 0,
+          spacingSystem: 0,
+          adjustPageHeight: true,
+          breaks: "auto",
+          header: "none",
+          footer: "none",
+          pageMarginLeft: 10,
+          pageMarginRight: 10,
+          pageMarginTop: 10,
+          pageMarginBottom: 10,
+          mnumInterval: 4,
+        };
+
+      let svg = toolkit.renderData(xml, options);
+      // Force SVG dimensions for print
+      block.innerHTML = svg;
+    } catch (e) {
+      console.error("Verovio error:", e);
+      block.innerHTML =
+        "<pre style='color:red'>MusicXML failed to render</pre>";
+    }
+  });
+}
+  // Initial render
+  document.addEventListener("DOMContentLoaded", renderAllVerovio);
+
+  // Re-render on resize (columns change)
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(renderAllVerovio, 150);
+  });
+
+  // Print support
+  window.addEventListener("beforeprint", renderAllVerovioprint);
+  window.addEventListener("afterprint", renderAllVerovio);
+/*  window.addEventListener("afterprint", () => {
+    setTimeout(renderAllVerovio, 50);
+  });*/
+
+  // Manual trigger (column button)
+  document.addEventListener("verovio:rerender", renderAllVerovio);
+})();
+
+</script>
+
+  </body>
+</html>

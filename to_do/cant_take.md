@@ -2,19 +2,26 @@
 
 ## Accords:
 <uke-chord name="C" frets="0003"></uke-chord> 
-<uke-chord name="E7" frets="1202"></uke-chord> 
+<uke-chord name="Cmaj7" frets="0002"></uke-chord> 
+<uke-chord name="C7" frets="0001"></uke-chord> 
 <uke-chord name="F" frets="2010"></uke-chord> 
-<uke-chord name="G" frets="0232"></uke-chord> 
+<uke-chord name="Fm" frets="1013"></uke-chord>
+<uke-chord name="D7" frets="2223"></uke-chord> 
+<uke-chord name="Dm" frets="2210"></uke-chord> 
+<uke-chord name="G7" frets="0212"></uke-chord> 
+<uke-chord name="Dm7" frets="2213"></uke-chord> 
+<uke-chord name="A7" frets="0100"></uke-chord> 
 
 
 ## Instructions:
-- Couplets: arpège du type (4321) pour [C E7 F] puis ↓↓↓ sur [G].
-- Chaque accord dure 2 temps
-- Refrain: ↓↓↓ pour chaque accord.
-- ▼▲▼▲▼▲▼
-
-
-musicxml: ./HC_Solo2.musicxml
+- Strumming:
+    <pre class="tableau">
+    1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 & 
+    ▼   ▾   ▼   ▾▴  ▼   ▾   ▼   ▾▴  débutant
+    ▼   ▾   ▼   ▾▴     ▴▾   ▾▴  ▾▴  avancé
+    ▼   ▾   ▼   ▾▴     ▴▾   ▾▴  ▾▴  confirmé (mute sur 3)
+            .
+    </pre>
 
 ## Paroles:
 
