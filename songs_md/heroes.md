@@ -6,13 +6,15 @@
 <uke-chord name="Am" frets="2000"></uke-chord> 
 <uke-chord name="Em" frets="0432"></uke-chord> 
 <uke-chord name="G" frets="0232"></uke-chord> 
+<uke-chord name="Gsus2" frets="02320"></uke-chord> 
 
 ## Instructions:
-- Strumming:
+- Strumming 4x par accord, 2x pour accords entre parenthèses:
     <pre class="tableau">
     1 & 2 & 3 & 4 &
-    ▾   ▾   ▼   ▾  
+    ▼   ▼   ▼   ▼ ▲ 
     </pre>
+- Remplacer le [G] par [Gsus2]
 
 ## Paroles:
 
