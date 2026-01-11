@@ -6,7 +6,7 @@
 <uke-chord name="Am" frets="2000"></uke-chord> 
 <uke-chord name="Em" frets="0432"></uke-chord> 
 <uke-chord name="G" frets="0232"></uke-chord> 
-<uke-chord name="Gsus2" frets="02320"></uke-chord> 
+<uke-chord name="Gsus2" frets="0230"></uke-chord> 
 
 ## Instructions:
 - Strumming 4x par accord, 2x pour accords entre parenthèses:
