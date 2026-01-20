@@ -1,4 +1,4 @@
-# Heart of gold (Cric crac)- Neil Young
+# Heart of gold (Cric crac) - Neil Young
 
 ## Accords:
 <uke-chord name="Em" frets="0432"></uke-chord> 
