@@ -5,6 +5,8 @@
 <uke-chord name="C" frets="0003"></uke-chord> 
 <uke-chord name="D6" frets="2222"></uke-chord> 
 <uke-chord name="E7" frets="1202"></uke-chord> 
+<uke-chord name="Am7(C6)" frets="0000"></uke-chord> 
+<uke-chord name="D" frets="2220"></uke-chord> 
 <uke-chord name="D6" frets="2222"></uke-chord> 
 <uke-chord name="Gmaj7" frets="0222"></uke-chord> 
 <uke-chord name="Am7(C6)" frets="0000"></uke-chord> 
