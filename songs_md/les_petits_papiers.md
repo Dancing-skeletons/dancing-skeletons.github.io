@@ -11,6 +11,11 @@
 - Arpège (4321.23.)
 ## Paroles:
 
+### Intro:
+Couplet en instrumental en rythmique
+Couplet en instrumental en arpège
+
+### Couplet
 [Am///]Laissez parler[E7*2] les p'tits papiers  
 À l'occasion[Am*2], papier chiffon  
 Puissent-ils un soir[E7*2], papier buvard  
@@ -21,6 +26,7 @@ Papier de riz[Am*2] ou d'Arménie
 Qu'un soir, ils [E7*2]puissent, papier maïs  
 Vous réchauffer[Am/]  
 
+### Couplet
 [Am///]Un peu d'a[E7*2]mour, papier velours  
 Et d'esthé[Am*2]tique, papier musique  
 C'est du cha[E7*2]grin, papier dessin  
@@ -31,6 +37,7 @@ Les senti[Am*2]ments, papier collant
 Ça impressio[E7*2]nne, papier carbone  
 Mais c'est du vent[Am/]  
 
+### Couplet
 [Am///]Machin ma[E7*2]chine, papier machine  
 Faut pas s'leu[Am*2]rrer, papier doré  
 Celui qu'y [E7*2]touche, papier tue-mouches  
@@ -41,6 +48,10 @@ C'est pas donné[Am*2], papier-monnaie
 Où l'on en [E7*2]meurt, papier à fleurs  
 Où l'on s'en fout[Am/]  
 
+### Couplet
+Couplet en instrumental en arpège
+
+### Couplet
 [Am///]Laissez par[E7*2]ler les p'tits papiers  
 À l'occasion[Am*2], papier chiffon  
 Puissent-ils un [E7*2]soir, papier buvard  
