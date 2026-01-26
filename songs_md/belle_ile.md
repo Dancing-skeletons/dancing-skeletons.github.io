@@ -26,8 +26,11 @@
 
 ## Instructions:
 - Arpège: (14) 232 pour un accord entre parenthèse (x2 pour les autres)
+- Transition: chaque accord dure moitié de temps
 ## Paroles:
 
+### Intro
+[G G]
 
 :::highlight
 ### Refrain
@@ -73,8 +76,10 @@ Je con[(C7)]nais ce [(F)]sentiment
 ### Refrain
 :::
 
+### Transition
+[(C-Cmaj7) (Dsus2-D)]
 
-### Refrain/Couplet?
+### Refrain/Couplet
 Karukera[G], Calé[C]donie  
 Ouessant[D6] Vierges des mers, [E7]Toutes seules  
 Tout le temps[(Am7) (D)]  
@@ -83,5 +88,5 @@ Qui [(Gm7)]vous sépare[(Am7)]
 [(D)]Et vous laisse à part  
 
 ### Outro
-
+[(G Am7 D C G)]
 
