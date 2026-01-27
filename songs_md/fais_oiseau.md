@@ -16,7 +16,7 @@
 <uke-chord name="Cm" frets="0333"></uke-chord> 
 <uke-chord name="F7" frets="2313"></uke-chord> 
 <uke-chord name="BbMaj7" frets="3210"></uke-chord> 
-<uke-chord name="EbMaj7" frets="3330"></uke-chord> 
+<uke-chord name="EbMaj7" frets="3335"></uke-chord> 
 <uke-chord name="Gm6" frets="0201"></uke-chord> 
 <uke-chord name="D7" frets="2020"></uke-chord> 
 <uke-chord name="Gm" frets="0231"></uke-chord> 
@@ -72,4 +72,5 @@ Je ne sais [EbMaj7]pas, je ne sais [Gm6]plus, je suis per[D7]du
 
 :::highlight
 ### Refrain
+Remplacer le dernier [Gm] par un [G6]
 :::
