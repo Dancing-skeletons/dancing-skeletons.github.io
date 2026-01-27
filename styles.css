@@ -78,14 +78,16 @@ pre.tableau {
   position: absolute;
   transform: translateY(-1.2em);
   transform: translateY(-1em);
-  font-size: 1.1em;
+  /*font-size: 1.1em;*/
+  font-size: clamp(1.1em, 3.5vw, 1.4em);
   color:#4C6B8B;
 }
 
 /* Inline chord (instructions, refrain, etc.) */
 .chord-inline {
   position: static;
-  font-size: 1.4em;
+  /*font-size: 1.4em;*/
+  font-size: clamp(1.4em, 4vw, 1.7em);
   color: #4C6B8B;
   white-space: nowrap;
 }
