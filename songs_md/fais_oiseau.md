@@ -1,4 +1,4 @@
-# Fais comme l'oiseau (Cric crac)- Michel Fugain
+# Fais comme l'oiseau (Cric crac) - Michel Fugain
 
 ## Accords refrain:
 <uke-chord name="D7" frets="2020"></uke-chord> 
