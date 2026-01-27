@@ -6,7 +6,7 @@ const path = require('path');
 const rootDir = __dirname;
 const mdDir = path.join(rootDir, 'songs_md');
 const songsDir = path.join(rootDir, 'songs');
-const pdfDir = path.join(rootDir, 'pdf');
+const pdfDir = path.join(rootDir, 'tabs');
 
 // Ensure folders exist
 for (const dir of [mdDir, songsDir, pdfDir]) {

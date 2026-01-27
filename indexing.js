@@ -3,7 +3,7 @@ const path = require("path");
 const MarkdownIt = require("markdown-it");
 
 const SONGS_FOLDER = path.join(__dirname, "songs");
-const PDF_FOLDER = path.join(__dirname, "pdf");
+const PDF_FOLDER = path.join(__dirname, "tabs");
 const ROOT_FOLDER = __dirname;
 
 const md = new MarkdownIt();
@@ -45,7 +45,7 @@ function buildIndex() {
     mdLines.push("", "## Tabs - Ne pas reproduire", "");
     for (const pdf of pdfFiles) {
       const title = path.basename(pdf, ".pdf").replace(/_/g, " ");
-      const url = encodeURI(`pdf/${pdf}`);  // this ensures spaces and special characters work
+      const url = encodeURI(`tabs/${pdf}`);  // this ensures spaces and special characters work
       mdLines.push(`- [${title}](${url})`);
     }
   }
