@@ -7,7 +7,7 @@
 <uke-chord name="A7" frets="0100"></uke-chord> 
 
 
-## Instructions:
+## Instructions: 
 - Couplets accords:
     <pre class="tableau">
     D  D  D  D

@@ -9,7 +9,7 @@
 <uke-chord name="A♭maj7" frets="1333"></uke-chord> 
 
 
-## Instructions:
+## Instructions: 
 
 ## Paroles:
 
@@ -49,8 +49,8 @@ We gotta [B7]go for all we [Em]know [G7]
 
 :::highlight
 ### Solo *4
-[Cmaj7 B7 F A7]
-[Abmaj7 G7 Cmaj7 Dm7]
+[[Cmaj7 B7 F A7]]  
+[[Abmaj7 G7 Cmaj7 Dm7]]
 :::
 
 ### Couplet (fingerstyle)

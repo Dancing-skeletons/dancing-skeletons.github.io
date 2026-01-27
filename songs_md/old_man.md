@@ -10,7 +10,7 @@
 <uke-chord name="Am" frets="2000"></uke-chord> 
 
 
-## Instructions:
+## Instructions: 
 
 ## Paroles:
 

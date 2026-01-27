@@ -32,7 +32,7 @@
 ### Intro  X 2
 
 ### Interlude harmonica X 3
-[Em C D G] 
+[[Em C D G]] 
 
 ### Couplet
 
@@ -54,7 +54,7 @@ For a [G]heart of gold[G]
 :::
 
 ### Interlude harmonica X 3
-[Em C D G] 
+[[Em C D G]] 
 
 ### Intro
 
@@ -81,4 +81,4 @@ And I'm [D]growing old[Em]
 For a [D]heart of gold[Em]  
 [Em]I've been a [Em]miner  
 For a [G]heart of gold[G]  
-[C C riff]  
+[[C C riff]]  

@@ -12,9 +12,9 @@
 
 ## Instructions:
 - Pour chaque accord: ▼▼
-- Accords avec "/" comme [G/]: ▼
-- [X] = muted
-- Dans le refrain [F*] peut être remplacé par un [F] ou le Riff 1 et [C*] par [C] ou le Riff 2
+- Accords avec "/" comme [[G/]]: ▼
+- [[X]] = muted
+- Dans le refrain [[F*]] peut être remplacé par un [[F]] ou le Riff 1 et [[C*]] par [[C]] ou le Riff 2
 <pre class="tableau">
   A|—3—2—0————————————————|     A|—————0—3—3—3—0————————|
   E|———————3—1—0——————————|     E|—3—3———————————3——————|

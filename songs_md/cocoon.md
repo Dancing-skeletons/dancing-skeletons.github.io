@@ -27,8 +27,8 @@
 ## Paroles:
 
 ### Intro
-[G Em Bm D7]  
-[G Em Bm D7]  
+[[G Em Bm D7]]  
+[[G Em Bm D7]]   
 
 ### Couplet 
 [G]We have gone to the [Em]country  
@@ -45,8 +45,8 @@ So many [Bm]times [D7]
 :::
 
 ### Instrumental
-[G Em Bm D7]  
-[G Em Bm D7]  
+[[G Em Bm D7]]  
+[[G Em Bm D7]]  
 
 ### Couplet
 [G]Eating a Chupa Chup[Em]  
@@ -59,13 +59,13 @@ So many [Bm]times [D7]
 :::
  
 ### Instrumental
-[G Em Bm D7]  
-[G Em Bm D7]  
+[[G Em Bm D7]]  
+[[G Em Bm D7]]  
 
 ### Outro X 4
 [C]Hello (hello),  [Am]hello (hello)  
 [G]Hello (hello),  [Bm]hello (hello)  
 
 ### Ending
-[C Am G Bm]
-[G]
+[[C Am G Bm]]  
+[[G]]

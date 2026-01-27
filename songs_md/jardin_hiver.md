@@ -13,7 +13,7 @@
 - Rythmique feu de camp
 - Chaque accord dure 2 temps sauf ceux entre parenthèses (1 temps)
 
-## Paroles:
+## Paroles: 
 
 ### Intro X2
 [B7]Tadada dada dada  

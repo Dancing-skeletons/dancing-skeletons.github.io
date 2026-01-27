@@ -17,7 +17,7 @@
 ## Paroles:
 
 ### Intro
-[Bm x8]Oh... oh... oh... oh...  
+[[Bm x8]]Oh... oh... oh... oh...  
 
 ### Couplet 
 [D]It’s a mys[A]tery to [D]me   [D]    
@@ -27,7 +27,7 @@ And you [G]think you have to [A]want more than you [Bm]need [Bm]
 
 :::highlight
 ### Interlude
-[Bm Bm]
+[[Bm Bm]]
 :::
 
 :::highlight
@@ -63,13 +63,13 @@ I hope you’re not [A]lonely without [Bm]me  [Bm]
 :::
 
 ### Instrumental
-[D A D D]  
-[D G A A]  
-[G A Bm Bm]  
-[G A Bm Bm]  
+[[D A D D]]  
+[[D G A A]]  
+[[G A Bm Bm]]  
+[[G A Bm Bm]]  
 
-[G G D D]  
-[A A Bm Bm]  
+[[G G D D]]  
+[[A A Bm Bm]]  
 
 :::highlight
 ### Interlude
@@ -95,4 +95,4 @@ I hope you’re not [A]angry if I disa[Bm]gree
 ### Outro
 Socie[G]ty, crazy in[D]deed   
 I hope you’re not [A]lonely... without [Bm]me  
-[D]  
+[[D]]  

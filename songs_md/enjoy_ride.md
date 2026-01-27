@@ -10,16 +10,16 @@
 <uke-chord name="C" frets="0003"></uke-chord> 
 
 ## Instructions:
-- Chaque accord dure 2 temps, sauf [X-Y] où chacun dure 1 temps.
-- Intro, sur [Gm]:
+- Chaque accord dure 2 temps, sauf [[X-Y]] où chacun dure 1 temps.
+- Intro, sur [[Gm]]:
 <pre class="tableau">
   A|——————1————————|—————————|  
   E|——————————3————|———————3—|  
   C|0h2—————————2——|0—2——————|  
   G|———————————————|—————————|
 </pre>
-- Intro sur [Cm]: (3123 - (123))
-- Intro sur [Eb] et [Dm]: (3123)
+- Intro sur [[Cm]]: (3123 - (123))
+- Intro sur [[Eb]] et [[Dm]]: (3123)
 - Strumming pour le reste:
 <pre class="tableau">
 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 &
@@ -29,8 +29,8 @@
 ## Paroles:
 
 ### Intro
-[Gm Gm Gm Gm]  
-[Cm Gm Eb-Dm Gm]  
+[[Gm Gm Gm Gm]]  
+[[Cm Gm Eb-Dm Gm]]  
 
 ### Couplet
 [Gm]Shut the gates at sunset [Gm]after that you can't get out  
@@ -72,8 +72,8 @@ And you'll [Cm]never catch the fickle wind
 :::
 
 ### Pont
-[Gm F Bb-C Gm]  
-[Gm F Bb-C Gm]  
+[[Gm F Bb-C Gm]]  
+[[Gm F Bb-C Gm]]  
 
 ::: highlight
 ### Refrain X2

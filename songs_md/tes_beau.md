@@ -8,7 +8,7 @@
 <uke-chord name="E" frets="1402"></uke-chord> 
 
 
-## Instructions:
+## Instructions: 
 
 ## Paroles:
 

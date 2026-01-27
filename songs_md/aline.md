@@ -17,15 +17,15 @@
 
 ## Instructions:
 - Intro: chaque accord dure 4 temps, joué ▼▼▼.
-- Couplets: chaque accord dure 4 temps, arpège du type (4321) pour [C E7 F], ▼▼▼ sur [G], suivi de [G7].
+- Couplets: chaque accord dure 4 temps, arpège du type (4321) pour [[C E7 F]], ▼▼▼ sur [[G]], suivi de [[G7]].
 - Refrain: chaque accord dure 2 temps, ▼▼▼ pour chaque accord.
-- Refrain: re[G]vienne à faire en [G G G7].
+- Refrain: re[[G]]vienne à faire en [[G G G7]].
 
 ## Paroles:
 
 ::: highlight
 ### Intro: sans paroles
-[C E7 F G]
+[[C E7 F G]]
 :::
 
 ### Couplet

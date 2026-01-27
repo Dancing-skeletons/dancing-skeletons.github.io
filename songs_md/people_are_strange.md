@@ -23,7 +23,7 @@
     C|———————————|  
     G|———————————|
     </pre>
-- Durant le dernier B7 du refrain:
+- Durant le dernier [[B7]] du refrain:
     <pre class="tableau">
     A|—2——0——————|  
     E|———————3—2—|  

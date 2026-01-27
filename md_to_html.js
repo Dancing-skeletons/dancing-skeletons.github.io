@@ -10,7 +10,7 @@ const md = new MarkdownIt({ html: true });
 //md.use(mathjax3); 
 //const defaultRender = md.renderer.rules.text;
 
-function bigSupPlugin(md) {
+function bigSupPlugin_old(md) {
   function tokenizeBigSup(state, silent) {
     const start = state.pos;
     if (state.src[start] !== '[') return false;
@@ -36,6 +36,63 @@ function bigSupPlugin(md) {
 
   md.inline.ruler.before('emphasis', 'big_sup', tokenizeBigSup);
 }
+
+function bigSupPlugin(md) {
+
+  // Floating chord for lyrics: [C]
+  function tokenizeBigSup(state, silent) {
+    const start = state.pos;
+    if (state.src[start] !== '[') return false;
+    if (state.src[start + 1] === '[') return false; // skip [[X]]
+
+    const end = state.src.indexOf(']', start);
+    if (end === -1) return false;
+
+    const content = state.src.slice(start + 1, end);
+
+    if (!silent) {
+      const tokenOpen = state.push('sup_open', 'sup', 1);
+      tokenOpen.attrs = [['class', 'chord-float']];
+
+      const tokenText = state.push('text', '', 0);
+      tokenText.content = content;
+
+      state.push('sup_close', 'sup', -1);
+    }
+
+    state.pos = end + 1;
+    return true;
+  }
+
+  // Inline chord (instructions): [[C]]
+  function tokenizeInlineChord(state, silent) {
+    const start = state.pos;
+    if (state.src[start] !== '[' || state.src[start + 1] !== '[') return false;
+
+    const end = state.src.indexOf(']]', start);
+    if (end === -1) return false;
+
+    const content = state.src.slice(start + 2, end);
+
+    if (!silent) {
+      const tokenOpen = state.push('sup_open', 'sup', 1);
+      tokenOpen.attrs = [['class', 'chord-inline']];
+
+      const tokenText = state.push('text', '', 0);
+      tokenText.content = content;
+
+      state.push('sup_close', 'sup', -1);
+    }
+
+    state.pos = end + 2;
+    return true;
+  }
+
+  // Register rules
+  md.inline.ruler.before('emphasis', 'big_sup', tokenizeBigSup);
+  md.inline.ruler.before('emphasis', 'inline_chord', tokenizeInlineChord);
+}
+
 
 // Use the plugin
 md.use(bigSupPlugin);

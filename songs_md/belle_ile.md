@@ -30,7 +30,7 @@
 ## Paroles:
 
 ### Intro
-[G G]
+[[G G]]
 
 :::highlight
 ### Refrain
@@ -43,12 +43,12 @@ Qui [(Gm7)]vous sépare[(Am7)]
 :::
 
  
-[(G) (G7)] Moi des souvenirs [(C)]d'enfance  
+[(G G7)] Moi des souvenirs [(C)]d'enfance  
 [(Dm)]En Fran[(C)]ce  
-[(Dm)]Vio[(C)]lence  
+[(Dm)] &nbsp; Vio &nbsp;[(C)]lence  
 [(G7)] Manque d'indul[(C)]gence  
 [(Dm)]Par les différences que [(C)]j'ai  
-Café[(Dm) (C)] Léger[(Dm) (C)]  
+Café[(Dm C)] &nbsp;&nbsp;&nbsp; Léger[(Dm C)]  
 Au[(G7)] lait [(C)]mélangé  
 Séparé [(C7)]petit [(F)]enfant  
 [(G7)]Tout comme [(C)]vous  
@@ -65,7 +65,7 @@ Je con[(C7)]nais ce [(F)]sentiment
 [(Dm)]Sur[(C)]Terre  
 [(G7)] Un peu soli[(C)]taire  
 [(Dm)]L'amour je le voyais  pas[(C)]ser  
-Ohé[(Dm) (C)] Ohé[ (Dm) (C)]  
+Ohé[(Dm C)] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ohé[(Dm C)]  
 Je[(G7)] le voyais [(C)]passer  
 Séparé [(C7)]petit [(F)]enfant  
 [(G7)]Tout comme [(C)]vous  
@@ -77,7 +77,7 @@ Je con[(C7)]nais ce [(F)]sentiment
 :::
 
 ### Transition
-[(C-Cmaj7) (Dsus2-D)]
+[[(C-Cmaj7) (Dsus2-D)]]
 
 ### Refrain/Couplet
 Karukera[G], Calé[C]donie  
@@ -88,5 +88,5 @@ Qui [(Gm7)]vous sépare[(Am7)]
 [(D)]Et vous laisse à part  
 
 ### Outro
-[(G Am7 D C G)]
+[[(G Am7 D C G)]]
 

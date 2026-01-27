@@ -13,7 +13,7 @@
 <uke-chord name="A7" frets="0100"></uke-chord> 
 
 
-## Instructions:
+## Instructions: 
 - Strumming:
     <pre class="tableau">
     1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 & 

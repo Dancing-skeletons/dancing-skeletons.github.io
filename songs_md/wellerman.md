@@ -8,7 +8,7 @@
 <uke-chord name="G" frets="0232"></uke-chord> 
 
 
-## Instructions:
+## Instructions: 
 
 ## Paroles:
 

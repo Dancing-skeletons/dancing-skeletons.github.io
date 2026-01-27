@@ -12,7 +12,7 @@
 
 
 ## Instructions:
-- Intro sur [G]:
+- Intro sur [[G]]:
     <pre class="tableau">
     A|——————————2—————————|  
     E|——3———3—————3———3———|  
@@ -24,16 +24,16 @@
     1 & 2 & 3 & 4 & 5 & 6 &
     ▼   ▼ ▲ ▼ ▲ ▼   ▼ ▲ ▼ ▲      
     </pre>
-- Sauf le picking intro, tous les [G] peuvent être des hammers depuis un [Gsus2]
-- Riff [Cr1] peut être joué avec [C] ou [(C C5* C5 C5*)]
-- Riff [Cr2] peut être joué avec [C] ou [(C C5* C5 Am7)]
+- Sauf le picking intro, tous les [[G]] peuvent être des hammers depuis un [[Gsus2]]
+- Riff [[Cr1]] peut être joué avec [[C]] ou [[(C C5* C5 C5*)]]
+- Riff [[Cr2]] peut être joué avec [[C]] ou [[(C C5* C5 Am7)]]
 
 
 ## Paroles:
 
 :::highlight
 ### Intro
-[G G G G]
+[[G G G G]]
 :::
 
 ### Couplet
@@ -48,8 +48,8 @@ Gonna [D]rise up
 
 :::highlight
 ### Intrumental
-[Gx2 Dx2 Cr1x2]  
-[Gx2 Dx2 Cr1 Cr2]  
+[[Gx2 Dx2 Cr1x2]]  
+[[Gx2 Dx2 Cr1 Cr2]]  
 :::
 
 ### Couplet
@@ -59,14 +59,14 @@ Gonna [D] rise up,
 [G]Find my direction [Cr1] magnetically    
 Gonna [D] rise up,   
 [G]Throw down my ace in the [Cr2] hole
-[Cr2]
+[[Cr2]]
 
 :::highlight
 ### Instrumental
-[G D Cr1]   
-[G D Cr1]  
-[G Gsus2 G Gsus2]  
-[G Gsus2 G Gsus2]  
-[D Dsus4 Cr1 G/]  
+[[G D Cr1]]   
+[[G D Cr1]]  
+[[G Gsus2 G Gsus2]]  
+[[G Gsus2 G Gsus2]]  
+[[D Dsus4 Cr1 G/]]  
 :::
 

@@ -11,7 +11,7 @@
 
 
 
-## Instructions:
+## Instructions: 
 
 ## Paroles:
 
@@ -35,8 +35,8 @@ start to [Dm] fall
 
 :::highlight
 ### Instrumental
-[Dm Gm7 C7 Fmaj7]
-[Bbmaj7 Gm6 A7 Dm]
+[[Dm Gm7 C7 Fmaj7]]  
+[[Bbmaj7 Gm6 A7 Dm]]
 :::
 
  ### Refrain

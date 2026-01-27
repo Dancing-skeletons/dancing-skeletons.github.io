@@ -37,7 +37,7 @@
 
 ### Intro
 [G]La  La-la[Cmaj7]la  La-la  La[D]la   Lala La[Bm7]la La La La[Em7]la  
-La La [A7]La  La La-[D]la La La La [G]La  
+La La [A7]La  La La-[D]la La La La [G]La   
 
  
 ::: highlight

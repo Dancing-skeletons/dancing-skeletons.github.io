@@ -1,7 +1,7 @@
 body { 
   font-family: system-ui, Arial, sans-serif;
   padding: 1rem;
-  line-height: 1.6;
+  line-height: 2.1;
 }
 
 /* Code blocks */
@@ -28,6 +28,7 @@ pre code {
 /* Chords */
 .chord {
   color: #b00;
+  color: rgb(0, 0, 187);
   font-weight: 600;
   font-size: 0.9em;
   vertical-align: super;
@@ -53,11 +54,42 @@ pre.tableau {
 }
 
 /* Superscripts */
-.big-sup {
+.big-sup2 {
   font-size: 1.4em;
   vertical-align: super;
-  color: red;
+  color: blue;
+  top: -0.5em;
+  vertical-align: super; /* Default, but you can tweak */	
+  font-size: 1.2em;    /* Optional: makes it smaller */
+  top: -0.5em;          /* Adjust this value to move it higher */
+  position: relative;   /* Allows top/bottom adjustments */
+  
 }
+
+.big-sup {
+  position: absolute;
+  transform: translateY(-1em);
+  font-size: 1.2em;
+  color: blue;
+}
+
+/* Floating chord (lyrics) */
+.chord-float {
+  position: absolute;
+  transform: translateY(-1.2em);
+  transform: translateY(-1em);
+  font-size: 1.1em;
+  color:#4C6B8B;
+}
+
+/* Inline chord (instructions, refrain, etc.) */
+.chord-inline {
+  position: static;
+  font-size: 1.4em;
+  color: #4C6B8B;
+  white-space: nowrap;
+}
+
 
 /* Highlight box */
 .highlight {
@@ -75,7 +107,14 @@ pre.tableau {
 }
 
 .highlight .big-sup {
-  color: #800000;
+  color: #000080;
+}
+
+.highlight .chord-float{
+  color: #0b0b8b;  
+}
+.highlight .chord-inline{
+  color: #0b0b8b;  
 }
 
 /* Staff */

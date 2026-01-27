@@ -17,7 +17,7 @@
 <uke-chord name="Dm6" frets="2212"></uke-chord> 
 
 
-## Instructions:
+## Instructions: 
 
 ## Paroles:
 

@@ -23,7 +23,7 @@ Exemple sur les 2 premiers accords:
 </pre>
 
 - Pour les couplets, les accords: (▼.▼▲X▲▼▲)*2
-- Riff sur le second refrain + outro en remplacement de [C*]:
+- Riff sur le second refrain + outro en remplacement de [[C*]]:
 
 <pre class="tableau">
   A|—3————5——7———————|  
@@ -39,7 +39,7 @@ Exemple sur les 2 premiers accords:
 
 ### Intro sans paroles:
 
-[Am E7 G D F C Dm E7 - E7/]
+[[Am E7 G D F C Dm E7 - E7/]]
 :::
 
 ### Couplet
@@ -104,7 +104,7 @@ They [Dm /]stab it with their steely knives, But they just [E7///]can't kill the
 
 ### Outro sans paroles:
 
-[Am E7 G D F C Dm E7 - E7/]  
-[Am(2007) E7(4447) G(0235) D(2225) F(2013) C* Dm E7 - E7/]  
-[XXXXX Am ////]
+[[Am E7 G D F C Dm E7 - E7/]]  
+[[Am(2007) E7(4447) G(0235) D(2225) F(2013) C* Dm E7 - E7/]]  
+[[XXXXX Am ////]]
 :::

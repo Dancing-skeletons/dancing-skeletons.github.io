@@ -24,8 +24,8 @@
 
 
 ## Instructions:
-- Intro / Pont: [G Cm G Cm Fm Cm G*2] 
-- Couplet / Refrain /Solo: [G Bm Am Am6]
+- Intro / Pont: [[G Cm G Cm Fm Cm G*2]] 
+- Couplet / Refrain /Solo: [[G Bm Am Am6]]
 - Chaque accord dure 2 mesures
 - 5 styles de strumming différents: S1 = arpège, (1323) par mesure 
 <pre class="tableau">
@@ -77,7 +77,7 @@ Elle a ses raisons, mais...
 ### S5: Solo
 :::
 
-### S1: Pont: [G Cm] (pré-pont)
+### S1: Pont: [[G Cm]] (pré-pont)
 [G]Quand la tempête a [Cm]su  
 Que des mélo[G]dies pouvaient s'échapper du [Cm]vent  
 Et se retrou[Fm]ver dans le cœur des [Cm]gens  

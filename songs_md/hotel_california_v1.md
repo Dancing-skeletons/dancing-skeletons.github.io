@@ -22,7 +22,7 @@
 
 ### Intro sans paroles:
 
-[Am E7 G D F C Dm E7 - E7/]
+[[Am E7 G D F C Dm E7 - E7/]]
 :::
 
 ### Couplet
@@ -87,7 +87,7 @@ They [Dm /]stab it with their steely knives, But they just [E7///]can't kill the
 
 ### Outro sans paroles:
 
-[Am E7 G D F C Dm E7 - E7/]  
-[Am E7 G D F C Dm E7 - E7/]  
-[Am ////]
+[[Am E7 G D F C Dm E7 - E7/]]  
+[[Am E7 G D F C Dm E7 - E7/]]  
+[[Am ////]]
 :::
