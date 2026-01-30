@@ -73,21 +73,24 @@ pre.tableau {
   color: blue;
 }
 
-/* Floating chord (lyrics) */
+/* Floating chord (lyrics)*/
 .chord-float {
-  position: absolute;
-  transform: translateY(-1.2em);
-  transform: translateY(-1em);
-  /*font-size: 1.1em;*/
-  font-size: clamp(1.1em, 3.5vw, 1.3em);
+/*  position: absolute;*/
+    position: relative;
+    display: inline-block;
+/*  transform: translateY(-1.2em);*/
+  transform: translateY(-0.8em);
+  font-size: 1.1em;
   color:#4C6B8B;
+  margin-right: -0.5em;
+  text-align: left; 
 }
 
 /* Inline chord (instructions, refrain, etc.) */
 .chord-inline {
   position: static;
-  /*font-size: 1.4em;*/
-  font-size: clamp(1.4em, 4vw, 1.7em);
+  font-size: 1.4em;
+/*  font-size: clamp(1.4em, 4vw, 1.7em);*/
   color: #4C6B8B;
   white-space: nowrap;
 }

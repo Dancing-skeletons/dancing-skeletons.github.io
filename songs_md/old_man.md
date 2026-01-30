@@ -15,8 +15,8 @@
 ## Paroles:
 
 ### Pré-couplet
-[Fmaj7]Old [Fmaj7]man, [Fmaj7]look at my li[Fmaj7]fe  
-[Fmaj7]I'm a [Fmaj7]lot like [Dsus2]you [D]were  
+[Fmaj7]Old  [Fmaj7]man,  [Fmaj7]look at my li[Fmaj7]fe  
+[Fmaj7]I'm a  [Fmaj7]lot like [Dsus2]you [D]were  
 [Fmaj7]Old [Fmaj7]man, [Fmaj7]look at my li[Fmaj7]fe  
 [Fmaj7]I'm a [Fmaj7]lot like [D]you [D]were  
 [F*2 C*2 G*2]  

@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>sunshine2.md</title>
+<link rel="stylesheet" href="../styles.css"> 
+<script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
+<script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
+<script src="https://www.verovio.org/javascript/latest/verovio-toolkit.js"></script>
+</head>
+<body>
+<button id="toggle-columns">Colonnes</button>
+<button id="toggle-chords">Vue accords</button>
+<div id="content" class="two-column">
+<h1>You are my sunshine (Ukucol) - Johnny Cash</h1>
+<h2>Accords:</h2>
+<p><uke-chord name="C" frets="0003" size="1" class="chord-large"></uke-chord><uke-chord name="C" frets="0003" size="0.7" class="chord-small"></uke-chord>
+<uke-chord name="C7" frets="0001" size="1" class="chord-large"></uke-chord><uke-chord name="C7" frets="0001" size="0.7" class="chord-small"></uke-chord>
+<uke-chord name="F" frets="2010" size="1" class="chord-large"></uke-chord><uke-chord name="F" frets="2010" size="0.7" class="chord-small"></uke-chord>
+<uke-chord name="Am" frets="2000" size="1" class="chord-large"></uke-chord><uke-chord name="Am" frets="2000" size="0.7" class="chord-small"></uke-chord>
+<uke-chord name="G7" frets="0212" size="1" class="chord-large"></uke-chord><uke-chord name="G7" frets="0212" size="0.7" class="chord-small"></uke-chord></p>
+<h2>Instructions:</h2>
+<h2>Paroles:</h2>
+<h3>Intro</h3>
+<p>Solo</p>
+<h3>Couplet</h3>
+<p>The other <sup class="chord-float">C</sup>night dear, as I lay <sup class="chord-float">(C C7)</sup>sleeping<br>
+I dreamed I <sup class="chord-float">F</sup>held you in my <sup class="chord-float">C</sup>arms<br>
+But when I <sup class="chord-float">F</sup>awoke, dear, I was <sup class="chord-float">(C Am)</sup>mistaken<br>
+So I hung <sup class="chord-float">(C G7)</sup>my head and I <sup class="chord-float">C</sup>cried.</p>
+<div class="highlight">
+<h3>Refrain</h3>
+<p>You are my <sup class="chord-float">C</sup>sunshine, my only sunshine<sup class="chord-float">(C C7)</sup><br>
+You make me <sup class="chord-float">F</sup>happy when skies are <sup class="chord-float">C</sup>gray<br>
+You'll never <sup class="chord-float">F</sup>know dear, how much I <sup class="chord-float">(C Am)</sup>love you<br>
+Please don't <sup class="chord-float">(C G7)</sup>take my sunshine <sup class="chord-float">C</sup>away</p>
+</div>
+<h3>Instrumental</h3>
+<h3>Couplet</h3>
+<p>I'll always <sup class="chord-float">C</sup>love you and make you <sup class="chord-float">(C C7)</sup>happy,<br>
+If you will <sup class="chord-float">F</sup>only say the <sup class="chord-float">C</sup>same.<br>
+But if you <sup class="chord-float">F</sup>leave me and love <sup class="chord-float">(C Am)</sup>another,<br>
+You'll <sup class="chord-float">(C G7)</sup>regret it all some <sup class="chord-float">C</sup>day.</p>
+<div class="highlight">
+<h3>Refrain</h3>
+</div>
+<h3>Couplet</h3>
+<p>You told me <sup class="chord-float">C</sup>once, dear, you really <sup class="chord-float">(C C7)</sup>loved me<br>
+And no one <sup class="chord-float">F</sup>else could come bet<sup class="chord-float">C</sup>ween<br>
+But now you'<sup class="chord-float">F</sup>ve left me and love a<sup class="chord-float">(C Am)</sup>nother<br>
+You have <sup class="chord-float">(C G7)</sup>shattered all my <sup class="chord-float">C</sup>dreams.</p>
+<div class="highlight">
+<h3>Refrain</h3>
+</div>
+
+</div>
+  <script>
+  const btn = document.getElementById('toggle-columns');
+    const content = document.getElementById('content');
+
+    // Possible column classes
+    const columnClasses = ['one-column', 'two-column', 'three-column'];
+    let current = 1; // start at 0 = one-column
+
+    btn.addEventListener("click", () => {
+      // Remove old class
+      content.classList.remove(columnClasses[current]);
+
+      // Increment and wrap around
+      current = (current + 1) % columnClasses.length;
+
+      // Add new class
+      content.classList.add(columnClasses[current]);
+
+      // Update button text
+//      btn.textContent = (current + 1) + " Colonne" + (current > 0 ? "s" : "");    
+       setTimeout(() => {
+  document.dispatchEvent(new Event("verovio:rerender"));
+}, 0);
+      });
+
+        // 🎸 Uke chord toggle
+  const chordBtn = document.getElementById('toggle-chords');
+  let chordsVisible = true;
+  let chordsSize = 1;
+
+  chordBtn.addEventListener("click", () => {
+    chordsSize = (chordsSize + 1) % 3;
+    chordsVisible = (chordsSize > 0);
+    document.querySelectorAll("uke-chord").forEach(chord => {
+      chord.style.display = chordsVisible ? "inline-block" : "none";
+    });
+document.querySelectorAll(".chord-large").forEach(el => el.style.display = chordsSize === 1 ? "inline-block" : "none");
+document.querySelectorAll(".chord-small").forEach(el => el.style.display = chordsSize === 2 ? "inline-block" : "none");
+
+
+    
+   // Toggle only <h2> with text "Accords:"
+    document.querySelectorAll("h2").forEach(h2 => {
+      if (h2.textContent.includes("Accords")) {
+        h2.style.display = chordsVisible ? "block" : "none";
+      }
+    });
+    //chordBtn.textContent = chordsSize;
+    
+
+  });
+
+(() => {
+  const toolkit = new verovio.toolkit();
+
+function renderAllVerovio() {
+  const blocks = document.querySelectorAll(".verovio-block");
+  blocks.forEach(block => {
+    try {
+      const xml = decodeURIComponent(block.dataset.musicxml);
+    
+        let options;
+        // Screen: use container width
+        const containerWidth = block.clientWidth || 800;
+        options = {
+          scale: 105,
+          pageWidth: containerWidth * 2,
+          pageHeight: 2000,
+          spacingStaff: 0,
+          spacingSystem: 0,
+          adjustPageHeight: true,
+          breaks: "auto",
+          header: "none",
+          footer: "none",
+          pageMarginLeft: 10,
+          pageMarginRight: 10,
+          pageMarginTop: 10,
+          pageMarginBottom: 10,
+          mnumInterval: 4
+        };
+
+      const svg = toolkit.renderData(xml, options);
+      block.innerHTML = svg;
+    } catch (e) {
+      console.error("Verovio error:", e);
+      block.innerHTML =
+        "<pre style='color:red'>MusicXML failed to render</pre>";
+    }
+  });
+}
+
+function renderAllVerovioprint() {
+  const blocks = document.querySelectorAll(".verovio-block");
+  blocks.forEach(block => {
+    try {
+      const xml = decodeURIComponent(block.dataset.musicxml);
+      let options;
+        // Screen: use container width
+        const containerWidth = block.clientWidth || 800;
+        options = {
+          scale: 125,
+          pageWidth: containerWidth * 1,
+          pageHeight: 2000,
+          spacingStaff: 0,
+          spacingSystem: 0,
+          adjustPageHeight: true,
+          breaks: "auto",
+          header: "none",
+          footer: "none",
+          pageMarginLeft: 10,
+          pageMarginRight: 10,
+          pageMarginTop: 10,
+          pageMarginBottom: 10,
+          mnumInterval: 4,
+        };
+
+      let svg = toolkit.renderData(xml, options);
+      // Force SVG dimensions for print
+      block.innerHTML = svg;
+    } catch (e) {
+      console.error("Verovio error:", e);
+      block.innerHTML =
+        "<pre style='color:red'>MusicXML failed to render</pre>";
+    }
+  });
+}
+  // Initial render
+  document.addEventListener("DOMContentLoaded", renderAllVerovio);
+
+  // Re-render on resize (columns change)
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(renderAllVerovio, 150);
+  });
+
+  // Print support
+  window.addEventListener("beforeprint", renderAllVerovioprint);
+  window.addEventListener("afterprint", renderAllVerovio);
+/*  window.addEventListener("afterprint", () => {
+    setTimeout(renderAllVerovio, 50);
+  });*/
+
+  // Manual trigger (column button)
+  document.addEventListener("verovio:rerender", renderAllVerovio);
+})();
+
+</script>
+
+  </body>
+</html>
