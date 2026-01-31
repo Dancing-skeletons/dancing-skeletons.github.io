@@ -1,4 +1,4 @@
-# People are strange (Uku cheat) - The doors
+# People are strange (Dsus2) - The doors
 
 ## Accords:
 <uke-chord name="Em" frets="0432"></uke-chord> 
@@ -9,12 +9,18 @@
 
 
 ## Instructions:
-- Strumming, attention pour les accords entre parenthèses:
+- Strumming couplet, attention pour les accords entre parenthèses:
     <pre class="tableau">
     1 & 2 & 3 & 4 &  
-    ▼   ▼ ▲   ▲ ▼    
+    ▼   ▼ ▲   ▲ ▼ ▲   
+    Em   
     Am    Em
     B7    Em
+    </pre>
+- Strumming refrain, ne pas laisser sonner:
+    <pre class="tableau">
+    1 & 2 & 3 & 4 &  
+    ▼   ▼   ▼   ▼    
     </pre>
 - Intro:
     <pre class="tableau">
@@ -49,9 +55,9 @@
 :::highlight               
 ### Refrain
 [B7]When you're strange  
-[G]Faces come out of the [B7]rain  
+[G]Faces come out of the [B7//]rain  
 When you're [B7]strange  
-[G]No one remembers your [B7]name  
+[G]No one remembers your [B7//]name  
 When you're [B7]strange  
 When you're [B7]strange  
 When you're [B7]strange [B7]  
