@@ -11,20 +11,39 @@
 
 
 ## Instructions:
-- Pour chaque accord: ▼▼
-- Accords avec "/" comme [[G/]]: ▼
-- [[X]] = muted
-- Dans le refrain [[F*]] peut être remplacé par un [[F]] ou le Riff 1 et [[C*]] par [[C]] ou le Riff 2
+
+Dans le couplet, sur la fin:
 <pre class="tableau">
-  A|—3—2—0————————————————|     A|—————0—3—3—3—0————————|
-  E|———————3—1—0——————————|     E|—3—3———————————3——————|
-  C|—————————————2—0——————|     C|——————————————————————|
-  G|——————————————————————|     G|——————————————————————|
-    Riff 1                        Riff 2
+1 & 2 & 3 & 4 & 5 & 6 & 
+▼   X ▲     ▼   ▼   ▼    
+E7    G     G7  G6  G7        
 </pre>
 
 
+### Riff 1 (dans le regrain, remplace [[F*]])
+<pre class="tableau">
+  A|—3—2—0————————————————|     
+  E|———————3—1—0——————————|     
+  C|—————————————2—0——————|     
+  G|——————————————————————|       
+</pre>
+
+### Riff 2 (dans le regrain, remplace [[C*]])
+<pre class="tableau">
+  A|—————0—3—3—3—0————————|
+  E|—3—3———————————3——————|
+  C|——————————————————————|
+  G|——————————————————————|  
+</pre>
+
+
+
 ## Paroles:
+### Intro
+
+[Am] La-la-la-[D7]la-la-la-la, [G]la, la  
+La-la-la-[C]la-la-la-la, [F]la, la  
+La-la-la-[Dm]la-la-la-la-la la [E7]la-la, la [E7]
 
 ### Couplet
 
@@ -33,7 +52,7 @@ You say you [C]wanna start something [F]new
 And it's [Dm]breaking my heart you're [E7]leaving,  Baby, I'm [E7]grievin'  
 [Am]But if you want to [D7]leave, take good [G]care,  
 Hope you have a [C]lot of nice things to [F]wear  
-But then a [Dm]lot of nice things turn [C]bad, [X]out [G/]there [G G]
+But then a [Dm]lot of nice things turn [E7]bad, [X]out [G/]there [G G]
 
 ::: highlight
 ### Refrain
@@ -64,5 +83,5 @@ Hope you make a lot of nice friends out there
 But just [Dm]remember there's a lot of [E7/]bad [X]and [G/]beware [G G]
 
 ::: highlight
-### Refrain x2 et termine sur C/
+### Refrain x2 et termine sur "child[C/], girl"
 :::

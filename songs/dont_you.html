@@ -19,6 +19,7 @@
 <uke-chord name="A" frets="2100" size="1" class="chord-large"></uke-chord><uke-chord name="A" frets="2100" size="0.7" class="chord-small"></uke-chord>
 <uke-chord name="A7" frets="0100" size="1" class="chord-large"></uke-chord><uke-chord name="A7" frets="0100" size="0.7" class="chord-small"></uke-chord></p>
 <h2>Instructions:</h2>
+<h3>Grille d'accords:</h3>
 <ul>
 <li>
 <p>Couplets accords:</p>
@@ -38,30 +39,28 @@
 <li>
 <p>Chaque accord dure 1 mesure</p>
 </li>
-<li>
-<p>Rythmique refrain:</p>
-  <pre class="tableau">
-  1 & 2 & 3 & 4 &
-  ▼   ▼ ▲   ▲ ▼    
-  </pre>
-<p>Possibilité de remplacer le ▼ sur le temps 2 par X ou une descente en arpège</p>
-</li>
-<li>
-<p>Rythmique couplet:</p>
-  <pre class="tableau">
-  1 & 2 & 3 & 4 &
-  ▼   X       X      
-  </pre>
-</li>
 </ul>
+<h3>Rythmique 1</h3>
+<pre><code>&lt;pre class=&quot;tableau&quot;&gt;
+1 &amp; 2 &amp; 3 &amp; 4 &amp;
+▼   ▼ ▲   ▲ ▼    
+&lt;/pre&gt;
+Possibilité de remplacer le ▼ sur le temps 2 par X ou une descente en arpège
+</code></pre>
+<h3>Rythmique 2</h3>
+<pre><code>&lt;pre class=&quot;tableau&quot;&gt;
+1 &amp; 2 &amp; 3 &amp; 4 &amp;
+▼   X       X      
+&lt;/pre&gt;
+</code></pre>
 <h2>Paroles:</h2>
-<h3>Couplet</h3>
+<h3>Couplet rythmique 1</h3>
 <p>I can't lose with the stuff I use<br>
 (Don't you just know it?)<br>
 Baby, don't believe I wear two left shoes<br>
 (Don't you just know it?)</p>
 <div class="highlight">
-<h3>Refrain</h3>
+<h3>Refrain rythmique 1</h3>
 <p>Ah-ha-ha-ha (ah-ha-ha-ha)<br>
 Ay-ay-oh (ay-ay-oh)<br>
 Gooba-gooba-gooba-gooba<br>
@@ -70,6 +69,7 @@ Ah-ha-ha-ha (ah-ha-ha-ha)<br>
 Ah-ha-ha-ha (ah-ha-ha-ha)<br>
 Ay-ay-oh (ay-ay-oh)</p>
 </div>
+<h3>Couplet rythmique 2</h3>
 <p>Hey pretty baby, can we go strollin'?<br>
 (Don't you just know it?)<br>
 You got me rockin' when I oughta be rollin'<br>
@@ -77,7 +77,7 @@ You got me rockin' when I oughta be rollin'<br>
 <div class="highlight">
 <h3>Refrain</h3>
 </div>
-<h3>Couplet</h3>
+<h3>Couplet rythmique 1</h3>
 <p>Baby, baby, you're my blue heaven<br>
 (Don't you just know it?)<br>
 You got me pushin' when I oughta be shovin'<br>
@@ -85,7 +85,7 @@ You got me pushin' when I oughta be shovin'<br>
 <div class="highlight">
 <h3>Refrain</h3>
 </div>
-<h3>Couplet</h3>
+<h3>Couplet ryrhmique 2</h3>
 <p>Heart of mine is cool as a breeze<br>
 (Don't you just know it?)<br>
 Younger the couple the tighter they squeeze<br>
@@ -173,7 +173,7 @@ function renderAllVerovio() {
           pageMarginRight: 10,
           pageMarginTop: 10,
           pageMarginBottom: 10,
-          mnumInterval: 4
+          mnumInterval: 4,
         };
 
       const svg = toolkit.renderData(xml, options);

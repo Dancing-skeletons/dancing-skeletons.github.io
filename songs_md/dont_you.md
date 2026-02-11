@@ -8,6 +8,9 @@
 
 
 ## Instructions: 
+
+### Grille d'accords:
+
 - Couplets accords:
     <pre class="tableau">
     D  D  D  D
@@ -21,13 +24,15 @@
     </pre>
 
 - Chaque accord dure 1 mesure
-- Rythmique refrain:
+
+### Rythmique 1
     <pre class="tableau">
     1 & 2 & 3 & 4 &
     ▼   ▼ ▲   ▲ ▼    
     </pre>
     Possibilité de remplacer le ▼ sur le temps 2 par X ou une descente en arpège
-- Rythmique couplet:
+
+### Rythmique 2
     <pre class="tableau">
     1 & 2 & 3 & 4 &
     ▼   X       X      
@@ -36,14 +41,14 @@
 
 ## Paroles:
 
-### Couplet
+### Couplet rythmique 1
 I can't lose with the stuff I use  
 (Don't you just know it?)  
 Baby, don't believe I wear two left shoes   
 (Don't you just know it?)  
 
 :::highlight
-### Refrain  
+### Refrain rythmique 1
 Ah-ha-ha-ha (ah-ha-ha-ha)  
 Ay-ay-oh (ay-ay-oh)  
 Gooba-gooba-gooba-gooba  
@@ -53,6 +58,7 @@ Ah-ha-ha-ha (ah-ha-ha-ha)
 Ay-ay-oh (ay-ay-oh)  
 :::
 
+### Couplet rythmique 2
 Hey pretty baby, can we go strollin'?   
 (Don't you just know it?)  
 You got me rockin' when I oughta be rollin'   
@@ -62,7 +68,7 @@ You got me rockin' when I oughta be rollin'
 ### Refrain
 :::
 
-### Couplet
+### Couplet rythmique 1
 Baby, baby, you're my blue heaven   
 (Don't you just know it?)  
 You got me pushin' when I oughta be shovin'   
@@ -72,7 +78,7 @@ You got me pushin' when I oughta be shovin'
 ### Refrain
 :::
 
-### Couplet
+### Couplet ryrhmique 2
 Heart of mine is cool as a breeze   
 (Don't you just know it?)  
 Younger the couple the tighter they squeeze   

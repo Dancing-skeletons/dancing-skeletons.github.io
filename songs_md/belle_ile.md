@@ -25,7 +25,7 @@
 
 
 ## Instructions:
-- Arpège: (14) 232 pour un accord entre parenthèse (x2 pour les autres)
+- Arpège: (14) 232 par accord.
 - Transition: chaque accord dure moitié de temps
 ## Paroles:
 
@@ -34,59 +34,59 @@
 
 :::highlight
 ### Refrain
-Belle-Ile-en-[G]Mer, Marie-Ga[C]lante,  
-Saint-Vin[D6]cent, loin Singa[E7]pour  
-Seymour, Ceylan[(Am7) (D)]  
-Vous c'est l'eau[(D6)] c'est l'eau  
-Qui [(Gm7)]vous sépare[(Am7)]  
-[(D)]Et vous laisse à part  
+Belle-Ile-en-[G]Mer, [G]Marie-Ga[C]lante,  
+[C]Saint-Vin[D6]cent, [D6]loin Singa[E7]pour  
+[E7]Seymour, Ceylan[Am7 D]  
+Vous c'est l'eau[D6] c'est l'eau  
+Qui [Gm7]vous sépare[Am7]  
+[D]Et vous laisse à [G]part  
 :::
 
  
-[(G G7)] Moi des souvenirs [(C)]d'enfance  
-[(Dm)]En Fran[(C)]ce  
-[(Dm)] &nbsp; Vio &nbsp;[(C)]lence  
-[(G7)] Manque d'indul[(C)]gence  
-[(Dm)]Par les différences que [(C)]j'ai  
-Café[(Dm C)] &nbsp;&nbsp;&nbsp; Léger[(Dm C)]  
-Au[(G7)] lait [(C)]mélangé  
-Séparé [(C7)]petit [(F)]enfant  
-[(G7)]Tout comme [(C)]vous  
-Je con[(C7)]nais ce [(F)]sentiment  
-[(E7)]De solitude [Am7]et d'isolement [D7 D7]  
+ Moi des sou[G7]venirs d'en[C]fance  
+[Dm]En France[C]  
+[Dm]Violence[C]  
+[G7] Manque d'indulgen[C]ce  
+[Dm]Par les différences que [C]j'ai  
+Café[Dm C] Léger[Dm C]  
+Au[G7] lait mélan[C]gé  
+Séparé [C7]petit enfant[F]  
+[G7]Tout comme [C]vous  
+Je con[C7]nais ce senti[F]ment  
+[E7]De solitude [Am7 Am7]et d'isolement [D7x4]  
 
 :::highlight
 ### Refrain
 :::
 
 ### Couplet
-[(G) (G7)] Comme laissé tout seul [(C)]en mer  
-[(Dm)]Corsai[(C)]re  
-[(Dm)]Sur[(C)]Terre  
-[(G7)] Un peu soli[(C)]taire  
-[(Dm)]L'amour je le voyais  pas[(C)]ser  
-Ohé[(Dm C)] &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Ohé[(Dm C)]  
-Je[(G7)] le voyais [(C)]passer  
-Séparé [(C7)]petit [(F)]enfant  
-[(G7)]Tout comme [(C)]vous  
-Je con[(C7)]nais ce [(F)]sentiment  
-[(E7)]De solitude [Am7]et d'isolement [D7 D7]
+ Comme [G7]laissé tout seul [C]en mer  
+[Dm]Corsaire[C]  
+[Dm]Sur Terre[C]  
+[G7]Un peu soli[C]taire  
+[Dm]L'amour je le voyais  pas[C]ser  
+Ohé[Dm C] Ohé[Dm C]  
+Je[G7] le voyais [C]passer  
+Séparé [C7]petit [F]enfant  
+[G7]Tout comme [C]vous  
+Je con[C7]nais ce [F]sentiment  
+[E7]De solitude [Am7 Am7]et d'isolement [D7x4]
 
 :::highlight
 ### Refrain
 :::
 
 ### Transition
-[[(C-Cmaj7) (Dsus2-D)]]
+[[(C Cmaj7) (Dsus2 D)]]
 
 ### Refrain/Couplet
-Karukera[G], Calé[C]donie  
-Ouessant[D6] Vierges des mers, [E7]Toutes seules  
-Tout le temps[(Am7) (D)]  
-Vous c'est l'eau[(D6)] c'est l'eau  
-Qui [(Gm7)]vous sépare[(Am7)]  
-[(D)]Et vous laisse à part  
+Karukera[G], [G]Calé[C]donie[C]  
+Ouessant[D6] Vierges [D6]des mers, [E7]Toutes seules[E7]  
+Tout le temps[Am7 D]  
+Vous c'est l'eau[D6] c'est l'eau  
+Qui [Gm7]vous sépare[Am7]  
+[D]Et vous laisse à part  
 
 ### Outro
-[[(G Am7 D C G)]]
+[[G Am7 D C G]]
 
