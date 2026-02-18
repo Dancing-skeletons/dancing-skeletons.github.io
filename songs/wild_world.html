@@ -22,27 +22,38 @@
 <uke-chord name="Dm" frets="2210" size="1" class="chord-large"></uke-chord><uke-chord name="Dm" frets="2210" size="0.7" class="chord-small"></uke-chord>
 <uke-chord name="E7" frets="1202" size="1" class="chord-large"></uke-chord><uke-chord name="E7" frets="1202" size="0.7" class="chord-small"></uke-chord></p>
 <h2>Instructions:</h2>
-<ul>
-<li>Pour chaque accord: ▼▼</li>
-<li>Accords avec &quot;/&quot; comme <sup class="chord-inline">G/</sup>: ▼</li>
-<li><sup class="chord-inline">X</sup> = muted</li>
-<li>Dans le refrain <sup class="chord-inline">F*</sup> peut être remplacé par un <sup class="chord-inline">F</sup> ou le Riff 1 et <sup class="chord-inline">C*</sup> par <sup class="chord-inline">C</sup> ou le Riff 2</li>
-</ul>
+<p>Dans le couplet, sur la fin:</p>
 <pre class="tableau">
-  A|—3—2—0————————————————|     A|—————0—3—3—3—0————————|
-  E|———————3—1—0——————————|     E|—3—3———————————3——————|
-  C|—————————————2—0——————|     C|——————————————————————|
-  G|——————————————————————|     G|——————————————————————|
-    Riff 1                        Riff 2
+1 & 2 & 3 & 4 & 5 & 6 & 
+▼   X ▲     ▼   ▼   ▼    
+E7    G     G7  G6  G7        
+</pre>
+<h3>Riff 1 (dans le regrain, remplace <sup class="chord-inline">F*</sup>)</h3>
+<pre class="tableau">
+  A|—3—2—0————————————————|     
+  E|———————3—1—0——————————|     
+  C|—————————————2—0——————|     
+  G|——————————————————————|       
+</pre>
+<h3>Riff 2 (dans le regrain, remplace <sup class="chord-inline">C*</sup>)</h3>
+<pre class="tableau">
+  A|—————0—3—3—3—0————————|
+  E|—3—3———————————3——————|
+  C|——————————————————————|
+  G|——————————————————————|  
 </pre>
 <h2>Paroles:</h2>
+<h3>Intro</h3>
+<p><sup class="chord-float">Am</sup> La-la-la-<sup class="chord-float">D7</sup>la-la-la-la, <sup class="chord-float">G</sup>la, la<br>
+La-la-la-<sup class="chord-float">C</sup>la-la-la-la, <sup class="chord-float">F</sup>la, la<br>
+La-la-la-<sup class="chord-float">Dm</sup>la-la-la-la-la la <sup class="chord-float">E7</sup>la-la, la <sup class="chord-float">E7</sup></p>
 <h3>Couplet</h3>
 <p><sup class="chord-float">Am</sup>Now that I've <sup class="chord-float">D7</sup>lost everything to <sup class="chord-float">G</sup>you<br>
 You say you <sup class="chord-float">C</sup>wanna start something <sup class="chord-float">F</sup>new<br>
 And it's <sup class="chord-float">Dm</sup>breaking my heart you're <sup class="chord-float">E7</sup>leaving,  Baby, I'm <sup class="chord-float">E7</sup>grievin'<br>
 <sup class="chord-float">Am</sup>But if you want to <sup class="chord-float">D7</sup>leave, take good <sup class="chord-float">G</sup>care,<br>
 Hope you have a <sup class="chord-float">C</sup>lot of nice things to <sup class="chord-float">F</sup>wear<br>
-But then a <sup class="chord-float">Dm</sup>lot of nice things turn <sup class="chord-float">C</sup>bad, <sup class="chord-float">X</sup>out <sup class="chord-float">G/</sup>there <sup class="chord-float">G G</sup></p>
+But then a <sup class="chord-float">Dm</sup>lot of nice things turn <sup class="chord-float">E7</sup>bad, <sup class="chord-float">X</sup>out <sup class="chord-float">G/</sup>there <sup class="chord-float">G G</sup></p>
 <div class="highlight">
 <h3>Refrain</h3>
 <p><sup class="chord-float">C</sup>Oh <sup class="chord-float">G</sup>baby, baby, it's a wild <sup class="chord-float">F</sup>world <sup class="chord-float">F*</sup><br>
@@ -68,7 +79,7 @@ La-la-la-<sup class="chord-float">Dm</sup>la-la-la-la-la la <sup class="chord-fl
 Hope you make a lot of nice friends out there<br>
 But just <sup class="chord-float">Dm</sup>remember there's a lot of <sup class="chord-float">E7/</sup>bad <sup class="chord-float">X</sup>and <sup class="chord-float">G/</sup>beware <sup class="chord-float">G G</sup></p>
 <div class="highlight">
-<h3>Refrain x2 et termine sur C/</h3>
+<h3>Refrain x2 et termine sur &quot;child<sup class="chord-float">C/</sup>, girl&quot;</h3>
 </div>
 
 </div>
@@ -150,7 +161,7 @@ function renderAllVerovio() {
           pageMarginRight: 10,
           pageMarginTop: 10,
           pageMarginBottom: 10,
-          mnumInterval: 4
+          mnumInterval: 4,
         };
 
       const svg = toolkit.renderData(xml, options);

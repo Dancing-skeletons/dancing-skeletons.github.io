@@ -77,7 +77,7 @@ Is there life [Gm7]on Mars?[Daug B♭ C9]
 ### Solo guitar ou:
 [F D7 Gm7 Ddim Am B♭ B♭m]  
 
-### Couplet
+### Couplet en arpège
 [F]It's on [Fmaj7]America's tortured [F7]brow  
 That Mickey [D7]Mouse has grown up a [Gm]cow  
 Now the [Gm7]workers have struck for [C7]fame  
@@ -96,5 +96,5 @@ As I [D♭7]ask you to focus on
 ### Refrain
 :::
 
-### Outro:
-[F D7 Gm7 Ddim Am B♭ B♭ B♭ E♭... E♭m7... B♭...]
+### Solo guitare ou
+[F D7 Gm7 Ddim Am B♭ B♭m]  

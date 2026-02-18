@@ -156,6 +156,11 @@ pre.tableau {
   background: #fafafa;
 }
 
+/*svg g.harm {
+    transform: scale(0.8);
+        transform-origin: center;
+}*/ /*TODO*/
+
 
 #toggle-columns {
   font-size: 1.5rem;

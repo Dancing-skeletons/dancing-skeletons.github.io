@@ -60,11 +60,5 @@ I'm [(G)]screwing up my [(A)]life
 [(G)]Someone who can [(A)]heal my mind  
 
 :::highlight
-### Pont/refrain X2
-:::
-
-### Couplet 1
-
-:::highlight
 ### Pont/refrain
 :::
