@@ -67,7 +67,7 @@ But then a [Dm]lot of nice things turn [E7]bad, [X]out [G/]there [G G]
 And it's [C]breaking my heart in [F]two  
 Because I [Dm]never want to see you [E7]sad, girl, Don't be a [E7]bad girl  
 [Am]But if you want to [D7]leave, take good [G]care,  
-Hope you make a lot of nice friends out there  
+Hope you make a [C7]lot of nice friends out [F]there  
 But just [Dm]remember there's a lot of [E7/]bad, [X]out [G/]there [G G]
 
 ::: highlight
@@ -79,7 +79,7 @@ But just [Dm]remember there's a lot of [E7/]bad, [X]out [G/]there [G G]
 La-la-la-[C]la-la-la-la, [F]la, la  
 La-la-la-[Dm]la-la-la-la-la la [E7]la-la, la, Baby, I l[E7]ove you  
 [Am]But if you want to [D7]leave, take good [G]care,  
-Hope you make a lot of nice friends out there  
+Hope you make a [C7]lot of nice friends out [F]there  
 But just [Dm]remember there's a lot of [E7/]bad [X]and [G/]beware [G G]
 
 ::: highlight
