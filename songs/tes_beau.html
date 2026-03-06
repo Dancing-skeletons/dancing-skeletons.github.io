@@ -52,7 +52,7 @@ Même si c'est encore <span class="chord" data-chord="A">A</span>douloureux,<br>
 Je n'ai <span class="chord" data-chord="C#m">C#m</span>pas de recoin silencieux.</p>
 <p>C'est <span class="chord" data-chord="C#m">C#m</span>beau,<br>
 C'est beau parce que c'est <span class="chord" data-chord="F#m">F#m</span>orageux,<br>
-Avec ce temps je c<span class="chord" data-chord="A">A</span>onnais peu,<br>
+Avec ce temps je <span class="chord" data-chord="A">A</span>connais peu,<br>
 Les mots <span class="chord" data-chord="C#m">C#m</span>qui traînent au coin de mes yeux.</p>
 <div class="highlight">
 <h3>Refrain</h3>
@@ -235,21 +235,65 @@ function normalize(note){
   return FLAT_TO_SHARP[note] || note;
 }
 
-function transposeChord(chord, steps){
+function transposeNote(note, steps) {
 
-  const match = chord.match(/^([A-G][b#]?)(.*)$/);
-  if (!match) return chord;
+  note = normalize(note);
 
-  let root = normalize(match[1]);
-  const suffix = match[2];
-
-  let idx = NOTES.indexOf(root);
-  if (idx === -1) return chord;
+  let idx = NOTES.indexOf(note);
+  if (idx === -1) return note;
 
   idx = (idx + steps + 12) % 12;
 
-  return NOTES[idx] + suffix;
+  return NOTES[idx];
 }
+
+function transposeChord(chord, steps) {
+
+  const original = chord;
+
+  // detect parentheses
+  let hasParen = false;
+
+  if (chord.startsWith("(") && chord.endsWith(")")) {
+    hasParen = true;
+    chord = chord.slice(1, -1);
+  }
+
+  // split slash chord
+  let [main, bass] = chord.split("/");
+
+  const mainMatch = main.match(/^([A-G][b#]?)(.*)$/);
+  if (!mainMatch) return original;
+
+  const root = mainMatch[1];
+  const suffix = mainMatch[2];
+
+  const newRoot = transposeNote(root, steps);
+  if (!newRoot) return original;
+
+  let result = newRoot + suffix;
+
+  // transpose bass note if present
+  if (bass) {
+    const bassMatch = bass.match(/^([A-G][b#]?)/);
+
+    if (bassMatch) {
+      const newBass = transposeNote(bassMatch[1], steps);
+      result += "/" + newBass;
+    } else {
+      result += "/" + bass;
+    }
+  }
+
+  // restore parentheses ONLY if originally present
+  if (hasParen) {
+    result = "(" + result + ")";
+  }
+
+  return result;
+}
+
+
 
 function updateChords(){
 
@@ -267,12 +311,12 @@ function updateChords(){
 }
 
 document.getElementById("transpose-up").addEventListener("click", () => {
-  transpose++;
+  transpose = (transpose + 1) % 12;
   updateChords();
 });
 
 document.getElementById("transpose-down").addEventListener("click", () => {
-  transpose--;
+  transpose = (transpose - 1 ) % 12;
   updateChords();
 });
 

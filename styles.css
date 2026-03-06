@@ -307,6 +307,14 @@ pre.tableau {
     print-color-adjust: exact;
   }
 
+  #content h1:first-of-type {
+    column-span: all;
+    -webkit-column-span: all; /* for safety */
+
+    text-align: center;
+    margin-bottom: 20px;
+  }
+
 }
 
 /* Hidden chords */

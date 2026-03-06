@@ -42,7 +42,7 @@ Je n'ai [C#m]pas de recoin silencieux.
 
 C'est [C#m]beau,  
 C'est beau parce que c'est [F#m]orageux,  
-Avec ce temps je c[A]onnais peu,  
+Avec ce temps je [A]connais peu,  
 Les mots [C#m]qui traînent au coin de mes yeux.  
 
 :::highlight
