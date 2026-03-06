@@ -30,7 +30,7 @@
 ## Paroles:
 
 ### Intro
-[[G G]]
+[G G]
 
 :::highlight
 ### Refrain
@@ -77,7 +77,7 @@ Je con[C7]nais ce [F]sentiment
 :::
 
 ### Transition
-[[(C Cmaj7) (Dsus2 D)]]
+[(C Cmaj7) (Dsus2 D)]
 
 ### Refrain/Couplet
 Karukera[G], [G]Calé[C]donie[C]  
@@ -88,5 +88,5 @@ Qui [Gm7]vous sépare[Am7]
 [D]Et vous laisse à part  
 
 ### Outro
-[[G Am7 D C G]]
+[G Am7 D C G]
 

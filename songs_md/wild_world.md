@@ -20,7 +20,7 @@ E7    G     G7  G6  G7
 </pre>
 
 
-### Riff 1 (dans le refrain, remplace [[F*]])
+### Riff 1 (dans le refrain, remplace [F*])
 <pre class="tableau">
   A|—3—2—0————————————————|     
   E|———————3—1—0——————————|     
@@ -28,7 +28,7 @@ E7    G     G7  G6  G7
   G|——————————————————————|       
 </pre>
 
-### Riff 2 (dans le refrain, remplace [[C*]])
+### Riff 2 (dans le refrain, remplace [C*])
 <pre class="tableau">
   A|—————0—3—3—3—0————————|
   E|—3—3———————————3——————|
