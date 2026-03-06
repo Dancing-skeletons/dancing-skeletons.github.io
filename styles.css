@@ -95,6 +95,25 @@ pre.tableau {
   white-space: nowrap;
 }
 
+.chord {
+  font-weight: bold;
+  background: #222;
+  color: #fff;
+  padding: 2px 6px;
+  border-radius: 5px;
+  margin-right: 3px;
+  font-size: 1.05em;
+  font-family: monospace;
+}
+
+.chord-inline {
+  font-weight: bold;
+  background: #666;
+  color: white;
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
 
 /* Highlight box */
 .highlight {
@@ -197,6 +216,50 @@ pre.tableau {
 }
 
 
+#transpose-controls {
+  position: fixed;
+  top: 130px;      /* under the other buttons */
+  right: 10px;
+  width: 220px;
+  display: flex;
+  z-index: 9999;
+}
+
+#transpose-controls button,
+#transpose-controls span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  background: #007acc;
+  color: #fff;
+  border: none;
+  padding: 8px 0;
+  text-align: center;
+}
+
+#transpose-controls button {
+  cursor: pointer;
+}
+
+#transpose-down {
+  width: 60px;
+  border-radius: 6px 0 0 6px;
+}
+
+#transpose-level {
+  width: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#transpose-up {
+  width: 60px;
+  border-radius: 0 6px 6px 0;
+}
+
+
+
+
 /* Print rules */
 @media print {
   #content.two-column {
@@ -214,7 +277,8 @@ pre.tableau {
   }
 
   #toggle-columns,
-  #toggle-chords {
+  #toggle-chords,
+  #transpose-controls {
     display: none;
   }
 
@@ -233,6 +297,14 @@ pre.tableau {
     margin: 0;
     padding: 0;
     break-inside: avoid;
+  }
+
+
+  .chord {
+    background: #222 !important;
+    color: white !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
   }
 
 }

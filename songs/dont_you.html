@@ -12,6 +12,12 @@
 <button id="toggle-columns">Colonnes</button>
 <button id="toggle-chords">Vue accords</button>
 <div id="content" class="two-column">
+<div id="transpose-controls">
+  <button id="transpose-down">−</button>
+  <span id="transpose-level">0</span>
+  <button id="transpose-up">+</button>
+</div>
+
 <h1>Don't you just know it! (Uku heaven) - Huay &quot;Piano&quot; Smith</h1>
 <h2>Accords:</h2>
 <p><uke-chord name="D" frets="2220" size="1" class="chord-large"></uke-chord><uke-chord name="D" frets="2220" size="0.7" class="chord-small"></uke-chord>
@@ -147,6 +153,7 @@ document.querySelectorAll(".chord-small").forEach(el => el.style.display = chord
 
   });
 
+
 (() => {
   const toolkit = new verovio.toolkit();
 
@@ -241,6 +248,59 @@ function renderAllVerovioprint() {
   // Manual trigger (column button)
   document.addEventListener("verovio:rerender", renderAllVerovio);
 })();
+
+const NOTES = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+const FLAT_TO_SHARP = {
+  Db:"C#", Eb:"D#", Gb:"F#", Ab:"G#", Bb:"A#"
+};
+
+let transpose = 0;
+
+function normalize(note){
+  return FLAT_TO_SHARP[note] || note;
+}
+
+function transposeChord(chord, steps){
+
+  const match = chord.match(/^([A-G][b#]?)(.*)$/);
+  if (!match) return chord;
+
+  let root = normalize(match[1]);
+  const suffix = match[2];
+
+  let idx = NOTES.indexOf(root);
+  if (idx === -1) return chord;
+
+  idx = (idx + steps + 12) % 12;
+
+  return NOTES[idx] + suffix;
+}
+
+function updateChords(){
+
+  document.querySelectorAll(".chord").forEach(el => {
+
+    const original = el.dataset.chord;
+
+    const newChord = transposeChord(original, transpose);
+
+    el.textContent = newChord;
+  });
+
+  document.getElementById("transpose-level").textContent =
+  (transpose >= 0 ? "+" : "") + transpose;
+}
+
+document.getElementById("transpose-up").addEventListener("click", () => {
+  transpose++;
+  updateChords();
+});
+
+document.getElementById("transpose-down").addEventListener("click", () => {
+  transpose--;
+  updateChords();
+});
+
 
 </script>
 

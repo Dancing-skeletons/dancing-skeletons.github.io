@@ -37,12 +37,13 @@ function bigSupPlugin_old(md) {
   md.inline.ruler.before('emphasis', 'big_sup', tokenizeBigSup);
 }
 
-function chordPlugin(md) {
+function bigSupPlugin(md) {
 
-  function tokenizeChord(state, silent) {
+  // Floating chord for lyrics: [C]
+  function tokenizeBigSup(state, silent) {
     const start = state.pos;
     if (state.src[start] !== '[') return false;
-    if (state.src[start + 1] === '[') return false;
+    if (state.src[start + 1] === '[') return false; // skip [[X]]
 
     const end = state.src.indexOf(']', start);
     if (end === -1) return false;
@@ -50,21 +51,51 @@ function chordPlugin(md) {
     const content = state.src.slice(start + 1, end);
 
     if (!silent) {
-      const token = state.push('html_inline', '', 0);
-      token.content = `<span class="chord" data-chord="${content}">${content}</span>`;
+      const tokenOpen = state.push('sup_open', 'sup', 1);
+      tokenOpen.attrs = [['class', 'chord-float']];
+
+      const tokenText = state.push('text', '', 0);
+      tokenText.content = content;
+
+      state.push('sup_close', 'sup', -1);
     }
 
     state.pos = end + 1;
     return true;
   }
 
-  md.inline.ruler.before('emphasis', 'chord', tokenizeChord);
+  // Inline chord (instructions): [[C]]
+  function tokenizeInlineChord(state, silent) {
+    const start = state.pos;
+    if (state.src[start] !== '[' || state.src[start + 1] !== '[') return false;
+
+    const end = state.src.indexOf(']]', start);
+    if (end === -1) return false;
+
+    const content = state.src.slice(start + 2, end);
+
+    if (!silent) {
+      const tokenOpen = state.push('sup_open', 'sup', 1);
+      tokenOpen.attrs = [['class', 'chord-inline']];
+
+      const tokenText = state.push('text', '', 0);
+      tokenText.content = content;
+
+      state.push('sup_close', 'sup', -1);
+    }
+
+    state.pos = end + 2;
+    return true;
+  }
+
+  // Register rules
+  md.inline.ruler.before('emphasis', 'big_sup', tokenizeBigSup);
+  md.inline.ruler.before('emphasis', 'inline_chord', tokenizeInlineChord);
 }
 
 
-
 // Use the plugin
-md.use(chordPlugin);
+md.use(bigSupPlugin);
 
 md.use(container, 'highlight', {
   render: function (tokens, idx) {
@@ -159,12 +190,6 @@ const html = `<!doctype html>
 <button id="toggle-columns">Colonnes</button>
 <button id="toggle-chords">Vue accords</button>
 <div id="content" class="two-column">
-<div id="transpose-controls">
-  <button id="transpose-down">−</button>
-  <span id="transpose-level">0</span>
-  <button id="transpose-up">+</button>
-</div>
-
 ${body}
 </div>
   <script>
@@ -218,7 +243,6 @@ document.querySelectorAll(".chord-small").forEach(el => el.style.display = chord
     
 
   });
-
 
 (() => {
   const toolkit = new verovio.toolkit();
@@ -314,59 +338,6 @@ function renderAllVerovioprint() {
   // Manual trigger (column button)
   document.addEventListener("verovio:rerender", renderAllVerovio);
 })();
-
-const NOTES = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
-const FLAT_TO_SHARP = {
-  Db:"C#", Eb:"D#", Gb:"F#", Ab:"G#", Bb:"A#"
-};
-
-let transpose = 0;
-
-function normalize(note){
-  return FLAT_TO_SHARP[note] || note;
-}
-
-function transposeChord(chord, steps){
-
-  const match = chord.match(/^([A-G][b#]?)(.*)$/);
-  if (!match) return chord;
-
-  let root = normalize(match[1]);
-  const suffix = match[2];
-
-  let idx = NOTES.indexOf(root);
-  if (idx === -1) return chord;
-
-  idx = (idx + steps + 12) % 12;
-
-  return NOTES[idx] + suffix;
-}
-
-function updateChords(){
-
-  document.querySelectorAll(".chord").forEach(el => {
-
-    const original = el.dataset.chord;
-
-    const newChord = transposeChord(original, transpose);
-
-    el.textContent = newChord;
-  });
-
-  document.getElementById("transpose-level").textContent =
-  (transpose >= 0 ? "+" : "") + transpose;
-}
-
-document.getElementById("transpose-up").addEventListener("click", () => {
-  transpose++;
-  updateChords();
-});
-
-document.getElementById("transpose-down").addEventListener("click", () => {
-  transpose--;
-  updateChords();
-});
-
 
 </script>
 

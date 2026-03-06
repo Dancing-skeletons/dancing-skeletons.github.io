@@ -44,14 +44,6 @@ async function main() {
       await runCommand(`node md_to_html.js "${mdPath}" "${outPath}"`);
     }
 
-    // Move all .html files to the 'songs' folder
-    //const htmlFiles = fs.readdirSync(rootDir).filter(file => file.endsWith('.html'));
-    //for (const file of htmlFiles) {
-    //  const oldPath = path.join(rootDir, file);
-    //  const newPath = path.join(songsDir, file);
-    //  fs.renameSync(oldPath, newPath);
-    //  console.log(`Moved ${file} to songs/`);
-    //}
 
     // Run indexing.js (keeps index.html in rootDir)
     console.log('Running indexing.js...');

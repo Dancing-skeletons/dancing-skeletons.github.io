@@ -1,4 +1,4 @@
-# Wild world (All For Uke) - Cat Stevens
+# Wild world (All For Uke / Uku heaven) - Cat Stevens
 
 ## Accords:
 <uke-chord name="Am" frets="2000"></uke-chord>
@@ -20,7 +20,7 @@ E7    G     G7  G6  G7
 </pre>
 
 
-### Riff 1 (dans le regrain, remplace [[F*]])
+### Riff 1 (dans le refrain, remplace [[F*]])
 <pre class="tableau">
   A|—3—2—0————————————————|     
   E|———————3—1—0——————————|     
@@ -28,7 +28,7 @@ E7    G     G7  G6  G7
   G|——————————————————————|       
 </pre>
 
-### Riff 2 (dans le regrain, remplace [[C*]])
+### Riff 2 (dans le refrain, remplace [[C*]])
 <pre class="tableau">
   A|—————0—3—3—3—0————————|
   E|—3—3———————————3——————|
@@ -48,10 +48,10 @@ La-la-la-[Dm]la-la-la-la-la la [E7]la-la, la [E7]
 ### Couplet
 
 [Am]Now that I've [D7]lost everything to [G]you  
-You say you [C]wanna start something [F]new  
+You say you [C7]wanna start something [F]new  
 And it's [Dm]breaking my heart you're [E7]leaving,  Baby, I'm [E7]grievin'  
 [Am]But if you want to [D7]leave, take good [G]care,  
-Hope you have a [C]lot of nice things to [F]wear  
+Hope you have a [C7]lot of nice things to [F]wear  
 But then a [Dm]lot of nice things turn [E7]bad, [X]out [G/]there [G G]
 
 ::: highlight
@@ -64,10 +64,10 @@ But then a [Dm]lot of nice things turn [E7]bad, [X]out [G/]there [G G]
 
 ### Couplet
 [Am]You know I've seen a [D7]lot of what the world can [G]do  
-And it's [C]breaking my heart in [F]two  
+And it's [C7]breaking my heart in [F]two  
 Because I [Dm]never want to see you [E7]sad, girl, Don't be a [E7]bad girl  
 [Am]But if you want to [D7]leave, take good [G]care,  
-Hope you make a lot of nice friends out there  
+Hope you make a [C7]lot of nice friends out there  
 But just [Dm]remember there's a lot of [E7/]bad, [X]out [G/]there [G G]
 
 ::: highlight
@@ -76,10 +76,10 @@ But just [Dm]remember there's a lot of [E7/]bad, [X]out [G/]there [G G]
 
 ### Couplet
 [Am] La-la-la-[D7]la-la-la-la, [G]la, la  
-La-la-la-[C]la-la-la-la, [F]la, la  
+La-la-la-[C7]la-la-la-la, [F]la, la  
 La-la-la-[Dm]la-la-la-la-la la [E7]la-la, la, Baby, I l[E7]ove you  
 [Am]But if you want to [D7]leave, take good [G]care,  
-Hope you make a lot of nice friends out there  
+Hope you make a [C7]lot of nice friends out there  
 But just [Dm]remember there's a lot of [E7/]bad [X]and [G/]beware [G G]
 
 ::: highlight

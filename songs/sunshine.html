@@ -12,6 +12,12 @@
 <button id="toggle-columns">Colonnes</button>
 <button id="toggle-chords">Vue accords</button>
 <div id="content" class="two-column">
+<div id="transpose-controls">
+  <button id="transpose-down">−</button>
+  <span id="transpose-level">0</span>
+  <button id="transpose-up">+</button>
+</div>
+
 <h1>You are my sunshine (Uku heaven) - Johnny Cash</h1>
 <h2>Accords:</h2>
 <p><uke-chord name="C" frets="0003" size="1" class="chord-large"></uke-chord><uke-chord name="C" frets="0003" size="0.7" class="chord-small"></uke-chord>
@@ -23,23 +29,23 @@
 <h2>Paroles:</h2>
 <h3>Intro</h3>
 <h3>Couplet</h3>
-<p>The other <sup class="chord-float">C</sup>night dear, as I lay <sup class="chord-float">(C C7)</sup>sleeping<br>
-I dreamed I <sup class="chord-float">F</sup>held you in my <sup class="chord-float">C</sup>arms<br>
-But when I <sup class="chord-float">F</sup>awoke, dear, I was <sup class="chord-float">(C Am)</sup>mistaken<br>
-So I hung <sup class="chord-float">(C G7)</sup>my head and I <sup class="chord-float">C</sup>cried.</p>
+<p>The other <span class="chord" data-chord="C">C</span>night dear, as I lay <span class="chord" data-chord="(C C7)">(C C7)</span>sleeping<br>
+I dreamed I <span class="chord" data-chord="F">F</span>held you in my <span class="chord" data-chord="C">C</span>arms<br>
+But when I <span class="chord" data-chord="F">F</span>awoke, dear, I was <span class="chord" data-chord="(C Am)">(C Am)</span>mistaken<br>
+So I hung <span class="chord" data-chord="(C G7)">(C G7)</span>my head and I <span class="chord" data-chord="C">C</span>cried.</p>
 <div class="highlight">
 <h3>Refrain</h3>
-<p>You are my <sup class="chord-float">C</sup>sunshine, my only sunshine<sup class="chord-float">(C C7)</sup><br>
-You make me <sup class="chord-float">F</sup>happy when skies are <sup class="chord-float">C</sup>gray<br>
-You'll never <sup class="chord-float">F</sup>know dear, how much I <sup class="chord-float">(C Am)</sup>love you<br>
-Please don't <sup class="chord-float">(C G7)</sup>take my sunshine <sup class="chord-float">C</sup>away</p>
+<p>You are my <span class="chord" data-chord="C">C</span>sunshine, my only sunshine<span class="chord" data-chord="(C C7)">(C C7)</span><br>
+You make me <span class="chord" data-chord="F">F</span>happy when skies are <span class="chord" data-chord="C">C</span>gray<br>
+You'll never <span class="chord" data-chord="F">F</span>know dear, how much I <span class="chord" data-chord="(C Am)">(C Am)</span>love you<br>
+Please don't <span class="chord" data-chord="(C G7)">(C G7)</span>take my sunshine <span class="chord" data-chord="C">C</span>away</p>
 </div>
 <h3>Instrumental</h3>
 <h3>Couplet</h3>
-<p>I'll always <sup class="chord-float">C</sup>love you and make you <sup class="chord-float">(C C7)</sup>happy,<br>
-If you will <sup class="chord-float">F</sup>only say the <sup class="chord-float">C</sup>same.<br>
-But if you <sup class="chord-float">F</sup>leave me and love <sup class="chord-float">(C Am)</sup>another,<br>
-You'll <sup class="chord-float">(C G7)</sup>regret it all some <sup class="chord-float">C</sup>day.</p>
+<p>I'll always <span class="chord" data-chord="C">C</span>love you and make you <span class="chord" data-chord="(C C7)">(C C7)</span>happy,<br>
+If you will <span class="chord" data-chord="F">F</span>only say the <span class="chord" data-chord="C">C</span>same.<br>
+But if you <span class="chord" data-chord="F">F</span>leave me and love <span class="chord" data-chord="(C Am)">(C Am)</span>another,<br>
+You'll <span class="chord" data-chord="(C G7)">(C G7)</span>regret it all some <span class="chord" data-chord="C">C</span>day.</p>
 <div class="highlight">
 <h3>Refrain X2</h3>
 </div>
@@ -97,6 +103,7 @@ document.querySelectorAll(".chord-small").forEach(el => el.style.display = chord
     
 
   });
+
 
 (() => {
   const toolkit = new verovio.toolkit();
@@ -192,6 +199,59 @@ function renderAllVerovioprint() {
   // Manual trigger (column button)
   document.addEventListener("verovio:rerender", renderAllVerovio);
 })();
+
+const NOTES = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+const FLAT_TO_SHARP = {
+  Db:"C#", Eb:"D#", Gb:"F#", Ab:"G#", Bb:"A#"
+};
+
+let transpose = 0;
+
+function normalize(note){
+  return FLAT_TO_SHARP[note] || note;
+}
+
+function transposeChord(chord, steps){
+
+  const match = chord.match(/^([A-G][b#]?)(.*)$/);
+  if (!match) return chord;
+
+  let root = normalize(match[1]);
+  const suffix = match[2];
+
+  let idx = NOTES.indexOf(root);
+  if (idx === -1) return chord;
+
+  idx = (idx + steps + 12) % 12;
+
+  return NOTES[idx] + suffix;
+}
+
+function updateChords(){
+
+  document.querySelectorAll(".chord").forEach(el => {
+
+    const original = el.dataset.chord;
+
+    const newChord = transposeChord(original, transpose);
+
+    el.textContent = newChord;
+  });
+
+  document.getElementById("transpose-level").textContent =
+  (transpose >= 0 ? "+" : "") + transpose;
+}
+
+document.getElementById("transpose-up").addEventListener("click", () => {
+  transpose++;
+  updateChords();
+});
+
+document.getElementById("transpose-down").addEventListener("click", () => {
+  transpose--;
+  updateChords();
+});
+
 
 </script>
 

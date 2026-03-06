@@ -12,6 +12,12 @@
 <button id="toggle-columns">Colonnes</button>
 <button id="toggle-chords">Vue accords</button>
 <div id="content" class="two-column">
+<div id="transpose-controls">
+  <button id="transpose-down">−</button>
+  <span id="transpose-level">0</span>
+  <button id="transpose-up">+</button>
+</div>
+
 <h1>Chupe (Cric crac)- Cocoon</h1>
 <h2>Accords:</h2>
 <p><uke-chord name="G" frets="0232" size="1" class="chord-large"></uke-chord><uke-chord name="G" frets="0232" size="0.7" class="chord-small"></uke-chord>
@@ -36,40 +42,40 @@ Besoin de pointer les 4 premiers temps</li>
 </ul>
 <h2>Paroles:</h2>
 <h3>Intro</h3>
-<p><sup class="chord-inline">G Em Bm D7</sup><br>
-<sup class="chord-inline">G Em Bm D7</sup></p>
+<p>[<span class="chord" data-chord="G Em Bm D7">G Em Bm D7</span>]<br>
+[<span class="chord" data-chord="G Em Bm D7">G Em Bm D7</span>]</p>
 <h3>Couplet</h3>
-<p><sup class="chord-float">G</sup>We have gone to the <sup class="chord-float">Em</sup>country<br>
-In your <sup class="chord-float">Bm</sup>old car <sup class="chord-float">D7</sup><br>
-<sup class="chord-float">G</sup>We have lost our <sup class="chord-float">Em</sup>way<br>
-So many <sup class="chord-float">Bm</sup>times <sup class="chord-float">D7</sup></p>
+<p><span class="chord" data-chord="G">G</span>We have gone to the <span class="chord" data-chord="Em">Em</span>country<br>
+In your <span class="chord" data-chord="Bm">Bm</span>old car <span class="chord" data-chord="D7">D7</span><br>
+<span class="chord" data-chord="G">G</span>We have lost our <span class="chord" data-chord="Em">Em</span>way<br>
+So many <span class="chord" data-chord="Bm">Bm</span>times <span class="chord" data-chord="D7">D7</span></p>
 <div class="highlight">
 <h3>Refrain</h3>
-<p><sup class="chord-float">C</sup>Hello, <sup class="chord-float">Am</sup>hello<br>
-<sup class="chord-float">G</sup>I take you on a <sup class="chord-float">Bm</sup>trip<br>
-<sup class="chord-float">C</sup>Hello, <sup class="chord-float">Am</sup>hello<br>
-<sup class="chord-float">G</sup>I take you on a <sup class="chord-float">Bm</sup>trip</p>
+<p><span class="chord" data-chord="C">C</span>Hello, <span class="chord" data-chord="Am">Am</span>hello<br>
+<span class="chord" data-chord="G">G</span>I take you on a <span class="chord" data-chord="Bm">Bm</span>trip<br>
+<span class="chord" data-chord="C">C</span>Hello, <span class="chord" data-chord="Am">Am</span>hello<br>
+<span class="chord" data-chord="G">G</span>I take you on a <span class="chord" data-chord="Bm">Bm</span>trip</p>
 </div>
 <h3>Instrumental</h3>
-<p><sup class="chord-inline">G Em Bm D7</sup><br>
-<sup class="chord-inline">G Em Bm D7</sup></p>
+<p>[<span class="chord" data-chord="G Em Bm D7">G Em Bm D7</span>]<br>
+[<span class="chord" data-chord="G Em Bm D7">G Em Bm D7</span>]</p>
 <h3>Couplet</h3>
-<p><sup class="chord-float">G</sup>Eating a Chupa Chup<sup class="chord-float">Em</sup><br>
-<sup class="chord-float">Bm</sup>A plane is making a <sup class="chord-float">D7</sup>loop<br>
-<sup class="chord-float">G</sup>The beavers are so <sup class="chord-float">Em</sup>cute<br>
-<sup class="chord-float">Bm</sup>A tree gave me a <sup class="chord-float">D7</sup>fruit</p>
+<p><span class="chord" data-chord="G">G</span>Eating a Chupa Chup<span class="chord" data-chord="Em">Em</span><br>
+<span class="chord" data-chord="Bm">Bm</span>A plane is making a <span class="chord" data-chord="D7">D7</span>loop<br>
+<span class="chord" data-chord="G">G</span>The beavers are so <span class="chord" data-chord="Em">Em</span>cute<br>
+<span class="chord" data-chord="Bm">Bm</span>A tree gave me a <span class="chord" data-chord="D7">D7</span>fruit</p>
 <div class="highlight">
 <h3>Refrain</h3>
 </div>
 <h3>Instrumental</h3>
-<p><sup class="chord-inline">G Em Bm D7</sup><br>
-<sup class="chord-inline">G Em Bm D7</sup></p>
+<p>[<span class="chord" data-chord="G Em Bm D7">G Em Bm D7</span>]<br>
+[<span class="chord" data-chord="G Em Bm D7">G Em Bm D7</span>]</p>
 <h3>Outro X 4</h3>
-<p><sup class="chord-float">C</sup>Hello (hello),  <sup class="chord-float">Am</sup>hello (hello)<br>
-<sup class="chord-float">G</sup>Hello (hello),  <sup class="chord-float">Bm</sup>hello (hello)</p>
+<p><span class="chord" data-chord="C">C</span>Hello (hello),  <span class="chord" data-chord="Am">Am</span>hello (hello)<br>
+<span class="chord" data-chord="G">G</span>Hello (hello),  <span class="chord" data-chord="Bm">Bm</span>hello (hello)</p>
 <h3>Ending</h3>
-<p><sup class="chord-inline">C Am G Bm</sup><br>
-<sup class="chord-inline">G</sup></p>
+<p>[<span class="chord" data-chord="C Am G Bm">C Am G Bm</span>]<br>
+[<span class="chord" data-chord="G">G</span>]</p>
 
 </div>
   <script>
@@ -123,6 +129,7 @@ document.querySelectorAll(".chord-small").forEach(el => el.style.display = chord
     
 
   });
+
 
 (() => {
   const toolkit = new verovio.toolkit();
@@ -218,6 +225,59 @@ function renderAllVerovioprint() {
   // Manual trigger (column button)
   document.addEventListener("verovio:rerender", renderAllVerovio);
 })();
+
+const NOTES = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+const FLAT_TO_SHARP = {
+  Db:"C#", Eb:"D#", Gb:"F#", Ab:"G#", Bb:"A#"
+};
+
+let transpose = 0;
+
+function normalize(note){
+  return FLAT_TO_SHARP[note] || note;
+}
+
+function transposeChord(chord, steps){
+
+  const match = chord.match(/^([A-G][b#]?)(.*)$/);
+  if (!match) return chord;
+
+  let root = normalize(match[1]);
+  const suffix = match[2];
+
+  let idx = NOTES.indexOf(root);
+  if (idx === -1) return chord;
+
+  idx = (idx + steps + 12) % 12;
+
+  return NOTES[idx] + suffix;
+}
+
+function updateChords(){
+
+  document.querySelectorAll(".chord").forEach(el => {
+
+    const original = el.dataset.chord;
+
+    const newChord = transposeChord(original, transpose);
+
+    el.textContent = newChord;
+  });
+
+  document.getElementById("transpose-level").textContent =
+  (transpose >= 0 ? "+" : "") + transpose;
+}
+
+document.getElementById("transpose-up").addEventListener("click", () => {
+  transpose++;
+  updateChords();
+});
+
+document.getElementById("transpose-down").addEventListener("click", () => {
+  transpose--;
+  updateChords();
+});
+
 
 </script>
 
