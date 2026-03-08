@@ -25,14 +25,15 @@
 
 - Chaque accord dure 1 mesure
 
-### Rythmique 1
+### Rythmiques
+
+- Rythmique 1:
     <pre class="tableau">
     1 & 2 & 3 & 4 &
     ▼   ▼ ▲   ▲ ▼    
     </pre>
     Possibilité de remplacer le ▼ sur le temps 2 par X ou une descente en arpège
-
-### Rythmique 2
+- Rythmique 2:
     <pre class="tableau">
     1 & 2 & 3 & 4 &
     ▼   X       X      
