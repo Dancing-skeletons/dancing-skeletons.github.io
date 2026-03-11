@@ -73,7 +73,7 @@ Je con[C7]nais ce [F]sentiment
 [E7]De solitude [Am7 Am7]et d'isolement [D7x4]
 
 :::highlight
-### Refrain
+### Refrain sans [G] à la fin
 :::
 
 ### Transition
