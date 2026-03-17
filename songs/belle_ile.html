@@ -47,7 +47,7 @@
 </ul>
 <h2>Paroles:</h2>
 <h3>Intro</h3>
-<p><span class="chord" data-chord="G G">G G</span></p>
+<p><span class="chord" data-chord="Gx4">Gx4</span></p>
 <div class="highlight">
 <h3>Refrain</h3>
 <p>Belle-Ile-en-<span class="chord" data-chord="G">G</span>Mer, <span class="chord" data-chord="G">G</span>Marie-Ga<span class="chord" data-chord="C">C</span>lante,<br>
@@ -87,7 +87,7 @@ Je con<span class="chord" data-chord="C7">C7</span>nais ce <span class="chord" d
 <h3>Refrain sans <span class="chord" data-chord="G">G</span> à la fin</h3>
 </div>
 <h3>Transition</h3>
-<p><span class="chord" data-chord="(C Cmaj7) (Dsus2 D)">(C Cmaj7) (Dsus2 D)</span></p>
+<p><span class="chord" data-chord="(C) (Cmaj7) (Dsus2) (D)">(C) (Cmaj7) (Dsus2) (D)</span></p>
 <h3>Refrain/Couplet</h3>
 <p>Karukera<span class="chord" data-chord="G">G</span>, <span class="chord" data-chord="G">G</span>Calé<span class="chord" data-chord="C">C</span>donie<span class="chord" data-chord="C">C</span><br>
 Ouessant<span class="chord" data-chord="D6">D6</span> Vierges <span class="chord" data-chord="D6">D6</span>des mers, <span class="chord" data-chord="E7">E7</span>Toutes seules<span class="chord" data-chord="E7">E7</span><br>
@@ -96,7 +96,7 @@ Vous c'est l'eau<span class="chord" data-chord="D6">D6</span> c'est l'eau<br>
 Qui <span class="chord" data-chord="Gm7">Gm7</span>vous sépare<span class="chord" data-chord="Am7">Am7</span><br>
 <span class="chord" data-chord="D">D</span>Et vous laisse à part</p>
 <h3>Outro</h3>
-<p><span class="chord" data-chord="G Am7 D C G">G Am7 D C G</span></p>
+<p><span class="chord" data-chord="G Am7 D6 C G">G Am7 D6 C G</span></p>
 
 </div>
   <script>
@@ -198,9 +198,9 @@ function renderAllVerovioprint() {
       const xml = decodeURIComponent(block.dataset.musicxml);
       let options;
         // Screen: use container width
-        const containerWidth = block.clientWidth || 800;
+        const containerWidth = 1200; //block.clientWidth || 800;
         options = {
-          scale: 125,
+          scale: 80,
           pageWidth: containerWidth * 1,
           pageHeight: 2000,
           spacingStaff: 0,
@@ -272,41 +272,46 @@ function transposeNote(note, steps) {
 
 function transposeChord(chord, steps) {
 
-  const original = chord;
+  const original = chord.trim();
 
-  // detect parentheses
+  // detect parentheses safely
   let hasParen = false;
-
-  if (chord.startsWith("(") && chord.endsWith(")")) {
+  if (original.startsWith("(") && original.endsWith(")")) {
     hasParen = true;
-    chord = chord.slice(1, -1);
+    chord = original.slice(1, -1).trim();
+  } else {
+    chord = original;
   }
 
-  // split slash chord
-  let [main, bass] = chord.split("/");
+  // split multiple chords safely (ignore empty)
+const parts = chord.split(new RegExp("\s+")).filter(Boolean);
 
-  const mainMatch = main.match(/^([A-G][b#]?)(.*)$/);
-  if (!mainMatch) return original;
+  if (parts.length === 0) return original;
 
-  const root = mainMatch[1];
-  const suffix = mainMatch[2];
+  const transposedParts = parts.map(part => {
 
-  const newRoot = transposeNote(root, steps);
-  if (!newRoot) return original;
+    // keep trailing slashes (rhythm)
 
-  let result = newRoot + suffix;
+const slashMatch = part.match(new RegExp("(\/+)$"));
+const slashes = slashMatch ? slashMatch[1] : "";
+const base = part.replace(new RegExp("\/+$"), '');
 
-  // transpose bass note if present
-  if (bass) {
-    const bassMatch = bass.match(/^([A-G][b#]?)/);
 
-    if (bassMatch) {
-      const newBass = transposeNote(bassMatch[1], steps);
-      result += "/" + newBass;
-    } else {
-      result += "/" + bass;
-    }
-  }
+
+
+    const match = base.match(/^([A-G][b#]?)(.*)$/);
+    if (!match) return part;
+
+    const root = match[1];
+    const suffix = match[2];
+
+    const newRoot = transposeNote(root, steps);
+    if (!newRoot) return part;
+
+    return newRoot + suffix + slashes;
+  });
+
+  let result = transposedParts.join(" ");
 
   // restore parentheses ONLY if originally present
   if (hasParen) {
@@ -315,6 +320,9 @@ function transposeChord(chord, steps) {
 
   return result;
 }
+
+
+
 
 
 
@@ -339,7 +347,7 @@ document.getElementById("transpose-up").addEventListener("click", () => {
 });
 
 document.getElementById("transpose-down").addEventListener("click", () => {
-  transpose = (transpose - 1 ) % 12;
+  transpose = (transpose - 1 + 12) % 12;
   updateChords();
 });
 

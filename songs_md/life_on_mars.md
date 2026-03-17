@@ -44,7 +44,7 @@
 
 ## Instructions:
 - Couplet/Refrain: ▼▼ pour chaque accord. 
-- Arpège: ((14)232)
+- Arpège: (14)232 - 1232
 
 ## Paroles:
 
@@ -77,7 +77,7 @@ Is there life [Gm7]on Mars?[Daug B♭ C9]
 ### Solo guitar ou:
 [F D7 Gm7 Ddim Am B♭ B♭m]  
 
-### Couplet en arpège
+### Couplet en arpège 
 [F]It's on [Fmaj7]America's tortured [F7]brow  
 That Mickey [D7]Mouse has grown up a [Gm]cow  
 Now the [Gm7]workers have struck for [C7]fame  

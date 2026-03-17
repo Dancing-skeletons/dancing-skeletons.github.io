@@ -37,7 +37,7 @@ T'es beau comme un cri <span class="chord" data-chord="F#m">F#m</span>silencieux
 Vaillant comme un mé<span class="chord" data-chord="A">A</span>tal précieux,<br>
 Qui se <span class="chord" data-chord="C#m">C#m</span>bat pour guérir de ses bleus.</p>
 <div class="highlight">
-<h3>Refrain</h3>
+<h3>Refrain 1</h3>
 <p><span class="chord" data-chord="A">A</span>C'est comme une ren<span class="chord" data-chord="C#m">C#m</span>gaine,<br>
 Quelques notes en <span class="chord" data-chord="C#m">C#m</span>peine,<br>
 Qui forcent mon <span class="chord" data-chord="E">E</span>coeur,<br>
@@ -55,7 +55,7 @@ C'est beau parce que c'est <span class="chord" data-chord="F#m">F#m</span>orageu
 Avec ce temps je <span class="chord" data-chord="A">A</span>connais peu,<br>
 Les mots <span class="chord" data-chord="C#m">C#m</span>qui traînent au coin de mes yeux.</p>
 <div class="highlight">
-<h3>Refrain</h3>
+<h3>Refrain 2</h3>
 <p><span class="chord" data-chord="A">A</span>C'est comme une ren<span class="chord" data-chord="C#m">C#m</span>gaine,<br>
 Quelques notes en <span class="chord" data-chord="C#m">C#m</span>peine,<br>
 Qui forcent mon <span class="chord" data-chord="E">E</span>coeur,<br>
@@ -67,6 +67,11 @@ J'ai peur d'oubli<span class="chord" data-chord="E">E</span>er,<br>
 J'ai peur d'accepter,<br>
 J'ai peur des vi<span class="chord" data-chord="A">A</span>vants,<br>
 A pré<span class="chord" data-chord="G#m">G#m</span>sent.</p>
+</div>
+<p><span class="chord" data-chord="C#m F#m Am C#m">C#m F#m Am C#m</span><br>
+<span class="chord" data-chord="C#m F#m Am C#m">C#m F#m Am C#m</span></p>
+<div class="highlight">
+<h3>Refrain 2</h3>
 </div>
 <h3>Outro</h3>
 <p>T'es <span class="chord" data-chord="C#m">C#m</span>beau<br>
@@ -175,9 +180,9 @@ function renderAllVerovioprint() {
       const xml = decodeURIComponent(block.dataset.musicxml);
       let options;
         // Screen: use container width
-        const containerWidth = block.clientWidth || 800;
+        const containerWidth = 1200; //block.clientWidth || 800;
         options = {
-          scale: 125,
+          scale: 80,
           pageWidth: containerWidth * 1,
           pageHeight: 2000,
           spacingStaff: 0,
@@ -249,41 +254,46 @@ function transposeNote(note, steps) {
 
 function transposeChord(chord, steps) {
 
-  const original = chord;
+  const original = chord.trim();
 
-  // detect parentheses
+  // detect parentheses safely
   let hasParen = false;
-
-  if (chord.startsWith("(") && chord.endsWith(")")) {
+  if (original.startsWith("(") && original.endsWith(")")) {
     hasParen = true;
-    chord = chord.slice(1, -1);
+    chord = original.slice(1, -1).trim();
+  } else {
+    chord = original;
   }
 
-  // split slash chord
-  let [main, bass] = chord.split("/");
+  // split multiple chords safely (ignore empty)
+const parts = chord.split(new RegExp("\s+")).filter(Boolean);
 
-  const mainMatch = main.match(/^([A-G][b#]?)(.*)$/);
-  if (!mainMatch) return original;
+  if (parts.length === 0) return original;
 
-  const root = mainMatch[1];
-  const suffix = mainMatch[2];
+  const transposedParts = parts.map(part => {
 
-  const newRoot = transposeNote(root, steps);
-  if (!newRoot) return original;
+    // keep trailing slashes (rhythm)
 
-  let result = newRoot + suffix;
+const slashMatch = part.match(new RegExp("(\/+)$"));
+const slashes = slashMatch ? slashMatch[1] : "";
+const base = part.replace(new RegExp("\/+$"), '');
 
-  // transpose bass note if present
-  if (bass) {
-    const bassMatch = bass.match(/^([A-G][b#]?)/);
 
-    if (bassMatch) {
-      const newBass = transposeNote(bassMatch[1], steps);
-      result += "/" + newBass;
-    } else {
-      result += "/" + bass;
-    }
-  }
+
+
+    const match = base.match(/^([A-G][b#]?)(.*)$/);
+    if (!match) return part;
+
+    const root = match[1];
+    const suffix = match[2];
+
+    const newRoot = transposeNote(root, steps);
+    if (!newRoot) return part;
+
+    return newRoot + suffix + slashes;
+  });
+
+  let result = transposedParts.join(" ");
 
   // restore parentheses ONLY if originally present
   if (hasParen) {
@@ -292,6 +302,9 @@ function transposeChord(chord, steps) {
 
   return result;
 }
+
+
+
 
 
 
@@ -316,7 +329,7 @@ document.getElementById("transpose-up").addEventListener("click", () => {
 });
 
 document.getElementById("transpose-down").addEventListener("click", () => {
-  transpose = (transpose - 1 ) % 12;
+  transpose = (transpose - 1 + 12) % 12;
   updateChords();
 });
 

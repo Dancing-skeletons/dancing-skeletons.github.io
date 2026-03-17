@@ -25,7 +25,7 @@ Vaillant comme un mé[A]tal précieux,
 Qui se [C#m]bat pour guérir de ses bleus.  
 
 :::highlight
-### Refrain
+### Refrain 1
 [A]C'est comme une ren[C#m]gaine,  
 Quelques notes en [C#m]peine,  
 Qui forcent mon [E]coeur,  
@@ -46,7 +46,7 @@ Avec ce temps je [A]connais peu,
 Les mots [C#m]qui traînent au coin de mes yeux.  
 
 :::highlight
-### Refrain
+### Refrain 2
 [A]C'est comme une ren[C#m]gaine,  
 Quelques notes en [C#m]peine,  
 Qui forcent mon [E]coeur,  
@@ -58,6 +58,13 @@ J'ai peur d'oubli[E]er,
 J'ai peur d'accepter,  
 J'ai peur des vi[A]vants,  
 A pré[G#m]sent.  
+:::
+
+[C#m F#m Am C#m]  
+[C#m F#m Am C#m]
+
+:::highlight
+### Refrain 2
 :::
 
 ### Outro
