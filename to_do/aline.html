@@ -170,9 +170,9 @@ function renderAllVerovioprint() {
       const xml = decodeURIComponent(block.dataset.musicxml);
       let options;
         // Screen: use container width
-        const containerWidth = block.clientWidth || 800;
+        const containerWidth = 1200; //block.clientWidth || 800;
         options = {
-          scale: 125,
+          scale: 80,
           pageWidth: containerWidth * 1,
           pageHeight: 2000,
           spacingStaff: 0,
@@ -230,21 +230,73 @@ function normalize(note){
   return FLAT_TO_SHARP[note] || note;
 }
 
-function transposeChord(chord, steps){
+function transposeNote(note, steps) {
 
-  const match = chord.match(/^([A-G][b#]?)(.*)$/);
-  if (!match) return chord;
+  note = normalize(note);
 
-  let root = normalize(match[1]);
-  const suffix = match[2];
-
-  let idx = NOTES.indexOf(root);
-  if (idx === -1) return chord;
+  let idx = NOTES.indexOf(note);
+  if (idx === -1) return note;
 
   idx = (idx + steps + 12) % 12;
 
-  return NOTES[idx] + suffix;
+  return NOTES[idx];
 }
+
+function transposeChord(chord, steps) {
+
+  const original = chord.trim();
+
+  // detect parentheses safely
+  let hasParen = false;
+  if (original.startsWith("(") && original.endsWith(")")) {
+    hasParen = true;
+    chord = original.slice(1, -1).trim();
+  } else {
+    chord = original;
+  }
+
+  // split multiple chords safely (ignore empty)
+const parts = chord.split(new RegExp("\s+")).filter(Boolean);
+
+  if (parts.length === 0) return original;
+
+  const transposedParts = parts.map(part => {
+
+    // keep trailing slashes (rhythm)
+
+const slashMatch = part.match(new RegExp("(\/+)$"));
+const slashes = slashMatch ? slashMatch[1] : "";
+const base = part.replace(new RegExp("\/+$"), '');
+
+
+
+
+    const match = base.match(/^([A-G][b#]?)(.*)$/);
+    if (!match) return part;
+
+    const root = match[1];
+    const suffix = match[2];
+
+    const newRoot = transposeNote(root, steps);
+    if (!newRoot) return part;
+
+    return newRoot + suffix + slashes;
+  });
+
+  let result = transposedParts.join(" ");
+
+  // restore parentheses ONLY if originally present
+  if (hasParen) {
+    result = "(" + result + ")";
+  }
+
+  return result;
+}
+
+
+
+
+
 
 function updateChords(){
 
@@ -262,12 +314,12 @@ function updateChords(){
 }
 
 document.getElementById("transpose-up").addEventListener("click", () => {
-  transpose++;
+  transpose = (transpose + 1) % 12;
   updateChords();
 });
 
 document.getElementById("transpose-down").addEventListener("click", () => {
-  transpose--;
+  transpose = (transpose - 1 + 12) % 12;
   updateChords();
 });
 
