@@ -28,7 +28,7 @@
 
 ::: highlight
 ### Intro: sans paroles
-[A][F#m][(C)][(D)][A]
+[G][Em][(C)][(D)][G]
 :::
 
 ### Couplet
