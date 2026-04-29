@@ -1,17 +1,23 @@
 # Fais comme l'oiseau (Cric crac) - Michel Fugain
 
 ## Accords refrain:
-<uke-chord name="D7" frets="2020"></uke-chord> 
 <uke-chord name="G6" frets="0202"></uke-chord> 
 <uke-chord name="Bm" frets="4222"></uke-chord> 
 <uke-chord name="Fmaj7" frets="5500" length=5></uke-chord> 
 <uke-chord name="E7" frets="1202"></uke-chord> 
-<uke-chord name="Am" frets="2000"></uke-chord> 
+<uke-chord name="Am x2" frets="2000"></uke-chord> 
+<uke-chord name="Cm6" frets="2333"></uke-chord> 
+<uke-chord name="D" frets="2220"></uke-chord> 
+<uke-chord name="G6" frets="0202"></uke-chord> 
+<uke-chord name="Bm" frets="4222"></uke-chord> 
+<uke-chord name="Fmaj7" frets="5500" length=5></uke-chord> 
+<uke-chord name="E7" frets="1202"></uke-chord> 
+<uke-chord name="Am x2" frets="2000"></uke-chord> 
 <uke-chord name="Cm6" frets="2333"></uke-chord> 
 <uke-chord name="D7" frets="2020"></uke-chord> 
 <uke-chord name="Gm" frets="0231"></uke-chord> 
 
-## Accords couplet:
+## Accords couplet X2:
 <uke-chord name="Gm7" frets="0211"></uke-chord> 
 <uke-chord name="Cm" frets="0333"></uke-chord> 
 <uke-chord name="F7" frets="2313"></uke-chord> 
@@ -19,11 +25,21 @@
 <uke-chord name="EbMaj7" frets="3335"></uke-chord> 
 <uke-chord name="Gm6" frets="0201"></uke-chord> 
 <uke-chord name="D7" frets="2020"></uke-chord> 
-<uke-chord name="Gm" frets="0231"></uke-chord> 
+<uke-chord name="(Gm)" frets="0231"></uke-chord> 
 
 
 ## Instructions:
-- ▼▲▼▲▼▲▼
+- Rythmique:
+    <pre class="tableau">
+    1 & 2 & 3 & 4 &
+    ▼   ▼     ▲ ▼       
+    </pre>
+- Rhythmique sur le [E7] et [D] du refrain
+    <pre class="tableau">
+    1 & 2 & 3 & 4 &
+      ▲   ▲   ▲ ▼       
+    </pre>
+- Intro en arpège (14)232-1232
 
 ## Paroles:
 

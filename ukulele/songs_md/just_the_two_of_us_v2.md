@@ -1,19 +1,50 @@
 # Just the two of us (Cric Crac) - Bill Withers
 
-## Accords:
+## Accords couplet:
 <uke-chord name="Cmaj7" frets="0002"></uke-chord> 
 <uke-chord name="B7" frets="4320"></uke-chord> 
 <uke-chord name="Em7" frets="0202"></uke-chord> 
 <uke-chord name="G7" frets="0212"></uke-chord> 
-<uke-chord name="Em" frets="0432"></uke-chord> 
+<uke-chord name="Cmaj7" frets="0002"></uke-chord> 
+<uke-chord name="B7" frets="4320"></uke-chord> 
+<uke-chord name="Em x2" frets="0432"></uke-chord> 
+
+
+## Accords refrain x4:
+<uke-chord name="Cmaj7" frets="0002"></uke-chord> 
+<uke-chord name="B7" frets="4320"></uke-chord> 
+<uke-chord name="Em" frets="0202"></uke-chord> 
+<uke-chord name="G7" frets="0212"></uke-chord> 
+
+## Accords solo:
 <uke-chord name="A♭maj7" frets="1333"></uke-chord> 
+<uke-chord name="Dm7" frets="3111" position=5></uke-chord> 
 
 
 ## Instructions: 
+- Rythmique:
+    <pre class="tableau">
+    1 & 2 & 3 & 4 &
+    ▼   ▼     ▲ ▼       
+    </pre>
+- Rhythmique sur le [Em][Em]
+    <pre class="tableau">
+    1 & 2 & 3 & 4 &
+      ▲   ▲   ▲ ▼       
+    </pre>
+- Intro en arpège 4321
+
+
 
 ## Paroles:
+### Intro (phrases du couplet inversées)
+[Cmaj7][B7][Em7][G7]  
+[Cmaj7][B7][Em][G7]  
+[Cmaj7][B7][Em7][G7]  
+[Cmaj7][B7][Em][Em]  
 
-### Couplet: Uniquement un ▼ par accord.
+
+### Couplet:
 [Cmaj7]I see the [B7]crystal raindrops [Em7]fall  
 And the [G7]beauty of it all  
 [Cmaj7]Is when the [B7]sun comes shining [Em*2]through  
@@ -48,12 +79,14 @@ We gotta [B7]go for all we [Em]know [G7]
 :::
 
 :::highlight
-### Solo *4
+### Solo x4
 [Cmaj7 B7 F A7]  
 [Abmaj7 G7 Cmaj7 Dm7]
 :::
 
-### Couplet (fingerstyle)
+### Intro
+
+### Couplet 
 [Cmaj7]I see the [B7]crystal raindrops [Em7]fall  
 On the [G7]window down the [Cmaj7]hall  
 And it be[B7]comes the morning [Em*2]dew  
@@ -63,4 +96,5 @@ I wanna [B7]be the one with [Em*2]you
 
 :::highlight
 ### Refrain
+S'arrête sur [B7] [pause] [Em/]
 :::
