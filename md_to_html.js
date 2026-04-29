@@ -150,7 +150,8 @@ const html = `<!doctype html>
 <head>
 <meta charset="utf-8">
 <title>${path.basename(input)}</title>
-<link rel="stylesheet" href="../styles.css"> 
+<link rel="stylesheet" href="../../styles.css"> 
+
 <script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
 <script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
 <script src="https://www.verovio.org/javascript/latest/verovio-toolkit.js"></script>

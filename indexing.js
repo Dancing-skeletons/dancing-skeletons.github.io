@@ -2,55 +2,75 @@ const fs = require("fs");
 const path = require("path");
 const MarkdownIt = require("markdown-it");
 
-const SONGS_FOLDER = path.join(__dirname, "songs");
-const PDF_FOLDER = path.join(__dirname, "tabs");
 const ROOT_FOLDER = __dirname;
+
+// Folders
+const UKE_SONGS = path.join(__dirname, "ukulele", "songs");
+const UKE_TABS  = path.join(__dirname, "ukulele", "tabs");
+
+const GUITAR_SONGS = path.join(__dirname, "guitar", "songs");
+const GUITAR_TABS  = path.join(__dirname, "guitar", "tabs");
 
 const md = new MarkdownIt();
 
-// Extract title from HTML file (use <h1> or fallback to filename)
+// Extract title from HTML file
 function extractTitle(filePath) {
   const content = fs.readFileSync(filePath, "utf8");
   const match = content.match(/<h1[^>]*>(.*?)<\/h1>/i);
   return match ? match[1].trim() : path.basename(filePath, ".html");
 }
 
+// Generic helpers
+function listHtml(folder, urlPrefix) {
+  if (!fs.existsSync(folder)) return ["_No songs found._"];
+
+  const files = fs.readdirSync(folder)
+    .filter(f => f.endsWith(".html"))
+    .sort();
+
+  if (files.length === 0) return ["_No songs found._"];
+
+  return files.map(file => {
+    const title = extractTitle(path.join(folder, file));
+    return `- [${title}](${urlPrefix}/${file})`;
+  });
+}
+
+function listPdf(folder, urlPrefix) {
+  if (!fs.existsSync(folder)) return [];
+
+  const files = fs.readdirSync(folder)
+    .filter(f => f.endsWith(".pdf"))
+    .sort();
+
+  return files.map(pdf => {
+    const title = path.basename(pdf, ".pdf").replace(/_/g, " ");
+    const url = encodeURI(`${urlPrefix}/${pdf}`);
+    return `- [${title}](${url})`;
+  });
+}
+
 function buildIndex() {
-  // --- HTML Songs ---
-  const htmlFiles = fs.existsSync(SONGS_FOLDER)
-    ? fs.readdirSync(SONGS_FOLDER).filter(f => f.endsWith(".html")).sort()
-    : [];
 
-  // --- PDFs ---
-  const pdfFiles = fs.existsSync(PDF_FOLDER)
-    ? fs.readdirSync(PDF_FOLDER).filter(f => f.endsWith(".pdf")).sort()
-    : [];
-
-  // Build Markdown content
   const mdLines = ["# Songbook 💀︎🎸", ""];
 
-  // Songs section
-  mdLines.push("## Songs", "");
-  if (htmlFiles.length > 0) {
-    for (const file of htmlFiles) {
-      const title = extractTitle(path.join(SONGS_FOLDER, file));
-      mdLines.push(`- [${title}](songs/${file})`);
-    }
-  } else {
-    mdLines.push("_No songs found._");
-  }
+  // 🎸 Uku Songs
+  mdLines.push("## Uku songs", "");
+  mdLines.push(...listHtml(UKE_SONGS, "ukulele/songs"), "");
 
-  // PDFs section
-  if (pdfFiles.length > 0) {
-    mdLines.push("", "## Tabs - Ne pas reproduire", "");
-    for (const pdf of pdfFiles) {
-      const title = path.basename(pdf, ".pdf").replace(/_/g, " ");
-      const url = encodeURI(`tabs/${pdf}`);  // this ensures spaces and special characters work
-      mdLines.push(`- [${title}](${url})`);
-    }
-  }
+  // 📄 Uku Tabs
+  mdLines.push("## Uku tabs", "");
+  mdLines.push(...listPdf(UKE_TABS, "ukulele/tabs"), "");
 
-  // Convert Markdown to HTML
+  // 🎸 Guitar Songs
+  mdLines.push("## Guitar songs", "");
+  mdLines.push(...listHtml(GUITAR_SONGS, "guitar/songs"), "");
+
+  // 📄 Guitar Tabs
+  mdLines.push("## Guitar tabs", "");
+  mdLines.push(...listPdf(GUITAR_TABS, "guitar/tabs"), "");
+
+  // HTML output
   const htmlContent = `
 <!DOCTYPE html>
 <html>
@@ -64,7 +84,6 @@ function buildIndex() {
       line-height: 1.6;
       column-gap: 2em;
     }
-    pre { font-size: 18px; }
     h2 { margin-top: 2rem; color: #333; }
     a { color: darkblue; text-decoration: none; }
     a:hover { text-decoration: underline; }
@@ -75,11 +94,10 @@ ${md.render(mdLines.join("\n"))}
 </body>
 </html>`;
 
-  // Write to root folder
   const htmlPath = path.join(ROOT_FOLDER, "index.html");
   fs.writeFileSync(htmlPath, htmlContent, "utf8");
 
-  console.log(`✅ Created index.html with ${htmlFiles.length} songs and ${pdfFiles.length} PDFs.`);
+  console.log("✅ Index created");
 }
 
 buildIndex();
