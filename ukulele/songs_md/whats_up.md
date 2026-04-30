@@ -54,7 +54,7 @@ I pray every single [D] day, for a revo[A]lution
 :::highlight
 ### Pré-refrain
 ### Refrain X2
-#### Interlude X2
+### Interlude X2
 :::
 
 ### Outro (plus lente)

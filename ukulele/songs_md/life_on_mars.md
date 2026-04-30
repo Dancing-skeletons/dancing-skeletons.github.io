@@ -48,6 +48,8 @@
 
 ## Paroles:
 
+### Intro: 1/2 couplet en arpège
+
 ### Couplet
 [F]It's a [Fmaj7]God-awful small a[F7]ffair  
 To the [D7]girl with the mousy hair[Gm]  
@@ -76,6 +78,8 @@ Is there life [Gm7]on Mars?[Daug B♭ C9]
 
 ### Solo guitar ou:
 [F D7 Gm7 Ddim Am B♭ B♭m]  
+
+### Intro: 1/2 couplet en arpège
 
 ### Couplet en arpège 
 [F]It's on [Fmaj7]America's tortured [F7]brow  

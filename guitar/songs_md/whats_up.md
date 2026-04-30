@@ -60,7 +60,7 @@ I pray every single [C] day, for a revo[G]lution
 :::highlight
 ### Pré-refrain
 ### Refrain X2
-#### Interlude X2
+### Interlude X2
 :::
 
 
