@@ -12,11 +12,11 @@
 ## Paroles:
 
 ### Intro
-[A] [F] [C] [G] [C] [G] [G] [D] [D]
+[Am] [F] [C] [G] [C] [G] [G] [D] [D]
 
 ### Couplet
 [C] Someone told me long ago  
-There's a calm before the storm  
+[C] There's a calm before the storm  
 I [G] know, and it's been coming [C] for some time  
 
 [C] When it's over so they say, it'll rain a sunny day  

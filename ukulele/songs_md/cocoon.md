@@ -1,8 +1,8 @@
 # Chupe (Cric crac)- Cocoon
 
 ## Accords:
-<uke-chord name="G" frets="0232"></uke-chord> 
-<uke-chord name="Em" frets="0432"></uke-chord> 
+<uke-chord name="G" frets="4232"></uke-chord> 
+<uke-chord name="Em" frets="4432"></uke-chord> 
 <uke-chord name="Bm" frets="4222"></uke-chord> 
 <uke-chord name="Bm" frets="2223"></uke-chord> 
 <uke-chord name="C" frets="0003"></uke-chord> 
@@ -18,6 +18,7 @@
     </pre>
 - Rythmique sur la phrase "I take you on a trip":
     <pre class="tableau">
+    G               Bm
     1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 &
     ▼   ▼   ▼   ▼   ▼ ▲ X ▲          
     .   .   .   .     

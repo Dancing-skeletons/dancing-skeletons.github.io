@@ -53,7 +53,7 @@ I need you [Cmaj7] baby to warm the [Am] lonely nights
 I love you [Dm] baby, [G7] trust in me   
 when I [Cmaj7] say [Am]  
 Oh pretty [Dm] baby, don't bring me [G7] down I pray  
-Oh pretty [C] baby, now that I've [Am] found you stay  
+Oh pretty [Cmaj7] baby, now that I've [Am] found you stay  
 And let me [Dm] love you baby, [G7]let me love you oh [Cmaj7]baby [Am//]  
 :::
 

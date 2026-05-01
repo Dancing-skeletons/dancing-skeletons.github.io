@@ -55,9 +55,11 @@ Elle a ses rai[Eb]sons, mais...
 
 :::highlight
 ### Instrumental
+[G#] [A#m] [C#] [G#]  
+[G#] [A#m] [C#/Eb] [G#] [C#m]  
 :::
 
-### Pont: [G# C#m] (pré-pont) en arpège?
+### Pont
 [G#]Quand la tempête a [C#m]su  
 Que des mélo[G#]dies pouvaient s'échapper du [C#m]vent  
 Et se retrou[F#m]ver dans le cœur des [C#m]gens  
@@ -71,6 +73,6 @@ Réchauffer mon [G#]cœur"[G#]
 ### Refrain:
 [G#]Il fait toujours beau au-[Cm]dessus des nuages  
 Mais moi, je [A#m] suis de ces oiseaux, qui nous font [Eb7/G]danser sous l'orage  
-Je traver[G]serais les nuages, pour [Cm]trouver la lumière  
+Je traver[G#]serais les nuages, pour [Cm]trouver la lumière  
 En chant[A#m]tant sous la pluie la sym[C#/Eb]phonie des éclairs
 :::
