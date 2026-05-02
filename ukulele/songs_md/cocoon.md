@@ -4,7 +4,7 @@
 <uke-chord name="G" frets="4232"></uke-chord> 
 <uke-chord name="Em" frets="4432"></uke-chord> 
 <uke-chord name="Bm" frets="4222"></uke-chord> 
-<uke-chord name="Bm" frets="2223"></uke-chord> 
+<uke-chord name="D7" frets="2223"></uke-chord> 
 <uke-chord name="C" frets="0003"></uke-chord> 
 <uke-chord name="Am" frets="2000"></uke-chord> 
 
