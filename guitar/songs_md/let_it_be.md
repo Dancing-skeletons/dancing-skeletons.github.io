@@ -38,11 +38,11 @@ There is [Am] still a chance that [F] they will see
 [C] There will be an [G] answer, let it [F] be [(Em)][(Dm)] [C]   
 
 :::highlight
-### Refrain 
-Let it [Am] be, let it [G] be, let it [F] be, let it [C] be
-[C] There will be an [G] answer, let it [F] be [(Em)][(Dm)] [C] 
-
-Let it [Am] be, let it [G] be, let it [F] be, let it [C] be    
+### Refrain  
+Let it [Am] be, let it [G] be, let it [F] be, let it [C] be  
+[C] There will be an [G] answer, let it [F] be [(Em)][(Dm)] [C]  
+ 
+Let it [Am] be, let it [G] be, let it [F] be, let it [C] be  
 [C] Whisper words of [G] wisdom, let it [F] be [(Em)][(Dm)] [C]    
 
 Let it [Am] be, let it [G] be, let it [F] be, let it [C] be  
@@ -56,7 +56,7 @@ There is [Am] still a light that [F] shines on me
 [C] Shine until to-[G]morrow, let it [F] be [(Em)][(Dm)] [C]   
 I [C] wake up to the [G] sound of music  
 [Am] Mother Mary [F] comes to me  
-[C] Speaking words of [G] wisdom, let it [F] be [(Em)][(Dm)] [C]   
+[C] Speaking words of [G] wisdom, let it [F] be [(Em)][(Dm)] [C]    
 
 :::highlight
 ### Refrain

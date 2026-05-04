@@ -51,15 +51,15 @@ stand by [G] me
 :::
 
 ### Couplet
-[G] If the sky that we look upon 
-[Em] should tumble and fall 
-Or the [(C)] mountain should [(D)] crumble 
-to the [G] sea
+[G] If the sky that we look upon  
+[Em] should tumble and fall  
+Or the [(C)] mountain should [(D)] crumble  
+to the [G] sea  
 
-I won't cry I won't cry 
-no I [Em] won't shed a tear
-Just as [(C)] long as you [(D)] stand,
-stand by [G] me
+I won't cry I won't cry  
+no I [Em] won't shed a tear  
+Just as [(C)] long as you [(D)] stand,  
+stand by [G] me  
 
 :::highlight
 ### Refrain...
