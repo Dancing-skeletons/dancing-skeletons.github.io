@@ -34,7 +34,7 @@ And [D] I, I'm feeling a little pe[A]culiar
 And so I [A] wake in the morning and I step outside  
 And I [Bm] take a deep breath and I get real high  
 And I [D] scream at the top of my lungs,  
-What's Going [A] On [A]  
+What's Going [A] On
 
 ### Refrain X2
 And I say, [A] hey-e-e-e-y [Bm] h-e-e-e-y  

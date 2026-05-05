@@ -40,7 +40,7 @@ And [C] I, I'm feeling a little pe[G]culiar
 And so I [G] wake in the morning and I step outside  
 And I [Am] take a deep breath and I get real high  
 And I [C] scream at the top of my lungs,  
-What's Going [G] On [G]  
+What's Going [G] On
 
 ### Refrain X2
 And I say, [G] hey-e-e-e-y [Am] h-e-e-e-y  
