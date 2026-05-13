@@ -8,12 +8,6 @@
 <uke-chord name="Am x2" frets="2000"></uke-chord> 
 <uke-chord name="Cm6" frets="2333"></uke-chord> 
 <uke-chord name="D" frets="2220"></uke-chord> 
-<uke-chord name="G6" frets="0202"></uke-chord> 
-<uke-chord name="Bm" frets="4222"></uke-chord> 
-<uke-chord name="Fmaj7" frets="5500" length=5></uke-chord> 
-<uke-chord name="E7" frets="1202"></uke-chord> 
-<uke-chord name="Am x2" frets="2000"></uke-chord> 
-<uke-chord name="Cm6" frets="2333"></uke-chord> 
 <uke-chord name="D7" frets="2020"></uke-chord> 
 <uke-chord name="Gm" frets="0231"></uke-chord> 
 
