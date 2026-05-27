@@ -10,15 +10,18 @@
 <script src="https://www.verovio.org/javascript/latest/verovio-toolkit.js"></script>
 </head>
 <body>
-<button id="toggle-columns">Colonnes</button>
-<button id="toggle-chords">Vue accords</button>
-<div id="content" class="two-column">
-<div id="transpose-controls">
-  <button id="transpose-down">−</button>
-  <span id="transpose-level">0</span>
-  <button id="transpose-up">+</button>
+<div id="controls-container">
+  <button id="toggle-columns">Colonnes</button>
+  <button id="toggle-chords">Accords</button>
+
+  <div id="transpose-controls">
+    <button id="transpose-down">−</button>
+    <div id="transpose-level">0</div>
+    <button id="transpose-up">+</button>
+  </div>
 </div>
 
+<div id="content" class="two-column">
 <h1>Life on Mars (Cric Crac) - David Bowie</h1>
 <h2>Accords Couplet partie 1 (2 fois)</h2>
 <p><uke-chord name="F" frets="2010" size="1" class="chord-large"></uke-chord><uke-chord name="F" frets="2010" size="0.7" class="chord-small"></uke-chord>
@@ -113,6 +116,7 @@ As I <span class="chord" data-chord="D♭7">D♭7</span>ask you to focus on</p>
 <p><span class="chord" data-chord="F D7 Gm7 Ddim Am B♭ B♭m">F D7 Gm7 Ddim Am B♭ B♭m</span></p>
 
 </div>
+
   <script>
   const btn = document.getElementById('toggle-columns');
     const content = document.getElementById('content');

@@ -87,14 +87,14 @@ We gotta [B7]go for all we [Em]know [G7]
 ### Intro
 
 ### Couplet 
-[Cmaj7]I see the [B7]crystal raindrops [Em7]fall  
+[Cmaj7]I hear the [B7]crystal raindrops [Em7]fall  
 On the [G7]window down the [Cmaj7]hall  
 And it be[B7]comes the morning [Em*2]dew  
 [Cmaj7]And darling [B7]when the morning [Em7]comes  
 And I [G7]see the morning [Cmaj7]sun  
-I wanna [B7]be the one with [Em*2]you  
+I wanna [B7]be the one with [Em]you [G7]  
 
 :::highlight
 ### Refrain
-S'arrête sur [B7] [pause] [Em/]
+S'arrête sur: two of us[B7] [...] You and I[Em/].
 :::

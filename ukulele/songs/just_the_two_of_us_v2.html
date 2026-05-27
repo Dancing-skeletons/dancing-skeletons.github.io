@@ -10,15 +10,18 @@
 <script src="https://www.verovio.org/javascript/latest/verovio-toolkit.js"></script>
 </head>
 <body>
-<button id="toggle-columns">Colonnes</button>
-<button id="toggle-chords">Vue accords</button>
-<div id="content" class="two-column">
-<div id="transpose-controls">
-  <button id="transpose-down">−</button>
-  <span id="transpose-level">0</span>
-  <button id="transpose-up">+</button>
+<div id="controls-container">
+  <button id="toggle-columns">Colonnes</button>
+  <button id="toggle-chords">Accords</button>
+
+  <div id="transpose-controls">
+    <button id="transpose-down">−</button>
+    <div id="transpose-level">0</div>
+    <button id="transpose-up">+</button>
+  </div>
 </div>
 
+<div id="content" class="two-column">
 <h1>Just the two of us (Cric Crac) - Bill Withers</h1>
 <h2>Accords couplet:</h2>
 <p><uke-chord name="Cmaj7" frets="0002" size="1" class="chord-large"></uke-chord><uke-chord name="Cmaj7" frets="0002" size="0.7" class="chord-small"></uke-chord>
@@ -91,18 +94,19 @@ We gotta <span class="chord" data-chord="B7">B7</span>go for all we <span class=
 </div>
 <h3>Intro</h3>
 <h3>Couplet</h3>
-<p><span class="chord" data-chord="Cmaj7">Cmaj7</span>I see the <span class="chord" data-chord="B7">B7</span>crystal raindrops <span class="chord" data-chord="Em7">Em7</span>fall<br>
+<p><span class="chord" data-chord="Cmaj7">Cmaj7</span>I hear the <span class="chord" data-chord="B7">B7</span>crystal raindrops <span class="chord" data-chord="Em7">Em7</span>fall<br>
 On the <span class="chord" data-chord="G7">G7</span>window down the <span class="chord" data-chord="Cmaj7">Cmaj7</span>hall<br>
 And it be<span class="chord" data-chord="B7">B7</span>comes the morning <span class="chord" data-chord="Em*2">Em*2</span>dew<br>
 <span class="chord" data-chord="Cmaj7">Cmaj7</span>And darling <span class="chord" data-chord="B7">B7</span>when the morning <span class="chord" data-chord="Em7">Em7</span>comes<br>
 And I <span class="chord" data-chord="G7">G7</span>see the morning <span class="chord" data-chord="Cmaj7">Cmaj7</span>sun<br>
-I wanna <span class="chord" data-chord="B7">B7</span>be the one with <span class="chord" data-chord="Em*2">Em*2</span>you</p>
+I wanna <span class="chord" data-chord="B7">B7</span>be the one with <span class="chord" data-chord="Em">Em</span>you <span class="chord" data-chord="G7">G7</span></p>
 <div class="highlight">
 <h3>Refrain</h3>
-<p>S'arrête sur <span class="chord" data-chord="B7">B7</span> <span class="chord" data-chord="pause">pause</span> <span class="chord" data-chord="Em/">Em/</span></p>
+<p>S'arrête sur: two of us<span class="chord" data-chord="B7">B7</span> <span class="chord" data-chord="...">...</span> You and I<span class="chord" data-chord="Em/">Em/</span>.</p>
 </div>
 
 </div>
+
   <script>
   const btn = document.getElementById('toggle-columns');
     const content = document.getElementById('content');

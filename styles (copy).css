@@ -1,12 +1,7 @@
 body { 
-  font-family: "Inter", system-ui, Arial, sans-serif;
+  font-family: system-ui, Arial, sans-serif;
   padding: 1rem;
   line-height: 2.1;
-  
-}
-
-h1, h2, h3 {
-  font-family: "Inter", system-ui, sans-serif;
 }
 
 /* Code blocks */
@@ -38,7 +33,6 @@ pre code {
   font-size: 0.9em;
   vertical-align: super;
   margin-right: 0.12em;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
 }
 
 
@@ -109,7 +103,7 @@ pre.tableau {
   border-radius: 5px;
   margin-right: 3px;
   font-size: 1.05em;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-family: monospace;
 }
 
 .chord-inline {
@@ -208,7 +202,7 @@ pre.tableau {
   border-radius: 6px;
   cursor: pointer;
   z-index: 9999;
-  width: 160px;          /* ← same width */
+  width: 220px;          /* ← same width */
   text-align: center;
 }
 
@@ -225,7 +219,7 @@ pre.tableau {
   border-radius: 6px;
   cursor: pointer;
   z-index: 9999;
-  width: 160px;          /* ← same width */
+  width: 220px;          /* ← same width */
   text-align: center;
 }
 
@@ -234,10 +228,9 @@ pre.tableau {
   position: fixed;
   top: 130px;      /* under the other buttons */
   right: 10px;
-  width: 160px;
+  width: 220px;
   display: flex;
   z-index: 9999;
-  align-items: stretch;
 }
 
 #transpose-controls button,
@@ -249,12 +242,10 @@ pre.tableau {
   border: none;
   padding: 8px 0;
   text-align: center;
-  height: 44px;
 }
 
 #transpose-controls button {
   cursor: pointer;
-  margin: 0;
 }
 
 #transpose-down {
@@ -274,18 +265,6 @@ pre.tableau {
   border-radius: 0 6px 6px 0;
 }
 
-#transpose-controls > * {
-  flex: 1;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #007acc;
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  box-sizing: border-box;
-}
 
 
 
