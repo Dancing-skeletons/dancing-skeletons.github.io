@@ -1,13 +1,10 @@
 body { 
-  font-family: "Ubuntu", system-ui, Arial, sans-serif;
+  font-family: "Josefin Sans", "Ubuntu", system-ui, Arial, sans-serif;
   padding: 1rem;
   line-height: 2.1;
   letter-spacing: 0.1px;
 }
 
-h1, h2, h3 {
-  font-family: "Ubuntu", system-ui, sans-serif;
-}
 
 /* Code blocks */
 pre code {
