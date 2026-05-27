@@ -1,12 +1,12 @@
 body { 
-  font-family: "Inter", system-ui, Arial, sans-serif;
+  font-family: "Ubuntu", system-ui, Arial, sans-serif;
   padding: 1rem;
   line-height: 2.1;
-  
+  letter-spacing: 0.1px;
 }
 
 h1, h2, h3 {
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: "Ubuntu", system-ui, sans-serif;
 }
 
 /* Code blocks */
@@ -30,6 +30,19 @@ pre code {
   column-gap: 2em;
 }
 
+
+.chord-group {
+  display: inline-flex;
+  gap: 0.25em;
+  top: -0.6em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.chord {
+  font-size: 0.95rem;
+}
+
 /* Chords */
 .chord {
   color: #b00;
@@ -38,7 +51,10 @@ pre code {
   font-size: 0.9em;
   vertical-align: super;
   margin-right: 0.12em;
+  margin-left: 0.05em;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    line-height: 1;
+      margin: 0;
 }
 
 

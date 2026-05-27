@@ -8,6 +8,10 @@
 <script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
 <script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
 <script src="https://www.verovio.org/javascript/latest/verovio-toolkit.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <div id="controls-container">
@@ -24,14 +28,14 @@
 <div id="content" class="two-column">
 <h1>The zephyr song (TenThumbs prod) - RHCP</h1>
 <h2>Accords couplets:</h2>
-<p><uke-chord name="Am" frets="2000" size="1" class="chord-large"></uke-chord><uke-chord name="Am" frets="2000" size="0.7" class="chord-small"></uke-chord>
-<uke-chord name="G" frets="0232" size="1" class="chord-large"></uke-chord><uke-chord name="G" frets="0232" size="0.7" class="chord-small"></uke-chord>
-<uke-chord name="Em" frets="0432" size="1" class="chord-large"></uke-chord><uke-chord name="Em" frets="0432" size="0.7" class="chord-small"></uke-chord>
-<uke-chord name="F" frets="2010" size="1" class="chord-large"></uke-chord><uke-chord name="F" frets="2010" size="0.7" class="chord-small"></uke-chord></p>
+<p><uke-chord name="Am" frets="2000" size="1" class="chord-large"></uke-chord><uke-chord name="Am" frets="2000" size="0.6" class="chord-small"></uke-chord>
+<uke-chord name="G" frets="0232" size="1" class="chord-large"></uke-chord><uke-chord name="G" frets="0232" size="0.6" class="chord-small"></uke-chord>
+<uke-chord name="Em" frets="0432" size="1" class="chord-large"></uke-chord><uke-chord name="Em" frets="0432" size="0.6" class="chord-small"></uke-chord>
+<uke-chord name="F" frets="2010" size="1" class="chord-large"></uke-chord><uke-chord name="F" frets="2010" size="0.6" class="chord-small"></uke-chord></p>
 <h2>Accords refrain:</h2>
-<p><uke-chord name="D" frets="2220" size="1" class="chord-large"></uke-chord><uke-chord name="D" frets="2220" size="0.7" class="chord-small"></uke-chord>
-<uke-chord name="G" frets="0232" size="1" class="chord-large"></uke-chord><uke-chord name="G" frets="0232" size="0.7" class="chord-small"></uke-chord>
-<uke-chord name="A" frets="2100" size="1" class="chord-large"></uke-chord><uke-chord name="A" frets="2100" size="0.7" class="chord-small"></uke-chord></p>
+<p><uke-chord name="D" frets="2220" size="1" class="chord-large"></uke-chord><uke-chord name="D" frets="2220" size="0.6" class="chord-small"></uke-chord>
+<uke-chord name="G" frets="0232" size="1" class="chord-large"></uke-chord><uke-chord name="G" frets="0232" size="0.6" class="chord-small"></uke-chord>
+<uke-chord name="A" frets="2100" size="1" class="chord-large"></uke-chord><uke-chord name="A" frets="2100" size="0.6" class="chord-small"></uke-chord></p>
 <h2>Instructions:</h2>
 <h3>Intro:</h3>
 <pre class="tableau">
@@ -42,14 +46,14 @@
     Am   G   Em  F
 </pre>
 <h3>Couplets:</h3>
-<p>Suivre la progression <span class="chord" data-chord="Am G Em F">Am G Em F</span>*4 via:</p>
+<p>Suivre la progression <span class="chord-group"><span class="chord" data-chord="Am G Em F">Am G Em F</span></span>*4 via:</p>
 <pre class="tableau">
 1 & 2 & 3 & 4 &
 ▼ ▲ ▼ ▲   ▲ ▼ ▲
 </pre>
-<h3>Pré-refrain: une mesure de <span class="chord" data-chord="X">X</span> en ▼▲▼▲▼▲▼▲.</h3>
+<h3>Pré-refrain: une mesure de <span class="chord-group"><span class="chord" data-chord="X">X</span></span> en ▼▲▼▲▼▲▼▲.</h3>
 <h3>Refrain:</h3>
-<p>Suivre la progression <span class="chord" data-chord="D D G A">D D G A</span> via:</p>
+<p>Suivre la progression <span class="chord-group"><span class="chord" data-chord="D D G A">D D G A</span></span> via:</p>
 <pre class="tableau">
 1 & 2 & 3 & 4 &
 ▼   ▼ ▲   ▲ ▼ ▲
@@ -87,64 +91,64 @@
 </pre>
 <h2>Paroles:</h2>
 <h3>Couplet</h3>
-<p><span class="chord" data-chord="Am">Am</span>Can I get your hand to write on<br>
-<span class="chord" data-chord="G">G</span>Just a piece of leg to bite on<br>
-<span class="chord" data-chord="Em">Em</span>What a night to fly my kite on<br>
-<span class="chord" data-chord="F">F</span>Do you want to flash your light on?</p>
-<p><span class="chord" data-chord="Am">Am</span>Take a look, it's on display <span class="chord" data-chord="G">G</span>for you<br>
-<span class="chord" data-chord="Em">Em</span>Coming down, no, not today<span class="chord" data-chord="F">F</span></p>
-<p><span class="chord" data-chord="Am">Am</span>Did you meet your fortune teller<br>
-<span class="chord" data-chord="G">G</span>Get it off with no propeller<br>
-<span class="chord" data-chord="Em">Em</span>Do it up, it's on with Stella<br>
-<span class="chord" data-chord="F">F</span>What a way to finally smell her<br>
-<span class="chord" data-chord="Am">Am</span>Pick it up, but not too strong <span class="chord" data-chord="G">G</span>for you<br>
-<span class="chord" data-chord="Em">Em</span>Take a piece and pass it on<span class="chord" data-chord="F">F</span></p>
+<p><span class="chord-group"><span class="chord" data-chord="Am">Am</span></span>Can I get your hand to write on<br>
+<span class="chord-group"><span class="chord" data-chord="G">G</span></span>Just a piece of leg to bite on<br>
+<span class="chord-group"><span class="chord" data-chord="Em">Em</span></span>What a night to fly my kite on<br>
+<span class="chord-group"><span class="chord" data-chord="F">F</span></span>Do you want to flash your light on?</p>
+<p><span class="chord-group"><span class="chord" data-chord="Am">Am</span></span>Take a look, it's on display <span class="chord-group"><span class="chord" data-chord="G">G</span></span>for you<br>
+<span class="chord-group"><span class="chord" data-chord="Em">Em</span></span>Coming down, no, not today<span class="chord-group"><span class="chord" data-chord="F">F</span></span></p>
+<p><span class="chord-group"><span class="chord" data-chord="Am">Am</span></span>Did you meet your fortune teller<br>
+<span class="chord-group"><span class="chord" data-chord="G">G</span></span>Get it off with no propeller<br>
+<span class="chord-group"><span class="chord" data-chord="Em">Em</span></span>Do it up, it's on with Stella<br>
+<span class="chord-group"><span class="chord" data-chord="F">F</span></span>What a way to finally smell her<br>
+<span class="chord-group"><span class="chord" data-chord="Am">Am</span></span>Pick it up, but not too strong <span class="chord-group"><span class="chord" data-chord="G">G</span></span>for you<br>
+<span class="chord-group"><span class="chord" data-chord="Em">Em</span></span>Take a piece and pass it on<span class="chord-group"><span class="chord" data-chord="F">F</span></span></p>
 <div class="highlight">
-<h3>Refrain: pré-refrain <span class="chord" data-chord="X">X</span></h3>
-<p><span class="chord" data-chord="D">D</span>Fly away on my zephyr<br>
-<span class="chord" data-chord="G">G</span>I feel it <span class="chord" data-chord="A">A</span>more than ever<br>
-<span class="chord" data-chord="D">D</span>And in this perfect weather<br>
-<span class="chord" data-chord="G">G</span>We'll find a <span class="chord" data-chord="A">A</span>place together<br>
-<span class="chord" data-chord="Am">Am</span>Fly <span class="chord" data-chord="G">G</span>on <span class="chord" data-chord="Em">Em</span>my <span class="chord" data-chord="F">F</span>wind</p>
+<h3>Refrain: pré-refrain <span class="chord-group"><span class="chord" data-chord="X">X</span></span></h3>
+<p><span class="chord-group"><span class="chord" data-chord="D">D</span></span>Fly away on my zephyr<br>
+<span class="chord-group"><span class="chord" data-chord="G">G</span></span>I feel it <span class="chord-group"><span class="chord" data-chord="A">A</span></span>more than ever<br>
+<span class="chord-group"><span class="chord" data-chord="D">D</span></span>And in this perfect weather<br>
+<span class="chord-group"><span class="chord" data-chord="G">G</span></span>We'll find a <span class="chord-group"><span class="chord" data-chord="A">A</span></span>place together<br>
+<span class="chord-group"><span class="chord" data-chord="Am">Am</span></span>Fly <span class="chord-group"><span class="chord" data-chord="G">G</span></span>on <span class="chord-group"><span class="chord" data-chord="Em">Em</span></span>my <span class="chord-group"><span class="chord" data-chord="F">F</span></span>wind</p>
 </div>
 <h3>Couplet</h3>
-<p><span class="chord" data-chord="Am">Am</span>Rebel and a liberator<br>
-<span class="chord" data-chord="G">G</span>Find a way to be a skater<br>
-<span class="chord" data-chord="Em">Em</span>Rev it up to levitate her<br>
-<span class="chord" data-chord="F">F</span>Super friendly aviator<br>
-<span class="chord" data-chord="Am">Am</span>Take a look, it's on display <span class="chord" data-chord="G">G</span>for you<br>
-<span class="chord" data-chord="Em">Em</span>Coming down, no, not today<span class="chord" data-chord="F">F</span></p>
+<p><span class="chord-group"><span class="chord" data-chord="Am">Am</span></span>Rebel and a liberator<br>
+<span class="chord-group"><span class="chord" data-chord="G">G</span></span>Find a way to be a skater<br>
+<span class="chord-group"><span class="chord" data-chord="Em">Em</span></span>Rev it up to levitate her<br>
+<span class="chord-group"><span class="chord" data-chord="F">F</span></span>Super friendly aviator<br>
+<span class="chord-group"><span class="chord" data-chord="Am">Am</span></span>Take a look, it's on display <span class="chord-group"><span class="chord" data-chord="G">G</span></span>for you<br>
+<span class="chord-group"><span class="chord" data-chord="Em">Em</span></span>Coming down, no, not today<span class="chord-group"><span class="chord" data-chord="F">F</span></span></p>
 <div class="highlight">
-<h3>Refrain: pré-refrain <span class="chord" data-chord="X">X</span></h3>
-<p><span class="chord" data-chord="D">D</span>Fly away on my zephyr<br>
-<span class="chord" data-chord="G">G</span>I feel it <span class="chord" data-chord="A">A</span>more than ever<br>
-<span class="chord" data-chord="D">D</span>And in this perfect weather<br>
-<span class="chord" data-chord="G">G</span>We'll find a <span class="chord" data-chord="A">A</span>place together</p>
-<p><span class="chord" data-chord="D">D</span>In the water, where I center my emotion<br>
-<span class="chord" data-chord="G">G</span>All the world can <span class="chord" data-chord="A">A</span>pass me by<br>
-<span class="chord" data-chord="D">D</span>Fly away on my zephyr<br>
-<span class="chord" data-chord="G">G</span>We'll find a <span class="chord" data-chord="A">A</span>place together</p>
+<h3>Refrain: pré-refrain <span class="chord-group"><span class="chord" data-chord="X">X</span></span></h3>
+<p><span class="chord-group"><span class="chord" data-chord="D">D</span></span>Fly away on my zephyr<br>
+<span class="chord-group"><span class="chord" data-chord="G">G</span></span>I feel it <span class="chord-group"><span class="chord" data-chord="A">A</span></span>more than ever<br>
+<span class="chord-group"><span class="chord" data-chord="D">D</span></span>And in this perfect weather<br>
+<span class="chord-group"><span class="chord" data-chord="G">G</span></span>We'll find a <span class="chord-group"><span class="chord" data-chord="A">A</span></span>place together</p>
+<p><span class="chord-group"><span class="chord" data-chord="D">D</span></span>In the water, where I center my emotion<br>
+<span class="chord-group"><span class="chord" data-chord="G">G</span></span>All the world can <span class="chord-group"><span class="chord" data-chord="A">A</span></span>pass me by<br>
+<span class="chord-group"><span class="chord" data-chord="D">D</span></span>Fly away on my zephyr<br>
+<span class="chord-group"><span class="chord" data-chord="G">G</span></span>We'll find a <span class="chord-group"><span class="chord" data-chord="A">A</span></span>place together</p>
 </div>
 <h3>Solo</h3>
-<p><span class="chord" data-chord="Am G Em F">Am G Em F</span><br>
-<span class="chord" data-chord="Am G Em F">Am G Em F</span></p>
-<p><span class="chord" data-chord="Am">Am</span>whoa, whoa, whoa, whoa, <span class="chord" data-chord="G">G</span>whoa, whoa, do you<br>
-<span class="chord" data-chord="Em">Em</span>(Yeah) yeah, yeah, yeah, yeah, yeah, <span class="chord" data-chord="F">F</span>yeah<br>
-<span class="chord" data-chord="Am">Am</span>whoa, whoa, whoa, whoa, <span class="chord" data-chord="G">G</span>whoa, whoa, want to?<br>
-<span class="chord" data-chord="Em">Em</span>(Yeah) yeah, yeah, yeah, yeah, yeah, <span class="chord" data-chord="F">F</span>yeah</p>
+<p><span class="chord-group"><span class="chord" data-chord="Am G Em F">Am G Em F</span></span><br>
+<span class="chord-group"><span class="chord" data-chord="Am G Em F">Am G Em F</span></span></p>
+<p><span class="chord-group"><span class="chord" data-chord="Am">Am</span></span>whoa, whoa, whoa, whoa, <span class="chord-group"><span class="chord" data-chord="G">G</span></span>whoa, whoa, do you<br>
+<span class="chord-group"><span class="chord" data-chord="Em">Em</span></span>(Yeah) yeah, yeah, yeah, yeah, yeah, <span class="chord-group"><span class="chord" data-chord="F">F</span></span>yeah<br>
+<span class="chord-group"><span class="chord" data-chord="Am">Am</span></span>whoa, whoa, whoa, whoa, <span class="chord-group"><span class="chord" data-chord="G">G</span></span>whoa, whoa, want to?<br>
+<span class="chord-group"><span class="chord" data-chord="Em">Em</span></span>(Yeah) yeah, yeah, yeah, yeah, yeah, <span class="chord-group"><span class="chord" data-chord="F">F</span></span>yeah</p>
 <div class="highlight">
-<h3>Refrain: pré-refrain <span class="chord" data-chord="X">X</span></h3>
-<p><span class="chord" data-chord="D">D</span>Fly away on my zephyr<br>
-<span class="chord" data-chord="G">G</span>I feel it <span class="chord" data-chord="A">A</span>more than ever<br>
-<span class="chord" data-chord="D">D</span>And in this perfect weather<br>
-<span class="chord" data-chord="G">G</span>We'll find a <span class="chord" data-chord="A">A</span>place together</p>
-<p><span class="chord" data-chord="D">D</span>In the water, where I center my emotion<br>
-<span class="chord" data-chord="G">G</span>All the world can <span class="chord" data-chord="A">A</span>pass me by<br>
-<span class="chord" data-chord="D">D</span>Fly away on my zephyr<br>
-<span class="chord" data-chord="G">G</span>We'll gonna live <span class="chord" data-chord="A">A</span> forever<br>
+<h3>Refrain: pré-refrain <span class="chord-group"><span class="chord" data-chord="X">X</span></span></h3>
+<p><span class="chord-group"><span class="chord" data-chord="D">D</span></span>Fly away on my zephyr<br>
+<span class="chord-group"><span class="chord" data-chord="G">G</span></span>I feel it <span class="chord-group"><span class="chord" data-chord="A">A</span></span>more than ever<br>
+<span class="chord-group"><span class="chord" data-chord="D">D</span></span>And in this perfect weather<br>
+<span class="chord-group"><span class="chord" data-chord="G">G</span></span>We'll find a <span class="chord-group"><span class="chord" data-chord="A">A</span></span>place together</p>
+<p><span class="chord-group"><span class="chord" data-chord="D">D</span></span>In the water, where I center my emotion<br>
+<span class="chord-group"><span class="chord" data-chord="G">G</span></span>All the world can <span class="chord-group"><span class="chord" data-chord="A">A</span></span>pass me by<br>
+<span class="chord-group"><span class="chord" data-chord="D">D</span></span>Fly away on my zephyr<br>
+<span class="chord-group"><span class="chord" data-chord="G">G</span></span>We'll gonna live <span class="chord-group"><span class="chord" data-chord="A">A</span></span> forever<br>
 forever<br>
-<span class="chord" data-chord="D D G A">D D G A</span><br>
-<span class="chord" data-chord="D D G A\ . G\ A\ D\">D D G A\ . G\ A\ D\</span></p>
+<span class="chord-group"><span class="chord" data-chord="D D G A">D D G A</span></span><br>
+<span class="chord-group"><span class="chord" data-chord="D D G A\ . G\ A\ D\">D D G A\ . G\ A\ D\</span></span></p>
 </div>
 
 </div>

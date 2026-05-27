@@ -1,4 +1,4 @@
-# Let it be - The beatles
+# Let it be (Cric Crac)- The beatles
 
 ## Accords:
 <uke-chord name="C" frets="0003"></uke-chord> 
@@ -20,7 +20,7 @@ G|————————|
 ## Paroles:
 
 ### Intro
-[C][G][Am][F]
+[C][G][Am][F]  
 [C][G][F][C][Dm][C]
 
 ### Couplet

@@ -140,9 +140,27 @@ let body = md.render(src);
 body = body.replace(/<uke-chord\b([^>]*)>(.*?)<\/uke-chord>/g, (match, attrs, inner) => {
   // Keep the original attributes, just add size and classes
   const large = `<uke-chord${attrs} size="1" class="chord-large"></uke-chord>`;
-  const small = `<uke-chord${attrs} size="0.7" class="chord-small"></uke-chord>`;
+  const small = `<uke-chord${attrs} size="0.6" class="chord-small"></uke-chord>`;
   return `${large}${small}`;
 });
+
+
+// To group successives chords as a single block
+body = body.replace(
+  /<span class="chord"([^>]*)>(.*?)<\/span>/g,
+  `<span class="chord-group"><span class="chord"$1>$2</span></span>`
+);
+body = body.replace(
+  /(<span class="chord-group"><span class="chord"[^>]*>.*?<\/span><\/span>\s*){2,}/g,
+  (match) => {
+    const chords = [...match.matchAll(/data-chord="([^"]+)"/g)]
+      .map(m => m[1])
+      .map(c => `<span class="chord" data-chord="${c}">${c}</span>`)
+      .join("");
+
+    return `<span class="chord-group">${chords}</span>`;
+  }
+);
 
 // Basic HTML wrapper — add or change CSS as needed
 const html = `<!doctype html>
@@ -155,6 +173,10 @@ const html = `<!doctype html>
 <script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
 <script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
 <script src="https://www.verovio.org/javascript/latest/verovio-toolkit.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <div id="controls-container">

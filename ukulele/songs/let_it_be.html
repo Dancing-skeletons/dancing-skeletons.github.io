@@ -8,6 +8,10 @@
 <script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
 <script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
 <script src="https://www.verovio.org/javascript/latest/verovio-toolkit.js"></script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <div id="controls-container">
@@ -22,15 +26,15 @@
 </div>
 
 <div id="content" class="two-column">
-<h1>Let it be - The beatles</h1>
+<h1>Let it be (Cric Crac)- The beatles</h1>
 <h2>Accords:</h2>
-<p><uke-chord name="C" frets="0003" size="1" class="chord-large"></uke-chord><uke-chord name="C" frets="0003" size="0.7" class="chord-small"></uke-chord>
-<uke-chord name="G" frets="0232" size="1" class="chord-large"></uke-chord><uke-chord name="G" frets="0232" size="0.7" class="chord-small"></uke-chord>
-<uke-chord name="Am" frets="2000" size="1" class="chord-large"></uke-chord><uke-chord name="Am" frets="2000" size="0.7" class="chord-small"></uke-chord>
-<uke-chord name="F" frets="2010" size="1" class="chord-large"></uke-chord><uke-chord name="F" frets="2010" size="0.7" class="chord-small"></uke-chord>
-<uke-chord name="Dm" frets="2210" size="1" class="chord-large"></uke-chord><uke-chord name="Dm" frets="2210" size="0.7" class="chord-small"></uke-chord></p>
+<p><uke-chord name="C" frets="0003" size="1" class="chord-large"></uke-chord><uke-chord name="C" frets="0003" size="0.6" class="chord-small"></uke-chord>
+<uke-chord name="G" frets="0232" size="1" class="chord-large"></uke-chord><uke-chord name="G" frets="0232" size="0.6" class="chord-small"></uke-chord>
+<uke-chord name="Am" frets="2000" size="1" class="chord-large"></uke-chord><uke-chord name="Am" frets="2000" size="0.6" class="chord-small"></uke-chord>
+<uke-chord name="F" frets="2010" size="1" class="chord-large"></uke-chord><uke-chord name="F" frets="2010" size="0.6" class="chord-small"></uke-chord>
+<uke-chord name="Dm" frets="2210" size="1" class="chord-large"></uke-chord><uke-chord name="Dm" frets="2210" size="0.6" class="chord-small"></uke-chord></p>
 <h2>Instructions:</h2>
-<p>La phrase <span class="chord" data-chord="F">F</span><span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span><span class="chord" data-chord="C">C</span> peut se jouer:</p>
+<p>La phrase <span class="chord-group"><span class="chord" data-chord="F">F</span><span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span><span class="chord" data-chord="C">C</span></span>peut se jouer:</p>
 <pre class="tableau">
 A|————————|  
 E|5—3—1—0—|  
@@ -39,51 +43,51 @@ G|————————|
 </pre>
 <h2>Paroles:</h2>
 <h3>Intro</h3>
-<p><span class="chord" data-chord="C">C</span><span class="chord" data-chord="G">G</span><span class="chord" data-chord="Am">Am</span><span class="chord" data-chord="F">F</span>
-<span class="chord" data-chord="C">C</span><span class="chord" data-chord="G">G</span><span class="chord" data-chord="F">F</span><span class="chord" data-chord="C">C</span><span class="chord" data-chord="Dm">Dm</span><span class="chord" data-chord="C">C</span></p>
+<p><span class="chord-group"><span class="chord" data-chord="C">C</span><span class="chord" data-chord="G">G</span><span class="chord" data-chord="Am">Am</span><span class="chord" data-chord="F">F</span></span><br>
+<span class="chord-group"><span class="chord" data-chord="C">C</span><span class="chord" data-chord="G">G</span><span class="chord" data-chord="F">F</span><span class="chord" data-chord="C">C</span><span class="chord" data-chord="Dm">Dm</span><span class="chord" data-chord="C">C</span></span></p>
 <h3>Couplet</h3>
-<p>When I <span class="chord" data-chord="C">C</span> find myself in <span class="chord" data-chord="G">G</span> times of trouble,<br>
-<span class="chord" data-chord="Am">Am</span> Mother Mary <span class="chord" data-chord="F">F</span> comes to me<br>
-<span class="chord" data-chord="C">C</span> Speaking words of <span class="chord" data-chord="G">G</span> wisdom, let it <span class="chord" data-chord="F">F</span> be <span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span> <span class="chord" data-chord="C">C</span><br>
-And <span class="chord" data-chord="C">C</span> in my hour of <span class="chord" data-chord="G">G</span> darkness,<br>
-She is <span class="chord" data-chord="Am">Am</span> standing right in <span class="chord" data-chord="F">F</span> front of me<br>
-<span class="chord" data-chord="C">C</span> Speaking words of <span class="chord" data-chord="G">G</span> wisdom, let it <span class="chord" data-chord="F">F</span> be <span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span> <span class="chord" data-chord="C">C</span></p>
+<p>When I <span class="chord-group"><span class="chord" data-chord="C">C</span></span> find myself in <span class="chord-group"><span class="chord" data-chord="G">G</span></span> times of trouble,<br>
+<span class="chord-group"><span class="chord" data-chord="Am">Am</span></span> Mother Mary <span class="chord-group"><span class="chord" data-chord="F">F</span></span> comes to me<br>
+<span class="chord-group"><span class="chord" data-chord="C">C</span><span class="chord" data-chord="G">G</span><span class="chord" data-chord="F">F</span><span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span><span class="chord" data-chord="C">C</span></span><br>
+And <span class="chord-group"><span class="chord" data-chord="C">C</span></span> in my hour of <span class="chord-group"><span class="chord" data-chord="G">G</span></span> darkness,<br>
+She is <span class="chord-group"><span class="chord" data-chord="Am">Am</span></span> standing right in <span class="chord-group"><span class="chord" data-chord="F">F</span></span> front of me<br>
+<span class="chord-group"><span class="chord" data-chord="C">C</span><span class="chord" data-chord="G">G</span><span class="chord" data-chord="F">F</span><span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span><span class="chord" data-chord="C">C</span></span></p>
 <div class="highlight">
 <h3>Refrain</h3>
-<p>Let it <span class="chord" data-chord="Am">Am</span> be, let it <span class="chord" data-chord="G">G</span> be, let it <span class="chord" data-chord="F">F</span> be, let it <span class="chord" data-chord="C">C</span> be<br>
-<span class="chord" data-chord="C">C</span> Whisper words of <span class="chord" data-chord="G">G</span> wisdom, let it <span class="chord" data-chord="F">F</span> be <span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span> <span class="chord" data-chord="C">C</span></p>
+<p>Let it <span class="chord-group"><span class="chord" data-chord="Am">Am</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="G">G</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="F">F</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="C">C</span></span> be<br>
+<span class="chord-group"><span class="chord" data-chord="C">C</span><span class="chord" data-chord="G">G</span><span class="chord" data-chord="F">F</span><span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span><span class="chord" data-chord="C">C</span></span></p>
 </div>
 <h3>Couplet</h3>
-<p>And <span class="chord" data-chord="C">C</span> when the broken <span class="chord" data-chord="G">G</span> hearted people<br>
-<span class="chord" data-chord="Am">Am</span> Living in the <span class="chord" data-chord="F">F</span> world agree<br>
-<span class="chord" data-chord="C">C</span> There will be an <span class="chord" data-chord="G">G</span> answer... let it <span class="chord" data-chord="F">F</span> be <span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span> <span class="chord" data-chord="C">C</span><br>
-For <span class="chord" data-chord="C">C</span> though they may be <span class="chord" data-chord="G">G</span> parted<br>
-There is <span class="chord" data-chord="Am">Am</span> still a chance that <span class="chord" data-chord="F">F</span> they will see<br>
-<span class="chord" data-chord="C">C</span> There will be an <span class="chord" data-chord="G">G</span> answer, let it <span class="chord" data-chord="F">F</span> be <span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span> <span class="chord" data-chord="C">C</span></p>
+<p>And <span class="chord-group"><span class="chord" data-chord="C">C</span></span> when the broken <span class="chord-group"><span class="chord" data-chord="G">G</span></span> hearted people<br>
+<span class="chord-group"><span class="chord" data-chord="Am">Am</span></span> Living in the <span class="chord-group"><span class="chord" data-chord="F">F</span></span> world agree<br>
+<span class="chord-group"><span class="chord" data-chord="C">C</span><span class="chord" data-chord="G">G</span><span class="chord" data-chord="F">F</span><span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span><span class="chord" data-chord="C">C</span></span><br>
+For <span class="chord-group"><span class="chord" data-chord="C">C</span></span> though they may be <span class="chord-group"><span class="chord" data-chord="G">G</span></span> parted<br>
+There is <span class="chord-group"><span class="chord" data-chord="Am">Am</span></span> still a chance that <span class="chord-group"><span class="chord" data-chord="F">F</span></span> they will see<br>
+<span class="chord-group"><span class="chord" data-chord="C">C</span><span class="chord" data-chord="G">G</span><span class="chord" data-chord="F">F</span><span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span><span class="chord" data-chord="C">C</span></span></p>
 <div class="highlight">
 <h3>Refrain</h3>
-<p>Let it <span class="chord" data-chord="Am">Am</span> be, let it <span class="chord" data-chord="G">G</span> be, let it <span class="chord" data-chord="F">F</span> be, let it <span class="chord" data-chord="C">C</span> be<br>
-<span class="chord" data-chord="C">C</span> There will be an <span class="chord" data-chord="G">G</span> answer, let it <span class="chord" data-chord="F">F</span> be <span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span> <span class="chord" data-chord="C">C</span></p>
-<p>Let it <span class="chord" data-chord="Am">Am</span> be, let it <span class="chord" data-chord="G">G</span> be, let it <span class="chord" data-chord="F">F</span> be, let it <span class="chord" data-chord="C">C</span> be<br>
-<span class="chord" data-chord="C">C</span> Whisper words of <span class="chord" data-chord="G">G</span> wisdom, let it <span class="chord" data-chord="F">F</span> be <span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span> <span class="chord" data-chord="C">C</span></p>
-<p>Let it <span class="chord" data-chord="Am">Am</span> be, let it <span class="chord" data-chord="G">G</span> be, let it <span class="chord" data-chord="F">F</span> be, let it <span class="chord" data-chord="C">C</span> be<br>
-<span class="chord" data-chord="C">C</span> Whisper words of <span class="chord" data-chord="G">G</span> wisdom, let it <span class="chord" data-chord="F">F</span> be <span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span> <span class="chord" data-chord="C">C</span></p>
+<p>Let it <span class="chord-group"><span class="chord" data-chord="Am">Am</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="G">G</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="F">F</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="C">C</span></span> be<br>
+<span class="chord-group"><span class="chord" data-chord="C">C</span><span class="chord" data-chord="G">G</span><span class="chord" data-chord="F">F</span><span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span><span class="chord" data-chord="C">C</span></span></p>
+<p>Let it <span class="chord-group"><span class="chord" data-chord="Am">Am</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="G">G</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="F">F</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="C">C</span></span> be<br>
+<span class="chord-group"><span class="chord" data-chord="C">C</span><span class="chord" data-chord="G">G</span><span class="chord" data-chord="F">F</span><span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span><span class="chord" data-chord="C">C</span></span></p>
+<p>Let it <span class="chord-group"><span class="chord" data-chord="Am">Am</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="G">G</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="F">F</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="C">C</span></span> be<br>
+<span class="chord-group"><span class="chord" data-chord="C">C</span><span class="chord" data-chord="G">G</span><span class="chord" data-chord="F">F</span><span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span><span class="chord" data-chord="C">C</span></span></p>
 </div>
 <h3>Couplet</h3>
-<p>And <span class="chord" data-chord="C">C</span> when the night is <span class="chord" data-chord="G">G</span> cloudy<br>
-There is <span class="chord" data-chord="Am">Am</span> still a light that <span class="chord" data-chord="F">F</span> shines on me<br>
-<span class="chord" data-chord="C">C</span> Shine until to-<span class="chord" data-chord="G">G</span>morrow, let it <span class="chord" data-chord="F">F</span> be <span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span> <span class="chord" data-chord="C">C</span><br>
-I <span class="chord" data-chord="C">C</span> wake up to the <span class="chord" data-chord="G">G</span> sound of music<br>
-<span class="chord" data-chord="Am">Am</span> Mother Mary <span class="chord" data-chord="F">F</span> comes to me<br>
-<span class="chord" data-chord="C">C</span> Speaking words of <span class="chord" data-chord="G">G</span> wisdom, let it <span class="chord" data-chord="F">F</span> be <span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span> <span class="chord" data-chord="C">C</span></p>
+<p>And <span class="chord-group"><span class="chord" data-chord="C">C</span></span> when the night is <span class="chord-group"><span class="chord" data-chord="G">G</span></span> cloudy<br>
+There is <span class="chord-group"><span class="chord" data-chord="Am">Am</span></span> still a light that <span class="chord-group"><span class="chord" data-chord="F">F</span></span> shines on me<br>
+<span class="chord-group"><span class="chord" data-chord="C">C</span><span class="chord" data-chord="G">G</span><span class="chord" data-chord="F">F</span><span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span><span class="chord" data-chord="C">C</span></span><br>
+I <span class="chord-group"><span class="chord" data-chord="C">C</span></span> wake up to the <span class="chord-group"><span class="chord" data-chord="G">G</span></span> sound of music<br>
+<span class="chord-group"><span class="chord" data-chord="Am">Am</span></span> Mother Mary <span class="chord-group"><span class="chord" data-chord="F">F</span></span> comes to me<br>
+<span class="chord-group"><span class="chord" data-chord="C">C</span><span class="chord" data-chord="G">G</span><span class="chord" data-chord="F">F</span><span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span><span class="chord" data-chord="C">C</span></span></p>
 <div class="highlight">
 <h3>Refrain</h3>
-<p>Let it <span class="chord" data-chord="Am">Am</span> be, let it <span class="chord" data-chord="G">G</span> be, let it <span class="chord" data-chord="F">F</span> be, let it <span class="chord" data-chord="C">C</span> be<br>
-<span class="chord" data-chord="C">C</span> There will be an <span class="chord" data-chord="G">G</span> answer, let it <span class="chord" data-chord="F">F</span> be <span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span> <span class="chord" data-chord="C">C</span></p>
-<p>Let it <span class="chord" data-chord="Am">Am</span> be, let it <span class="chord" data-chord="G">G</span> be, let it <span class="chord" data-chord="F">F</span> be, let it <span class="chord" data-chord="C">C</span> be<br>
-<span class="chord" data-chord="C">C</span> There will be an <span class="chord" data-chord="G">G</span> answer, let it <span class="chord" data-chord="F">F</span> be <span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span> <span class="chord" data-chord="C">C</span></p>
-<p>Let it <span class="chord" data-chord="Am">Am</span> be, let it <span class="chord" data-chord="G">G</span> be, let it <span class="chord" data-chord="F">F</span> be, let it <span class="chord" data-chord="C">C</span> be<br>
-<span class="chord" data-chord="C">C</span> Whisper words of <span class="chord" data-chord="G">G</span> wisdom, let it <span class="chord" data-chord="F">F</span> be <span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span> <span class="chord" data-chord="C">C</span></p>
+<p>Let it <span class="chord-group"><span class="chord" data-chord="Am">Am</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="G">G</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="F">F</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="C">C</span></span> be<br>
+<span class="chord-group"><span class="chord" data-chord="C">C</span><span class="chord" data-chord="G">G</span><span class="chord" data-chord="F">F</span><span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span><span class="chord" data-chord="C">C</span></span></p>
+<p>Let it <span class="chord-group"><span class="chord" data-chord="Am">Am</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="G">G</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="F">F</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="C">C</span></span> be<br>
+<span class="chord-group"><span class="chord" data-chord="C">C</span><span class="chord" data-chord="G">G</span><span class="chord" data-chord="F">F</span><span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span><span class="chord" data-chord="C">C</span></span></p>
+<p>Let it <span class="chord-group"><span class="chord" data-chord="Am">Am</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="G">G</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="F">F</span></span> be, let it <span class="chord-group"><span class="chord" data-chord="C">C</span></span> be<br>
+<span class="chord-group"><span class="chord" data-chord="C">C</span><span class="chord" data-chord="G">G</span><span class="chord" data-chord="F">F</span><span class="chord" data-chord="(C)">(C)</span><span class="chord" data-chord="(Dm)">(Dm)</span><span class="chord" data-chord="C">C</span></span></p>
 </div>
 
 </div>
