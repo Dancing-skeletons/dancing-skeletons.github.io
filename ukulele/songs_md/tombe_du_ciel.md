@@ -103,7 +103,7 @@ Des chanteurs de [F]charme
 [A7 riff]
 
 Tombé à [Dm]terre pour la fille qu'on [Am] aime  
-Se re[Gm]lever in[Bb]demne et re[Gm]tomber amou[A]reux  
+Se relever in[Bb]demne et re[Gm]tomber amou[A]reux  
 Tombé sur toi [Dm] tombé en pamoi[Am]son  
 Avalé la [Bb] cigue [Gm] goûté le poi[C]son qui tue  
 L'a[F]mour encore [C]et toujours [Dm]  
