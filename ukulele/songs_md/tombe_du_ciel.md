@@ -81,7 +81,6 @@ Que [Eb] j'entends tom[C#]ber de[G#]hors par la f'nêtre
 [C#] La direc[Bbm]tion par [C#] où le vent fredonne ma chan[Bbm]son  
 
 ### Pont
-
 [G6] Tombé sur un jour de [C6] chance [G6] [C6]  
 [G6] Tombé à la fleur de [C6]l'âge [G6] [C6]    
 

@@ -5,12 +5,18 @@ body {
   letter-spacing: 0.1px;
 }
 
-
 /* Code blocks */
-pre code {
-  font-size: 1.5em;
+code{
   font-family: monospace;
+  white-space: pre;
+  font-size: 1.4em;
+  line-height: 1.4em;
 }
+
+/*pre code {
+  font-size: 1.4em;
+  font-family: monospace;
+}*/
 
 /* Column layouts */
 #content.two-column {
@@ -142,11 +148,11 @@ pre.tableau {
 /*  padding: 0px 5px 0px 10px; /* top right bottom left */
   margin: -5px;
   /* Uncomment if you need exact print colors */
-  /*
+  
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
   color-adjust: exact;
-  */
+  
 }
 
 .highlight h3,
@@ -350,13 +356,13 @@ pre.tableau {
     print-color-adjust: exact;
   }
 
-  #content h1:first-of-type {
+  /*#content h1:first-of-type {
     column-span: all;
-    -webkit-column-span: all; /* for safety */
+    -webkit-column-span: all; // for safety 
 
     text-align: center;
     margin-bottom: 20px;
-  }
+  }*/
 
 }
 

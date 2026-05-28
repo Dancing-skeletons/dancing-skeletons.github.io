@@ -10,10 +10,10 @@
 ## Instructions:
 La phrase [F][(C)][(Dm)][C] peut se jouer:
 <pre class="tableau">
-A|————————|  
-E|5—3—1—0—|  
-C|5—4—2—0—|  
-G|————————|
+A|0———————|  
+E|1—3—1—0—|  
+C|0—4—2—0—|  
+G|2———————|
 </pre>
 
 
@@ -48,13 +48,7 @@ There is [Am] still a chance that [F] they will see
 :::highlight
 ### Refrain  
 Let it [Am] be, let it [G] be, let it [F] be, let it [C] be  
-[C] There will be an [G] answer, let it [F] be [(C)][(Dm)] [C]  
- 
-Let it [Am] be, let it [G] be, let it [F] be, let it [C] be  
-[C] Whisper words of [G] wisdom, let it [F] be [(C)][(Dm)] [C]    
-
-Let it [Am] be, let it [G] be, let it [F] be, let it [C] be  
-[C] Whisper words of [G] wisdom, let it [F] be [(C)][(Dm)] [C]   
+[C] There will be an [G] answer, let it [F] be [(C)][(Dm)] [C]   
 :::
 
 
@@ -67,11 +61,7 @@ I [C] wake up to the [G] sound of music
 [C] Speaking words of [G] wisdom, let it [F] be [(C)][(Dm)] [C]    
 
 :::highlight
-### Refrain
-
-Let it [Am] be, let it [G] be, let it [F] be, let it [C] be  
-[C] There will be an [G] answer, let it [F] be [(C)][(Dm)] [C]   
-
+### Refrain X2
 Let it [Am] be, let it [G] be, let it [F] be, let it [C] be  
 [C] There will be an [G] answer, let it [F] be [(C)][(Dm)] [C]    
 

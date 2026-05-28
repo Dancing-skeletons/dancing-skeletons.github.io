@@ -16,19 +16,13 @@
     1 & 2 & 3 & 4 &
     ▼   ▼     ▲ ▼       
     </pre>
-- Rhythmique sur le [Em][Em]
-    <pre class="tableau">
-    1 & 2 & 3 & 4 &
-      ▲   ▲   ▲ ▼       
-    </pre>
-- Intro en arpège 4321
+- Rhythmique sur le [Em][Em]: TODO
+
 
 
 
 ## Paroles:
-### Intro (phrases du couplet inversées)
-[Cmaj7][B7][Em7][G7]  
-[Cmaj7][B7][Em][G7]  
+### Intro en arpège ```(14)231```
 [Cmaj7][B7][Em7][G7]  
 [Cmaj7][B7][Em][Em]  
 
@@ -68,7 +62,7 @@ We gotta [B7]go for all we [Em]know [G7/]
 :::
 
 :::highlight
-### Solo x4
+### Solo x2
 [Cmaj7 B7 F A7]  
 [Abmaj7 G7 Cmaj7 Dm7]
 :::
@@ -85,5 +79,5 @@ I wanna [B7]be the one with [Em]you [G7/]
 
 :::highlight
 ### Refrain
-S'arrête sur: two of us[B7] [...] You and I[Em/].
+S'arrête sur: ...two of us[B7] [...] You and I[Em/].
 :::

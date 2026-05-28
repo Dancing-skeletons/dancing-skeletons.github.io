@@ -146,7 +146,7 @@ body = body.replace(/<uke-chord\b([^>]*)>(.*?)<\/uke-chord>/g, (match, attrs, in
 
 
 // To group successives chords as a single block
-body = body.replace(
+/*body = body.replace(
   /<span class="chord"([^>]*)>(.*?)<\/span>/g,
   `<span class="chord-group"><span class="chord"$1>$2</span></span>`
 );
@@ -160,7 +160,7 @@ body = body.replace(
 
     return `<span class="chord-group">${chords}</span>`;
   }
-);
+);*/
 
 // Basic HTML wrapper — add or change CSS as needed
 const html = `<!doctype html>
