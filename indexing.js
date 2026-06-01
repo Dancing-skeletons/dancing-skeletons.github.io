@@ -97,6 +97,8 @@ function buildIndex() {
 </head>
 <body>
 
+${md.render(mdLines.join("\n"))}
+
 <h2>Create a song page</h2>
 
 <div id="generator">
@@ -112,7 +114,7 @@ function buildIndex() {
 
 
 
-${md.render(mdLines.join("\n"))}
+
 <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/markdown-it-container/dist/markdown-it-container.min.js"></script>
 <script>
