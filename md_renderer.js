@@ -136,6 +136,8 @@ function musicXmlBlockPlugin(md, baseDir) {
 
 
 function renderSong(src, title = "Song") {
+  const isBrowser =
+    typeof window !== 'undefined';
 
   let body = md.render(src);
 
@@ -164,8 +166,11 @@ function renderSong(src, title = "Song") {
 <head>
 <meta charset="utf-8">
 <title>${title}</title>
-<link rel="stylesheet" href="../../styles.css">
-
+${
+  isBrowser
+    ? `<style>${window.siteCSS || ""}</style>`
+    : `<link rel="stylesheet" href="../../styles.css">`
+}
 <script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
 <script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
 <script src="https://www.verovio.org/javascript/latest/verovio-toolkit.js"></script>

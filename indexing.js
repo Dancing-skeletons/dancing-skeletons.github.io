@@ -110,6 +110,14 @@ ${md.render(mdLines.join("\n"))}
 <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/markdown-it-container/dist/markdown-it-container.min.js"></script>
 
+<script>
+fetch('styles.css')
+  .then(r => r.text())
+  .then(css => {
+    window.siteCSS = css;
+  });
+</script>
+
 <script src="md_renderer.js"></script>
 <script src="uploader.js"></script>
 </body>
