@@ -26,14 +26,21 @@ document.addEventListener("DOMContentLoaded", () => {
           file.name
         );
 
-      const win =
-        window.open("", "_blank");
+const blob =
+  new Blob(
+    [html],
+    { type: "text/html" }
+  );
 
-      win.document.open();
-      win.document.write(html);
-      win.document.close();
+const url =
+  URL.createObjectURL(blob);
 
-    } catch(err) {
+window.open(
+  url,
+  "_blank"
+);
+
+    } catch (err) {
 
       console.error(err);
       alert(err);
