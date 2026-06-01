@@ -70,6 +70,12 @@ function buildIndex() {
   mdLines.push("## Guitar tabs", "");
   mdLines.push(...listPdf(GUITAR_TABS, "guitar/tabs"), "");
 
+  const siteCSS =
+  fs.readFileSync(
+    path.join(ROOT_FOLDER, "styles.css"),
+    "utf8"
+  );
+
   // HTML output
   const htmlContent = `
 <!DOCTYPE html>
@@ -109,15 +115,10 @@ function buildIndex() {
 ${md.render(mdLines.join("\n"))}
 <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/markdown-it-container/dist/markdown-it-container.min.js"></script>
-
 <script>
-fetch('styles.css')
-  .then(r => r.text())
-  .then(css => {
-    window.siteCSS = css;
-  });
+window.siteCSS =
+${JSON.stringify(siteCSS)};
 </script>
-
 <script src="md_renderer.js"></script>
 <script src="uploader.js"></script>
 </body>
