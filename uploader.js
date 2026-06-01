@@ -3,16 +3,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const upload =
     document.getElementById("mdUpload");
 
-  const preview =
-    document.getElementById("previewFrame");
-
   const generate =
     document.getElementById("generateBtn");
-
-  const download =
-    document.getElementById("downloadBtn");
-
-  let latestHTML = "";
 
   generate.addEventListener("click", async () => {
 
@@ -23,40 +15,31 @@ document.addEventListener("DOMContentLoaded", () => {
       return;
     }
 
-    const markdown =
-      await file.text();
+    try {
 
-    latestHTML =
-      window.renderSong(
-        markdown,
-        file.name
-      );
+      const markdown =
+        await file.text();
 
-    preview.srcdoc =
-      latestHTML;
+      const html =
+        window.renderSong(
+          markdown,
+          file.name
+        );
 
-    download.style.display =
-      "inline-block";
-  });
+      const win =
+        window.open("", "_blank");
 
-  download.addEventListener("click", () => {
+      win.document.open();
+      win.document.write(html);
+      win.document.close();
 
-    const blob =
-      new Blob(
-        [latestHTML],
-        { type: "text/html" }
-      );
+    } catch(err) {
 
-    const a =
-      document.createElement("a");
+      console.error(err);
+      alert(err);
 
-    a.href =
-      URL.createObjectURL(blob);
+    }
 
-    a.download =
-      "generated.html";
-
-    a.click();
   });
 
 });
