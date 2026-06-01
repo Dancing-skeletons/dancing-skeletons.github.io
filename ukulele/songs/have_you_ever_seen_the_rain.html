@@ -3,12 +3,13 @@
 <head>
 <meta charset="utf-8">
 <title>have_you_ever_seen_the_rain.md</title>
-<link rel="stylesheet" href="../../styles.css"> 
+
+<link rel="stylesheet"
+      href="../../styles.css">
 
 <script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
 <script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
 <script src="https://www.verovio.org/javascript/latest/verovio-toolkit.js"></script>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -28,13 +29,55 @@
 <div id="content" class="two-column">
 <h1>Have you ever seen the rain - CCR</h1>
 <h2>Accords:</h2>
-<p><uke-chord name="Am" frets="2000" size="1" class="chord-large"></uke-chord><uke-chord name="Am" frets="2000" size="0.6" class="chord-small"></uke-chord>
-<uke-chord name="C" frets="0003" size="1" class="chord-large"></uke-chord><uke-chord name="C" frets="0003" size="0.6" class="chord-small"></uke-chord>
-<uke-chord name="C7" frets="0001" size="1" class="chord-large"></uke-chord><uke-chord name="C7" frets="0001" size="0.6" class="chord-small"></uke-chord>
-<uke-chord name="Em" frets="0432" size="1" class="chord-large"></uke-chord><uke-chord name="Em" frets="0432" size="0.6" class="chord-small"></uke-chord>
-<uke-chord name="F" frets="2010" size="1" class="chord-large"></uke-chord><uke-chord name="F" frets="2010" size="0.6" class="chord-small"></uke-chord>
-<uke-chord name="G" frets="0232" size="1" class="chord-large"></uke-chord><uke-chord name="G" frets="0232" size="0.6" class="chord-small"></uke-chord>
-<uke-chord name="Am7" frets="0000" size="1" class="chord-large"></uke-chord><uke-chord name="Am7" frets="0000" size="0.6" class="chord-small"></uke-chord></p>
+<p><uke-chord name="Am" frets="2000"
+          size="1"
+          class="chord-large">
+        </uke-chord><uke-chord name="Am" frets="2000"
+          size="0.6"
+          class="chord-small">
+        </uke-chord>
+<uke-chord name="C" frets="0003"
+          size="1"
+          class="chord-large">
+        </uke-chord><uke-chord name="C" frets="0003"
+          size="0.6"
+          class="chord-small">
+        </uke-chord>
+<uke-chord name="C7" frets="0001"
+          size="1"
+          class="chord-large">
+        </uke-chord><uke-chord name="C7" frets="0001"
+          size="0.6"
+          class="chord-small">
+        </uke-chord>
+<uke-chord name="Em" frets="0432"
+          size="1"
+          class="chord-large">
+        </uke-chord><uke-chord name="Em" frets="0432"
+          size="0.6"
+          class="chord-small">
+        </uke-chord>
+<uke-chord name="F" frets="2010"
+          size="1"
+          class="chord-large">
+        </uke-chord><uke-chord name="F" frets="2010"
+          size="0.6"
+          class="chord-small">
+        </uke-chord>
+<uke-chord name="G" frets="0232"
+          size="1"
+          class="chord-large">
+        </uke-chord><uke-chord name="G" frets="0232"
+          size="0.6"
+          class="chord-small">
+        </uke-chord>
+<uke-chord name="Am7" frets="0000"
+          size="1"
+          class="chord-large">
+        </uke-chord><uke-chord name="Am7" frets="0000"
+          size="0.6"
+          class="chord-small">
+        </uke-chord></p>
 <h2>Paroles:</h2>
 <h3>Intro</h3>
 <p><span class="chord" data-chord="Am">Am</span> <span class="chord" data-chord="F">F</span> <span class="chord" data-chord="C">C</span> <span class="chord" data-chord="G">G</span> <span class="chord" data-chord="C">C</span> <span class="chord" data-chord="G">G</span> <span class="chord" data-chord="G">G</span> <span class="chord" data-chord="D">D</span> <span class="chord" data-chord="D">D</span></p>
@@ -255,54 +298,32 @@ const parts = chord.split(new RegExp("\s+")).filter(Boolean);
   if (parts.length === 0) return original;
 
   const transposedParts = parts.map(part => {
-
     // keep trailing slashes (rhythm)
-
-const slashMatch = part.match(new RegExp("(\/+)$"));
-const slashes = slashMatch ? slashMatch[1] : "";
-const base = part.replace(new RegExp("\/+$"), '');
-
-
-
-
+    const slashMatch = part.match(new RegExp("(\/+)$"));
+    const slashes = slashMatch ? slashMatch[1] : "";
+    const base = part.replace(new RegExp("\/+$"), '');
     const match = base.match(/^([A-G][b#]?)(.*)$/);
     if (!match) return part;
-
     const root = match[1];
     const suffix = match[2];
-
     const newRoot = transposeNote(root, steps);
     if (!newRoot) return part;
-
     return newRoot + suffix + slashes;
   });
-
   let result = transposedParts.join(" ");
-
   // restore parentheses ONLY if originally present
   if (hasParen) {
     result = "(" + result + ")";
   }
-
   return result;
 }
 
-
-
-
-
-
 function updateChords(){
-
   document.querySelectorAll(".chord").forEach(el => {
-
     const original = el.dataset.chord;
-
     const newChord = transposeChord(original, transpose);
-
     el.textContent = newChord;
   });
-
   document.getElementById("transpose-level").textContent =
   (transpose >= 0 ? "+" : "") + transpose;
 }
@@ -320,5 +341,5 @@ document.getElementById("transpose-down").addEventListener("click", () => {
 
 </script>
 
-  </body>
+</body>
 </html>
