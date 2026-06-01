@@ -17,7 +17,7 @@ const path =
   typeof window === 'undefined'
     ? require('path')
     : null;
-    
+
 const md = new MarkdownIt({ html: true });
 
 
@@ -165,8 +165,7 @@ function renderSong(src, title = "Song") {
 <meta charset="utf-8">
 <title>${title}</title>
 
-<link rel="stylesheet"
-      href="../../styles.css">
+<link rel="stylesheet" href="/styles.css">
 
 <script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
 <script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>

@@ -104,22 +104,7 @@ function buildIndex() {
     Generate
   </button>
 
-  <button
-    id="downloadBtn"
-    style="display:none">
-    Download HTML
-  </button>
 
-</div>
-
-<iframe
-  id="previewFrame"
-  style="
-    width:100%;
-    height:700px;
-    border:1px solid #999;
-    margin-bottom:2rem;">
-</iframe>
 
 ${md.render(mdLines.join("\n"))}
 <script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
