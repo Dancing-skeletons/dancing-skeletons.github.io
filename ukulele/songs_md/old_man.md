@@ -9,9 +9,6 @@
 <uke-chord name="G" frets="0232"></uke-chord> 
 <uke-chord name="Am" frets="2000"></uke-chord> 
 
-
-## Instructions: 
-
 ## Paroles:
 
 ### Intro (x2):
@@ -80,12 +77,13 @@ up/down:▼  .  .  .  ▼  .  .  .
 [F]Rolling home [F]to you [G G]  
 
 ::: highlight
-### Pré-refrain *2
+### Pré-refrain X2
 ### Refrain
 :::
 
 ### Outro
 [Fmaj7 x 6][Dsus2][D][Dsus2][D]  
+
 [Fmaj7]Old [Fmaj7]man, [Fmaj7]look at my li[Fmaj7]fe  
 [Fmaj7]I'm a [Fmaj7]lot like [Dsus2]you [D]were [Dsus2 D]  
 [Fmaj7]Old [Fmaj7]man, [Fmaj7]look at my li[Fmaj7]fe  

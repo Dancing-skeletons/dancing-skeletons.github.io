@@ -17,20 +17,21 @@
     ▼   ▼     ▲ ▼       
     </pre>
 - Rhythmique sur le [Em][Em]: TODO
+- Ne pas laisser sonner le [G7/] de fin de couplet
 
-
+musicxml: ./just_the_two_of_us.musicxml
 
 
 ## Paroles:
 ### Intro en arpège ```(14)231```
 [Cmaj7][B7][Em7][G7]  
-[Cmaj7][B7][Em][Em]  
+[Cmaj7][B7][Em x2]  
 
 
 ### Couplet:
 [Cmaj7]I see the [B7]crystal raindrops [Em7]fall  
 And the [G7]beauty of it all  
-[Cmaj7]Is when the [B7]sun comes shining [Em*2]through  
+[Cmaj7]Is when the [B7]sun comes shining [Em x2]through  
 [Cmaj7]To make those [B7]rainbows in my [Em7]mind  
 When I [G7]think of you sometime  
 [Cmaj7]And I wanna [B7]spend some time with [Em]you[G7/]  
@@ -44,23 +45,24 @@ Just the [Cmaj7]two of us[B7]
 Just the [Cmaj7]two of us[B7]  
 Building [Em]castles in the [G7]sky  
 Just the [Cmaj7]two of us[B7]  
-You and I[Em*2]  
+You and I[Em x2]  
 :::
 
 
 ### Couplet
 [Cmaj7]We look for [B7]love, no time for [Em7]tears  
 Wasted [G7]water's all that [Cmaj7]is  
-And it don't [B7]make no flowers [Em*2]grow  
+And it don't [B7]make no flowers [Em x2]grow  
 [Cmaj7]Good things might [B7]come to those who [Em7]wait  
 Not for [G7]those who wait too [Cmaj7]late  
 We gotta [B7]go for all we [Em]know [G7/]  
 
 
 :::highlight
-### Refrain
+### Refrain +
 :::
-
+  
+  
 :::highlight
 ### Solo x2
 [Cmaj7 B7 F A7]  

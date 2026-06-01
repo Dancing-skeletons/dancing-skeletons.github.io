@@ -63,10 +63,10 @@ So many [Bm]times [D7]
 [G Em Bm D7]  
 [G Em Bm D7]  
 
-### Outro X 4
+### Outro X 2
 [C]Hello (hello),  [Am]hello (hello)  
 [G]Hello (hello),  [Bm]hello (hello)  
 
 ### Ending
-[C Am G Bm]  
-[G]
+[C/]Hello (hello), [Am/]hello (hello)  
+[G/]I take you on a [Bm/]trip  
