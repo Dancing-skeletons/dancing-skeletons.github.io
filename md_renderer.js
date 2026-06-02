@@ -18,8 +18,21 @@ const path =
     ? require('path')
     : null;
 
-const md = new MarkdownIt({ html: true });
+const md = new MarkdownIt({ html: true, breaks: false });
 
+function autoBreakAfterUkeChord(src) {
+  return src
+    .split('\n')
+    .map(line => {
+      // If line contains a uke-chord tag,
+      // force markdown line break
+      if (/<uke-chord\b/i.test(line)) {
+        return line;
+      }
+      return line + '???<br>';
+    })
+    .join('\n');
+}
 
 function bigSupPlugin_old(md) {
   function tokenizeBigSup(state, silent) {
@@ -138,7 +151,7 @@ function musicXmlBlockPlugin(md, baseDir) {
 function renderSong(src, title = "Song") {
   const isBrowser =
     typeof window !== 'undefined';
-
+  //src = autoBreakAfterUkeChord(src);
   let body = md.render(src);
 
   body = body.replace(

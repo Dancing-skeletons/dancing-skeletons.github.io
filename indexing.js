@@ -20,20 +20,35 @@ function extractTitle(filePath) {
   return match ? match[1].trim() : path.basename(filePath, ".html");
 }
 
-// Generic helpers
+
 function listHtml(folder, urlPrefix) {
   if (!fs.existsSync(folder)) return ["_No songs found._"];
 
   const files = fs.readdirSync(folder)
-    .filter(f => f.endsWith(".html"))
-    .sort();
+    .filter(f => f.endsWith(".html"));
 
   if (files.length === 0) return ["_No songs found._"];
 
-  return files.map(file => {
-    const title = extractTitle(path.join(folder, file));
-    return `- [${title}](${urlPrefix}/${file})`;
+  // Build objects with file + title
+  const songs = files.map(file => {
+    const fullPath = path.join(folder, file);
+    const title = extractTitle(fullPath);
+
+    return {
+      file,
+      title
+    };
   });
+
+  // Sort by title
+  songs.sort((a, b) =>
+    a.title.localeCompare(b.title)
+  );
+
+  // Generate markdown links
+  return songs.map(song =>
+    `- [${song.title}](${urlPrefix}/${song.file})`
+  );
 }
 
 function listPdf(folder, urlPrefix) {
@@ -99,9 +114,11 @@ function buildIndex() {
 
 ${md.render(mdLines.join("\n"))}
 
-<h2>Create a song page</h2>
+<h2>Mise en page à partir d'un fichier markdown</h2>
 
 <div id="generator">
+
+<ul><li><a href="./minimal.md" download>Exemple minimal</a></li></ul>
 
   <input
     type="file"
@@ -109,7 +126,7 @@ ${md.render(mdLines.join("\n"))}
     accept=".md">
 
   <button id="generateBtn">
-    Generate
+    Mise en page
   </button>
 
 
