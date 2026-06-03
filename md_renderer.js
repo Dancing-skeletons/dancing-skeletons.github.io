@@ -155,11 +155,12 @@ function musicXmlBlockPlugin(md, baseDir) {
 
 
 function renderSong(src, title = "Song") {
-  const baseDir = path.dirname(title);
   const isBrowser =
-    typeof window !== 'undefined';
-  //src = autoBreakAfterUkeChord(src);
-  md.use(musicXmlBlockPlugin, baseDir);
+  typeof window !== 'undefined';
+  if (!isBrowser) {
+    const baseDir = path.dirname(title);
+    md.use(musicXmlBlockPlugin, baseDir);
+  }
   let body = md.render(src);
 
   body = body.replace(
