@@ -19,6 +19,7 @@ const path =
     : null;
 
 const md = new MarkdownIt({ html: true, breaks: false });
+//const path = require('path');
 
 function autoBreakAfterUkeChord(src) {
   return src
@@ -105,6 +106,7 @@ md.use(container, 'highlight', {
    MUSICXML BLOCK / FILE SUPPORT
 -------------------------- */
 function musicXmlBlockPlugin(md, baseDir) {
+  console.log("✅ MusicXML plugin registered");
   function removePartNames(xml) {
   // Remove content between <part-name> and </part-name>
   let cleanedXml = xml.replace(/<part-name>[^<]*<\/part-name>/g, '<part-name></part-name>');
@@ -127,6 +129,8 @@ function musicXmlBlockPlugin(md, baseDir) {
       return false;
     }
 
+
+  
   let xmlData = fs.readFileSync(fullPath, 'utf8');
   xmlData = removePartNames(xmlData); // <-- Clean the XML here
   const encoded = encodeURIComponent(xmlData);
@@ -148,10 +152,14 @@ function musicXmlBlockPlugin(md, baseDir) {
 }
 
 
+
+
 function renderSong(src, title = "Song") {
+  const baseDir = path.dirname(title);
   const isBrowser =
     typeof window !== 'undefined';
   //src = autoBreakAfterUkeChord(src);
+  md.use(musicXmlBlockPlugin, baseDir);
   let body = md.render(src);
 
   body = body.replace(

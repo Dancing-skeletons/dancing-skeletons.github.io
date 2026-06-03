@@ -23,9 +23,10 @@ const src =
 
 const html =
   renderSong(
-    src,
-    path.basename(input)
+    src, input
   );
+//    path.basename(input)
+//  );
 
 fs.writeFileSync(out, html);
 
