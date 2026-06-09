@@ -161,6 +161,14 @@ function renderSong(src, title = "Song") {
     const baseDir = path.dirname(title);
     md.use(musicXmlBlockPlugin, baseDir);
   }
+  let pageTitle = title;
+
+  // Find first Markdown H1
+  const h1Match = src.match(/^#\s+(.+)$/m);
+
+  if (h1Match) {
+    pageTitle = h1Match[1].trim();
+  }
   let body = md.render(src);
 
   body = body.replace(
@@ -187,7 +195,7 @@ function renderSong(src, title = "Song") {
 <html>
 <head>
 <meta charset="utf-8">
-<title>${title}</title>
+<title>${pageTitle}</title>
 ${
   isBrowser
     ? `<style>${window.siteCSS || ""}</style>`
