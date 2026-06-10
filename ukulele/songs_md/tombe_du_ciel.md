@@ -49,8 +49,8 @@
 ## Paroles:
 
 ### Couplet
-[Dm] Tombé du ciel à tra[Am]vers les nuages  
-Quel heureux pré [Bb] sage [Gm] pour un aiguilleur [A] du ciel  
+Tombé du [Dm]ciel à travers les nuages[Am]  
+Quel heureux pré[Bb]sage [Gm] pour un aiguilleur [A] du ciel  
 Tombé du lit [Dm] fauché en plein  [Am] rêve  
  Frappé par le [Bb] glaive [Gm] de la sonnerie [C] du réveil  
 [F] Tombé [C] dans l'oreille d'un [Dm] sourd  
@@ -66,7 +66,7 @@ Tombé du [Dm] ciel rebelle aux louan[Am]ges
 Chassé par les an[Bb]ges du [Gm] paradis originel [A]    
 Tombé d'som[Dm]meil perdu con[Am]naissance  
 Retombé en en[Bb]fance au [Gm] pied du grand [C] sapin de [F] Noël  
-[C] Voilé de [Dm] mystère sous mon re[C]gard éblou[Bb]i  
+[C] Voilé de [Dm] mystère sous mon re[C]gard ébloui[Bb]  
 Par la nais[F]sance d'une [Bb] étoile dans le dé[C]sert  
 [F] Tombée [C] comme un météore [Dm]dans les po[C]ches de Baltha[Bb]zar  
 Gaspard ou Mel[F]chior les [Bb]trois fameux rois [F] mages  
@@ -77,7 +77,7 @@ Gaspard ou Mel[F]chior les [Bb]trois fameux rois [F] mages
 Que [Eb] j'entends tom[C#]ber de[G#]hors par la f'nêtre  
 [C#] Quand je m'en[Eb]dors le coeur en fête   
 [G#] Poseur de [Eb] girouettes  
-[Fm] du haut [Eb] du clocher [C#] donne à ma [Bbm] voix  
+[Fm] du haut du [Eb] clocher [C#] donne à ma [Bbm] voix  
 [C#] La direc[Bbm]tion par [C#] où le vent fredonne ma chan[Bbm]son  
 
 ### Pont
@@ -104,8 +104,8 @@ Des chanteurs de [F]charme
 Tombé à [Dm]terre pour la fille qu'on [Am] aime  
 Se relever in[Bb]demne et re[Gm]tomber amou[A]reux  
 Tombé sur toi [Dm] tombé en pamoi[Am]son  
-Avalé la [Bb] cigue [Gm] goûté le poi[C]son qui tue  
-L'a[F]mour encore [C]et toujours [Dm]  
+Avalé la [Bb] cigue [Gm] goûté le [C] poison qui tue  
+L'a[F]mour encore [C] et toujours [Dm]  
 
 ### Outro
 [C] [Bb] [F] [Bb] [C] [F] [C] [Dm]  
