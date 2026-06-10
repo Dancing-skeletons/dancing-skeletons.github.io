@@ -15,7 +15,7 @@ musicxml: ./dont_worry.musicxml
 
 :::highlight
 ### Intro mélodie x2
-[C][Dm][F][C]
+[C][Dm][F][C]  
 [C][Dm][F][C]
 :::
 
@@ -30,7 +30,8 @@ Don't [F] worry, be [C] happy
 
 :::highlight
 ### Refrain mélodie
-Ooh's [C] [Dm] [F]  [C]
+[C] Ooh's, [Dm] Don't worry  
+[F] Ooh's, be happy [C]
 :::
 
 ### Couplet
@@ -44,7 +45,8 @@ Don't [F] worry, be [C] happy
 
 :::highlight
 ### Refrain mélodie
-Ooh's [C] [Dm] [F]  [C]
+[C] Ooh's, [Dm] Don't worry  
+[F] Ooh's, be happy [C]
 :::
 
 ### Couplet
@@ -58,5 +60,6 @@ Don't [F] worry, be [C] happy
 
 :::highlight
 ### Refrain mélodie X2
-Ooh's [C] [Dm] [F]  [C]
+[C] Ooh's, [Dm] Don't worry  
+[F] Ooh's, be happy [C]
 :::
