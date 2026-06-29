@@ -19,9 +19,10 @@
     1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 & 
     ▼   ▾   ▼   ▾▴  ▼   ▾   ▼   ▾▴  débutant
     ▼   ▾   ▼   ▾▴     ▴▾   ▾▴  ▾▴  avancé
-    ▼   ▾   ▼   ▾▴     ▴▾   ▾▴  ▾▴  confirmé (mute sur 3)
-            .
     </pre>
+
+- Possibilité d'étouffer sur le 3 en relachant les cordes.
+- Les accords entre parenthèses [(D7)], [(Fm)] durent 4 temps.
 
 ## Paroles:
 
