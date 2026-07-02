@@ -1,4 +1,4 @@
-# Wellerman (Dsus2) - Nathan Evans
+# Wellerman (Dsus2) - The longest Johns 
 
 ## Accords:
 <uke-chord name="Em" frets="0432"></uke-chord> 
@@ -9,6 +9,12 @@
 
 
 ## Instructions: 
+- Rythmique:
+    <pre class="tableau">
+    1 & 2 & 3 & 4 &
+    ▼   ▼ ▲ ▲   ▼ ▲      
+    </pre>
+
 
 ## Paroles:
 
@@ -23,7 +29,7 @@ The [Em]winds blew up, her [Em]bow dipped down
 [C]Soon may the [G]Wellerman come  
 To [Am]bring us sugar and [Em]tea and rum  
 [C]One day, when the [G]tonguin' is done  
-We'll [B7]take our leave and [Em]go  
+We'll [B7]take our leave and [Em]go [Em]  
 :::
 
 ### Couplet
