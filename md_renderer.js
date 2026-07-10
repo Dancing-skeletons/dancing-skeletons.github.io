@@ -19,55 +19,17 @@ const path =
     : null;
 
 const md = new MarkdownIt({ html: true, breaks: false });
-//const path = require('path');
 
-function autoBreakAfterUkeChord(src) {
-  return src
-    .split('\n')
-    .map(line => {
-      // If line contains a uke-chord tag,
-      // force markdown line break
-      if (/<uke-chord\b/i.test(line)) {
-        return line;
-      }
-      return line + '???<br>';
-    })
-    .join('\n');
-}
+/* -------------------------
+   CHORD PLUGINS
+-------------------------- */
 
-function bigSupPlugin_old(md) {
-  function tokenizeBigSup(state, silent) {
-    const start = state.pos;
-    if (state.src[start] !== '[') return false;
-
-    const end = state.src.indexOf(']', start);
-    if (end === -1) return false; // no closing ]
-
-    const content = state.src.slice(start + 1, end);
-
-    if (!silent) {
-      const tokenOpen = state.push('sup_open', 'sup', 1);
-      tokenOpen.attrs = [['class', 'big-sup']];
-
-      const tokenText = state.push('text', '', 0);
-      tokenText.content = content;
-
-      state.push('sup_close', 'sup', -1);
-    }
-
-    state.pos = end + 1;
-    return true;
-  }
-
-  md.inline.ruler.before('emphasis', 'big_sup', tokenizeBigSup);
-}
-
+// [C] -> floating chord, sits above the syllable that follows it
 function chordPlugin(md) {
-
   function tokenizeChord(state, silent) {
     const start = state.pos;
     if (state.src[start] !== '[') return false;
-    if (state.src[start + 1] === '[') return false;
+    if (state.src[start + 1] === '[') return false; // let chord_static handle [[...]]
 
     const end = state.src.indexOf(']', start);
     if (end === -1) return false;
@@ -86,10 +48,37 @@ function chordPlugin(md) {
   md.inline.ruler.before('emphasis', 'chord', tokenizeChord);
 }
 
+// [[C]] or [[C E7 F]] -> static chord badge(s), written directly in the text flow.
+// A multi-chord group is split into one badge per chord so each stays individually
+// transposable and they don't render as one merged blob.
+function chordStaticPlugin(md) {
+  function tokenizeStaticChord(state, silent) {
+    const start = state.pos;
+    if (state.src[start] !== '[' || state.src[start + 1] !== '[') return false;
 
+    const end = state.src.indexOf(']]', start + 2);
+    if (end === -1) return false;
 
-// Use the plugin
+    const content = state.src.slice(start + 2, end);
+
+    if (!silent) {
+      const chords = content.split(/\s+/).filter(Boolean);
+      const html = chords
+        .map(c => `<span class="chord chord-static" data-chord="${c}">${c}</span>`)
+        .join(' ');
+      const token = state.push('html_inline', '', 0);
+      token.content = html;
+    }
+
+    state.pos = end + 2;
+    return true;
+  }
+
+  md.inline.ruler.before('emphasis', 'chord_static', tokenizeStaticChord);
+}
+
 md.use(chordPlugin);
+md.use(chordStaticPlugin);
 
 md.use(container, 'highlight', {
   render: function (tokens, idx) {
@@ -106,14 +95,11 @@ md.use(container, 'highlight', {
    MUSICXML BLOCK / FILE SUPPORT
 -------------------------- */
 function musicXmlBlockPlugin(md, baseDir) {
-  console.log("✅ MusicXML plugin registered");
   function removePartNames(xml) {
-  // Remove content between <part-name> and </part-name>
-  let cleanedXml = xml.replace(/<part-name>[^<]*<\/part-name>/g, '<part-name></part-name>');
-  // Remove content between <part-abbreviation> and </part-abbreviation>
-  cleanedXml = cleanedXml.replace(/<part-abbreviation>[^<]*<\/part-abbreviation>/g, '<part-abbreviation></part-abbreviation>');
-  return cleanedXml;
-}
+    let cleanedXml = xml.replace(/<part-name>[^<]*<\/part-name>/g, '<part-name></part-name>');
+    cleanedXml = cleanedXml.replace(/<part-abbreviation>[^<]*<\/part-abbreviation>/g, '<part-abbreviation></part-abbreviation>');
+    return cleanedXml;
+  }
 
   function renderMusicXml(state, startLine, endLine, silent) {
     const lines = state.src.split('\n');
@@ -129,14 +115,12 @@ function musicXmlBlockPlugin(md, baseDir) {
       return false;
     }
 
-
-  
-  let xmlData = fs.readFileSync(fullPath, 'utf8');
-  xmlData = removePartNames(xmlData); // <-- Clean the XML here
-  const encoded = encodeURIComponent(xmlData);
+    let xmlData = fs.readFileSync(fullPath, 'utf8');
+    xmlData = removePartNames(xmlData);
+    const encoded = encodeURIComponent(xmlData);
 
     if (!silent) {
-     const html = `<div class="verovio-block" data-musicxml="${encoded}"></div>`;
+      const html = `<div class="verovio-block" data-musicxml="${encoded}"></div>`;
       state.tokens.push({
         type: 'html_block',
         content: html,
@@ -152,43 +136,27 @@ function musicXmlBlockPlugin(md, baseDir) {
 }
 
 
-
-
 function renderSong(src, title = "Song") {
-  const isBrowser =
-  typeof window !== 'undefined';
+  const isBrowser = typeof window !== 'undefined';
   if (!isBrowser) {
     const baseDir = path.dirname(title);
     md.use(musicXmlBlockPlugin, baseDir);
   }
   let pageTitle = title;
 
-  // Find first Markdown H1
   const h1Match = src.match(/^#\s+(.+)$/m);
-
   if (h1Match) {
     pageTitle = h1Match[1].trim();
   }
+
   let body = md.render(src);
 
+  // Single chord-diagram element per <uke-chord> (was: duplicated into
+  // chord-large + chord-small). Size is now handled live by the slider,
+  // via el.setAttribute('size', ...), so we don't need two fixed copies.
   body = body.replace(
     /<uke-chord\b([^>]*)>(.*?)<\/uke-chord>/g,
-    (match, attrs) => {
-
-      const large =
-        `<uke-chord${attrs}
-          size="1"
-          class="chord-large">
-        </uke-chord>`;
-
-      const small =
-        `<uke-chord${attrs}
-          size="0.6"
-          class="chord-small">
-        </uke-chord>`;
-
-      return large + small;
-    }
+    (match, attrs) => `<uke-chord${attrs} size="1" class="chord-diagram"></uke-chord>`
   );
 
   const html = `<!doctype html>
@@ -209,9 +177,33 @@ ${
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
 <body>
+
+<button id="controls-handle" title="Afficher/masquer les contrôles">☰</button>
+
+
 <div id="controls-container">
+
+  <div class="control-group">
+    <label for="font-size"><strong>Taille texte</strong></label>
+    <input id="font-size" type="range" min="0.7" max="1.5" step="0.05" value="1">
+  </div>
+
   <button id="toggle-columns">Colonnes</button>
-  <button id="toggle-chords">Accords</button>
+
+
+  <div class="control-group">
+    <label class="control-checkbox">
+      <input type="checkbox" id="chord-toggle" checked> Accords
+    </label>
+    <input type="range" id="chord-size" min="0.4" max="1.2" step="0.05" value="1">
+  </div>
+
+  <div class="control-group">
+    <label class="control-checkbox">
+      <input type="checkbox" id="score-toggle" checked> Partition
+    </label>
+    <input type="range" id="score-size" min="0.2" max="1.6" step="0.05" value="1">
+  </div>
 
   <div id="transpose-controls">
     <button id="transpose-down">−</button>
@@ -225,237 +217,237 @@ ${body}
 </div>
 
   <script>
+  // ---------- Column toggle ----------
   const btn = document.getElementById('toggle-columns');
-    const content = document.getElementById('content');
+  const content = document.getElementById('content');
+  const columnClasses = ['one-column', 'two-column', 'three-column'];
+  let current = 1;
 
-    // Possible column classes
-    const columnClasses = ['one-column', 'two-column', 'three-column'];
-    let current = 1; // start at 0 = one-column
+  btn.addEventListener("click", () => {
+    content.classList.remove(columnClasses[current]);
+    current = (current + 1) % columnClasses.length;
+    content.classList.add(columnClasses[current]);
+    setTimeout(() => {
+      document.dispatchEvent(new Event("verovio:rerender"));
+    }, 0);
+  });
 
-    btn.addEventListener("click", () => {
-      // Remove old class
-      content.classList.remove(columnClasses[current]);
+  const fontSlider = document.getElementById("font-size");
+  fontSlider.addEventListener("input", () => {
+    document.documentElement.style.setProperty(
+        "--font-scale",
+        fontSlider.value
+    );
+  });
 
-      // Increment and wrap around
-      current = (current + 1) % columnClasses.length;
+  // ---------- Chord diagrams: show/hide + size slider ----------
+  const chordToggle = document.getElementById('chord-toggle');
+  const chordSizeSlider = document.getElementById('chord-size');
 
-      // Add new class
-      content.classList.add(columnClasses[current]);
-
-      // Update button text
-//      btn.textContent = (current + 1) + " Colonne" + (current > 0 ? "s" : "");    
-       setTimeout(() => {
-  document.dispatchEvent(new Event("verovio:rerender"));
-}, 0);
+  function applyChordVisibility(){
+    const visible = chordToggle.checked;
+    document.querySelectorAll('.chord-diagram').forEach(el => {
+      el.style.display = visible ? 'inline-block' : 'none';
+    });
+    document.querySelectorAll('h2').forEach(h2 => {
+      if (h2.textContent.includes('Accords')) h2.style.display = visible ? 'block' : 'none';
+    });
+  }
+  function applyChordSize() {
+      const scale = parseFloat(chordSizeSlider.value);
+      document.querySelectorAll('.chord-diagram').forEach(el => {
+          el.style.zoom = scale;
       });
+  }
+  chordToggle.addEventListener('change', applyChordVisibility);
+  chordSizeSlider.addEventListener('input', applyChordSize);
+  applyChordVisibility();
+  applyChordSize();
 
-        // 🎸 Uke chord toggle
-  const chordBtn = document.getElementById('toggle-chords');
-  let chordsVisible = true;
-  let chordsSize = 1;
+  // ---------- Verovio score ----------
+  let scoreScaleFactor = 1;
 
-  chordBtn.addEventListener("click", () => {
-    chordsSize = (chordsSize + 1) % 3;
-    chordsVisible = (chordsSize > 0);
-    document.querySelectorAll("uke-chord").forEach(chord => {
-      chord.style.display = chordsVisible ? "inline-block" : "none";
+  const scoreToggle = document.getElementById('score-toggle');
+  const scoreSizeSlider = document.getElementById('score-size');
+
+  scoreToggle.addEventListener('change', () => {
+    document.querySelectorAll('.verovio-block').forEach(el => {
+      el.style.display = scoreToggle.checked ? '' : 'none';
     });
-document.querySelectorAll(".chord-large").forEach(el => el.style.display = chordsSize === 1 ? "inline-block" : "none");
-document.querySelectorAll(".chord-small").forEach(el => el.style.display = chordsSize === 2 ? "inline-block" : "none");
+  });
+  scoreSizeSlider.addEventListener('input', () => {
+    scoreScaleFactor = parseFloat(scoreSizeSlider.value);
+    renderAllVerovio();
+  });
 
+  (() => {
+    const toolkit = new verovio.toolkit();
 
-    
-   // Toggle only <h2> with text "Accords:"
-    document.querySelectorAll("h2").forEach(h2 => {
-      if (h2.textContent.includes("Accords")) {
-        h2.style.display = chordsVisible ? "block" : "none";
-      }
+    function renderAllVerovio() {
+      const blocks = document.querySelectorAll(".verovio-block");
+      blocks.forEach(block => {
+        try {
+          const xml = decodeURIComponent(block.dataset.musicxml);
+          const containerWidth = block.clientWidth || 800;
+          const options = {
+            scale: 105 * scoreScaleFactor,
+            pageWidth: containerWidth * 2 / scoreScaleFactor,
+            pageHeight: 2000,
+            spacingStaff: 0,
+            spacingSystem: 0,
+            adjustPageHeight: true,
+            breaks: "auto",
+            header: "none",
+            footer: "none",
+            pageMarginLeft: 10,
+            pageMarginRight: 10,
+            pageMarginTop: 10,
+            pageMarginBottom: 10,
+            mnumInterval: 4,
+          };
+          const svg = toolkit.renderData(xml, options);
+          block.innerHTML = svg;
+        } catch (e) {
+          console.error("Verovio error:", e);
+          block.innerHTML = "<pre style='color:red'>MusicXML failed to render</pre>";
+        }
+      });
+    }
+
+    function renderAllVerovioprint() {
+      const blocks = document.querySelectorAll(".verovio-block");
+      blocks.forEach(block => {
+        try {
+          const xml = decodeURIComponent(block.dataset.musicxml);
+          const containerWidth = 1200;
+          const options = {
+            scale: 80 * scoreScaleFactor,
+            pageWidth: containerWidth * 1 / scoreScaleFactor,
+            pageHeight: 2000,
+            spacingStaff: 0,
+            spacingSystem: 0,
+            adjustPageHeight: true,
+            breaks: "auto",
+            header: "none",
+            footer: "none",
+            pageMarginLeft: 10,
+            pageMarginRight: 10,
+            pageMarginTop: 10,
+            pageMarginBottom: 10,
+            mnumInterval: 4,
+          };
+          const svg = toolkit.renderData(xml, options);
+          block.innerHTML = svg;
+        } catch (e) {
+          console.error("Verovio error:", e);
+          block.innerHTML = "<pre style='color:red'>MusicXML failed to render</pre>";
+        }
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", renderAllVerovio);
+
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(renderAllVerovio, 150);
     });
-    //chordBtn.textContent = chordsSize;
-    
 
+    window.addEventListener("beforeprint", renderAllVerovioprint);
+    window.addEventListener("afterprint", renderAllVerovio);
+
+    document.addEventListener("verovio:rerender", renderAllVerovio);
+
+    // expose for the slider handler above
+    window.renderAllVerovio = renderAllVerovio;
+  })();
+
+  // ---------- Controls panel collapse ----------
+  const handle = document.getElementById('controls-handle');
+  const controlsPanel = document.getElementById('controls-container');
+
+  function setCollapsed(state){
+    controlsPanel.classList.toggle('collapsed', state);
+    localStorage.setItem('controlsCollapsed', state ? '1' : '0');
+  }
+  handle.addEventListener('click', () => {
+    setCollapsed(!controlsPanel.classList.contains('collapsed'));
   });
 
+  const savedCollapsed = localStorage.getItem('controlsCollapsed');
+  setCollapsed(savedCollapsed !== null ? savedCollapsed === '1' : window.innerWidth < 700);
 
-(() => {
-  const toolkit = new verovio.toolkit();
+  // ---------- Transpose ----------
+  const NOTES = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+  const FLAT_TO_SHARP = { Db:"C#", Eb:"D#", Gb:"F#", Ab:"G#", Bb:"A#" };
 
-function renderAllVerovio() {
-  const blocks = document.querySelectorAll(".verovio-block");
-  blocks.forEach(block => {
-    try {
-      const xml = decodeURIComponent(block.dataset.musicxml);
-    
-        let options;
-        // Screen: use container width
-        const containerWidth = block.clientWidth || 800;
-        options = {
-          scale: 105,
-          pageWidth: containerWidth * 2,
-          pageHeight: 2000,
-          spacingStaff: 0,
-          spacingSystem: 0,
-          adjustPageHeight: true,
-          breaks: "auto",
-          header: "none",
-          footer: "none",
-          pageMarginLeft: 10,
-          pageMarginRight: 10,
-          pageMarginTop: 10,
-          pageMarginBottom: 10,
-          mnumInterval: 4,
-        };
+  let transpose = 0;
 
-      const svg = toolkit.renderData(xml, options);
-      block.innerHTML = svg;
-    } catch (e) {
-      console.error("Verovio error:", e);
-      block.innerHTML =
-        "<pre style='color:red'>MusicXML failed to render</pre>";
-    }
-  });
-}
-
-function renderAllVerovioprint() {
-  const blocks = document.querySelectorAll(".verovio-block");
-  blocks.forEach(block => {
-    try {
-      const xml = decodeURIComponent(block.dataset.musicxml);
-      let options;
-        // Screen: use container width
-        const containerWidth = 1200; //block.clientWidth || 800;
-        options = {
-          scale: 80,
-          pageWidth: containerWidth * 1,
-          pageHeight: 2000,
-          spacingStaff: 0,
-          spacingSystem: 0,
-          adjustPageHeight: true,
-          breaks: "auto",
-          header: "none",
-          footer: "none",
-          pageMarginLeft: 10,
-          pageMarginRight: 10,
-          pageMarginTop: 10,
-          pageMarginBottom: 10,
-          mnumInterval: 4,
-        };
-
-      let svg = toolkit.renderData(xml, options);
-      // Force SVG dimensions for print
-      block.innerHTML = svg;
-    } catch (e) {
-      console.error("Verovio error:", e);
-      block.innerHTML =
-        "<pre style='color:red'>MusicXML failed to render</pre>";
-    }
-  });
-}
-  // Initial render
-  document.addEventListener("DOMContentLoaded", renderAllVerovio);
-
-  // Re-render on resize (columns change)
-  let resizeTimer;
-  window.addEventListener("resize", () => {
-    clearTimeout(resizeTimer);
-    resizeTimer = setTimeout(renderAllVerovio, 150);
-  });
-
-  // Print support
-  window.addEventListener("beforeprint", renderAllVerovioprint);
-  window.addEventListener("afterprint", renderAllVerovio);
-/*  window.addEventListener("afterprint", () => {
-    setTimeout(renderAllVerovio, 50);
-  });*/
-
-  // Manual trigger (column button)
-  document.addEventListener("verovio:rerender", renderAllVerovio);
-})();
-
-const NOTES = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
-const FLAT_TO_SHARP = {
-  Db:"C#", Eb:"D#", Gb:"F#", Ab:"G#", Bb:"A#"
-};
-
-let transpose = 0;
-
-function normalize(note){
-  return FLAT_TO_SHARP[note] || note;
-}
-
-function transposeNote(note, steps) {
-
-  note = normalize(note);
-
-  let idx = NOTES.indexOf(note);
-  if (idx === -1) return note;
-
-  idx = (idx + steps + 12) % 12;
-
-  return NOTES[idx];
-}
-
-function transposeChord(chord, steps) {
-
-  const original = chord.trim();
-
-  // detect parentheses safely
-  let hasParen = false;
-  if (original.startsWith("(") && original.endsWith(")")) {
-    hasParen = true;
-    chord = original.slice(1, -1).trim();
-  } else {
-    chord = original;
+  function normalize(note){
+    return FLAT_TO_SHARP[note] || note;
   }
 
-  // split multiple chords safely (ignore empty)
-const parts = chord.split(new RegExp("\\s+")).filter(Boolean);
-
-  if (parts.length === 0) return original;
-
-  const transposedParts = parts.map(part => {
-    // keep trailing slashes (rhythm)
-    const slashMatch = part.match(new RegExp("(\\/+)$"));
-    const slashes = slashMatch ? slashMatch[1] : "";
-    const base = part.replace(new RegExp("\\/+$"), '');
-    const match = base.match(/^([A-G][b#]?)(.*)$/);
-    if (!match) return part;
-    const root = match[1];
-    const suffix = match[2];
-    const newRoot = transposeNote(root, steps);
-    if (!newRoot) return part;
-    return newRoot + suffix + slashes;
-  });
-  let result = transposedParts.join(" ");
-  // restore parentheses ONLY if originally present
-  if (hasParen) {
-    result = "(" + result + ")";
+  function transposeNote(note, steps) {
+    note = normalize(note);
+    let idx = NOTES.indexOf(note);
+    if (idx === -1) return note;
+    idx = (idx + steps + 12) % 12;
+    return NOTES[idx];
   }
-  return result;
-}
 
-function updateChords(){
-  document.querySelectorAll(".chord").forEach(el => {
-    const original = el.dataset.chord;
-    const newChord = transposeChord(original, transpose);
-    el.textContent = newChord;
+  function transposeChord(chord, steps) {
+    const original = chord.trim();
+    let hasParen = false;
+    if (original.startsWith("(") && original.endsWith(")")) {
+      hasParen = true;
+      chord = original.slice(1, -1).trim();
+    } else {
+      chord = original;
+    }
+
+    const parts = chord.split(new RegExp("\\s+")).filter(Boolean);
+    if (parts.length === 0) return original;
+
+    const transposedParts = parts.map(part => {
+      const slashMatch = part.match(new RegExp("(\\/+)$"));
+      const slashes = slashMatch ? slashMatch[1] : "";
+      const base = part.replace(new RegExp("\\/+$"), '');
+      const match = base.match(/^([A-G][b#]?)(.*)$/);
+      if (!match) return part;
+      const root = match[1];
+      const suffix = match[2];
+      const newRoot = transposeNote(root, steps);
+      if (!newRoot) return part;
+      return newRoot + suffix + slashes;
+    });
+    let result = transposedParts.join(" ");
+    if (hasParen) {
+      result = "(" + result + ")";
+    }
+    return result;
+  }
+
+  function updateChords(){
+    document.querySelectorAll(".chord").forEach(el => {
+      const original = el.dataset.chord;
+      const newChord = transposeChord(original, transpose);
+      el.textContent = newChord;
+    });
+    document.getElementById("transpose-level").textContent =
+      (transpose >= 0 ? "+" : "") + transpose;
+  }
+
+  document.getElementById("transpose-up").addEventListener("click", () => {
+    transpose = (transpose + 1) % 12;
+    updateChords();
   });
-  document.getElementById("transpose-level").textContent =
-  (transpose >= 0 ? "+" : "") + transpose;
-}
 
-document.getElementById("transpose-up").addEventListener("click", () => {
-  transpose = (transpose + 1) % 12;
-  updateChords();
-});
+  document.getElementById("transpose-down").addEventListener("click", () => {
+    transpose = (transpose - 1 + 12) % 12;
+    updateChords();
+  });
 
-document.getElementById("transpose-down").addEventListener("click", () => {
-  transpose = (transpose - 1 + 12) % 12;
-  updateChords();
-});
-
-
-</script>
+  </script>
 
 </body>
 </html>`;

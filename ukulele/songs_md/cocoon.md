@@ -28,8 +28,8 @@
 ## Paroles:
 
 ### Intro
-[G Em Bm D7]  
-[G Em Bm D7]   
+[[G Em Bm D7]]  
+[[G Em Bm D7]]   
 
 ### Couplet 
 [G]We have gone to the [Em]country  
@@ -60,8 +60,8 @@ So many [Bm]times [D7]
 :::
  
 ### Instrumental
-[G Em Bm D7]  
-[G Em Bm D7]  
+[[G Em Bm D7]]  
+[[G Em Bm D7]]  
 
 ### Outro X 2
 [C]Hello (hello),  [Am]hello (hello)  

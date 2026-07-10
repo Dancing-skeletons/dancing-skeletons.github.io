@@ -12,7 +12,7 @@
 
 ## Paroles:
 ### Intro
-[X XX C/] x2
+[[X XX C/]] x2
 
 ### Couplet 
 [C] The night we met [C] I knew I [Dm] needed you [G7] so  
@@ -39,10 +39,10 @@ Be my baby [G] now [G7////] Oh oh oh oh
 :::
 
 ### Solo x2
-[C][C][Dm][Dm][G7]
+[[C C Dm Dm G7]]
 
 
 :::highlight
 ### Refrain x2
-Se termine par un [C/]
+Se termine par un [[C/]]
 :::

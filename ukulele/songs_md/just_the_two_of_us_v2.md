@@ -16,7 +16,7 @@
     1 & 2 & 3 & 4 &
     ▼   ▼     ▲ ▼       
     </pre>
-- Rhythmique sur le [Em][Em]: TODO
+- Rhythmique sur le [[Em Em]]: TODO
 - Ne pas laisser sonner le [G7/] de fin de couplet
 
 musicxml: ./just_the_two_of_us.musicxml
@@ -24,8 +24,8 @@ musicxml: ./just_the_two_of_us.musicxml
 
 ## Paroles:
 ### Intro en arpège ```(14)231```
-[Cmaj7][B7][Em7][G7]  
-[Cmaj7][B7][Em x2]  
+[[Cmaj7 B7 Em7 G7]]  
+[[Cmaj7 B7 Em Em]]  
 
 
 ### Couplet:
@@ -65,8 +65,8 @@ We gotta [B7]go for all we [Em]know [G7/]
   
 :::highlight
 ### Solo x2
-[Cmaj7 B7 F A7]  
-[Abmaj7 G7 Cmaj7 Dm7]
+[[Cmaj7 B7 F A7]]  
+[[Abmaj7 G7 Cmaj7 Dm7]]
 :::
 
 ### Intro
@@ -81,5 +81,5 @@ I wanna [B7]be the one with [Em]you [G7/]
 
 :::highlight
 ### Refrain
-S'arrête sur: ...two of us[B7] [...] You and I[Em/].
+S'arrête sur: ...two of us[B7]... You and I[Em/].
 :::

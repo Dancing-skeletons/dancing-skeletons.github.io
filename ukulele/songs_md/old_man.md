@@ -12,17 +12,17 @@
 ## Paroles:
 
 ### Intro (x2):
-[Fmaj7 x 6][Dsus2][D][Dsus2][D]
+[[Fmaj7x6 Dsus2 D Dsus2 D]]
 
 ### Pré-couplet
 [Fmaj7]Old  [Fmaj7]man,  [Fmaj7]look at my li[Fmaj7]fe  
 [Fmaj7]I'm a  [Fmaj7]lot like [Dsus2]you [D]were  
 [Fmaj7]Old [Fmaj7]man, [Fmaj7]look at my li[Fmaj7]fe  
 [Fmaj7]I'm a [Fmaj7]lot like [D]you [D]were  
-[F][F][C][C][G][G]  
+[[F F C C G G]]  
 
 ### Couplet
-[D][D][F][F][C][C][F][F]  
+[[D D F F C C F F]]  
 [D]Old [D]man, [F]look at my [F]life  
 [C]Twenty [C]four and there's [G]so much [G]more  
 [D]Live a[D]lone in a [F]paradise [F]  
@@ -63,8 +63,8 @@ up/down:▼  .  .  .  ▼  .  .  .
 :::
 
 ### Pré-couplet
-[D][D][F][F][C][C][G][G] 
-[D][D][F][F][C][C][F][F]  
+[[D D F F C C G G]] 
+[[D D F F C C F F]]  
 
 ### Couplet
 [D]Lulla[D]bies, [F]look in your [F]eyes  
@@ -82,11 +82,11 @@ up/down:▼  .  .  .  ▼  .  .  .
 :::
 
 ### Outro
-[Fmaj7 x 6][Dsus2][D][Dsus2][D]  
+[[Fmaj7x6 Dsus2 D Dsus2 D]]  
 
 [Fmaj7]Old [Fmaj7]man, [Fmaj7]look at my li[Fmaj7]fe  
 [Fmaj7]I'm a [Fmaj7]lot like [Dsus2]you [D]were [Dsus2 D]  
 [Fmaj7]Old [Fmaj7]man, [Fmaj7]look at my li[Fmaj7]fe  
 [Fmaj7]I'm a [Fmaj7]lot like [D]you [D]were  
-[F][F][C][C][G][G][D(2225)]  
+[[F F C C G G D(2225)]]  
 

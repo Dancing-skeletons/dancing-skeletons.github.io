@@ -22,7 +22,7 @@
     </pre>
 
 - Possibilité d'étouffer sur le 3 en relachant les cordes.
-- Les accords entre parenthèses [(D7)], [(Fm)] durent 4 temps.
+- Les accords entre parenthèses [[(D7)]], [[(Fm)]] durent 4 temps.
 
 ## Paroles:
 
@@ -55,16 +55,16 @@ I love you [Dm] baby, [G7] trust in me
 when I [Cmaj7] say [Am]  
 Oh pretty [Dm] baby, don't bring me [G7] down I pray  
 Oh pretty [Cmaj7] baby, now that I've [Am] found you stay  
-And let me [Dm] love you baby, [G7]let me love you oh [Cmaj7]baby [Am//]  
+And let me [Dm] love you baby, [G7]let me love you oh [Cmaj7]baby &nbsp;[Am//]  
 :::
 
 ### Couplet 1
 
 ### Instrumental (optionnel)
 
-[Dm7] [G7] [Cmaj7] [Am]   
-[Dm7] [G7] [Cmaj7] [Am Am/]   
-[A7]  (Stop)  
+[[Dm7 G7 Cmaj7 Am]]   
+[[Dm7 G7 Cmaj7 Am Am/]]   
+[[A7]]  (Stop)  
  
 :::highlight
 ### Refrain en modifiant la fin

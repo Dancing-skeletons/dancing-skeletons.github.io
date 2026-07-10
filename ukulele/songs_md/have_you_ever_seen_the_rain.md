@@ -12,7 +12,7 @@
 ## Paroles:
 
 ### Intro
-[Am] [F] [C] [G] [C] [G] [G] [D] [D]
+[[Am F C G C G G D D]]
 
 ### Couplet
 [C] Someone told me long ago  

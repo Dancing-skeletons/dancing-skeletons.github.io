@@ -1,22 +1,22 @@
-body { 
+:root {
+    --font-scale: 1;
+}
+
+body {
   font-family: "Josefin Sans", "Ubuntu", system-ui, Arial, sans-serif;
   padding: 1rem;
   line-height: 2.1;
   letter-spacing: 0.1px;
+  font-size: calc(1em * var(--font-scale));
 }
 
 /* Code blocks */
-code{
+code {
   font-family: monospace;
   white-space: pre;
   font-size: 1.4em;
   line-height: 1.4em;
 }
-
-/*pre code {
-  font-size: 1.4em;
-  font-family: monospace;
-}*/
 
 /* Column layouts */
 #content.two-column {
@@ -34,30 +34,56 @@ code{
 }
 
 
-.chord-group {
-  display: inline-flex;
-  gap: 0.25em;
-  top: -0.6em;
-  line-height: 1;
-  white-space: nowrap;
-}
+/* -------------------------------------------------
+   CHORDS
+   - .chord          : floating chord written inline in lyrics via [C]
+   - .chord-static    : chord badge written directly in the text via [[C]]
+   ------------------------------------------------- */
 
+/* Floating chord: zero-width box so it never pushes the lyric text that
+   follows it, painted above the line via a negative "top" offset. */
 .chord {
-  font-size: 0.95rem;
-}
-
-/* Chords */
-.chord {
-  color: #b00;
-  color: rgb(0, 0, 187);
+  position: relative;
+  display: inline-block;
+  width: 0;              /* no horizontal footprint in the flow */
+  overflow: visible;       /* but the chord text still paints, outside the box */
+  top: -1.1em;
+  color: #4C6B8B;
   font-weight: 600;
-  font-size: 0.9em;
-  vertical-align: super;
-  margin-right: 0.12em;
-  margin-left: 0.05em;
+  font-size: 0.85em;
   font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    line-height: 1;
-      margin: 0;
+  white-space: nowrap;
+  text-align: left;
+  line-height: 1;
+}
+
+/* Static chord badge (e.g. intro/instrumental lines, or instructions).
+   Sits in normal flow with real spacing, like a small pill. */
+.chord.chord-static {
+  position: relative;      /* needed for the "top" nudge below */
+  top: 0.12em;              /* small nudge to align chord text with lyric baseline
+                                (monospace vs. Josefin Sans have slightly different
+                                internal baselines) — tweak in ~0.02em steps if needed */
+  display: inline-block;
+  width: auto;
+  overflow: visible;
+  vertical-align: baseline;
+  margin-right: 0.0em;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: #eef2f7;
+  color: #2c4a6e;
+  font-size: 1em;
+  font-weight: 600;
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+}
+
+/* Chord diagrams (uke-chord web components). Size is controlled live via
+   the "size" attribute (see the slider script in md_renderer.js) rather
+   than CSS, so this just adds a little breathing room. */
+.chord-diagram {
+  margin: 0.2em 0.4em 0.2em 0;
+  vertical-align: top;
 }
 
 
@@ -79,64 +105,11 @@ pre.tableau {
 }
 
 /* Superscripts */
-.big-sup2 {
-  font-size: 1.4em;
-  vertical-align: super;
-  color: blue;
-  top: -0.5em;
-  vertical-align: super; /* Default, but you can tweak */	
-  font-size: 1.2em;    /* Optional: makes it smaller */
-  top: -0.5em;          /* Adjust this value to move it higher */
-  position: relative;   /* Allows top/bottom adjustments */
-  
-}
-
 .big-sup {
   position: absolute;
   transform: translateY(-1em);
   font-size: 1.2em;
   color: blue;
-}
-
-/* Floating chord (lyrics)*/
-.chord-float {
-/*  position: absolute;*/
-    position: relative;
-    display: inline-block;
-/*  transform: translateY(-1.2em);*/
-  transform: translateY(-0.8em);
-  font-size: 1.1em;
-  color:#4C6B8B;
-  margin-right: -0.5em;
-  text-align: left; 
-}
-
-/* Inline chord (instructions, refrain, etc.) */
-.chord-inline {
-  position: static;
-  font-size: 1.4em;
-/*  font-size: clamp(1.4em, 4vw, 1.7em);*/
-  color: #4C6B8B;
-  white-space: nowrap;
-}
-
-.chord {
-  font-weight: bold;
-  background: #222;
-  color: #fff;
-  padding: 2px 6px;
-  border-radius: 5px;
-  margin-right: 3px;
-  font-size: 1.05em;
-  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-}
-
-.chord-inline {
-  font-weight: bold;
-  background: #666;
-  color: white;
-  padding: 1px 6px;
-  border-radius: 4px;
 }
 
 
@@ -145,20 +118,16 @@ pre.tableau {
   background-color: #d3d3d3;
   border: 2px solid #d3d3d3;
   border-radius: 5px;
-/*  padding: 0px 5px 0px 10px; /* top right bottom left */
   margin: -5px;
-  /* Uncomment if you need exact print colors */
-  
   -webkit-print-color-adjust: exact;
   print-color-adjust: exact;
   color-adjust: exact;
-  
 }
 
 .highlight h3,
 .highlight p {
   margin-top: 0;
-  margin-bottom: 0; /* or a very small value like 2px */
+  margin-bottom: 0;
   margin-left: 5px;
   margin-right: 5px;
 }
@@ -167,12 +136,11 @@ pre.tableau {
   color: #000080;
 }
 
-.highlight .chord-float{
-  color: #0b0b8b;  
+.highlight .chord-static {
+  background: #c9d3de;
+  color: #0b0b8b;
 }
-.highlight .chord-inline{
-  color: #0b0b8b;  
-}
+
 
 /* Staff */
 .staff {
@@ -208,55 +176,96 @@ pre.tableau {
   background: #fafafa;
 }
 
-/*svg g.harm {
-    transform: scale(0.8);
-        transform-origin: center;
-}*/ /*TODO*/
 
+/* -------------------------------------------------
+   CONTROLS PANEL
+   ------------------------------------------------- */
 
-#toggle-columns {
-  font-size: 1.5rem;
-  font-weight: bold;
+#controls-handle {
   position: fixed;
   top: 10px;
   right: 10px;
-  padding: 8px 12px;
+  z-index: 10000;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: none;
   background: #007acc;
   color: #fff;
-  border: none;
-  border-radius: 6px;
+  font-size: 1.3rem;
   cursor: pointer;
-  z-index: 9999;
-  width: 160px;          /* ← same width */
-  text-align: center;
 }
 
-#toggle-chords {
-  font-size: 1.5rem;
-  font-weight: bold;
+#controls-container {
   position: fixed;
-  top: 70px;
+  top: 64px;
   right: 10px;
+  z-index: 9999;
+  width: 180px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+#controls-container.collapsed {
+  transform: translateX(140%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+#controls-container {
+  font-size: 1.2rem;
+  text-align: center;
+  font-weight: bold;
+}
+
+#toggle-columns {
+  font-size: 1.2rem;
+  font-weight: bold;
   padding: 8px 12px;
   background: #007acc;
   color: #fff;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  z-index: 9999;
-  width: 160px;          /* ← same width */
+  width: 100%;
   text-align: center;
 }
 
+.control-group {
+  background: #007acc;
+  color: #fff;
+  border-radius: 6px;
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.control-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.control-checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+}
+
+.control-group input[type="range"] {
+  width: 100%;
+  cursor: pointer;
+}
 
 #transpose-controls {
-  position: fixed;
-  top: 130px;      /* under the other buttons */
-  right: 10px;
-  width: 160px;
   display: flex;
-  z-index: 9999;
-  align-items: stretch;
+  width: 100%;
 }
 
 #transpose-controls button,
@@ -268,7 +277,7 @@ pre.tableau {
   border: none;
   padding: 8px 0;
   text-align: center;
-  height: 44px;
+  height: 48px;
 }
 
 #transpose-controls button {
@@ -282,30 +291,20 @@ pre.tableau {
 }
 
 #transpose-level {
-  width: 100px;
+  flex: 1;
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #007acc;
+  color: white;
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 #transpose-up {
   width: 60px;
   border-radius: 0 6px 6px 0;
 }
-
-#transpose-controls > * {
-  flex: 1;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #007acc;
-  color: white;
-  font-size: 1.5rem;
-  font-weight: bold;
-  box-sizing: border-box;
-}
-
 
 
 /* Print rules */
@@ -324,52 +323,31 @@ pre.tableau {
     column-gap: 2em;
   }
 
-  #toggle-columns,
-  #toggle-chords,
-  #transpose-controls {
+  #controls-handle,
+  #controls-container {
     display: none;
   }
 
-.verovio-block svg {
+  .verovio-block svg {
     width: 100% !important;
     height: auto !important;
     max-width: 100% !important;
     page-break-inside: avoid;
-/*    transform: scale(1) !important;*/
     transform-origin: 0 0 !important;
   }
 
-    .verovio-block {
+  .verovio-block {
     width: 100%;
     max-width: 100%;
     margin: 0;
     padding: 0;
-/*    transform: scale(0.5);*/
     break-inside: avoid;
   }
 
-
-  .chord {
-    background: #222 !important;
-    color: white !important;
+  .chord-static {
+    background: #eee !important;
+    color: #000 !important;
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
   }
-
-  /*#content h1:first-of-type {
-    column-span: all;
-    -webkit-column-span: all; // for safety 
-
-    text-align: center;
-    margin-bottom: 20px;
-  }*/
-
 }
-
-/* Hidden chords */
-uke-chord.hidden {
-  display: none;
-}
-
-.chord-small { display: none; }
-.chord-large { display: inline-block; }

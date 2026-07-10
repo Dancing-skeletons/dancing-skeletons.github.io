@@ -30,7 +30,7 @@
 ## Paroles:
 
 ### Intro
-[Gx4]
+[[G G G G]]
 
 :::highlight
 ### Refrain
@@ -73,11 +73,11 @@ Je con[C7]nais ce [F]sentiment
 [E7]De solitude [Am7 Am7]et d'isolement [D7x4]
 
 :::highlight
-### Refrain sans [G] à la fin
+### Refrain sans [[G]] à la fin
 :::
 
 ### Transition
-[(C) (Cmaj7) (Dsus2) (D)]
+[[(C) (Cmaj7) (Dsus2) (D)]]
 
 ### Refrain/Couplet
 Karukera[G], [G]Calé[C]donie[C]  
@@ -88,5 +88,5 @@ Qui [Gm7]vous sépare[Am7]
 [D]Et vous laisse à part  
 
 ### Outro
-[G Am7 D6 C G]
+[[G Am7 D6 C G]]
 

@@ -15,7 +15,7 @@
 ## Paroles:
 
 ### Intro
-[A] [Bm] [D] [A] x2
+[[A Bm D A]] x2
 
 ### Couplet
 [A] Twenty five years and my life is still  

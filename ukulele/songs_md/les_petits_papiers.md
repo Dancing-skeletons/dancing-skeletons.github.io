@@ -9,7 +9,7 @@
 ## Instructions:
 - Sur chaque accord: ```▼▲X▲▼▲X.```
 - Arpège (4321.23.)
-- Pour chaque [Am///], faire alternativement le riff de début ou de milieu de couplet
+- Pour chaque [[Am///]], faire alternativement le riff de début ou de milieu de couplet
 ```
 A|3—2—0——7—3—0—|  
 E|0—0—0——0—0—0—|  

@@ -36,7 +36,8 @@ If your [G] time to [Am] you is worth [D] saving, [D]
 Then you [D] better start [D/C] swimming Or you'll [D/B] sink like a [D] stone  
 For the [G] times [C] they are a-[D]chan[G]gin'[G].  
 
-[Em C G G]  
+[[Em C G G]]  
+
 
 Come [G] writers and [Em] critics, who prophe[C]size with your [G] pen [G]  
 And [G] keep your eyes [Am] wide, the chance [C] won't come a[D]gain  
@@ -45,7 +46,7 @@ And there's [G] no  telling [Am] who that it's [D] naming . [D]
 For the [D] loser [D/C] now will be [D/B] later to [D] win  
 For the [G] times [C] they are a-[D]chan[G]gin'[G].  
 
-[Em][C][G][G]  
+[[Em C G G]]  
 
 Come [G] senators, [Em] congressmen, [C]  please heed the [G] call [G]  
 Don't [G] stand in the [Am] doorway, don't [C] block up the [D] hall  
@@ -54,7 +55,7 @@ There's a [G] battle out[Am]side and it's [D]  raging . [D]
 It'll [D] soon shake your [D/C] windows and [D/B] rattle your [D] walls  
 For the [G] times [C] they are a-[D]chan[G]gin'[G].  
 
-[Em][C][G][G]  
+[[Em C G G]]  
 
 Come [G] mothers and [Em] fathers, [C] throughout the [G] land [G]  
 And [G] don't crit[Am]icize what you [C] can't under[D]stand  
@@ -63,7 +64,7 @@ Your [G] old road is [Am] rapidly [D] aging . [D]
 Please [D] get out the [D/C] new one if you [D/B] can't lend your [D] hand  
 For the [G] times [C] they are a-[D]chan[G]gin'[G].  
 
-[Em][C][G][G]  
+[[Em C G G]]  
 
 The [G] line it is [Em] drawn, the [C] curse it is [G] cast.[G]  
 The [G] slow one [Am] now will [C] later be [D] fast  

@@ -35,7 +35,7 @@ Bamba bamba...
 
 :::highlight
 ### Pont
-[G/ x8] Ah, ah, [G7/ x8] ah, ah, [G/ x5]ah, wow
+[[G/ x8]] Ah, ah, [[G7/ x8]] ah, ah, [[G/ x5]]ah, wow
 :::
 
 ### Twist
@@ -63,7 +63,7 @@ And let me know that you're mine, woo
 
 :::highlight
 ### Pont
-[G/ x8] Ah, ah, [G7/ x8] ah, ah, [G/ x5]ah, wow  
+[[G/ x8]] Ah, ah, [[G7/ x8]] ah, ah, [[G/ x5]]ah, wow
 :::
 
 ### Bamba
@@ -79,5 +79,5 @@ Bamba bamba...
 
 :::highlight
 ### Pont
-[G/ x8] Ah, ah, [G7/ x4] ah, ah, ah, [G]wow [...] [C7]  
+[[G/ x8]] Ah, ah, [[G7/ x4]] ah, ah, ah, [[G]]wow [[...]] [[C7]]  
 :::

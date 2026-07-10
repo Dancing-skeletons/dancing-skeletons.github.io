@@ -10,9 +10,9 @@
 
 
 ## Instructions:
-- 6 temps sur chaque accord, 3 temps pour [(X)]
-- Possibilité de remplacer le [(F*)] par un (2013)
-- Début du refrain, [Amadd9] en (2002), [(Am*)] en (2003)
+- 6 temps sur chaque accord, 3 temps pour [[(X)]]
+- Possibilité de remplacer le [[(F*)]] par un (2013)
+- Début du refrain, [[Amadd9]] en (2002), [[(Am*)]] en (2003)
 - Rythmique:
     - Sur le temps
     - Couplet partie rapide (entre "Ils viennent..." et "...plages") en triolé
@@ -27,7 +27,7 @@
 ## Paroles:
 
 ### Intro: 
-[Am E7 Am E7]
+[[Am E7 Am E7]]
 
 ### Couplet
 Vers les [Am]docks où le poids et [G]l'ennui me courbent le [Am]dos[E7]  
@@ -74,5 +74,5 @@ Je fuirais [Am]laissant là mon [G]passé Sans aucun re[Am]mords[E7]
 Sans [Am]bagage et le coeur li[G]béré En chantant très[Am] fort[Am/]  
 
 :::highlight
-### Refrain X2 + refrain avec [(Am) G7 C] au début
+### Refrain X2 + refrain avec [[(Am) G7 C]] au début
 :::

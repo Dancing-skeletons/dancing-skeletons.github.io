@@ -14,15 +14,15 @@
     1 & 2 & 3 & 4 &
     ▼   ▼   ▼   ▼ ▲ 
     </pre>
-- Remplacer le [G*] par:
-    - [G] sur le premier ▼
-    - [Gsus2] sur le reste 
+- Remplacer le [[G*]] par:
+    - [[G]] sur le premier ▼
+    - [[Gsus2]] sur le reste 
 
 ## Paroles:
 
 :::highlight
 ### Intro
-[D G* D G*]
+[[D G* D G*]]
 :::
 
 ### Couplet
@@ -34,7 +34,7 @@ Oh we can be [(C)]Heroes [(G)]just for one [D]day
 
 :::highlight
 ### Instrumental
-[D G* D G*]
+[[D G* D G*]]
 :::
 
 ### Couplet
@@ -56,7 +56,7 @@ Then we can be [(C)]Heroes [(G)] just for one [D]day
 
 :::highlight
 ### Instrumental
-[D G* D G*]
+[[D G* D G*]]
 :::
 
 :::highlight

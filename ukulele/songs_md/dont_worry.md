@@ -15,8 +15,8 @@ musicxml: ./dont_worry.musicxml
 
 :::highlight
 ### Intro mélodie x2
-[C][Dm][F][C]  
-[C][Dm][F][C]
+[[C Dm F C]]  
+[[C Dm F C]]
 :::
 
 ### Couplet

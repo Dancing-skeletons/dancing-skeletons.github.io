@@ -9,7 +9,7 @@
 ## Paroles:
 
 ### Intro x4:
-[Am][F]
+[[Am F]]
 
 [Am] Your girl is [Am]crying in the [F]night  
 Is she [F]wrong or is she [Dm]right  

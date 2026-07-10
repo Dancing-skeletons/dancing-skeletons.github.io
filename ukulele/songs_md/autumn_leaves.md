@@ -33,7 +33,7 @@ I [A7+5] used to [Dm] hold [Dm7]
 Since you went a[A7]way  
 [A7sus4] the [A7] days grow [Dm] long  
 [Dm7] And soon I'll [Csus4] hear  
-[C7sus4] old [C7] winter's [Dm] song  
+[C7sus4] old &nbsp;&nbsp; [C7] winter's [Dm] song  
 [Dm7] But I [C9] miss you most of [A7] all  
 my [Dm] dar-ling [B7]  
 When [C9] Au-tumn [A7] leaves [A7sus4]  

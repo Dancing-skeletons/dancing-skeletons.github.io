@@ -60,8 +60,8 @@ J'ai peur des vi[A]vants,
 A pré[G#m]sent.  
 :::
 
-[C#m F#m Am C#m]  
-[C#m F#m Am C#m]
+[[C#m F#m Am C#m]]  
+[[C#m F#m Am C#m]]
 
 :::highlight
 ### Refrain 2

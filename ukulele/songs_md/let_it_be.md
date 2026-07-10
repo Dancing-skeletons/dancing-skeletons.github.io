@@ -8,7 +8,7 @@
 <uke-chord name="Dm" frets="2210"></uke-chord> 
 
 ## Instructions:
-La phrase [F][(C)][(Dm)][C] peut se jouer:
+La phrase [[F (C) (Dm) C]] peut se jouer:
 <pre class="tableau">
 A|0———————|  
 E|1—3—1—0—|  
@@ -20,8 +20,8 @@ G|2———————|
 ## Paroles:
 
 ### Intro
-[C][G][Am][F]  
-[C][G][F][C][Dm][C]
+[[C G Am F]]  
+[[C G F C D [C]]
 
 ### Couplet
 When I [C] find myself in [G] times of trouble,  

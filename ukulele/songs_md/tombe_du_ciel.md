@@ -26,13 +26,13 @@
     .   .   .   .   .   .
     </pre>
 - Rythmique 2: ?
-- Rhythmique sur le [Bb] et [A7] de la fin du couplet
+- Rhythmique sur le [[Bb]] et [[A7]] de la fin du couplet
     <pre class="tableau">
     1 & 2 & 3 & 4 & 5 & 
     ▼   ▼   ▼     ▲     
     Bb  Bb  Bb    A7     
     </pre>
-- Riff [A7 riff]:
+- Riff [[A7 riff]]:
 <pre class="tableau">
   A|0—0—0—0—|
   E|0—0—0—0—| 
@@ -60,7 +60,7 @@ Qui venait [C] de tomber [Bb] en amour la [F] veille
 Dans les [C] bras d'un bagagis[Bb]te un peu vola[F]ge  
 [Bb] Ancien tueur à [F] gages  
 [Bb] Comment peut-on tomber plus [A7] mal
-[A7 riff]
+[[A7 riff]]
 
 Tombé du [Dm] ciel rebelle aux louan[Am]ges  
 Chassé par les an[Bb]ges du [Gm] paradis originel [A]    
@@ -71,7 +71,7 @@ Par la nais[F]sance d'une [Bb] étoile dans le dé[C]sert
 [F] Tombée [C] comme un météore [Dm]dans les po[C]ches de Baltha[Bb]zar  
 Gaspard ou Mel[F]chior les [Bb]trois fameux rois [F] mages  
 [Bb] trafiquants d'import ex[A7]port  
-[A7 riff]
+[[A7 riff]]
 
 [G#] Tombés d'en haut [Eb] comme les petites gouttes [Fm] d'eau  
 Que [Eb] j'entends tom[C#]ber de[G#]hors par la f'nêtre  
@@ -81,13 +81,13 @@ Que [Eb] j'entends tom[C#]ber de[G#]hors par la f'nêtre
 [C#] La direc[Bbm]tion par [C#] où le vent fredonne ma chan[Bbm]son  
 
 ### Pont
-[G6] Tombé sur un jour de [C6] chance [G6] [C6]  
-[G6] Tombé à la fleur de [C6]l'âge [G6] [C6]    
+[G6] Tombé sur un jour de [C6] chance [G6 C6]  
+[G6] Tombé à la fleur de [C6]l'âge [G6 C6]    
 
 ### Instrumental
 
-[Dm] [Am] [Bb] [Gm] [A]  
-[Dm] [Am] [Bb] [Gm] [C]  
+[[Dm Am Bb Gm A]]  
+[[Dm Am Bb Gm C]]  
 
 ### Couplet
 C'est [F] fou c'qu'on [C] peut voir tom[Dm]ber  
@@ -108,5 +108,5 @@ Avalé la [Bb] cigue [Gm] goûté le [C] poison qui tue
 L'a[F]mour encore [C] et toujours [Dm]  
 
 ### Outro
-[C] [Bb] [F] [Bb] [C] [F] [C] [Dm]  
-[C] [Bb] [F] [Bb] [...] [C/] [...] [F/]  
+[[C Bb F Bb C F C Dm]]  
+[[C Bb F Bb ... C/ ... F/]]  

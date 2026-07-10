@@ -77,7 +77,7 @@ Is there life [Gm7]on Mars?[Daug B♭ C9]
 :::
 
 ### Solo guitar ou:
-[F D7 Gm7 Ddim Am B♭ B♭m]  
+[[F D7 Gm7 Ddim Am B♭ B♭m]]  
 
 ### Intro: 1/2 couplet en arpège
 
@@ -101,4 +101,4 @@ As I [D♭7]ask you to focus on
 :::
 
 ### Solo guitare ou
-[F D7 Gm7 Ddim Am B♭ B♭m]  
+[[F D7 Gm7 Ddim Am B♭ B♭m]]  

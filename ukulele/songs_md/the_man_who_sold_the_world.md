@@ -10,7 +10,7 @@
 <uke-chord name="Bbm" frets="3111"></uke-chord> 
 
 ## Instructions:
-- Intro/Pont: Exemple pour [A]:
+- Intro/Pont: Exemple pour [[A]]:
 <pre class="tableau">
   A|0———————————————|  
   E|0———————————————|  
@@ -22,13 +22,13 @@
     1 & 2 & 3 & 4 &
     ▼ ▲ X ▲   ▲ X ▲     
     </pre>
-- Dans les couplets, [A] sur 3 temps au lieu de 4: ▼▼▼. 
+- Dans les couplets, [[A]] sur 3 temps au lieu de 4: ▼▼▼. 
 - Refrain:
     <pre class="tableau">
     1 & 2 & 3 & 4 &
     ▼   ▼ ▲   ▲ ▼ ▲      
     </pre> 
-- Riff [C*]:
+- Riff [[C*]]:
 <pre class="tableau">
   A|——————————0—1—3—|  
   E|————0—1—3———————|  
@@ -42,7 +42,7 @@
   C|5—7—————————————|  
   G|————————————————|
 </pre>
-- A la fin des refrains, le dernier [A] est dans le pont.
+- A la fin des refrains, le dernier [[A]] est dans le pont (donc riff).
 
 
 
@@ -50,7 +50,7 @@
 
 :::highlight 
 ### Intro:
-[A] [A] [Dm] [Dm] [F] [F] [Dm...]
+[[A A Dm Dm F F Dm\]]
 ::::
 
 ### Couplet
@@ -73,7 +73,7 @@ With the [Bbm]man who sold the [A]world
 
 :::highlight 
 ### Pont
-[A] [Dm] [Dm] [F] [F] [Dm/]
+[[A A Dm Dm F F Dm\]]
 :::
 
 ### Couplet
@@ -96,7 +96,7 @@ With the [Bbm]man who sold the [A]world
 
 :::highlight 
 ### Pont
-[A] [Dm] [Dm] [F] [F] [Dm/]
+[[A A Dm Dm F F Dm\]]
 :::
 
 :::highlight 
@@ -109,8 +109,8 @@ With the [Bbm]man who sold the [A]world
 
 :::highlight 
 ### Pont x5
-[A] [Dm] [Dm] [F] [F] [Dm/]  
+[[A A Dm Dm F F Dm\]]
 :::
 
 ### Outro
-[A/] [Dm/]  
+[[A/ Dm/]]  

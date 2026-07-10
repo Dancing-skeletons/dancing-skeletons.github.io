@@ -20,12 +20,12 @@
 
 ::: highlight
 ### Intro: sans paroles
-Pour chaque accord: [Eb Dm Cm]
+Pour chaque accord: [[Eb Dm Cm]]
 <pre class="tableau">
 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 &
 ▼                       ▼
 </pre>
-Pour l'accord [F]
+Pour l'accord [[F]]
 <pre class="tableau">
 1 & 2 & 3 & 4 & 1 & 2 & 3 & 4 &
 ▼                       ▼ ▲ ▼ ▲

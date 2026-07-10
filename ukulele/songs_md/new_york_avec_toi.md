@@ -10,7 +10,7 @@
 
 :::highlight
 ### Intro x2
-[A][F#m][A][B7]
+[[A F#m A B7]]
 :::
 
 ### Couplet
@@ -63,6 +63,6 @@ Emmène-moi, [D] emmène-moi, emmène-moi, emmène-moi
 [A] Toucher à [B7] ci et toucher à [D] ça  
 [A] Voir si le cœur de la [B7] ville bat [D] en moi  
 Et tu m'emmèneras  
-[A][F#m][A][B7]  
-[A][F#m][A][B7]  
+[[A F#m A B7]]  
+[[A F#m A B7]]  
 Emmène-moi!      

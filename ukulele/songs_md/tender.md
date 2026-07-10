@@ -10,7 +10,7 @@
 
 
 ## Instructions:
-Le premier [A] du refrain correspond à la fin du pont.  
+Le premier [[A]] du refrain correspond à la fin du pont.  
 Intro fingerstyle donnée:
 
 musicxml: ./tender_intro.musicxml
@@ -18,8 +18,8 @@ musicxml: ./tender_intro.musicxml
 ## Paroles:
 
 ### Intro
-[A A A E7 A]
-[A A A E7 A]
+[[A A A E7 A]]
+[[A A A E7 A]]
 
  
 

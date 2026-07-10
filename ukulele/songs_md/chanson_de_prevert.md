@@ -10,7 +10,7 @@
 ## Instructions:
 - Simple : (P.▼▲)*4 par accord (P:pouce sur corde 4)
 - Avancé: (P.▼▲)*3 + (P▲▼▲) par accord.
-- Accord [Em*] avant refrain: uniquement (P.▼▲)*3
+- Accord [[Em*]] avant refrain: uniquement (P.▼▲)*3
 ## Paroles:
 
 ### Couplet

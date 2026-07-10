@@ -17,8 +17,8 @@
 ## Paroles:
 
 ### Intro: arpège (14)232-1232 ou (14)323-1323 ?
-[G#][C#m][G#][C#m]  
-[F#m][C#m][G#][G#]  
+[[G# C#m G# C#m]]  
+[[F#m C#m G# G#]]  
 
 :::highlight
 ### Refrain
@@ -55,8 +55,8 @@ Elle a ses rai[Eb]sons, mais...
 
 :::highlight
 ### Instrumental
-[G#] [A#m] [C#] [G#]  
-[G#] [A#m] [C#/Eb] [G#] [C#m]  
+[[G# A#m C# G#]  
+[[G# A#m C#/Eb G# C#m]  
 :::
 
 ### Pont

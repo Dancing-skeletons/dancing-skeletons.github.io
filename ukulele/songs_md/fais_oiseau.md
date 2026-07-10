@@ -28,7 +28,7 @@
     1 & 2 & 3 & 4 &
     ▼   ▼     ▲ ▼       
     </pre>
-- Rhythmique sur le [E7] et [D] du refrain
+- Rhythmique sur le [[E7]] et [[D]] du refrain
     <pre class="tableau">
     1 & 2 & 3 & 4 &
       ▲   ▲   ▲ ▼       
@@ -82,5 +82,5 @@ Je ne sais [EbMaj7]pas, je ne sais [Gm6]plus, je suis per[D7]du
 
 :::highlight
 ### Refrain
-Remplacer le dernier [Gm] par un [G6]
+Remplacer le dernier [[Gm]] par un [[G6]]
 :::

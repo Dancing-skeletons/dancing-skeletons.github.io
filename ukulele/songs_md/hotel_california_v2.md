@@ -39,7 +39,7 @@ Exemple sur les 2 premiers accords:
 
 ### Intro sans paroles:
 
-[Am E7 G D F C Dm E7 - E7/]
+[[Am E7 G D F C Dm E7 - E7/]]
 :::
 
 ### Couplet
@@ -83,7 +83,7 @@ Any [Dm]time of year, any time of year, You can [E7]find it [E7/]here
 [F]Welcome to the Hotel Cali[C*]fornia  
 Such a [E7]lovely place, such a lovely place, Such a [Am]lovely face  
 They [F]livin' it up at the Hotel Cali[C*]fornia  
-What a [Dm]nice surprise, what a nice surprise,  Bring your [E7]alibis [E7/ (laisser sonner)]
+What a [Dm]nice surprise, what a nice surprise,  Bring your [E7]alibis [E7/]
 :::
 
 ### Couplet (en arpège (4321))
@@ -104,7 +104,7 @@ They [Dm /]stab it with their steely knives, But they just [E7///]can't kill the
 
 ### Outro sans paroles:
 
-[Am E7 G D F C Dm E7 - E7/]  
-[Am(2007) E7(4447) G(0235) D(2225) F(2013) C* Dm E7 - E7/]  
-[XXXXX Am ////]
+[[Am E7 G D F C Dm E7 - E7/]]  
+[[Am(2007) E7(4447) G(0235) D(2225) F(2013) C* Dm E7 - E7/]]  
+[[XXXXX Am ////]]
 :::
