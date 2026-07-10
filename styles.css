@@ -351,3 +351,92 @@ pre.tableau {
     print-color-adjust: exact;
   }
 }
+
+/* Strudel */
+  #generator {
+    max-width: 500px;
+    margin: 0 auto 1.5rem;
+  }
+  #generator h1 {
+    font-size: 1.4rem;
+  }
+  .field {
+    margin-bottom: 1rem;
+  }
+  .field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+  }
+  .field select,
+  .field input[type="range"] {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.3rem;
+  }
+  .tempo-value {
+    font-weight: bold;
+  }
+  .transport {
+    display: flex;
+    gap: 0.6rem;
+  }
+  .transport button {
+    flex: 1;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  #play-btn {
+    background: #007acc;
+    color: #fff;
+  }
+  #stop-btn {
+    background: #c0392b;
+    color: #fff;
+  }
+  #status {
+    max-width: 700px;
+    margin: 0.5rem auto 0;
+    font-size: 0.85rem;
+    color: #c0392b;
+    min-height: 1.2em;
+  }
+
+  /* Full chord grid, always visible, no scrolling needed */
+  #chord-grid {
+    max-width: 700px;
+    margin: 1.2rem auto 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 0.6rem;
+  }
+  .chord-chip {
+    padding: 0.6rem 0.4rem;
+    border-radius: 6px;
+    border: 3px solid transparent;
+    background: #eef2f7;
+    color: #2c4a6e;
+    font-weight: 600;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 1.1rem;
+    text-align: center;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .chord-chip.current {
+    border-color: #00558d;
+    background: #dbeaf7;
+  }
+  .chord-chip.next {
+    border-color: #b7d8f0;
+  }
+
+  strudel-editor {
+    display: none;
+    max-width: 200px;
+    margin: 0 auto;
+    min-height: 200px;
+  }

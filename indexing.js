@@ -11,7 +11,11 @@ const UKE_TABS  = path.join(__dirname, "ukulele", "tabs");
 const GUITAR_SONGS = path.join(__dirname, "guitar", "songs");
 const GUITAR_TABS  = path.join(__dirname, "guitar", "tabs");
 
+const TOOLS = path.join(__dirname, "tools");
+
 const md = new MarkdownIt();
+
+
 
 // Extract title from HTML file
 function extractTitle(filePath) {
@@ -65,6 +69,19 @@ function listPdf(folder, urlPrefix) {
   });
 }
 
+function listTools(folder, urlPrefix) {
+  if (!fs.existsSync(folder)) return [];
+
+  return fs.readdirSync(folder)
+    .filter(f => f.endsWith(".html"))
+    .map(file => ({
+      file,
+      title: extractTitle(path.join(folder, file))
+    }))
+    .sort((a,b) => a.title.localeCompare(b.title))
+    .map(tool => `- [${tool.title}](${urlPrefix}/${tool.file})`);
+}
+
 function buildIndex() {
 
   const mdLines = ["# Songbook 💀︎🎸", ""];
@@ -84,6 +101,9 @@ function buildIndex() {
   // 📄 Guitar Tabs
   mdLines.push("## Guitar tabs", "");
   mdLines.push(...listPdf(GUITAR_TABS, "guitar/tabs"), "");
+
+  mdLines.push("## Tools", "");
+  mdLines.push(...listTools(TOOLS, "tools"), "");
 
   const siteCSS =
   fs.readFileSync(
@@ -119,15 +139,11 @@ ${md.render(mdLines.join("\n"))}
 <div id="generator">
 
 <ul><li><a href="./minimal.md" download>Exemple minimal</a></li></ul>
-
-  <input
-    type="file"
-    id="mdUpload"
-    accept=".md">
-
+  <input type="file" id="mdUpload" accept=".md">
   <button id="generateBtn">
     Mise en page
   </button>
+</div>
 
 
 
@@ -140,6 +156,8 @@ ${JSON.stringify(siteCSS)};
 </script>
 <script src="md_renderer.js"></script>
 <script src="uploader.js"></script>
+
+
 </body>
 </html>`;
 

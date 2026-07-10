@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<title>Backing track — improvisation</title>
+<link href="../styles.css" rel="stylesheet"/>
+<script src="https://unpkg.com/@strudel/repl@latest"></script>
+<style>
+  #generator {
+    max-width: 500px;
+    margin: 0 auto 1.5rem;
+  }
+  #generator h1 {
+    font-size: 1.4rem;
+  }
+  .field {
+    margin-bottom: 1rem;
+  }
+  .field label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+  }
+  .field select,
+  .field input[type="range"] {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.3rem;
+  }
+  .tempo-value {
+    font-weight: bold;
+  }
+  .transport {
+    display: flex;
+    gap: 0.6rem;
+  }
+  .transport button {
+    flex: 1;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  #play-btn {
+    background: #007acc;
+    color: #fff;
+  }
+  #stop-btn {
+    background: #c0392b;
+    color: #fff;
+  }
+  #status {
+    max-width: 700px;
+    margin: 0.5rem auto 0;
+    font-size: 0.85rem;
+    color: #c0392b;
+    min-height: 1.2em;
+  }
+
+  /* Full chord grid, always visible, no scrolling needed */
+  #chord-grid {
+    max-width: 700px;
+    margin: 1.2rem auto 1.5rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(70px, 1fr));
+    gap: 0.6rem;
+  }
+  .chord-chip {
+    padding: 0.6rem 0.4rem;
+    border-radius: 6px;
+    border: 3px solid transparent;
+    background: #eef2f7;
+    color: #2c4a6e;
+    font-weight: 600;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 1.1rem;
+    text-align: center;
+    transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .chord-chip.current {
+    border-color: #00558d;
+    background: #dbeaf7;
+  }
+  .chord-chip.next {
+    border-color: #b7d8f0;
+  }
+
+  strudel-editor {
+    display: none;
+    max-width: 200px;
+    margin: 0 auto;
+    min-height: 200px;
+  }
+</style>
+</head>
+<body>
+<div id="generator">
+<h1>Backing track pour improvisation</h1>
+<div class="field">
+<label for="key">Tonalité</label>
+<select id="key">
+<option value="C">C</option>
+<option value="C#">C# / Db</option>
+<option value="D">D</option>
+<option value="D#">D# / Eb</option>
+<option value="E">E</option>
+<option value="F">F</option>
+<option value="F#">F# / Gb</option>
+<option selected="" value="G">G</option>
+<option value="G#">G# / Ab</option>
+<option value="A">A</option>
+<option value="A#">A# / Bb</option>
+<option value="B">B</option>
+</select>
+</div>
+<div class="field">
+<label for="progression">Grille</label>
+<select id="progression">
+<option value="pop">Pop (I – V – vi – IV)</option>
+<option value="folk">Folk (I – IV – V – IV)</option>
+<option value="blues">Blues 12 mesures</option>
+<option value="jazz">Jazz (ii – V – I)</option>
+</select>
+</div>
+<div class="field">
+<label>Accompagnement</label>
+<label><input checked="" class="instrument" type="checkbox" value="gm_piano"/> Piano</label><br/>
+<label><input class="instrument" type="checkbox" value="gm_acoustic_guitar_steel"/> Guitare</label><br/>
+<label><input class="instrument" type="checkbox" value="gm_drawbar_organ"/> Orgue</label><br/>
+<label><input class="instrument" type="checkbox" value="gm_voice_oohs"/> Chœurs</label>
+</div>
+<div class="field">
+<label for="drums">Batterie</label>
+<select id="drums">
+<option value="straight">Standard</option>
+<option value="shuffle">Shuffle (blues)</option>
+<option value="ballad">Ballade (douce)</option>
+</select>
+</div>
+<div class="field">
+<label for="tempo">Tempo : <span class="tempo-value" id="tempo-value">120</span> bpm</label>
+<input id="tempo" max="200" min="60" step="1" type="range" value="120"/>
+</div>
+<div class="transport">
+<button id="play-btn">▶ Générer et jouer</button>
+<button id="stop-btn">■ Stop</button>
+</div>
+<div id="status"></div>
+</div>
+<div id="chord-grid"></div>
+<strudel-editor id="editor" style="display:none">
+<!--
+// Choisissez vos options ci-dessus puis cliquez sur "Générer et jouer"
+-->
+</strudel-editor>
+<script>
+  const NOTES = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+  const FLAT_TO_SHARP = { Db:"C#", Eb:"D#", Gb:"F#", Ab:"G#", Bb:"A#" };
+  function normalize(note){ return FLAT_TO_SHARP[note] || note; }
+
+  // Each entry: [semitone offset from the key's root, chord-quality suffix]
+  // Quality suffixes follow the "ireal-ext" chord dictionary used by .dict("ireal-ext")
+  const PROGRESSIONS = {
+    pop:   [[0,''],[7,''],[9,'m'],[5,'']],
+    folk:  [[0,''],[5,''],[7,''],[5,'']],
+    blues: [[0,'7'],[5,'7'],[0,'7'],[0,'7'],[5,'7'],[5,'7'],[0,'7'],[0,'7'],[7,'7'],[5,'7'],[0,'7'],[7,'7']],
+    jazz:  [[2,'m7'],[7,'7'],[0,'^7'],[0,'^7']],
+  };
+
+  // A few starting-point grooves. Feel free to tweak these directly in the
+  // editor below once generated — the exact swing/feel is easier to dial in
+  // by ear than to guess blind, so treat these as a starting point.
+  const DRUM_PATTERNS = {
+    straight: `n("[19 [~@1.9 19]]*2,[~ 4]*2 ,~@3 <~@3 [2@1.9 2]>").s('gretsch').gain("[.9 .6]*3")`,
+    shuffle:  `n("[19 ~ 19]*2,[~ 4]*2,~@3 [2 ~ 2]*2").s('gretsch').gain("[.9 .6]*3")`,
+    ballad:   `n("~ 4,19*1,~@3 2").s('gretsch').gain(.6)`,
+  };
+
+  function buildChords(key, progressionName) {
+    const rootIdx = NOTES.indexOf(normalize(key));
+    return PROGRESSIONS[progressionName]
+      .map(([offset, quality]) => NOTES[(rootIdx + offset + 12) % 12] + quality);
+  }
+
+  function buildStrudelCode({ chordLine, bpm, instruments, drumPattern }) {
+    return `typeof setDefaultVoicings !== 'undefined' && setDefaultVoicings('legacy')
+await samples('github:tidalcycles/Dirt-Samples/master')
+setcpm(${bpm}/4)
+let chords = \`<${chordLine}>\`
+stack(
+${instruments.map(inst=>`chord(chords)
+    .dict("ireal-ext")
+    .anchor("C5")
+    .voicing()
+    .s("${inst}")
+    .release(.2)
+    .gain(.5)`).join(",")},
+  // basse
+  chord(chords)
+    .rootNotes("1,2")
+    .struct("x*2")
+    .s("gm_acoustic_bass")
+    .gain(1),
+  // batterie
+  ${drumPattern}
+)
+`;
+  }
+
+  // ---------- chord grid ----------
+  let gridChords = [];
+
+  function renderChordGrid(chords) {
+    gridChords = chords;
+    const grid = document.getElementById('chord-grid');
+    grid.innerHTML = chords.map(c => `<span class="chord-chip">${c}</span>`).join('');
+  }
+
+  function highlightChord(idx) {
+    const chips = document.querySelectorAll('.chord-chip');
+    chips.forEach((chip, i) => {
+      chip.classList.toggle('current', i === idx);
+//      chip.classList.toggle('next', i === (idx + 1) % chips.length);
+    });
+  }
+
+  function clearHighlight() {
+    document.querySelectorAll('.chord-chip').forEach(c => c.classList.remove('current', 'next'));
+  }
+
+  // ---------- playback sync (own timer, approximate — see note in chat) ----------
+  let syncTimer = null;
+
+  function startSync(bpm) {
+    const cycleMs = (240 / bpm) * 1000; // one chord = one cycle, matching setcpm(bpm/4)
+    const startTime = performance.now();
+    clearInterval(syncTimer);
+    syncTimer = setInterval(() => {
+      const elapsed = performance.now() - startTime;
+      const idx = Math.floor(elapsed / cycleMs) % gridChords.length;
+      highlightChord(idx);
+    }, 100);
+    highlightChord(0);
+  }
+
+  function stopSync() {
+    clearInterval(syncTimer);
+    syncTimer = null;
+    clearHighlight();
+  }
+
+  // ---------- controls ----------
+  const tempoInput = document.getElementById('tempo');
+  const tempoValue = document.getElementById('tempo-value');
+  tempoInput.addEventListener('input', () => { tempoValue.textContent = tempoInput.value; });
+
+  const statusEl = document.getElementById('status');
+
+  document.getElementById('play-btn').addEventListener('click', () => {
+    statusEl.textContent = '';
+
+    // 1) Build and show the chord grid FIRST, independent of Strudel's
+    //    readiness — this is what makes the grid always show up even if
+    //    something below fails.
+    const key = document.getElementById('key').value;
+    const progression = document.getElementById('progression').value;
+    const bpm = parseInt(tempoInput.value, 10);
+    const chords = buildChords(key, progression);
+    renderChordGrid(chords);
+
+    // 2) Now try to actually play it. Guarded separately so a Strudel-side
+    //    error (e.g. engine still loading) can't prevent the grid above
+    //    from showing.
+    try {
+      const editorEl = document.getElementById('editor');
+      if (!editorEl.editor) {
+        statusEl.textContent = "Le moteur audio n'est pas encore prêt, réessayez dans un instant.";
+        return;
+      }
+
+      const instruments=[...document.querySelectorAll(".instrument:checked")].map(cb=>cb.value);
+      const drumChoice = document.getElementById('drums').value;
+      const code = buildStrudelCode({
+        chordLine: chords.join(' '),
+        bpm,
+        instruments,
+        drumPattern: DRUM_PATTERNS[drumChoice],
+      });
+
+      editorEl.editor.stop();
+      editorEl.editor.setCode(code);
+      editorEl.editor.evaluate();
+
+      startSync(bpm);
+    } catch (err) {
+      console.error(err);
+      statusEl.textContent = "Erreur lors du lancement audio (voir la console).";
+    }
+  });
+
+  document.getElementById('stop-btn').addEventListener('click', () => {
+    try {
+      const editorEl = document.getElementById('editor');
+      if (editorEl.editor) editorEl.editor.stop();
+    } catch (err) {
+      console.error(err);
+    }
+    stopSync();
+  });
+</script>
+</body>
+</html>
