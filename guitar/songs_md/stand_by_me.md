@@ -28,7 +28,7 @@
 
 ::: highlight
 ### Intro: sans paroles
-[G][Em][(C)][(D)][G]
+[[G Em (C) (D) G]]
 :::
 
 ### Couplet

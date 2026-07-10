@@ -21,7 +21,7 @@
 ## Paroles:
 
 ### Intro
-[G] [Am] [C] [G] x2
+[[G Am C G]] x2
 
 ### Couplet
 [G] Twenty five years and my life is still  

@@ -9,13 +9,13 @@
 
 
 ## Instructions:
-- Strumming [G] et [D]:
+- Strumming [[G]] et [[D]]:
     <pre class="tableau">
     1 & 2 & 3 & 4 & 
     ▼       ▼   ▼ ▲  
     </pre>
 
-- Strumming [Am][Am7] et [C][C]:
+- Strumming [[Am Am7]] et [[C C]]:
     <pre class="tableau">
     1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 
     ▼       ▼   ▼ ▲   ▲ ▼ ▲   ▲ ▼ ▲ 
@@ -25,8 +25,8 @@
 ## Paroles:
 
 ### Intro
-[G] [D] [Am] [Am7]  
-[G] [D] [C] [C]  
+[[G D Am Am7]]  
+[[G D C C]]  
 
 ### Couplet
 [G] Mama take this [D] badge off of [Am] me [Am7]  
@@ -72,7 +72,7 @@
 :::
 
 ### Outro
-[G] [D] [Am] [Am7]   
-[G] [D] [C] [C] [G]  
+[[G D Am Am7]]   
+[[G D C C G]]  
 
 

@@ -23,10 +23,10 @@
 ## Paroles:
 
 ### Solo 
-[Em] [C] [G] [D]
+[[Em C G D]]
 
 ### Intro
-[Em] [C] [G] [D] [x3]
+[[Em C G D]] x3
 
 ### Couplet 
 [Em] Another [C] head hangs lowly [G] child is [D] taken  
@@ -50,7 +50,7 @@ What's in your [Em] head in your [C] head,
 :::
 
 ### Bridge
-[Em] [C] [G] [D]
+[[Em C G D]]
 
 ### Couplet
 [Em] Another [C] mother's breakin' [G] heart is taking [D] over  
@@ -69,8 +69,8 @@ In your head they are [D] dying
 :::
 
 ### Outro
-[Em] [C] [G] [D]  
-[Em] [C] [Em] [C]  
-[Em] [C] [Em]  
+[[Em C G D]]  
+[[Em C Em C]]  
+[[Em C Em]]  
 
 
