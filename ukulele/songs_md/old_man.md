@@ -15,10 +15,10 @@
 [[Fmaj7x6 Dsus2 D Dsus2 D]]
 
 ### Pré-couplet
-[Fmaj7]Old  [Fmaj7]man,  [Fmaj7]look at my li[Fmaj7]fe  
-[Fmaj7]I'm a  [Fmaj7]lot like [Dsus2]you [D]were  
-[Fmaj7]Old [Fmaj7]man, [Fmaj7]look at my li[Fmaj7]fe  
-[Fmaj7]I'm a [Fmaj7]lot like [D]you [D]were  
+[Fmaj7]Old &nbsp; [Fmaj7]man,  &nbsp;[Fmaj7]look at my li[Fmaj7]fe  
+[Fmaj7]I'm a  &nbsp;[Fmaj7]lot like [Dsus2]you &nbsp;&nbsp;&nbsp;[D]were  
+[Fmaj7]Old &nbsp; [Fmaj7]man, &nbsp; [Fmaj7]look at my li[Fmaj7]fe  
+[Fmaj7]I'm a &nbsp;[Fmaj7]lot like [D]you [D]were  
 [[F F C C G G]]  
 
 ### Couplet
@@ -33,7 +33,7 @@ That [C]makes me think[C] of two [F F]
 [F]Rolling home [F]to you [G G]  
 
 ::: highlight
-### Pré-refrain *2
+### Pré-refrain X2
 <pre class="tableau">
 temps:  1  &  2  &  3   &  4   &  
 accord: D           Ds2 D  Ds2 D  
@@ -84,9 +84,9 @@ up/down:▼  .  .  .  ▼  .  .  .
 ### Outro
 [[Fmaj7x6 Dsus2 D Dsus2 D]]  
 
-[Fmaj7]Old [Fmaj7]man, [Fmaj7]look at my li[Fmaj7]fe  
-[Fmaj7]I'm a [Fmaj7]lot like [Dsus2]you [D]were [Dsus2 D]  
-[Fmaj7]Old [Fmaj7]man, [Fmaj7]look at my li[Fmaj7]fe  
-[Fmaj7]I'm a [Fmaj7]lot like [D]you [D]were  
+[Fmaj7]Old &nbsp; [Fmaj7]man,  &nbsp;[Fmaj7]look at my li[Fmaj7]fe  
+[Fmaj7]I'm a  &nbsp;[Fmaj7]lot like [Dsus2]you &nbsp;&nbsp;&nbsp;[D]were  
+[Fmaj7]Old &nbsp; [Fmaj7]man, &nbsp; [Fmaj7]look at my li[Fmaj7]fe  
+[Fmaj7]I'm a &nbsp;[Fmaj7]lot like [D]you [D]were  
 [[F F C C G G D(2225)]]  
 

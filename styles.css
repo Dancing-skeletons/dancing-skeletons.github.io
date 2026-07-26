@@ -98,8 +98,8 @@ code {
 pre.tableau {
   font-family: monospace;
   white-space: pre;
-  font-size: 1.4em;
-  line-height: 1.4em;
+  font-size: 1em;
+  line-height: 1em;
   margin: 0;
   overflow-x: auto;
 }
