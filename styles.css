@@ -309,6 +309,12 @@ pre.tableau {
 
 /* Print rules */
 @media print {
+  h1 {
+    font-size: calc(1.5em * var(--font-scale));
+    text-decoration-line: underline;
+  }
+
+
   #content.two-column {
     column-count: 2;
     column-gap: 2em;
