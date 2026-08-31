@@ -9,6 +9,9 @@
 <uke-chord name="F" frets="2010"></uke-chord>
 <uke-chord name="Gm" frets="0212"></uke-chord>
 <uke-chord name="A" frets="2100"></uke-chord>
+<uke-chord name="Bb*" frets="7565"></uke-chord>
+<uke-chord name="F*" frets="3555"></uke-chord>
+
 
 ## Paroles:
 
@@ -41,7 +44,7 @@
 ### Refrain
 [Dm]L'a[Am]mour [Bb]c'est [A]toi  
 [Dm]L'a[C]mour [C7]c'est [F]moi  
-[Bb]L'oi[F]seau [Gm]c'est [F]toi  
+[Bb*]L'oi[F*]seau [Gm]c'est [F]toi  
 [Gm]L'en[Dm]fant [A] c'est [Dm] moi.  
 :::
 
@@ -65,6 +68,6 @@
 ### Refrain
 [Dm]L'a[Am]mour [Bb]c'est [A]toi  
 [Dm]L'a[C]mour [C7]c'est [F]moi  
-[Bb]L'oi[F]seau [Gm]c'est [F]toi  
+[Bb*]L'oi[F*]seau [Gm]c'est [F]toi  
 [Gm]L'en[Dm]fant [A] c'est [Dm] moi.  
 :::
