@@ -51,7 +51,7 @@
 ### Couplet (normalement transpose +1)
 [Dm]Moi je ne [Am]suis qu'une [Bb]fille de [A] l'ombre  
 [Dm]Qui voit bri[C]ller l'é[C7]toile du [F] soir  
-[Bb]Toi mon é[F]toile qui[Gm]tisse ma [F]ronde  
+[Bb]Toi mon é[F]toile qui [Gm]tisse ma [F]ronde  
 [Gm]Viens allu[Dm]mer mon [Bb]soleil [A]noir  
 
 [Dm]Noire la mi[Am]sère, les[Bb]hommes et la [A]guerre  
