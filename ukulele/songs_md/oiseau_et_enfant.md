@@ -9,8 +9,8 @@
 <uke-chord name="F" frets="2010"></uke-chord>
 <uke-chord name="Gm" frets="0212"></uke-chord>
 <uke-chord name="A" frets="2100"></uke-chord>
-<uke-chord name="Bb*" frets="5343" position=3></uke-chord>
-<uke-chord name="F*" frets="1333" position=3></uke-chord>
+<uke-chord name="Bb*" frets="3121" position=5></uke-chord>
+<uke-chord name="F*" frets="3331" position=3></uke-chord>
 
 
 ## Paroles:
