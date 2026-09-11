@@ -1,0 +1,354 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sunny afternoon - The kinks</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
+<script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
+<script src="https://www.verovio.org/javascript/latest/verovio-toolkit.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<button id="controls-handle" title="Afficher/masquer les contrôles">☰</button>
+
+
+<div id="controls-container">
+
+  <div class="control-group">
+    <label for="font-size"><strong>Taille texte</strong></label>
+    <input id="font-size" type="range" min="0.7" max="1.5" step="0.05" value="1">
+  </div>
+
+  <button id="toggle-columns">Colonnes</button>
+
+
+  <div class="control-group">
+    <label class="control-checkbox">
+      <input type="checkbox" id="chord-toggle" checked> Accords
+    </label>
+    <input type="range" id="chord-size" min="0.4" max="1.2" step="0.05" value="1">
+  </div>
+
+  <div class="control-group">
+    <label class="control-checkbox">
+      <input type="checkbox" id="score-toggle" checked> Partition
+    </label>
+    <input type="range" id="score-size" min="0.2" max="1.6" step="0.05" value="1">
+  </div>
+
+  <div id="transpose-controls">
+    <button id="transpose-down">−</button>
+    <div id="transpose-level">0</div>
+    <button id="transpose-up">+</button>
+  </div>
+</div>
+
+<div id="content" class="two-column">
+<h1>Sunny afternoon - The kinks</h1>
+<h2>Accords:</h2>
+<p><uke-chord name="A" frets="2100" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="A7" frets="0100" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="A7+5" frets="0110" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="C" frets="0003" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="C7" frets="0001" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="Dm" frets="2210" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="D" frets="2220" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="F" frets="2010" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="G7" frets="0212" size="1" class="chord-diagram"></uke-chord></p>
+<h2>Instructions:</h2>
+<p>Pour intro et la fin des refrains, possible de rajouter la ligne de basse (x2):</p>
+<pre class="tableau">
+A|55—33—22—11—00——————————|  
+E|———————————————33—11—00—|  
+  Dm          A7           
+</pre>
+<h2>Paroles:</h2>
+<h3>Intro</h3>
+<p><span class="chord chord-static" data-chord="Dm">Dm</span> <span class="chord chord-static" data-chord="A7">A7</span> <span class="chord chord-static" data-chord="Dm">Dm</span> <span class="chord chord-static" data-chord="A7">A7</span></p>
+<h3>Couplet</h3>
+<p>The <span class="chord" data-chord="Dm">Dm</span> taxman's taken <span class="chord" data-chord="C">C</span> all my dough<br>
+And <span class="chord" data-chord="F">F</span> left me in my <span class="chord" data-chord="C">C</span> stately home<br>
+<span class="chord" data-chord="A">A</span> Lazin' <span class="chord" data-chord="A7">A7</span> on a <span class="chord" data-chord="A7+5">A7+5</span> sunny <span class="chord" data-chord="A7">A7</span> after<span class="chord" data-chord="Dm">Dm</span>noon<br>
+And I can't <span class="chord" data-chord="C">C</span> sail my yacht<br>
+He's <span class="chord" data-chord="F">F</span> taken every <span class="chord" data-chord="C">C</span> thing I've got<br>
+<span class="chord" data-chord="A">A</span> All I've <span class="chord" data-chord="A7">A7</span> got's this <span class="chord" data-chord="A7+5">A7+5</span> sunny <span class="chord" data-chord="A7">A7</span> after<span class="chord" data-chord="Dm">Dm</span>noon <span class="chord" data-chord="D">D</span></p>
+<div class="highlight">
+<h3>Refrain</h3>
+<p><span class="chord" data-chord="D7">D7</span> Save me, save me, save me from this <span class="chord" data-chord="G7">G7</span> squeeze<br>
+I got a <span class="chord" data-chord="C7">C7</span> big fat mama <span class="chord" data-chord="C">C</span>tryin' to break <span class="chord" data-chord="F">F</span> me <span class="chord" data-chord="A7">A7</span><br>
+And I <span class="chord" data-chord="Dm">Dm</span> love to live so <span class="chord" data-chord="G7">G7</span> pleasantly<br>
+<span class="chord" data-chord="Dm">Dm</span> Live this life of <span class="chord" data-chord="G7">G7</span> luxu<span class="chord" data-chord="C7">C7</span>ry<br>
+<span class="chord" data-chord="F">F</span> Lazin' on a <span class="chord" data-chord="A7">A7</span> sunny after<span class="chord" data-chord="Dm">Dm</span>noon<br>
+In the <span class="chord" data-chord="A7">A7</span>summertime, in the <span class="chord" data-chord="Dm">Dm</span>summertime<br>
+In the <span class="chord" data-chord="A7">A7</span>summertime</p>
+</div>
+<h3>Couplet</h3>
+<p>My <span class="chord" data-chord="Dm">Dm</span> girlfriend's run off <span class="chord" data-chord="C">C</span> with my car<br>
+And <span class="chord" data-chord="F">F</span> gone back to her <span class="chord" data-chord="C">C</span> ma and pa<br>
+<span class="chord" data-chord="A">A</span> Tellin' <span class="chord" data-chord="A7">A7</span> tales of <span class="chord" data-chord="A7+5">A7+5</span> drunken<span class="chord" data-chord="A7">A7</span>ness and <span class="chord" data-chord="Dm">Dm</span> cruelty<br>
+Now I'm <span class="chord" data-chord="C">C</span> sittin' here, <span class="chord" data-chord="F">F</span> sippin' at my <span class="chord" data-chord="C">C</span> ice-cold beer<br>
+<span class="chord" data-chord="A">A</span> All I've <span class="chord" data-chord="A7">A7</span>  got's this <span class="chord" data-chord="A7+5">A7+5</span> sunny <span class="chord" data-chord="A7">A7</span> after<span class="chord" data-chord="Dm">Dm</span>noon <span class="chord" data-chord="D">D</span></p>
+<div class="highlight">
+<h3>Refrain</h3>
+<p><span class="chord" data-chord="D7">D7</span> Help me, help me, help me sail a<span class="chord" data-chord="G7">G7</span> way<br>
+Or give me <span class="chord" data-chord="C7">C7</span> two good reasons <span class="chord" data-chord="C">C</span>why I oughta <span class="chord" data-chord="F">F</span> stay <span class="chord" data-chord="A7">A7</span><br>
+Cos I <span class="chord" data-chord="Dm">Dm</span> love to live so <span class="chord" data-chord="G7">G7</span> pleasantly<br>
+<span class="chord" data-chord="Dm">Dm</span> Live this life of <span class="chord" data-chord="G7">G7</span> luxury<br>
+<span class="chord" data-chord="F">F</span> Lazin' on a <span class="chord" data-chord="A7">A7</span> sunny after<span class="chord" data-chord="Dm">Dm</span> noon<br>
+In the <span class="chord" data-chord="A7">A7</span> summertime, in the <span class="chord" data-chord="Dm">Dm</span> summertime<br>
+In the <span class="chord" data-chord="A7">A7</span> summertime</p>
+</div>
+<h3>Couplet</h3>
+<p><span class="chord" data-chord="D7">D7</span> Save me, save me, save me from this <span class="chord" data-chord="G7">G7</span> squeeze<br>
+I got a <span class="chord" data-chord="C7">C7</span> big fat mama <span class="chord" data-chord="C">C</span> tryin' to <span class="chord" data-chord="Caug">Caug</span> break <span class="chord" data-chord="F">F</span> me <span class="chord" data-chord="A7">A7</span><br>
+And I <span class="chord" data-chord="Dm">Dm</span> love to live so <span class="chord" data-chord="G7">G7</span> pleasantly<br>
+<span class="chord" data-chord="Dm">Dm</span> Live this life of <span class="chord" data-chord="G7">G7</span> luxury<br>
+<span class="chord" data-chord="F">F</span> Lazin' on a <span class="chord" data-chord="A7">A7</span> sunny after <span class="chord" data-chord="Dm">Dm</span> noon</p>
+<div class="highlight">
+<h3>Outro</h3>
+<p>In the <span class="chord" data-chord="A7">A7</span> summertime, in the <span class="chord" data-chord="Dm">Dm</span> summertime<br>
+In the <span class="chord" data-chord="A7">A7</span> summertime, in the <span class="chord" data-chord="Dm">Dm</span> summertime<br>
+In the <span class="chord" data-chord="A7">A7</span> summer-<span class="chord" data-chord="A7">A7</span>time <span class="chord" data-chord="A7+5 A7 Dm">A7+5 A7 Dm</span></p>
+</div>
+
+</div>
+
+  <script>
+  // ---------- Column toggle ----------
+  const btn = document.getElementById('toggle-columns');
+  const content = document.getElementById('content');
+  const columnClasses = ['one-column', 'two-column', 'three-column'];
+  let current = 1;
+
+  btn.addEventListener("click", () => {
+    content.classList.remove(columnClasses[current]);
+    current = (current + 1) % columnClasses.length;
+    content.classList.add(columnClasses[current]);
+    setTimeout(() => {
+      document.dispatchEvent(new Event("verovio:rerender"));
+    }, 0);
+  });
+
+  const fontSlider = document.getElementById("font-size");
+  fontSlider.addEventListener("input", () => {
+    document.documentElement.style.setProperty(
+        "--font-scale",
+        fontSlider.value
+    );
+  });
+
+  // ---------- Chord diagrams: show/hide + size slider ----------
+  const chordToggle = document.getElementById('chord-toggle');
+  const chordSizeSlider = document.getElementById('chord-size');
+
+  function applyChordVisibility(){
+    const visible = chordToggle.checked;
+    document.querySelectorAll('.chord-diagram').forEach(el => {
+      el.style.display = visible ? 'inline-block' : 'none';
+    });
+    document.querySelectorAll('h2').forEach(h2 => {
+      if (h2.textContent.includes('Accords')) h2.style.display = visible ? 'block' : 'none';
+    });
+  }
+  function applyChordSize() {
+      const scale = parseFloat(chordSizeSlider.value);
+      document.querySelectorAll('.chord-diagram').forEach(el => {
+          el.style.zoom = scale;
+      });
+  }
+  chordToggle.addEventListener('change', applyChordVisibility);
+  chordSizeSlider.addEventListener('input', applyChordSize);
+  applyChordVisibility();
+  applyChordSize();
+
+  // ---------- Verovio score ----------
+  let scoreScaleFactor = 1;
+
+  const scoreToggle = document.getElementById('score-toggle');
+  const scoreSizeSlider = document.getElementById('score-size');
+
+  scoreToggle.addEventListener('change', () => {
+    document.querySelectorAll('.verovio-block').forEach(el => {
+      el.style.display = scoreToggle.checked ? '' : 'none';
+    });
+  });
+  scoreSizeSlider.addEventListener('input', () => {
+    scoreScaleFactor = parseFloat(scoreSizeSlider.value);
+    renderAllVerovio();
+  });
+
+  (() => {
+    const toolkit = new verovio.toolkit();
+
+    function renderAllVerovio() {
+      const blocks = document.querySelectorAll(".verovio-block");
+      blocks.forEach(block => {
+        try {
+          const xml = decodeURIComponent(block.dataset.musicxml);
+          const containerWidth = block.clientWidth || 800;
+          const options = {
+            scale: 105 * scoreScaleFactor,
+            pageWidth: containerWidth * 2 / scoreScaleFactor,
+            pageHeight: 2000,
+            spacingStaff: 0,
+            spacingSystem: 0,
+            adjustPageHeight: true,
+            breaks: "auto",
+            header: "none",
+            footer: "none",
+            pageMarginLeft: 10,
+            pageMarginRight: 10,
+            pageMarginTop: 10,
+            pageMarginBottom: 10,
+            mnumInterval: 4,
+          };
+          const svg = toolkit.renderData(xml, options);
+          block.innerHTML = svg;
+        } catch (e) {
+          console.error("Verovio error:", e);
+          block.innerHTML = "<pre style='color:red'>MusicXML failed to render</pre>";
+        }
+      });
+    }
+
+    function renderAllVerovioprint() {
+      const blocks = document.querySelectorAll(".verovio-block");
+      blocks.forEach(block => {
+        try {
+          const xml = decodeURIComponent(block.dataset.musicxml);
+          const containerWidth = 1200;
+          const options = {
+            scale: 80 * scoreScaleFactor,
+            pageWidth: containerWidth * 1 / scoreScaleFactor,
+            pageHeight: 2000,
+            spacingStaff: 0,
+            spacingSystem: 0,
+            adjustPageHeight: true,
+            breaks: "auto",
+            header: "none",
+            footer: "none",
+            pageMarginLeft: 10,
+            pageMarginRight: 10,
+            pageMarginTop: 10,
+            pageMarginBottom: 10,
+            mnumInterval: 4,
+          };
+          const svg = toolkit.renderData(xml, options);
+          block.innerHTML = svg;
+        } catch (e) {
+          console.error("Verovio error:", e);
+          block.innerHTML = "<pre style='color:red'>MusicXML failed to render</pre>";
+        }
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", renderAllVerovio);
+
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(renderAllVerovio, 150);
+    });
+
+    window.addEventListener("beforeprint", renderAllVerovioprint);
+    window.addEventListener("afterprint", renderAllVerovio);
+
+    document.addEventListener("verovio:rerender", renderAllVerovio);
+
+    // expose for the slider handler above
+    window.renderAllVerovio = renderAllVerovio;
+  })();
+
+  // ---------- Controls panel collapse ----------
+  const handle = document.getElementById('controls-handle');
+  const controlsPanel = document.getElementById('controls-container');
+
+  function setCollapsed(state){
+    controlsPanel.classList.toggle('collapsed', state);
+    localStorage.setItem('controlsCollapsed', state ? '1' : '0');
+  }
+  handle.addEventListener('click', () => {
+    setCollapsed(!controlsPanel.classList.contains('collapsed'));
+  });
+
+  const savedCollapsed = localStorage.getItem('controlsCollapsed');
+  setCollapsed(savedCollapsed !== null ? savedCollapsed === '1' : window.innerWidth < 700);
+
+  // ---------- Transpose ----------
+  const NOTES = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+  const FLAT_TO_SHARP = { Db:"C#", Eb:"D#", Gb:"F#", Ab:"G#", Bb:"A#" };
+
+  let transpose = 0;
+
+  function normalize(note){
+    return FLAT_TO_SHARP[note] || note;
+  }
+
+  function transposeNote(note, steps) {
+    note = normalize(note);
+    let idx = NOTES.indexOf(note);
+    if (idx === -1) return note;
+    idx = (idx + steps + 12) % 12;
+    return NOTES[idx];
+  }
+
+  function transposeChord(chord, steps) {
+    const original = chord.trim();
+    let hasParen = false;
+    if (original.startsWith("(") && original.endsWith(")")) {
+      hasParen = true;
+      chord = original.slice(1, -1).trim();
+    } else {
+      chord = original;
+    }
+
+    const parts = chord.split(new RegExp("\s+")).filter(Boolean);
+    if (parts.length === 0) return original;
+
+    const transposedParts = parts.map(part => {
+      const slashMatch = part.match(new RegExp("(\/+)$"));
+      const slashes = slashMatch ? slashMatch[1] : "";
+      const base = part.replace(new RegExp("\/+$"), '');
+      const match = base.match(/^([A-G][b#]?)(.*)$/);
+      if (!match) return part;
+      const root = match[1];
+      const suffix = match[2];
+      const newRoot = transposeNote(root, steps);
+      if (!newRoot) return part;
+      return newRoot + suffix + slashes;
+    });
+    let result = transposedParts.join(" ");
+    if (hasParen) {
+      result = "(" + result + ")";
+    }
+    return result;
+  }
+
+  function updateChords(){
+    document.querySelectorAll(".chord").forEach(el => {
+      const original = el.dataset.chord;
+      const newChord = transposeChord(original, transpose);
+      el.textContent = newChord;
+    });
+    document.getElementById("transpose-level").textContent =
+      (transpose >= 0 ? "+" : "") + transpose;
+  }
+
+  document.getElementById("transpose-up").addEventListener("click", () => {
+    transpose = (transpose + 1) % 12;
+    updateChords();
+  });
+
+  document.getElementById("transpose-down").addEventListener("click", () => {
+    transpose = (transpose - 1 + 12) % 12;
+    updateChords();
+  });
+
+  </script>
+
+</body>
+</html>

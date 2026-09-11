@@ -1,0 +1,353 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Résiste (Matthieu Bottiau) - France Gall</title>
+<link rel="stylesheet" href="../../styles.css">
+<script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
+<script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
+<script src="https://www.verovio.org/javascript/latest/verovio-toolkit.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<button id="controls-handle" title="Afficher/masquer les contrôles">☰</button>
+
+
+<div id="controls-container">
+
+  <div class="control-group">
+    <label for="font-size"><strong>Taille texte</strong></label>
+    <input id="font-size" type="range" min="0.7" max="1.5" step="0.05" value="1">
+  </div>
+
+  <button id="toggle-columns">Colonnes</button>
+
+
+  <div class="control-group">
+    <label class="control-checkbox">
+      <input type="checkbox" id="chord-toggle" checked> Accords
+    </label>
+    <input type="range" id="chord-size" min="0.4" max="1.2" step="0.05" value="1">
+  </div>
+
+  <div class="control-group">
+    <label class="control-checkbox">
+      <input type="checkbox" id="score-toggle" checked> Partition
+    </label>
+    <input type="range" id="score-size" min="0.2" max="1.6" step="0.05" value="1">
+  </div>
+
+  <div id="transpose-controls">
+    <button id="transpose-down">−</button>
+    <div id="transpose-level">0</div>
+    <button id="transpose-up">+</button>
+  </div>
+</div>
+
+<div id="content" class="two-column">
+<h1>Résiste (Matthieu Bottiau) - France Gall</h1>
+<h2>Accords:</h2>
+<p><uke-chord name="Em" frets="0432" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="G" frets="0233" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="A" frets="2100" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="C" frets="0003" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="B7" frets="4320" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="C#°7" frets="0101" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="F" frets="2010" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="F#" frets="3121" size="1" class="chord-diagram"></uke-chord></p>
+<h2>Instructions:</h2>
+<ul>
+<li>Capo 3</li>
+<li>Dans le refrain, jouer <span class="chord chord-static" data-chord="Em">Em</span>:  <pre class="tableau">
+  1 & 2 & 3 & 4 & 
+  ▼   ▼ ▲   ▲ ▼ ▲ 
+  </pre>
+</li>
+<li>Accords entre parenthèses:<span class="chord chord-static" data-chord="(X)">(X)</span> durent une demi-mesure.</li>
+</ul>
+<h2>Paroles:</h2>
+<h3>Intro</h3>
+<p><span class="chord chord-static" data-chord="Em">Em</span> <span class="chord chord-static" data-chord="Em">Em</span> <span class="chord chord-static" data-chord="Em">Em</span> <span class="chord chord-static" data-chord="Em">Em</span></p>
+<h3>Couplet</h3>
+<p><span class="chord" data-chord="Em">Em</span>Si on t'organise <span class="chord" data-chord="G">G</span>une vie bien diri<span class="chord" data-chord="A">A</span>gée<br>
+Où tu t'oublieras vite<span class="chord" data-chord="C">C</span><br>
+Si <span class="chord" data-chord="Em">Em</span>on te fait danser <span class="chord" data-chord="G">G</span> sur une musique sans âme<span class="chord" data-chord="A">A</span><br>
+Comme un amour qu'on quit<span class="chord" data-chord="C">C</span>te<br>
+<span class="chord" data-chord="Em">Em</span>Si tu réalises que la <span class="chord" data-chord="B7">B7</span>vie n'est pas là<br>
+<span class="chord" data-chord="B7">B7</span>Que le matin, tu te lèves<br>
+<span class="chord" data-chord="(B7)">(B7)</span>Sans savoir où tu <span class="chord" data-chord="(B7/)">(B7/)</span>vas</p>
+<div class="highlight">
+<h3>Refrain</h3>
+<p>Résistes<span class="chord" data-chord="Em">Em</span>!<br>
+<span class="chord" data-chord="(Am//)">(Am//)</span>Prouve <span class="chord" data-chord="(B7//)">(B7//)</span>que tu <span class="chord" data-chord="Em">Em</span>existes<br>
+<span class="chord" data-chord="(Am//)">(Am//)</span>Cherche ton <span class="chord" data-chord="(B7//)">(B7//)</span>bonheur par<span class="chord" data-chord="(C/)">(C/)</span>tout, <span class="chord" data-chord="(C#°7/)">(C#°7/)</span>va<br>
+<span class="chord" data-chord="(G/)">(G/)</span>Refuse ce monde <span class="chord" data-chord="(B7)">(B7)</span>égoïste <span class="chord" data-chord="Em (Am//) (B7//)">Em (Am//) (B7//)</span></p>
+<p>Résistes<span class="chord" data-chord="Em">Em</span>!<br>
+<span class="chord" data-chord="(Am//)">(Am//)</span>Suis ton <span class="chord" data-chord="(B7//)">(B7//)</span>cœur qui insis<span class="chord" data-chord="Em">Em</span>te<br>
+<span class="chord" data-chord="(Am//)">(Am//)</span>Ce monde <span class="chord" data-chord="(B7//)">(B7//)</span>n'est pas le <span class="chord" data-chord="(C/)">(C/)</span>tien, <span class="chord" data-chord="(C#°7/)">(C#°7/)</span>viens<br>
+<span class="chord" data-chord="(G/)">(G/)</span>Bats-toi, <span class="chord" data-chord="(B7)">(B7)</span>signe et persis<span class="chord" data-chord="Em">Em</span>te <span class="chord" data-chord="(Am//) (B7//)">(Am//) (B7//)</span><br>
+Résis<span class="chord" data-chord="Em">Em</span>te <span class="chord" data-chord="(Am//) (B7//)">(Am//) (B7//)</span></p>
+</div>
+<h3>Couplet</h3>
+<p>Tant de libertés pour si peu de bonheur<br>
+Est-ce que ça vaut la peine?<br>
+Si on veut t'amener à renier tes erreurs<br>
+C'est pas pour ça qu'on t'aime<br>
+Si tu réalises que l'amour n'est pas là<br>
+Que le soir, tu te couches<br>
+Sans aucun rêve en toi</p>
+<div class="highlight">
+<h3>Refrain</h3>
+</div>
+<h3>Pont</h3>
+<p><span class="chord" data-chord="(Em//)">(Em//)</span>Danse pour le <span class="chord" data-chord="(D//)">(D//)</span>début du <span class="chord" data-chord="A">A</span>monde<br>
+<span class="chord" data-chord="(Em//)">(Em//)</span>Danse pour tous <span class="chord" data-chord="(D//)">(D//)</span>ceux qui ont <span class="chord" data-chord="A">A</span>peur<br>
+<span class="chord" data-chord="(Em//)">(Em//)</span>Danse pour les <span class="chord" data-chord="(D//)">(D//)</span>milliers de <span class="chord" data-chord="A">A</span>cœurs<br>
+Qui ont droit au bonheur<span class="chord" data-chord="(G) (F#) F">(G) (F#) F</span></p>
+<h3>Break x3</h3>
+<p><span class="chord" data-chord="Em">Em</span>Résistes <span class="chord" data-chord="(Am//) (B7//)">(Am//) (B7//)</span><br>
+<span class="chord chord-static" data-chord="Em">Em</span> <span class="chord chord-static" data-chord="(Am//)">(Am//)</span> <span class="chord chord-static" data-chord="(B7//)">(B7//)</span></p>
+<div class="highlight">
+<h3>Refrain</h3>
+</div>
+
+</div>
+
+  <script>
+  // ---------- Column toggle ----------
+  const btn = document.getElementById('toggle-columns');
+  const content = document.getElementById('content');
+  const columnClasses = ['one-column', 'two-column', 'three-column'];
+  let current = 1;
+
+  btn.addEventListener("click", () => {
+    content.classList.remove(columnClasses[current]);
+    current = (current + 1) % columnClasses.length;
+    content.classList.add(columnClasses[current]);
+    setTimeout(() => {
+      document.dispatchEvent(new Event("verovio:rerender"));
+    }, 0);
+  });
+
+  const fontSlider = document.getElementById("font-size");
+  fontSlider.addEventListener("input", () => {
+    document.documentElement.style.setProperty(
+        "--font-scale",
+        fontSlider.value
+    );
+  });
+
+  // ---------- Chord diagrams: show/hide + size slider ----------
+  const chordToggle = document.getElementById('chord-toggle');
+  const chordSizeSlider = document.getElementById('chord-size');
+
+  function applyChordVisibility(){
+    const visible = chordToggle.checked;
+    document.querySelectorAll('.chord-diagram').forEach(el => {
+      el.style.display = visible ? 'inline-block' : 'none';
+    });
+    document.querySelectorAll('h2').forEach(h2 => {
+      if (h2.textContent.includes('Accords')) h2.style.display = visible ? 'block' : 'none';
+    });
+  }
+  function applyChordSize() {
+      const scale = parseFloat(chordSizeSlider.value);
+      document.querySelectorAll('.chord-diagram').forEach(el => {
+          el.style.zoom = scale;
+      });
+  }
+  chordToggle.addEventListener('change', applyChordVisibility);
+  chordSizeSlider.addEventListener('input', applyChordSize);
+  applyChordVisibility();
+  applyChordSize();
+
+  // ---------- Verovio score ----------
+  let scoreScaleFactor = 1;
+
+  const scoreToggle = document.getElementById('score-toggle');
+  const scoreSizeSlider = document.getElementById('score-size');
+
+  scoreToggle.addEventListener('change', () => {
+    document.querySelectorAll('.verovio-block').forEach(el => {
+      el.style.display = scoreToggle.checked ? '' : 'none';
+    });
+  });
+  scoreSizeSlider.addEventListener('input', () => {
+    scoreScaleFactor = parseFloat(scoreSizeSlider.value);
+    renderAllVerovio();
+  });
+
+  (() => {
+    const toolkit = new verovio.toolkit();
+
+    function renderAllVerovio() {
+      const blocks = document.querySelectorAll(".verovio-block");
+      blocks.forEach(block => {
+        try {
+          const xml = decodeURIComponent(block.dataset.musicxml);
+          const containerWidth = block.clientWidth || 800;
+          const options = {
+            scale: 105 * scoreScaleFactor,
+            pageWidth: containerWidth * 2 / scoreScaleFactor,
+            pageHeight: 2000,
+            spacingStaff: 0,
+            spacingSystem: 0,
+            adjustPageHeight: true,
+            breaks: "auto",
+            header: "none",
+            footer: "none",
+            pageMarginLeft: 10,
+            pageMarginRight: 10,
+            pageMarginTop: 10,
+            pageMarginBottom: 10,
+            mnumInterval: 4,
+          };
+          const svg = toolkit.renderData(xml, options);
+          block.innerHTML = svg;
+        } catch (e) {
+          console.error("Verovio error:", e);
+          block.innerHTML = "<pre style='color:red'>MusicXML failed to render</pre>";
+        }
+      });
+    }
+
+    function renderAllVerovioprint() {
+      const blocks = document.querySelectorAll(".verovio-block");
+      blocks.forEach(block => {
+        try {
+          const xml = decodeURIComponent(block.dataset.musicxml);
+          const containerWidth = 1200;
+          const options = {
+            scale: 80 * scoreScaleFactor,
+            pageWidth: containerWidth * 1 / scoreScaleFactor,
+            pageHeight: 2000,
+            spacingStaff: 0,
+            spacingSystem: 0,
+            adjustPageHeight: true,
+            breaks: "auto",
+            header: "none",
+            footer: "none",
+            pageMarginLeft: 10,
+            pageMarginRight: 10,
+            pageMarginTop: 10,
+            pageMarginBottom: 10,
+            mnumInterval: 4,
+          };
+          const svg = toolkit.renderData(xml, options);
+          block.innerHTML = svg;
+        } catch (e) {
+          console.error("Verovio error:", e);
+          block.innerHTML = "<pre style='color:red'>MusicXML failed to render</pre>";
+        }
+      });
+    }
+
+    document.addEventListener("DOMContentLoaded", renderAllVerovio);
+
+    let resizeTimer;
+    window.addEventListener("resize", () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(renderAllVerovio, 150);
+    });
+
+    window.addEventListener("beforeprint", renderAllVerovioprint);
+    window.addEventListener("afterprint", renderAllVerovio);
+
+    document.addEventListener("verovio:rerender", renderAllVerovio);
+
+    // expose for the slider handler above
+    window.renderAllVerovio = renderAllVerovio;
+  })();
+
+  // ---------- Controls panel collapse ----------
+  const handle = document.getElementById('controls-handle');
+  const controlsPanel = document.getElementById('controls-container');
+
+  function setCollapsed(state){
+    controlsPanel.classList.toggle('collapsed', state);
+    localStorage.setItem('controlsCollapsed', state ? '1' : '0');
+  }
+  handle.addEventListener('click', () => {
+    setCollapsed(!controlsPanel.classList.contains('collapsed'));
+  });
+
+  const savedCollapsed = localStorage.getItem('controlsCollapsed');
+  setCollapsed(savedCollapsed !== null ? savedCollapsed === '1' : window.innerWidth < 700);
+
+  // ---------- Transpose ----------
+  const NOTES = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+  const FLAT_TO_SHARP = { Db:"C#", Eb:"D#", Gb:"F#", Ab:"G#", Bb:"A#" };
+
+  let transpose = 0;
+
+  function normalize(note){
+    return FLAT_TO_SHARP[note] || note;
+  }
+
+  function transposeNote(note, steps) {
+    note = normalize(note);
+    let idx = NOTES.indexOf(note);
+    if (idx === -1) return note;
+    idx = (idx + steps + 12) % 12;
+    return NOTES[idx];
+  }
+
+  function transposeChord(chord, steps) {
+    const original = chord.trim();
+    let hasParen = false;
+    if (original.startsWith("(") && original.endsWith(")")) {
+      hasParen = true;
+      chord = original.slice(1, -1).trim();
+    } else {
+      chord = original;
+    }
+
+    const parts = chord.split(new RegExp("\s+")).filter(Boolean);
+    if (parts.length === 0) return original;
+
+    const transposedParts = parts.map(part => {
+      const slashMatch = part.match(new RegExp("(\/+)$"));
+      const slashes = slashMatch ? slashMatch[1] : "";
+      const base = part.replace(new RegExp("\/+$"), '');
+      const match = base.match(/^([A-G][b#]?)(.*)$/);
+      if (!match) return part;
+      const root = match[1];
+      const suffix = match[2];
+      const newRoot = transposeNote(root, steps);
+      if (!newRoot) return part;
+      return newRoot + suffix + slashes;
+    });
+    let result = transposedParts.join(" ");
+    if (hasParen) {
+      result = "(" + result + ")";
+    }
+    return result;
+  }
+
+  function updateChords(){
+    document.querySelectorAll(".chord").forEach(el => {
+      const original = el.dataset.chord;
+      const newChord = transposeChord(original, transpose);
+      el.textContent = newChord;
+    });
+    document.getElementById("transpose-level").textContent =
+      (transpose >= 0 ? "+" : "") + transpose;
+  }
+
+  document.getElementById("transpose-up").addEventListener("click", () => {
+    transpose = (transpose + 1) % 12;
+    updateChords();
+  });
+
+  document.getElementById("transpose-down").addEventListener("click", () => {
+    transpose = (transpose - 1 + 12) % 12;
+    updateChords();
+  });
+
+  </script>
+
+</body>
+</html>
