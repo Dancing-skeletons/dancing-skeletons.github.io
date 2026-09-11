@@ -60,20 +60,22 @@ Or give me [C7] two good reasons [C]why I oughta [F] stay [A7]
 Cos I [Dm] love to live so [G7] pleasantly  
 [Dm] Live this life of [G7] luxury  
 [F] Lazin' on a [A7] sunny after[Dm] noon  
+
 In the [A7] summertime, in the [Dm] summertime  
 In the [A7] summertime  
 ::: 
 
-### Couplet
+::: highlight
+### Refrain
 [D7] Save me, save me, save me from this [G7]squeeze  
 I got a [C7] big fat mama [C]tryin' to break [F]me [A7]  
 And I [Dm] love to live so [G7] pleasantly  
 [Dm] Live this life of [G7] luxury  
 [F] Lazin' on a [A7] sunny after [Dm] noon 
+:::
 
-::: highlight
 ### Outro
 In the [A7] summertime, in the [Dm] summertime  
 In the [A7] summertime, in the [Dm] summertime  
 In the [A7] summer-[A7]time [A7+5 A7 Dm]  
-::: 
+
