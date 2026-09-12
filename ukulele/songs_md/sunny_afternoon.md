@@ -27,11 +27,11 @@ E|———————————————33—11—00—|
 ### Couplet
 The [Dm] taxman's taken [C] all my dough  
 And [F] left me in my [C] stately home  
-[A//] Lazin' [A7//] on a [A7+5//] sunny [A7//] after[Dm//]noon  
+[A//] Lazin' [A7//] on a [A7+5//] sunny [A7//] afternoon  
 
 [Dm]And I can't [C] sail my yacht  
 He's [F] taken every [C] thing I've got  
-[A//] All I've [A7//] got's this [A7+5//] sunny [A7//] after[Dm//]noon [Dm a b c#]
+[A//] All I've [A7//] got's this [A7+5//] sunny [A7//] afternoon [Dm a b c#]
 
 ::: highlight
 ### Refrain
@@ -47,10 +47,10 @@ In the [A7]summertime
 ### Couplet
 My [Dm] girlfriend's run off [C] with my car  
 And [F] gone back to her [C] ma and pa  
-[A] Tellin' [A7//] tales of [A7+5//] drunken[A7//]ness and [Dm//] cruelty  
+[A//] Tellin' [A7//] tales of [A7+5//] drunken[A7//]ness and cruelty  
 
 [Dm]Now I'm [C] sittin' here, [F] sippin' at my [C] ice-cold beer  
-[A//] All I've [A7//]  got's this [A7+5//] sunny [A7//] after[Dm//]noon [Dm a b c#]  
+[A//] All I've [A7//]  got's this [A7+5//] sunny [A7//] afternoon [Dm a b c#]  
 
 
 ::: highlight
