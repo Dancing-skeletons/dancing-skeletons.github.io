@@ -69,7 +69,7 @@ A pré[G#m]sent.
 
 ### Outro
 T'es [C#m]beau  
-La[F#m]la[A]la[C#m]lalala...  
+Pala[F#m]la &nbsp; pali[A]laï &nbsp; oh [C#m]na nana-nana-nana    
 T'es [C#m]beau  
-La[F#m]la[A]la[C#m]lalala...  
+na-nana[F#m]&nbsp; na-na[A]na&nbsp; na [C#m]na nana-nana-nana  
 [C#m C#m]  
