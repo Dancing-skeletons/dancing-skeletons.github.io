@@ -46,7 +46,7 @@ Ainsi soit-il[D/Em//D]
 
 <uke-chord name="Eb" frets="0331"></uke-chord> 
 <uke-chord name="Gm7" frets="0211"></uke-chord> 
-<uke-chord name="F#m7" frets="2420"></uke-chord> 
+<uke-chord name="Fm7" frets="1313"></uke-chord> 
 <uke-chord name="Fm" frets="1013"></uke-chord> 
 
 ### Couplet 3
