@@ -19,26 +19,26 @@ E|———————————————33—11—00—|
   Dm          A7           
 </pre>
 
-
 ## Paroles:
 
 ### Intro
-[[Dm A7 Dm A7]]  
+[[Dm A Dm A]]  
 
 ### Couplet
 The [Dm] taxman's taken [C] all my dough  
 And [F] left me in my [C] stately home  
-[A] Lazin' [A7] on a [A7+5] sunny [A7] after[Dm]noon  
-And I can't [C] sail my yacht  
+[A//] Lazin' [A7//] on a [A7+5//] sunny [A7//] afternoon  
+
+[Dm]And I can't [C] sail my yacht  
 He's [F] taken every [C] thing I've got  
-[A] All I've [A7] got's this [A7+5] sunny [A7] after[Dm]noon [D]  
+[A//] All I've [A7//] got's this [A7+5//] sunny [A7//] afternoon [Dm a b c#]
 
 ::: highlight
 ### Refrain
 [D7] Save me, save me, save me from this [G7] squeeze  
 I got a [C7] big fat mama [C]tryin' to break [F] me [A7]  
 And I [Dm] love to live so [G7] pleasantly  
-[Dm] Live this life of [G7] luxu[C7]ry  
+[Dm] Live this life of [G7] luxury  
 [F] Lazin' on a [A7] sunny after[Dm]noon  
 In the [A7]summertime, in the [Dm]summertime  
 In the [A7]summertime  
@@ -47,9 +47,10 @@ In the [A7]summertime
 ### Couplet
 My [Dm] girlfriend's run off [C] with my car  
 And [F] gone back to her [C] ma and pa  
-[A] Tellin' [A7] tales of [A7+5] drunken[A7]ness and [Dm] cruelty  
-Now I'm [C] sittin' here, [F] sippin' at my [C] ice-cold beer  
-[A] All I've [A7]  got's this [A7+5] sunny [A7] after[Dm]noon [D]  
+[A//] Tellin' [A7//] tales of [A7+5//] drunken[A7//]ness and cruelty  
+
+[Dm]Now I'm [C] sittin' here, [F] sippin' at my [C] ice-cold beer  
+[A//] All I've [A7//]  got's this [A7+5//] sunny [A7//] afternoon [Dm a b c#]  
 
 
 ::: highlight
@@ -59,20 +60,22 @@ Or give me [C7] two good reasons [C]why I oughta [F] stay [A7]
 Cos I [Dm] love to live so [G7] pleasantly  
 [Dm] Live this life of [G7] luxury  
 [F] Lazin' on a [A7] sunny after[Dm] noon  
+
 In the [A7] summertime, in the [Dm] summertime  
 In the [A7] summertime  
 ::: 
 
-### Couplet
-[D7] Save me, save me, save me from this [G7] squeeze  
-I got a [C7] big fat mama [C] tryin' to [Caug] break [F] me [A7]  
+::: highlight
+### Refrain
+[D7] Save me, save me, save me from this [G7]squeeze  
+I got a [C7] big fat mama [C]tryin' to break [F]me [A7]  
 And I [Dm] love to live so [G7] pleasantly  
 [Dm] Live this life of [G7] luxury  
-[F] Lazin' on a [A7] sunny after [Dm] noon  
+[F] Lazin' on a [A7] sunny after [Dm] noon 
+:::
 
-::: highlight
 ### Outro
 In the [A7] summertime, in the [Dm] summertime  
 In the [A7] summertime, in the [Dm] summertime  
 In the [A7] summer-[A7]time [A7+5 A7 Dm]  
-::: 
+
