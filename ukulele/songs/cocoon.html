@@ -13,7 +13,7 @@
 </head>
 <body>
 
-<button id="controls-handle" title="Afficher/masquer les contrôles">☰</button>
+<button id="controls-handle" title="Afficher/masquer les contrÃ´les">â°</button>
 
 
 <div id="controls-container">
@@ -41,7 +41,7 @@
   </div>
 
   <div id="transpose-controls">
-    <button id="transpose-down">−</button>
+    <button id="transpose-down">-</button>
     <div id="transpose-level">0</div>
     <button id="transpose-up">+</button>
   </div>
@@ -50,12 +50,12 @@
 <div id="content" class="two-column">
 <h1>Chupe (Cric crac)- Cocoon</h1>
 <h2>Accords:</h2>
-<p><uke-chord name="G" frets="4232" size="1" class="chord-diagram"></uke-chord>
-<uke-chord name="Em" frets="4432" size="1" class="chord-diagram"></uke-chord>
-<uke-chord name="Bm" frets="4222" size="1" class="chord-diagram"></uke-chord>
-<uke-chord name="D7" frets="2223" size="1" class="chord-diagram"></uke-chord>
-<uke-chord name="C" frets="0003" size="1" class="chord-diagram"></uke-chord>
-<uke-chord name="Am" frets="2000" size="1" class="chord-diagram"></uke-chord></p>
+<p><uke-chord name="G" frets="4232" data-original-name="G" data-custom="1" data-original-frets="4232" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="Em" frets="4432" data-original-name="Em" data-custom="1" data-original-frets="4432" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="Bm" frets="4222" data-original-name="Bm" data-custom="1" data-original-frets="4222" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="D7" frets="2223" data-original-name="D7" data-custom="1" data-original-frets="2223" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="C" frets="0003" data-original-name="C" data-custom="1" data-original-frets="0003" size="1" class="chord-diagram"></uke-chord>
+<uke-chord name="Am" frets="2000" data-original-name="Am" data-custom="1" data-original-frets="2000" size="1" class="chord-diagram"></uke-chord></p>
 <h2>Instructions:</h2>
 <ul>
 <li>Rythmique:  <pre class="tableau">
@@ -185,7 +185,6 @@ So many <span class="chord" data-chord="Bm">Bm</span>times <span class="chord" d
           const containerWidth = block.clientWidth || 800;
           const options = {
             scale: 105 * scoreScaleFactor,
-            fingeringScale: 1,
             pageWidth: containerWidth * 2 / scoreScaleFactor,
             pageHeight: 2000,
             spacingStaff: 0,
@@ -322,12 +321,213 @@ So many <span class="chord" data-chord="Bm">Bm</span>times <span class="chord" d
     return result;
   }
 
+  /* -------------------------------------------------
+     CHORD FINGERING DATABASE / FINDER
+     Instead of a hand-written list, fingerings are
+     computed from music theory for standard GCEA
+     tuning, so every root x common quality is covered.
+     ------------------------------------------------- */
+
+  // MIDI notes of the open strings: G4 C4 E4 A4
+  const STRING_NOTES = [67, 60, 64, 69];
+
+  // Chord suffix -> intervals (semitones from the root)
+  const QUALITIES = {
+    "":      [0, 4, 7],
+    "m":     [0, 3, 7],
+    "7":     [0, 4, 7, 10],
+    "maj7":  [0, 4, 7, 11],
+    "m7":    [0, 3, 7, 10],
+    "6":     [0, 4, 7, 9],
+    "m6":    [0, 3, 7, 9],
+    "sus2":  [0, 2, 7],
+    "sus4":  [0, 5, 7],
+    "7sus4": [0, 5, 7, 10],
+    "dim":   [0, 3, 6],
+    "dim7":  [0, 3, 6, 9],
+    "aug":   [0, 4, 8],
+    "m7b5":  [0, 3, 6, 10],
+    "5":     [0, 7],
+    "add9":  [0, 2, 4, 7],
+    "madd9": [0, 2, 3, 7],
+    "9":     [0, 2, 4, 7, 10],
+    "m9":    [0, 2, 3, 7, 10],
+    "maj9":  [0, 2, 4, 7, 11],
+    "11":    [0, 2, 5, 7, 10]
+  };
+
+  function parseChordName(name) {
+    const m = String(name).trim().match(/^([A-G][b#]?)(.*)$/);
+    if (!m) return null;
+    const root = NOTES.indexOf(normalize(m[1]));
+    if (root === -1) return null;
+    const intervals = QUALITIES[m[2]] || null;
+    return { root, intervals };
+  }
+
+  // Search a compact, playable shape containing every chord tone,
+  // with the root present (ideally as the lowest note).
+  function findFingering(root, intervals) {
+    const pcs = new Set(intervals.map(i => (root + i) % 12));
+    const rootPc = root % 12;
+
+    const cands = STRING_NOTES.map(midi => {
+      const list = [];
+      for (let f = 0; f <= 12; f++) {
+        if (pcs.has((midi + f) % 12)) list.push(f);
+      }
+      return list;
+    });
+    if (cands.some(l => l.length === 0)) return null;
+
+    let best = null;
+    const frets = [];
+
+    function rec(si) {
+      if (si === 4) {
+        const pcsPresent = new Set();
+        let lowest = Infinity;
+        for (let i = 0; i < 4; i++) {
+          const n = STRING_NOTES[i] + frets[i];
+          pcsPresent.add(n % 12);
+          if (n < lowest) lowest = n;
+        }
+        for (const p of pcs) if (!pcsPresent.has(p)) return;
+        if (lowest % 12 !== rootPc && !frets.some((f, i) => (STRING_NOTES[i] + f) % 12 === rootPc)) return;
+
+        const rootLowest = lowest % 12 === rootPc;
+        const max = Math.max(...frets);
+        const min = Math.min(...frets);
+        if (max - min > 5) return;
+        // Prefer low frets and open strings (the "usual" shapes),
+        // with a small bonus when the root is the lowest note.
+        const opens = frets.filter(f => f === 0).length;
+        const score = max * 2 + frets.reduce((a, b) => a + b, 0) - opens * 3 + (rootLowest ? 0 : 4);
+        if (!best || score < best.score) best = { score, frets: frets.slice() };
+        return;
+      }
+      for (const f of cands[si]) {
+        frets.push(f);
+        rec(si + 1);
+        frets.pop();
+      }
+    }
+    rec(0);
+    return best ? best.frets : null;
+  }
+
+  // The uke-chord web component renders itself once, when it is inserted
+  // in the DOM, and does NOT react to later attribute changes. So instead
+  // of mutating name/frets/position in place, we rebuild the element:
+  // clone it, set the new attributes, and swap it in. A freshly inserted
+  // <uke-chord> always renders its current attributes.
+  function rebuildDiagram(el, name, frets, position) {
+    const fresh = el.cloneNode(false);
+    fresh.setAttribute('name', name);
+    if (frets) {
+      fresh.setAttribute('frets', frets);
+      if (position) {
+        fresh.setAttribute('position', position);
+      } else {
+        fresh.removeAttribute('position');
+      }
+    }
+    // preserve the interactive size / visibility applied by the sliders
+    fresh.style.zoom = el.style.zoom;
+    fresh.style.display = el.style.display;
+    el.parentNode.replaceChild(fresh, el);
+    return fresh;
+  }
+
+  // Compute frets/position for a fingering array, using position notation
+  // whenever the shape has no open strings.
+  function toFretsPosition(frets) {
+    const min = Math.min(...frets);
+    if (min === 0) return { frets: frets.join(''), position: null };
+    return { frets: frets.map(f => f - min + 1).join(''), position: String(min) };
+  }
+
+  // Compute the usual fingering for a chord name.
+  function usualFingering(name) {
+    const parsed = parseChordName(name);
+    if (!parsed || !parsed.intervals) return null;
+    return findFingering(parsed.root, parsed.intervals);
+  }
+
+  // Initial pass: fill in usual fingerings for name-only diagrams
+  // (no frets given by the author). Also rebuild diagrams written with
+  // frets="0003"-style open shapes so everything goes through the same path.
+  document.querySelectorAll('uke-chord').forEach(el => {
+    if (el.dataset.custom) return;
+    const name = el.getAttribute('name') || el.dataset.originalName || '';
+    const usual = usualFingering(name);
+    if (usual) {
+      const fp = toFretsPosition(usual);
+      rebuildDiagram(el, name, fp.frets, fp.position);
+    }
+  });
+
   function updateChords(){
     document.querySelectorAll(".chord").forEach(el => {
       const original = el.dataset.chord;
       const newChord = transposeChord(original, transpose);
       el.textContent = newChord;
     });
+
+    // ---------- Chord diagrams ----------
+    document.querySelectorAll("uke-chord").forEach(el => {
+      const originalName = el.dataset.originalName || el.getAttribute("name") || "";
+      const newName = transposeChord(originalName, transpose);
+
+      // Back to the original key: restore exactly what the author wrote.
+      if (transpose === 0) {
+        if (el.dataset.custom) {
+          rebuildDiagram(
+            el,
+            originalName,
+            el.dataset.originalFrets,
+            el.dataset.originalPosition || null
+          );
+        } else {
+          const usual = usualFingering(originalName);
+          if (usual) {
+            const fp = toFretsPosition(usual);
+            rebuildDiagram(el, originalName, fp.frets, fp.position);
+          } else {
+            rebuildDiagram(el, originalName, null, null);
+          }
+        }
+        return;
+      }
+
+      // Author specified a custom fingering: try to keep it by shifting
+      // the whole shape, which only works if it has no open strings.
+      if (el.dataset.custom) {
+        const hasPos = !!el.dataset.originalPosition;
+        const pos = parseInt(el.dataset.originalPosition || '1', 10);
+        const rel = el.dataset.originalFrets.split('').map(Number);
+        const actual = rel.map(f => (hasPos ? pos - 1 + f : f));
+        if (actual.every(f => f > 0)) {
+          const shifted = actual.map(f => f + transpose);
+          if (Math.min(...shifted) > 0 && Math.max(...shifted) <= 15) {
+            const fp = toFretsPosition(shifted);
+            rebuildDiagram(el, newName, fp.frets, fp.position);
+            return;
+          }
+        }
+        // Open-string custom shape (or shifted too high): fall back to
+        // the usual fingering for the transposed chord.
+      }
+
+      const usual = usualFingering(newName);
+      if (usual) {
+        const fp = toFretsPosition(usual);
+        rebuildDiagram(el, newName, fp.frets, fp.position);
+      } else {
+        rebuildDiagram(el, newName, null, null);
+      }
+    });
+
     document.getElementById("transpose-level").textContent =
       (transpose >= 0 ? "+" : "") + transpose;
   }

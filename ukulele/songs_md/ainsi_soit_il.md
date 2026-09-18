@@ -6,7 +6,7 @@ Normalement en capo 1
 
 [C]Moteur   
 
-<uke-chord name="C" frets="0003"></uke-chord> 
+<uke-chord name="C"></uke-chord> 
 <uke-chord name="Em7" frets="0202"></uke-chord> 
 <uke-chord name="Dm7" frets="2213"></uke-chord> 
 <uke-chord name="Dm" frets="2210"></uke-chord> 
