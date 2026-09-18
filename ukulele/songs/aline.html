@@ -7,6 +7,36 @@
 <script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
 <script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
 <script src="https://www.verovio.org/javascript/latest/verovio-toolkit.js"></script>
+<style>
+  /* Hover label on chord diagrams: "shape/max" for click cycling.
+     Absolutely positioned corner badge -> takes NO layout space and
+     never overlaps the text below (paints over the diagram itself). */
+  uke-chord[data-label] {
+    display: inline-block;
+    position: relative;
+  }
+  uke-chord[data-label]::after {
+    content: attr(data-label);
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transform: translateY(-100%);
+    padding: 0 4px;
+    border-radius: 4px;
+    background: rgba(76, 107, 139, 0.92);
+    color: #fff;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.65em;
+    font-weight: 600;
+    line-height: 1.3;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  uke-chord[data-label]:hover::after {
+    display: block;
+  }
+</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -359,6 +389,8 @@ Comme une épave <span class="chord" data-chord="F">F</span>sur le sable mou<spa
 
   // Search a compact, playable shape containing every chord tone,
   // with the root present (ideally as the lowest note).
+  // Returns ALL playable shapes for a chord, ranked best-first.
+  // The first one is the "usual" fingering used on load / transpose.
   function findFingering(root, intervals) {
     const pcs = new Set(intervals.map(i => (root + i) % 12));
     const rootPc = root % 12;
@@ -370,9 +402,9 @@ Comme une épave <span class="chord" data-chord="F">F</span>sur le sable mou<spa
       }
       return list;
     });
-    if (cands.some(l => l.length === 0)) return null;
+    if (cands.some(l => l.length === 0)) return [];
 
-    let best = null;
+    const all = [];
     const frets = [];
 
     function rec(si) {
@@ -395,7 +427,7 @@ Comme une épave <span class="chord" data-chord="F">F</span>sur le sable mou<spa
         // with a small bonus when the root is the lowest note.
         const opens = frets.filter(f => f === 0).length;
         const score = max * 2 + frets.reduce((a, b) => a + b, 0) - opens * 3 + (rootLowest ? 0 : 4);
-        if (!best || score < best.score) best = { score, frets: frets.slice() };
+        all.push({ score, frets: frets.slice() });
         return;
       }
       for (const f of cands[si]) {
@@ -405,7 +437,19 @@ Comme une épave <span class="chord" data-chord="F">F</span>sur le sable mou<spa
       }
     }
     rec(0);
-    return best ? best.frets : null;
+    all.sort((a, b) => a.score - b.score);
+    return all.slice(0, 6).map(c => c.frets);
+  }
+
+  // Hover label: shows "current/total" under the diagram, only while the
+  // mouse is over it (see the injected CSS rule using attr(data-label)).
+  function applyCycleLabel(el, name, index) {
+    const shapes = fingeringsFor(name);
+    if (shapes.length < 2) {
+      el.removeAttribute('data-label');
+      return;
+    }
+    el.dataset.label = (index + 1) + "/" + shapes.length;
   }
 
   // The uke-chord web component renders itself once, when it is inserted
@@ -427,6 +471,10 @@ Comme une épave <span class="chord" data-chord="F">F</span>sur le sable mou<spa
     // preserve the interactive size / visibility applied by the sliders
     fresh.style.zoom = el.style.zoom;
     fresh.style.display = el.style.display;
+    fresh.style.cursor = "pointer"; // hint: click to cycle fingerings
+    // reset the click-cycling position; the caller can set a new one
+    fresh.removeAttribute('data-fing-index');
+    fresh.removeAttribute('data-label');
     el.parentNode.replaceChild(fresh, el);
     return fresh;
   }
@@ -443,6 +491,14 @@ Comme une épave <span class="chord" data-chord="F">F</span>sur le sable mou<spa
   function usualFingering(name) {
     const parsed = parseChordName(name);
     if (!parsed || !parsed.intervals) return null;
+    const list = findFingering(parsed.root, parsed.intervals);
+    return list.length ? list[0] : null;
+  }
+
+  // All ranked fingerings for a chord name (for click cycling).
+  function fingeringsFor(name) {
+    const parsed = parseChordName(name);
+    if (!parsed || !parsed.intervals) return [];
     return findFingering(parsed.root, parsed.intervals);
   }
 
@@ -455,7 +511,8 @@ Comme une épave <span class="chord" data-chord="F">F</span>sur le sable mou<spa
     const usual = usualFingering(name);
     if (usual) {
       const fp = toFretsPosition(usual);
-      rebuildDiagram(el, name, fp.frets, fp.position);
+      const fresh = rebuildDiagram(el, name, fp.frets, fp.position);
+      applyCycleLabel(fresh, name, 0);
     }
   });
 
@@ -474,17 +531,21 @@ Comme une épave <span class="chord" data-chord="F">F</span>sur le sable mou<spa
       // Back to the original key: restore exactly what the author wrote.
       if (transpose === 0) {
         if (el.dataset.custom) {
-          rebuildDiagram(
+          const fresh0 = rebuildDiagram(
             el,
             originalName,
             el.dataset.originalFrets,
             el.dataset.originalPosition || null
           );
+          // custom shape: label it "n/max" only if it matches a ranked
+          // shape, otherwise leave unlabelled (no cycle from here anyway)
+          applyCycleLabel(fresh0, originalName, 0);
         } else {
           const usual = usualFingering(originalName);
           if (usual) {
             const fp = toFretsPosition(usual);
-            rebuildDiagram(el, originalName, fp.frets, fp.position);
+            const fresh0 = rebuildDiagram(el, originalName, fp.frets, fp.position);
+            applyCycleLabel(fresh0, originalName, 0);
           } else {
             rebuildDiagram(el, originalName, null, null);
           }
@@ -503,7 +564,8 @@ Comme une épave <span class="chord" data-chord="F">F</span>sur le sable mou<spa
           const shifted = actual.map(f => f + transpose);
           if (Math.min(...shifted) > 0 && Math.max(...shifted) <= 15) {
             const fp = toFretsPosition(shifted);
-            rebuildDiagram(el, newName, fp.frets, fp.position);
+            const freshS = rebuildDiagram(el, newName, fp.frets, fp.position);
+            applyCycleLabel(freshS, newName, 0);
             return;
           }
         }
@@ -514,7 +576,8 @@ Comme une épave <span class="chord" data-chord="F">F</span>sur le sable mou<spa
       const usual = usualFingering(newName);
       if (usual) {
         const fp = toFretsPosition(usual);
-        rebuildDiagram(el, newName, fp.frets, fp.position);
+        const freshU = rebuildDiagram(el, newName, fp.frets, fp.position);
+        applyCycleLabel(freshU, newName, 0);
       } else {
         rebuildDiagram(el, newName, null, null);
       }
@@ -532,6 +595,27 @@ Comme une épave <span class="chord" data-chord="F">F</span>sur le sable mou<spa
   document.getElementById("transpose-down").addEventListener("click", () => {
     transpose = (transpose - 1 + 12) % 12;
     updateChords();
+  });
+
+  // ---------- Click a diagram to cycle its fingerings ----------
+  // Event delegation on the whole document: the diagrams are rebuilt
+  // (cloned + swapped) on every transpose / cycle, so per-element
+  // listeners would be lost. A delegated listener survives that.
+  document.addEventListener("click", (ev) => {
+    const el = ev.target && ev.target.closest ? ev.target.closest("uke-chord") : null;
+    if (!el) return;
+    const name = el.getAttribute("name");
+    if (!name) return;
+
+    const shapes = fingeringsFor(name);
+    if (shapes.length < 2) return; // nothing else to try for this chord
+
+    const current = parseInt(el.dataset.fingIndex || "0", 10);
+    const next = (current + 1) % shapes.length;
+    const fp = toFretsPosition(shapes[next]);
+    const fresh = rebuildDiagram(el, name, fp.frets, fp.position);
+    fresh.dataset.fingIndex = String(next);
+    applyCycleLabel(fresh, name, next);
   });
 
   </script>

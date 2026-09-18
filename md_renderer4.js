@@ -1,42 +1,187 @@
-<!doctype html>
+const MarkdownIt =
+  typeof window !== 'undefined'
+    ? window.markdownit
+    : require('markdown-it');
+
+const container =
+  typeof window !== 'undefined'
+    ? window.markdownitContainer
+    : require('markdown-it-container');
+
+const fs =
+  typeof window === 'undefined'
+    ? require('fs')
+    : null;
+
+const path =
+  typeof window === 'undefined'
+    ? require('path')
+    : null;
+
+const md = new MarkdownIt({ html: true, breaks: false });
+
+/* -------------------------
+   CHORD PLUGINS
+-------------------------- */
+
+// [C] -> floating chord, sits above the syllable that follows it
+function chordPlugin(md) {
+  function tokenizeChord(state, silent) {
+    const start = state.pos;
+    if (state.src[start] !== '[') return false;
+    if (state.src[start + 1] === '[') return false; // let chord_static handle [[...]]
+
+    const end = state.src.indexOf(']', start);
+    if (end === -1) return false;
+
+    const content = state.src.slice(start + 1, end);
+
+    if (!silent) {
+      const token = state.push('html_inline', '', 0);
+      token.content = `<span class="chord" data-chord="${content}">${content}</span>`;
+    }
+
+    state.pos = end + 1;
+    return true;
+  }
+
+  md.inline.ruler.before('emphasis', 'chord', tokenizeChord);
+}
+
+// [[C]] or [[C E7 F]] -> static chord badge(s), written directly in the text flow.
+// A multi-chord group is split into one badge per chord so each stays individually
+// transposable and they don't render as one merged blob.
+function chordStaticPlugin(md) {
+  function tokenizeStaticChord(state, silent) {
+    const start = state.pos;
+    if (state.src[start] !== '[' || state.src[start + 1] !== '[') return false;
+
+    const end = state.src.indexOf(']]', start + 2);
+    if (end === -1) return false;
+
+    const content = state.src.slice(start + 2, end);
+
+    if (!silent) {
+      const chords = content.split(/\s+/).filter(Boolean);
+      const html = chords
+        .map(c => `<span class="chord chord-static" data-chord="${c}">${c}</span>`)
+        .join(' ');
+      const token = state.push('html_inline', '', 0);
+      token.content = html;
+    }
+
+    state.pos = end + 2;
+    return true;
+  }
+
+  md.inline.ruler.before('emphasis', 'chord_static', tokenizeStaticChord);
+}
+
+md.use(chordPlugin);
+md.use(chordStaticPlugin);
+
+md.use(container, 'highlight', {
+  render: function (tokens, idx) {
+    if (tokens[idx].nesting === 1) {
+      return '<div class="highlight">\n';
+    } else {
+      return '</div>\n';
+    }
+  }
+});
+
+
+/* -------------------------
+   MUSICXML BLOCK / FILE SUPPORT
+-------------------------- */
+function musicXmlBlockPlugin(md, baseDir) {
+  function removePartNames(xml) {
+    let cleanedXml = xml.replace(/<part-name>[^<]*<\/part-name>/g, '<part-name></part-name>');
+    cleanedXml = cleanedXml.replace(/<part-abbreviation>[^<]*<\/part-abbreviation>/g, '<part-abbreviation></part-abbreviation>');
+    return cleanedXml;
+  }
+
+  function renderMusicXml(state, startLine, endLine, silent) {
+    const lines = state.src.split('\n');
+    let line = lines[startLine].trim();
+    if (!line.startsWith('musicxml:')) return false;
+
+    const filePath = line.slice('musicxml:'.length).trim();
+    if (!filePath) return false;
+
+    const fullPath = path.resolve(baseDir, filePath);
+    if (!fs.existsSync(fullPath)) {
+      console.warn('â ï¸ Missing MusicXML file:', fullPath);
+      return false;
+    }
+
+    let xmlData = fs.readFileSync(fullPath, 'utf8');
+    xmlData = removePartNames(xmlData);
+    const encoded = encodeURIComponent(xmlData);
+
+    if (!silent) {
+      const html = `<div class="verovio-block" data-musicxml="${encoded}"></div>`;
+      state.tokens.push({
+        type: 'html_block',
+        content: html,
+        block: true,
+      });
+    }
+
+    state.line = startLine + 1;
+    return true;
+  }
+
+  md.block.ruler.before('paragraph', 'musicxml_file', renderMusicXml);
+}
+
+
+function renderSong(src, title = "Song") {
+  const isBrowser = typeof window !== 'undefined';
+  if (!isBrowser) {
+    const baseDir = path.dirname(title);
+    md.use(musicXmlBlockPlugin, baseDir);
+  }
+  let pageTitle = title;
+
+  const h1Match = src.match(/^#\s+(.+)$/m);
+  if (h1Match) {
+    pageTitle = h1Match[1].trim();
+  }
+
+  let body = md.render(src);
+
+  // Single chord-diagram element per <uke-chord>. We remember the author's
+  // original name / frets / position in data-* attributes so transposition
+  // can restore them exactly when the transpose level goes back to 0.
+  body = body.replace(
+    /<uke-chord\b([^>]*)>(.*?)<\/uke-chord>/g,
+    (match, attrs) => {
+      const name = (attrs.match(/name="([^"]*)"/) || [])[1] || '';
+      const frets = (attrs.match(/frets="([^"]*)"/) || [])[1] || '';
+      const position = (attrs.match(/position="([^"]*)"/) || [])[1] || '';
+      let data = ` data-original-name="${name}"`;
+      if (frets) {
+        data += ` data-custom="1" data-original-frets="${frets}"`;
+        if (position) data += ` data-original-position="${position}"`;
+      }
+      return `<uke-chord${attrs}${data} size="1" class="chord-diagram"></uke-chord>`;
+    }
+  );
+
+  const html = `<!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>The man who sold the world (Uku cheat) - David Bowie / Nirvana</title>
-<link rel="stylesheet" href="../../styles.css">
+<title>${pageTitle}</title>
+${
+  isBrowser
+    ? `<style>${window.siteCSS || ""}</style>`
+    : `<link rel="stylesheet" href="../../styles.css">`
+}
 <script src="https://pianosnake.github.io/uke-chord/webcomponents-lite.min.js"></script>
 <script src="https://pianosnake.github.io/uke-chord/uke-chord.js"></script>
 <script src="https://www.verovio.org/javascript/latest/verovio-toolkit.js"></script>
-<style>
-  /* Hover label on chord diagrams: "shape/max" for click cycling.
-     Absolutely positioned corner badge -> takes NO layout space and
-     never overlaps the text below (paints over the diagram itself). */
-  uke-chord[data-label] {
-    display: inline-block;
-    position: relative;
-  }
-  uke-chord[data-label]::after {
-    content: attr(data-label);
-    display: none;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translateY(-100%);
-    padding: 0 4px;
-    border-radius: 4px;
-    background: rgba(76, 107, 139, 0.92);
-    color: #fff;
-    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
-    font-size: 0.65em;
-    font-weight: 600;
-    line-height: 1.3;
-    pointer-events: none;
-    white-space: nowrap;
-  }
-  uke-chord[data-label]:hover::after {
-    display: block;
-  }
-</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;500;700&display=swap" rel="stylesheet">
@@ -78,116 +223,7 @@
 </div>
 
 <div id="content" class="two-column">
-<h1>The man who sold the world (Uku cheat) - David Bowie / Nirvana</h1>
-<h2>Accords:</h2>
-<p><uke-chord name="A" frets="2100" data-original-name="A" data-custom="1" data-original-frets="2100" size="1" class="chord-diagram"></uke-chord>
-<uke-chord name="Dm" frets="2210" data-original-name="Dm" data-custom="1" data-original-frets="2210" size="1" class="chord-diagram"></uke-chord>
-<uke-chord name="F" frets="2010" data-original-name="F" data-custom="1" data-original-frets="2010" size="1" class="chord-diagram"></uke-chord>
-<uke-chord name="A7" frets="0100" data-original-name="A7" data-custom="1" data-original-frets="0100" size="1" class="chord-diagram"></uke-chord>
-<uke-chord name="C" frets="0003" data-original-name="C" data-custom="1" data-original-frets="0003" size="1" class="chord-diagram"></uke-chord>
-<uke-chord name="F*" frets="1114" position=5 data-original-name="F*" data-custom="1" data-original-frets="1114" size="1" class="chord-diagram"></uke-chord>
-<uke-chord name="Bbm" frets="3111" data-original-name="Bbm" data-custom="1" data-original-frets="3111" size="1" class="chord-diagram"></uke-chord></p>
-<h2>Instructions:</h2>
-<ul>
-<li>Intro/Pont: Exemple pour <span class="chord chord-static" data-chord="A">A</span>:</li>
-</ul>
-<pre class="tableau">
-  A|0———————————————|  
-  E|0———————————————|  
-  C|1———————————————|  
-  G|2—2—2—0———232—0—|
-</pre>
-<ul>
-<li>Couplet:  <pre class="tableau">
-  1 & 2 & 3 & 4 &
-  ▼ ▲ X ▲   ▲ X ▲     
-  </pre>
-</li>
-<li>Dans les couplets, <span class="chord chord-static" data-chord="A">A</span> sur 3 temps au lieu de 4: ▼▼▼.</li>
-<li>Refrain:  <pre class="tableau">
-  1 & 2 & 3 & 4 &
-  ▼   ▼ ▲   ▲ ▼ ▲      
-  </pre> 
-</li>
-<li>Riff <span class="chord chord-static" data-chord="C*">C*</span>:</li>
-</ul>
-<pre class="tableau">
-  A|——————————0—1—3—|  
-  E|————0—1—3———————|  
-  C|0—2—————————————|  
-  G|————————————————|
-</pre>
-<ul>
-<li>Riff <span class="chord" data-chord="F*">F*</span>:</li>
-</ul>
-<pre class="tableau">
-  A|——————————5—7—8—|  
-  E|————5—6—8———————|  
-  C|5—7—————————————|  
-  G|————————————————|
-</pre>
-<ul>
-<li>A la fin des refrains, le dernier <span class="chord chord-static" data-chord="A">A</span> est dans le pont (donc riff).</li>
-</ul>
-<h2>Paroles:</h2>
-<div class="highlight">
-<h3>Intro:</h3>
-<p><span class="chord chord-static" data-chord="A">A</span> <span class="chord chord-static" data-chord="A">A</span> <span class="chord chord-static" data-chord="Dm">Dm</span> <span class="chord chord-static" data-chord="Dm">Dm</span> <span class="chord chord-static" data-chord="F">F</span> <span class="chord chord-static" data-chord="F">F</span> <span class="chord chord-static" data-chord="Dm\">Dm\</span></p>
-</div>
-<h3>Couplet</h3>
-<p>We passed upon the <span class="chord" data-chord="A7">A7</span>stair<br>
-We <span class="chord" data-chord="A7">A7</span>spoke of was and when<span class="chord" data-chord="Dm">Dm</span><br>
-Al<span class="chord" data-chord="Dm">Dm</span>though I wasn't <span class="chord" data-chord="A7">A7</span>there<br>
-<span class="chord" data-chord="A7">A7</span>He said I was his <span class="chord" data-chord="F">F</span>friend<br>
-Which <span class="chord" data-chord="F">F</span>came as some sur<span class="chord" data-chord="C">C</span>prise<br>
-I <span class="chord" data-chord="C">C</span>spoke into his <span class="chord" data-chord="A">A</span>eyes<br>
-&quot;I <span class="chord" data-chord="A">A</span>thought you died a<span class="chord" data-chord="Dm">Dm</span>lone<br>
-A <span class="chord" data-chord="Dm">Dm</span>long, long time a<span class="chord" data-chord="C*">C*</span>go&quot; <span class="chord" data-chord="C*">C*</span></p>
-<div class="highlight">
-<h3>Refrain</h3>
-<p>Oh <span class="chord" data-chord="C*">C*</span>no, not <span class="chord" data-chord="F*">F*</span>me<br>
-I <span class="chord" data-chord="Bbm">Bbm</span>never lost con<span class="chord" data-chord="F*">F*</span>trol<br>
-You're <span class="chord" data-chord="C*">C*</span>face to <span class="chord" data-chord="F*">F*</span>face<br>
-With the <span class="chord" data-chord="Bbm">Bbm</span>man who sold the <span class="chord" data-chord="A">A</span>world</p>
-</div>
-<div class="highlight">
-<h3>Pont</h3>
-<p><span class="chord chord-static" data-chord="A">A</span> <span class="chord chord-static" data-chord="A">A</span> <span class="chord chord-static" data-chord="Dm">Dm</span> <span class="chord chord-static" data-chord="Dm">Dm</span> <span class="chord chord-static" data-chord="F">F</span> <span class="chord chord-static" data-chord="F">F</span> <span class="chord chord-static" data-chord="Dm\">Dm\</span></p>
-</div>
-<h3>Couplet</h3>
-<p>I laughed and shook his <span class="chord" data-chord="A7">A7</span>hand<br>
-And <span class="chord" data-chord="A7">A7</span>made my way back home<span class="chord" data-chord="Dm">Dm</span><br>
-I <span class="chord" data-chord="Dm">Dm</span>searched for form and <span class="chord" data-chord="A7">A7</span>land<br>
-For <span class="chord" data-chord="A7">A7</span>years and years, I <span class="chord" data-chord="F">F</span>roamed<br>
-I <span class="chord" data-chord="F">F</span>gazed a gazely <span class="chord" data-chord="C">C</span>stare<br>
-At <span class="chord" data-chord="C">C</span>all the millions <span class="chord" data-chord="A">A</span>here<br>
-We <span class="chord" data-chord="A">A</span>must have died a<span class="chord" data-chord="Dm">Dm</span>lone<br>
-A <span class="chord" data-chord="Dm">Dm</span>long, long time a<span class="chord" data-chord="C*">C*</span>go <span class="chord" data-chord="C*">C*</span></p>
-<div class="highlight">
-<h3>Refrain</h3>
-<p>Who <span class="chord" data-chord="C*">C*</span>knows? Not <span class="chord" data-chord="F*">F*</span>me<br>
-We <span class="chord" data-chord="Bbm">Bbm</span>never lost con<span class="chord" data-chord="F*">F*</span>trol<br>
-You're <span class="chord" data-chord="C*">C*</span>face to <span class="chord" data-chord="F*">F*</span>face<br>
-With the <span class="chord" data-chord="Bbm">Bbm</span>man who sold the <span class="chord" data-chord="A">A</span>world</p>
-</div>
-<div class="highlight">
-<h3>Pont</h3>
-<p><span class="chord chord-static" data-chord="A">A</span> <span class="chord chord-static" data-chord="A">A</span> <span class="chord chord-static" data-chord="Dm">Dm</span> <span class="chord chord-static" data-chord="Dm">Dm</span> <span class="chord chord-static" data-chord="F">F</span> <span class="chord chord-static" data-chord="F">F</span> <span class="chord chord-static" data-chord="Dm\">Dm\</span></p>
-</div>
-<div class="highlight">
-<h3>Refrain</h3>
-<p>I <span class="chord" data-chord="C*">C*</span>know? Not <span class="chord" data-chord="F*">F*</span>me<br>
-I <span class="chord" data-chord="Bbm">Bbm</span>never lost con<span class="chord" data-chord="F*">F*</span>trol<br>
-You're <span class="chord" data-chord="C*">C*</span>face to <span class="chord" data-chord="F*">F*</span>face<br>
-With the <span class="chord" data-chord="Bbm">Bbm</span>man who sold the <span class="chord" data-chord="A">A</span>world</p>
-</div>
-<div class="highlight">
-<h3>Pont x5</h3>
-<p><span class="chord chord-static" data-chord="A">A</span> <span class="chord chord-static" data-chord="A">A</span> <span class="chord chord-static" data-chord="Dm">Dm</span> <span class="chord chord-static" data-chord="Dm">Dm</span> <span class="chord chord-static" data-chord="F">F</span> <span class="chord chord-static" data-chord="F">F</span> <span class="chord chord-static" data-chord="Dm\">Dm\</span></p>
-</div>
-<h3>Outro</h3>
-<p><span class="chord chord-static" data-chord="A/">A/</span> <span class="chord chord-static" data-chord="Dm/">Dm/</span></p>
-
+${body}
 </div>
 
   <script>
@@ -379,13 +415,13 @@ With the <span class="chord" data-chord="Bbm">Bbm</span>man who sold the <span c
       chord = original;
     }
 
-    const parts = chord.split(new RegExp("\s+")).filter(Boolean);
+    const parts = chord.split(new RegExp("\\s+")).filter(Boolean);
     if (parts.length === 0) return original;
 
     const transposedParts = parts.map(part => {
-      const slashMatch = part.match(new RegExp("(\/+)$"));
+      const slashMatch = part.match(new RegExp("(\\/+)$"));
       const slashes = slashMatch ? slashMatch[1] : "";
-      const base = part.replace(new RegExp("\/+$"), '');
+      const base = part.replace(new RegExp("\\/+$"), '');
       const match = base.match(/^([A-G][b#]?)(.*)$/);
       if (!match) return part;
       const root = match[1];
@@ -447,8 +483,6 @@ With the <span class="chord" data-chord="Bbm">Bbm</span>man who sold the <span c
 
   // Search a compact, playable shape containing every chord tone,
   // with the root present (ideally as the lowest note).
-  // Returns ALL playable shapes for a chord, ranked best-first.
-  // The first one is the "usual" fingering used on load / transpose.
   function findFingering(root, intervals) {
     const pcs = new Set(intervals.map(i => (root + i) % 12));
     const rootPc = root % 12;
@@ -460,9 +494,9 @@ With the <span class="chord" data-chord="Bbm">Bbm</span>man who sold the <span c
       }
       return list;
     });
-    if (cands.some(l => l.length === 0)) return [];
+    if (cands.some(l => l.length === 0)) return null;
 
-    const all = [];
+    let best = null;
     const frets = [];
 
     function rec(si) {
@@ -485,7 +519,7 @@ With the <span class="chord" data-chord="Bbm">Bbm</span>man who sold the <span c
         // with a small bonus when the root is the lowest note.
         const opens = frets.filter(f => f === 0).length;
         const score = max * 2 + frets.reduce((a, b) => a + b, 0) - opens * 3 + (rootLowest ? 0 : 4);
-        all.push({ score, frets: frets.slice() });
+        if (!best || score < best.score) best = { score, frets: frets.slice() };
         return;
       }
       for (const f of cands[si]) {
@@ -495,19 +529,7 @@ With the <span class="chord" data-chord="Bbm">Bbm</span>man who sold the <span c
       }
     }
     rec(0);
-    all.sort((a, b) => a.score - b.score);
-    return all.slice(0, 6).map(c => c.frets);
-  }
-
-  // Hover label: shows "current/total" under the diagram, only while the
-  // mouse is over it (see the injected CSS rule using attr(data-label)).
-  function applyCycleLabel(el, name, index) {
-    const shapes = fingeringsFor(name);
-    if (shapes.length < 2) {
-      el.removeAttribute('data-label');
-      return;
-    }
-    el.dataset.label = (index + 1) + "/" + shapes.length;
+    return best ? best.frets : null;
   }
 
   // The uke-chord web component renders itself once, when it is inserted
@@ -529,10 +551,6 @@ With the <span class="chord" data-chord="Bbm">Bbm</span>man who sold the <span c
     // preserve the interactive size / visibility applied by the sliders
     fresh.style.zoom = el.style.zoom;
     fresh.style.display = el.style.display;
-    fresh.style.cursor = "pointer"; // hint: click to cycle fingerings
-    // reset the click-cycling position; the caller can set a new one
-    fresh.removeAttribute('data-fing-index');
-    fresh.removeAttribute('data-label');
     el.parentNode.replaceChild(fresh, el);
     return fresh;
   }
@@ -549,14 +567,6 @@ With the <span class="chord" data-chord="Bbm">Bbm</span>man who sold the <span c
   function usualFingering(name) {
     const parsed = parseChordName(name);
     if (!parsed || !parsed.intervals) return null;
-    const list = findFingering(parsed.root, parsed.intervals);
-    return list.length ? list[0] : null;
-  }
-
-  // All ranked fingerings for a chord name (for click cycling).
-  function fingeringsFor(name) {
-    const parsed = parseChordName(name);
-    if (!parsed || !parsed.intervals) return [];
     return findFingering(parsed.root, parsed.intervals);
   }
 
@@ -569,8 +579,7 @@ With the <span class="chord" data-chord="Bbm">Bbm</span>man who sold the <span c
     const usual = usualFingering(name);
     if (usual) {
       const fp = toFretsPosition(usual);
-      const fresh = rebuildDiagram(el, name, fp.frets, fp.position);
-      applyCycleLabel(fresh, name, 0);
+      rebuildDiagram(el, name, fp.frets, fp.position);
     }
   });
 
@@ -589,21 +598,17 @@ With the <span class="chord" data-chord="Bbm">Bbm</span>man who sold the <span c
       // Back to the original key: restore exactly what the author wrote.
       if (transpose === 0) {
         if (el.dataset.custom) {
-          const fresh0 = rebuildDiagram(
+          rebuildDiagram(
             el,
             originalName,
             el.dataset.originalFrets,
             el.dataset.originalPosition || null
           );
-          // custom shape: label it "n/max" only if it matches a ranked
-          // shape, otherwise leave unlabelled (no cycle from here anyway)
-          applyCycleLabel(fresh0, originalName, 0);
         } else {
           const usual = usualFingering(originalName);
           if (usual) {
             const fp = toFretsPosition(usual);
-            const fresh0 = rebuildDiagram(el, originalName, fp.frets, fp.position);
-            applyCycleLabel(fresh0, originalName, 0);
+            rebuildDiagram(el, originalName, fp.frets, fp.position);
           } else {
             rebuildDiagram(el, originalName, null, null);
           }
@@ -622,8 +627,7 @@ With the <span class="chord" data-chord="Bbm">Bbm</span>man who sold the <span c
           const shifted = actual.map(f => f + transpose);
           if (Math.min(...shifted) > 0 && Math.max(...shifted) <= 15) {
             const fp = toFretsPosition(shifted);
-            const freshS = rebuildDiagram(el, newName, fp.frets, fp.position);
-            applyCycleLabel(freshS, newName, 0);
+            rebuildDiagram(el, newName, fp.frets, fp.position);
             return;
           }
         }
@@ -634,8 +638,7 @@ With the <span class="chord" data-chord="Bbm">Bbm</span>man who sold the <span c
       const usual = usualFingering(newName);
       if (usual) {
         const fp = toFretsPosition(usual);
-        const freshU = rebuildDiagram(el, newName, fp.frets, fp.position);
-        applyCycleLabel(freshU, newName, 0);
+        rebuildDiagram(el, newName, fp.frets, fp.position);
       } else {
         rebuildDiagram(el, newName, null, null);
       }
@@ -655,28 +658,18 @@ With the <span class="chord" data-chord="Bbm">Bbm</span>man who sold the <span c
     updateChords();
   });
 
-  // ---------- Click a diagram to cycle its fingerings ----------
-  // Event delegation on the whole document: the diagrams are rebuilt
-  // (cloned + swapped) on every transpose / cycle, so per-element
-  // listeners would be lost. A delegated listener survives that.
-  document.addEventListener("click", (ev) => {
-    const el = ev.target && ev.target.closest ? ev.target.closest("uke-chord") : null;
-    if (!el) return;
-    const name = el.getAttribute("name");
-    if (!name) return;
-
-    const shapes = fingeringsFor(name);
-    if (shapes.length < 2) return; // nothing else to try for this chord
-
-    const current = parseInt(el.dataset.fingIndex || "0", 10);
-    const next = (current + 1) % shapes.length;
-    const fp = toFretsPosition(shapes[next]);
-    const fresh = rebuildDiagram(el, name, fp.frets, fp.position);
-    fresh.dataset.fingIndex = String(next);
-    applyCycleLabel(fresh, name, next);
-  });
-
   </script>
 
 </body>
-</html>
+</html>`;
+
+  return html;
+}
+
+if (typeof module !== 'undefined') {
+  module.exports = { renderSong };
+}
+
+if (typeof window !== 'undefined') {
+  window.renderSong = renderSong;
+}
