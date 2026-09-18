@@ -218,7 +218,7 @@ ${
 </head>
 <body>
 
-<button id="controls-handle" title="Afficher/masquer les contrÃ´les">â°</button>
+<button id="controls-handle" title="Afficher/masquer les contrÃ´les">☰</button>
 
 
 <div id="controls-container">
@@ -246,7 +246,7 @@ ${
   </div>
 
   <div id="transpose-controls">
-    <button id="transpose-down">-</button>
+    <button id="transpose-down">−</button>
     <div id="transpose-level">0</div>
     <button id="transpose-up">+</button>
   </div>
