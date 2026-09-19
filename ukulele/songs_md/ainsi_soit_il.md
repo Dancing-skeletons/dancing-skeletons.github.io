@@ -79,7 +79,7 @@ Ainsi soit-il[Eb/Fm//Eb]
 [G#m7]Tou dou dou [F#m7]dou    
 Ainsi soit-il[E/F#m//E]    
 [G#m7]Yeah he y yé    
-[Gm7]Tel est le nom du film  
+[F#m7]Tel est le nom du film  
 :::
 
 <uke-chord name="F" frets="2010"></uke-chord> 
