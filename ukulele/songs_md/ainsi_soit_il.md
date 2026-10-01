@@ -102,7 +102,7 @@ Ainsi soit-il[F/Gm//F]
 :::
 
 <uke-chord name="G" frets="0232"></uke-chord> 
-<uke-chord name="Bm7" frets="4220"></uke-chord> 
+<uke-chord name="Bm7" frets="2222"></uke-chord> 
 <uke-chord name="Am7" frets="0000"></uke-chord> 
 <uke-chord name="Am" frets="2000"></uke-chord> 
 
