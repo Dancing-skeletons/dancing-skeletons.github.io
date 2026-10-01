@@ -18,7 +18,7 @@ Normalement en capo 1
 [Dm7]Jusqu'à ton apparte[C]ment    
 
 ::: highlight
-### Refrain
+### Refrain 1
 [Em7]Tou dou dou [Dm7]dou    
 Ainsi soit-il[C/Dm//C]    
 [Em7]Yeah he y yé    
@@ -37,9 +37,9 @@ Ainsi soit-il[C/Dm//C]
 [Em7]Lumière tamisée [D]flou artistique  
 
 ::: highlight
-### Refrain
+### Refrain 2
 [F#m7]Tou dou dou [Em7]dou    
-Ainsi soit-il[D/Em//D]    
+Ainsi soit-il[D/Em7//D]    
 [F#m7]Yeah he y yé    
 [Em7]Tel est le nom du film  
 :::
@@ -50,13 +50,13 @@ Ainsi soit-il[D/Em//D]
 <uke-chord name="Fm" frets="1013"></uke-chord> 
 
 ### Couplet 3
-[Eb]Sur la bande son les [Gm7]cloches qui sonnent    
+[Eb]Sur la bande son une [Gm7]cloche qui sonne    
 [Fm7]Fondu enchaîné sur la [Eb]cour d'une école  
 [Eb]Un lièvre une tortue ou [Gm7]trois mousquetaires   
 Et plus tard [Fm7]Les Fleurs Du Mal de Charles [Eb]Baudelaire  
 
 ::: highlight
-### Refrain
+### Refrain 3
 [Gm7]Tou dou dou [Fm7]dou    
 Ainsi soit-il[Eb/Fm//Eb]    
 [Gm7]Yeah he y yé    
@@ -75,9 +75,9 @@ Ainsi soit-il[Eb/Fm//Eb]
 [F#m7]Demande à l'éclairagiste [E]qu'il éteigne  
 
 ::: highlight
-### Refrain
+### Refrain 4
 [G#m7]Tou dou dou [F#m7]dou    
-Ainsi soit-il[E/F#m//E]    
+Ainsi soit-il[E/F#m7//E]    
 [G#m7]Yeah he y yé    
 [F#m7]Tel est le nom du film  
 :::
@@ -94,7 +94,7 @@ Ainsi soit-il[E/F#m//E]
 [Gm7]Mais personne n'a jamais arrê[F]té l'projecteur  
 
 ::: highlight
-### Refrain
+### Refrain 5
 [Am7]Tou dou dou [Gm7]dou    
 Ainsi soit-il[F/Gm//F]    
 [Am7]Yeah he y yé   
@@ -113,7 +113,7 @@ Ainsi soit-il[F/Gm//F]
 [Am7]Quand quelqu'un s'en va un au[G]tre prend sa place  
 
 ::: highlight
-### Refrain
+### Refrain 6
 [Bm7]Tou dou dou [Am7]dou    
 Ainsi soit-il[G/Am//G]    
 [Bm7]Yeah he y yé    
