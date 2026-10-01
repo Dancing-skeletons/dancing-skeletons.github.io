@@ -97,8 +97,8 @@ Ainsi soit-il[E/F#m//E]
 ### Refrain
 [Am7]Tou dou dou [Gm7]dou    
 Ainsi soit-il[F/Gm//F]    
-[Gm7]Yeah he y yé   
-[Am7]Tel est le nom du film  
+[Am7]Yeah he y yé   
+[Gm7]Tel est le nom du film  
 :::
 
 <uke-chord name="G" frets="0232"></uke-chord> 
