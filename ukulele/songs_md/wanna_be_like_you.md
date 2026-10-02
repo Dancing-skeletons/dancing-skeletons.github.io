@@ -59,6 +59,6 @@ I'll [E7]be a man, [E7]man-cub and learn [E7]some eti[Am]queet
 :::highlight
 ### Refrain x2
 (dont la seconde fois se termine en:)  
-Can [D7] learn to be [G7] human [C] too [F/][C/]  
+Can [D7] learn to be [G7] human [C] too [F/ C/]  
 :::
 
