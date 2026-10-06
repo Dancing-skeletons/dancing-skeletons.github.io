@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Backing track — improvisation</title>
+<style>
+  :root { font-family: system-ui, -apple-system, sans-serif; background:#f4f6fa; color:#22314a; }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:1rem; }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  h1 { font-size: 1.3rem; margin: 0 0 0.2rem; }
+  .sub { font-size: .85rem; color:#6b7a93; margin:0 0 1rem; }
+
+  .topbar {
+    display:flex; flex-wrap:wrap; gap:.6rem; align-items:end;
+    background:#fff; border:1px solid #e2e8f2; border-radius:10px; padding:.8rem;
+    margin-bottom:1rem;
+  }
+  .field { display:flex; flex-direction:column; gap:.25rem; }
+  .field label { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; color:#6b7a93; }
+  .field select { font-size:.95rem; padding:.35rem; border:1px solid #cdd7e5; border-radius:6px; background:#fff; }
+  .bpm-field { min-width:170px; }
+  .bpm-row { display:flex; align-items:center; gap:.5rem; }
+  .bpm-row input[type=range] { width:110px; }
+  #bpm-value { font-weight:700; min-width:52px; }
+  button {
+    font-size:1rem; font-weight:700; border:none; border-radius:7px;
+    padding:.5rem 1rem; cursor:pointer;
+  }
+  #play-btn { background:#0a7d33; color:#fff; }
+  #stop-btn { background:#c0392b; color:#fff; }
+  #inspire-btn { background:#eef2f7; color:#2c4a6e; border:1px solid #cdd7e5; }
+  #clear-btn { background:#fff; color:#c0392b; border:1px solid #e0b4b0; padding: calc(.5rem - 1px) 1rem; }
+
+  .section { background:#fff; border:1px solid #e2e8f2; border-radius:10px; padding:.8rem .9rem; margin-bottom:1rem; }
+  .section > h2 { font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:#6b7a93; margin:0 0 .6rem; }
+
+  .palette { display:grid; grid-template-columns:repeat(auto-fill,minmax(86px,1fr)); gap:.5rem; }
+  .chord-btn {
+    padding:.5rem .3rem; border-radius:8px; border:2px solid #cdd7e5; background:#f4f8fd;
+    cursor:pointer; text-align:center; transition:background .12s, border-color .12s;
+  }
+  .chord-btn:hover { border-color:#00558d; }
+  .chord-btn .num { display:block; font-size:.68rem; color:#6b7a93; }
+  .chord-btn .name { display:block; font-size:1.05rem; font-weight:700; font-family:ui-monospace,Menlo,monospace; }
+
+  .custom-row { display:flex; gap:.5rem; align-items:center; margin-top:.6rem; flex-wrap:wrap; }
+  .custom-row select { padding:.35rem; border:1px solid #cdd7e5; border-radius:6px; }
+  .custom-row button { background:#00558d; color:#fff; padding:.4rem .8rem; font-size:.9rem; }
+
+  #prog { display:flex; flex-wrap:wrap; gap:.5rem; min-height:52px; }
+  .chip {
+    position:relative; padding:.55rem 1.6rem .55rem .7rem; border-radius:8px;
+    background:#eef2f7; border:2px solid #cdd7e5; cursor:grab;
+    font-family:ui-monospace,Menlo,monospace; font-weight:700; font-size:1.05rem;
+  }
+  .chip.current { border-color:#0a7d33; background:#def7e6; }
+  .chip .del {
+    position:absolute; top:2px; right:4px; border:none; background:none;
+    font-size:.85rem; color:#98a4b8; cursor:pointer; padding:0 .15rem;
+  }
+  .chip .del:hover { color:#c0392b; }
+  .empty-note { color:#98a4b8; font-size:.85rem; align-self:center; }
+  .hint { font-size:.75rem; color:#98a4b8; margin:.5rem 0 0; }
+
+  .layers { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; }
+  .layers label { display:flex; align-items:center; gap:.35rem; font-size:.92rem; cursor:pointer; }
+  #status { min-height:1.2em; font-size:.85rem; color:#c0392b; margin-top:.4rem; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Backing track pour improvisation</h1>
+  <p class="sub">Choisissez une tonalité, cliquez des accords dans la palette (ou un preset), puis lancez la boucle et jouez par-dessus.</p>
+
+  <div class="topbar">
+    <div class="field"><label for="key">Tonalité</label>
+      <select id="key"></select>
+    </div>
+    <div class="field"><label for="mode">Mode</label>
+      <select id="mode">
+        <option value="major">Majeur</option>
+        <option value="minor">Mineur</option>
+        <option value="dorian">Dorien</option>
+        <option value="mixolydian">Mixolydien</option>
+        <option value="phrygian">Phrygien</option>
+      </select>
+    </div>
+    <div class="field"><label for="preset">Preset</label>
+      <select id="preset">
+        <option value="">— Choisir une grille —</option>
+        <option value="pop">Pop (I – V – vi – IV)</option>
+        <option value="folk">Folk (I – IV – V)</option>
+        <option value="ballade">Ballade (vi – IV – I – V)</option>
+        <option value="doowop">Doo-wop (I – vi – IV – V)</option>
+        <option value="blues">Blues 12 mesures</option>
+        <option value="jazz">Jazz (ii – V – I)</option>
+      </select>
+    </div>
+    <div class="field bpm-field"><label for="bpm">Tempo</label>
+      <div class="bpm-row">
+        <input id="bpm" type="range" min="60" max="200" value="120"/>
+        <span id="bpm-value">120 bpm</span>
+      </div>
+    </div>
+    <div class="field"><label>&nbsp;</label>
+      <button id="play-btn">▶ Play</button>
+    </div>
+    <div class="field"><label>&nbsp;</label>
+      <button id="stop-btn">■ Stop</button>
+    </div>
+    <div class="field"><label>&nbsp;</label>
+      <button id="inspire-btn">✨ Inspire-moi</button>
+    </div>
+    <div class="field"><label>&nbsp;</label>
+      <button id="clear-btn">🗑 Vider</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Accords de la tonalité <span id="palette-title"></span></h2>
+    <div class="palette" id="palette"></div>
+    <div class="custom-row">
+      <label style="font-size:.85rem;font-weight:700;color:#6b7a93">Accord libre :</label>
+      <select id="custom-root"></select>
+      <select id="custom-quality"></select>
+      <button id="custom-add">+ Ajouter</button>
+    </div>
+  </div>
+
+  <div class="section">
+    <h2>Ma progression</h2>
+    <div id="prog"></div>
+    <p class="hint">Glissez pour réordonner · ✕ pour retirer · chaque accord = une mesure · la boucle tourne tant que vous ne stoppez pas.</p>
+    <div id="status"></div>
+  </div>
+
+  <div class="section">
+    <h2>Accompagnement</h2>
+    <div class="layers">
+      <label><input type="checkbox" class="layer" value="piano" checked/> Piano</label>
+      <label><input type="checkbox" class="layer" value="guitar"/> Guitare</label>
+      <label><input type="checkbox" class="layer" value="organ"/> Orgue</label>
+      <label><input type="checkbox" class="layer" value="choir"/> Chœurs</label>
+      <label style="margin-left:auto">Batterie :
+        <select id="drums">
+          <option value="none">Aucune</option>
+          <option value="straight" selected>Standard</option>
+          <option value="shuffle">Shuffle (blues)</option>
+          <option value="ballad">Ballade (douce)</option>
+        </select>
+      </label>
+    </div>
+  </div>
+</div>
+
+<script>
+'use strict';
+const NOTES = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+const QUALITIES = {
+  '':      {label:'maj',  iv:[0,4,7]},
+  'm':     {label:'min',  iv:[0,3,7]},
+  '7':     {label:'7',    iv:[0,4,7,10]},
+  'maj7':  {label:'maj7', iv:[0,4,7,11]},
+  'm7':    {label:'m7',   iv:[0,3,7,10]},
+  'dim':   {label:'dim',  iv:[0,3,6]},
+  'dim7':  {label:'dim7', iv:[0,3,6,9]},
+  'm7b5':  {label:'m7b5', iv:[0,3,6,10]},
+  'sus2':  {label:'sus2', iv:[0,2,7]},
+  'sus4':  {label:'sus4', iv:[0,5,7]},
+  '6':     {label:'6',    iv:[0,4,7,9]},
+  'm6':    {label:'m6',   iv:[0,3,7,9]},
+  'add9':  {label:'add9', iv:[0,4,7,14]},
+  'madd9': {label:'madd9',iv:[0,3,7,14]},
+  '9':     {label:'9',    iv:[0,4,7,10,14]},
+  'maj9':  {label:'maj9', iv:[0,4,7,11,14]},
+  'm9':    {label:'m9',   iv:[0,3,7,10,14]},
+  'aug':   {label:'aug',  iv:[0,4,8]},
+  'mM7':   {label:'mM7',  iv:[0,3,7,11]},
+};
+// scale degrees: [semitone offset, quality suffix, roman numeral]
+const MODES = {
+  major:      {label:'majeur',  deg:[[0,'','I'],[2,'m','ii'],[4,'m','iii'],[5,'','IV'],[7,'','V'],[9,'m','vi'],[11,'dim','vii°']]},
+  minor:      {label:'mineur',  deg:[[0,'m','i'],[2,'dim','ii°'],[3,'','III'],[5,'m','iv'],[7,'m','v'],[8,'','VI'],[10,'','VII']]},
+  dorian:     {label:'dorien',  deg:[[0,'m','i'],[2,'m','ii'],[3,'','III'],[5,'','IV'],[7,'m','v'],[9,'dim','vi°'],[10,'','VII']]},
+  mixolydian: {label:'mixo',    deg:[[0,'','I'],[2,'m','ii'],[4,'dim','iii°'],[5,'','IV'],[7,'m','v'],[9,'m','vi'],[10,'','VII']]},
+  phrygian:   {label:'phrygien',deg:[[0,'m','i'],[1,'','II'],[3,'','III'],[5,'m','iv'],[7,'dim','v°'],[8,'','VI'],[10,'m','vii']]},
+};
+// presets: list of {d: degree index, q: quality override or null}
+const PRESETS = {
+  pop:     {mode:'major', bpm:118, chords:[{d:0,q:null},{d:4,q:null},{d:5,q:null},{d:3,q:null}]},
+  folk:    {mode:'major', bpm:126, chords:[{d:0,q:null},{d:3,q:null},{d:4,q:null},{d:3,q:null}]},
+  ballade: {mode:'major', bpm:96,  chords:[{d:5,q:null},{d:3,q:null},{d:0,q:null},{d:4,q:null}]},
+  doowop:  {mode:'major', bpm:112, chords:[{d:0,q:null},{d:5,q:null},{d:3,q:null},{d:4,q:null}]},
+  blues:   {mode:'mixolydian', bpm:104, chords:[
+            {d:0,q:'7'},{d:0,q:'7'},{d:0,q:'7'},{d:0,q:'7'},
+            {d:3,q:'7'},{d:3,q:'7'},{d:0,q:'7'},{d:0,q:'7'},
+            {d:4,q:'7'},{d:3,q:'7'},{d:0,q:'7'},{d:4,q:'7'}]},
+  jazz:    {mode:'major', bpm:124, chords:[{d:1,q:'m7'},{d:4,q:'7'},{d:0,q:'maj7'},{d:0,q:'maj7'}]},
+};
+
+// ---------- state ----------
+// progression item: {kind:'degree', d, q} follows key changes, or {kind:'abs', root, q}
+let progression = [];
+let playing = false;
+
+const $ = id => document.getElementById(id);
+const state = () => ({
+  key: $('key').value,
+  mode: $('mode').value,
+  bpm: parseInt($('bpm').value, 10),
+  layers: [...document.querySelectorAll('.layer:checked')].map(cb => cb.value),
+  drums: $('drums').value,
+});
+
+function chordLabel(item, st) {
+  const rootIdx = item.kind === 'degree'
+    ? (NOTES.indexOf(st.key) + MODES[st.mode].deg[item.d][0] + 12) % 12
+    : item.root;
+  return NOTES[rootIdx] + item.q;
+}
+function chordIntervals(item) { return QUALITIES[item.q].iv; }
+function chordMidiRoot(item, st) {
+  const rootIdx = item.kind === 'degree'
+    ? (NOTES.indexOf(st.key) + MODES[st.mode].deg[item.d][0] + 12) % 12
+    : item.root;
+  // anchor around C4 (60)
+  let m = 60 + rootIdx;
+  if (m > 71) m -= 12;
+  return m;
+}
+
+// ---------- UI ----------
+(function buildSelectors() {
+  $('key').innerHTML = NOTES.map((n,i) => `<option value="${n}" ${n==='G'?'selected':''}>${n}</option>`).join('');
+  $('custom-root').innerHTML = NOTES.map(n => `<option value="${n}">${n}</option>`).join('');
+  $('custom-quality').innerHTML = Object.entries(QUALITIES)
+    .map(([q,v]) => `<option value="${q}">${v.label}</option>`).join('');
+})();
+
+function renderPalette() {
+  const st = state();
+  const degs = MODES[st.mode].deg;
+  $('palette-title').textContent = `(do ${MODES[st.mode].label})`;
+  $('palette').innerHTML = degs.map((d, i) =>
+    `<button class="chord-btn" data-d="${i}">
+       <span class="num">${d[2]}</span>
+       <span class="name">${NOTES[(NOTES.indexOf(st.key)+d[0]+12)%12]}${d[1]}</span>
+     </button>`).join('');
+  $('palette').querySelectorAll('.chord-btn').forEach(b =>
+    b.addEventListener('click', () => {
+      addChord({kind:'degree', d:+b.dataset.d, q:MODES[st.mode].deg[+b.dataset.d][1]});
+    }));
+}
+
+let dragSrcIdx = null;
+function renderProg(st) {
+  const box = $('prog');
+  if (!progression.length) {
+    box.innerHTML = '<span class="empty-note">Aucun accord — cliquez dans la palette ou choisissez un preset.</span>';
+    return;
+  }
+  box.innerHTML = progression.map((c, i) =>
+    `<span class="chip" draggable="true" data-i="${i}">${chordLabel(c, st)}<button class="del" data-i="${i}" title="Retirer">✕</button></span>`).join('');
+  box.querySelectorAll('.del').forEach(b => b.addEventListener('click', e => {
+    e.stopPropagation();
+    progression.splice(+b.dataset.i, 1); refresh();
+  }));
+  box.querySelectorAll('.chip').forEach(chip => {
+    chip.addEventListener('dragstart', e => { dragSrcIdx = +chip.dataset.i; e.dataTransfer.effectAllowed='move'; });
+    chip.addEventListener('dragover', e => e.preventDefault());
+    chip.addEventListener('drop', e => {
+      e.preventDefault();
+      const to = +chip.dataset.i;
+      const [moved] = progression.splice(dragSrcIdx, 1);
+      progression.splice(to, 0, moved);
+      dragSrcIdx = null; refresh();
+    });
+  });
+}
+function highlight(idx) {
+  $('prog').querySelectorAll('.chip').forEach((c,i)=>c.classList.toggle('current', i===idx));
+}
+
+function addChord(item) { progression.push(item); refresh(); if (playing) restart(); }
+
+function refresh() { const st = state(); renderPalette(); renderProg(st); }
+
+$('key').addEventListener('change', refresh);
+$('mode').addEventListener('change', refresh);
+$('bpm').addEventListener('input', () => $('bpm-value').textContent = $('bpm').value + ' bpm');
+$('preset').addEventListener('change', () => {
+  const p = PRESETS[$('preset').value];
+  if (!p) return;
+  $('mode').value = p.mode;
+  $('bpm').value = p.bpm; $('bpm-value').textContent = p.bpm + ' bpm';
+  progression = p.chords.map(c => ({kind:'degree', d:c.d, q:c.q !== null ? c.q : MODES[p.mode].deg[c.d][1]}));
+  refresh();
+  if (playing) restart();
+});
+$('custom-add').addEventListener('click', () => {
+  addChord({kind:'abs', root:NOTES.indexOf($('custom-root').value), q:$('custom-quality').value});
+});
+$('inspire-btn').addEventListener('click', () => {
+  const st = state();
+  const degs = MODES[st.mode].deg;
+  const pick = () => degs[Math.floor(Math.random()*7)];
+  const n = 4;
+  progression = Array.from({length:n}, (_, i) =>
+    i === 0 ? {kind:'degree', d:0, q:degs[0][1]} : {kind:'degree', d:+pick()[0]===0?0:Math.floor(Math.random()*7), q:null});
+  // fix quality from degrees
+  progression = progression.map(c => ({kind:'degree', d:c.d===0?0:c.d, q:degs[c.d][1]}));
+  const bpm = 80 + Math.floor(Math.random()*60);
+  $('bpm').value = bpm; $('bpm-value').textContent = bpm + ' bpm';
+  const drumChoices = ['straight','shuffle','ballad'];
+  $('drums').value = drumChoices[Math.floor(Math.random()*drumChoices.length)];
+  refresh();
+  if (playing) restart();
+  $('status').textContent = 'Grille aléatoire générée — à vous de jouer !';
+  setTimeout(()=>{ if($('status').textContent.startsWith('Grille aléa')) $('status').textContent=''; }, 3000);
+});
+
+$('clear-btn').addEventListener('click', () => {
+  progression = [];
+  $('preset').value = '';
+  refresh();
+  if (playing) stop();
+});
+
+// ---------- audio engine (Web Audio, self-contained) ----------
+let ctx = null, master = null;
+function ensureCtx() {
+  if (!ctx) {
+    ctx = new (window.AudioContext || window.webkitAudioContext)();
+    master = ctx.createGain(); master.gain.value = 0.9; master.connect(ctx.destination);
+  }
+  if (ctx.state === 'suspended') ctx.resume();
+}
+const midiHz = m => 440 * Math.pow(2, (m - 69) / 12);
+
+function envGain(t0, dur, a, d, s, susLevel) {
+  const g = ctx.createGain();
+  g.gain.setValueAtTime(0, t0);
+  g.gain.linearRampToValueAtTime(s, t0 + a);
+  g.gain.exponentialRampToValueAtTime(Math.max(susLevel, 0.001), t0 + a + d);
+  return g;
+}
+function playTone(freq, t0, dur, type, peak, filterHz) {
+  const o = ctx.createOscillator(); o.type = type; o.frequency.value = freq;
+  const g = ctx.createGain();
+  g.gain.setValueAtTime(0, t0);
+  g.gain.linearRampToValueAtTime(peak, t0 + 0.01);
+  g.gain.exponentialRampToValueAtTime(0.001, t0 + dur);
+  let node = o;
+  if (filterHz) {
+    const f = ctx.createBiquadFilter(); f.type='lowpass'; f.frequency.value = filterHz;
+    o.connect(f); node = f;
+  }
+  node.connect(g); g.connect(master);
+  o.start(t0); o.stop(t0 + dur + 0.05);
+}
+function playPiano(midi, t0, dur) { playTone(midiHz(midi), t0, dur, 'triangle', 0.16, 4000); playTone(midiHz(midi), t0, dur*0.5, 'sine', 0.08); }
+function playGuitar(midi, t0, dur) { playTone(midiHz(midi), t0, Math.min(dur, 0.9), 'sawtooth', 0.09, 2200); }
+function playOrgan(midi, t0, dur) {
+  [1,2,3].forEach((h,i) => playTone(midiHz(midi)*h, t0, dur, 'sine', 0.07/(i+1)));
+}
+function playChoir(midi, t0, dur) {
+  playTone(midiHz(midi), t0, dur, 'sine', 0.05);
+  playTone(midiHz(midi)*1.005, t0, dur, 'sine', 0.04);
+  playTone(midiHz(midi)*0.5, t0, dur, 'triangle', 0.03);
+}
+const INSTRUMENTS = { piano: playPiano, guitar: playGuitar, organ: playOrgan, choir: playChoir };
+
+function playBass(midi, t0, dur) {
+  const o = ctx.createOscillator(); o.type='sine'; o.frequency.value = midiHz(midi);
+  const o2 = ctx.createOscillator(); o2.type='triangle'; o2.frequency.value = midiHz(midi);
+  const g = ctx.createGain();
+  g.gain.setValueAtTime(0, t0);
+  g.gain.linearRampToValueAtTime(0.28, t0 + 0.02);
+  g.gain.exponentialRampToValueAtTime(0.001, t0 + dur);
+  o.connect(g); o2.connect(g); g.connect(master);
+  o.start(t0); o2.start(t0); o.stop(t0+dur+0.05); o2.stop(t0+dur+0.05);
+}
+let noiseBuf = null;
+function noise() {
+  if (!noiseBuf) {
+    noiseBuf = ctx.createBuffer(1, ctx.sampleRate * 0.5, ctx.sampleRate);
+    const d = noiseBuf.getChannelData(0);
+    for (let i = 0; i < d.length; i++) d[i] = Math.random()*2-1;
+  }
+  const s = ctx.createBufferSource(); s.buffer = noiseBuf; s.loop = true;
+  return s;
+}
+function kick(t0) {
+  const o = ctx.createOscillator(); o.type='sine';
+  o.frequency.setValueAtTime(150, t0); o.frequency.exponentialRampToValueAtTime(48, t0+0.12);
+  const g = ctx.createGain();
+  g.gain.setValueAtTime(0.5, t0); g.gain.exponentialRampToValueAtTime(0.001, t0+0.25);
+  o.connect(g); g.connect(master); o.start(t0); o.stop(t0+0.3);
+}
+function snare(t0, soft) {
+  const s = noise(); const f = ctx.createBiquadFilter(); f.type='bandpass'; f.frequency.value=1800; f.Q.value=0.8;
+  const g = ctx.createGain(); const v = soft?0.12:0.2;
+  g.gain.setValueAtTime(v, t0); g.gain.exponentialRampToValueAtTime(0.001, t0+0.15);
+  s.connect(f); f.connect(g); g.connect(master); s.start(t0); s.stop(t0+0.2);
+  const o = ctx.createOscillator(); o.type='triangle'; o.frequency.value=200;
+  const g2 = ctx.createGain(); g2.gain.setValueAtTime(v*0.5, t0); g2.gain.exponentialRampToValueAtTime(0.001, t0+0.08);
+  o.connect(g2); g2.connect(master); o.start(t0); o.stop(t0+0.1);
+}
+function hat(t0, open) {
+  const s = noise(); const f = ctx.createBiquadFilter(); f.type='highpass'; f.frequency.value=8000;
+  const g = ctx.createGain(); const dur = open?0.18:0.04;
+  g.gain.setValueAtTime(0.08, t0); g.gain.exponentialRampToValueAtTime(0.001, t0+dur);
+  s.connect(f); f.connect(g); g.connect(master); s.start(t0); s.stop(t0+dur+0.05);
+}
+// patterns per bar (4 beats, positions in beats)
+const DRUM_PATTERNS = {
+  straight: [ {p:0,k:'k'},{p:1,k:'s'},{p:2,k:'k'},{p:2.5,k:'k'},{p:3,k:'s'},
+              {p:0,k:'h',o:1},{p:0.5,k:'h'},{p:1,k:'h'},{p:1.5,k:'h'},{p:2,k:'h'},{p:2.5,k:'h'},{p:3,k:'h'},{p:3.5,k:'h'} ],
+  shuffle:  [ {p:0,k:'k'},{p:1.33,k:'h'},{p:1.66,k:'h'},{p:2,k:'s'},{p:3.33,k:'h'},{p:3.66,k:'h'},
+              {p:0,k:'h'},{p:1,k:'h'},{p:2,k:'h'},{p:3,k:'h'},{p:0.66,k:'h'},{p:1.66,k:'h'},{p:2.66,k:'h'},{p:3.66,k:'h'} ],
+  ballad:   [ {p:0,k:'k'},{p:2,k:'s',soft:1},{p:0,k:'h'},{p:1,k:'h'},{p:2,k:'h'},{p:3,k:'h',o:1} ],
+};
+function playDrums(patternName, t0, beat) {
+  (DRUM_PATTERNS[patternName]||[]).forEach(ev => {
+    const t = t0 + ev.p * beat;
+    if (ev.k==='k') kick(t);
+    else if (ev.k==='s') snare(t, ev.soft);
+    else hat(t, ev.o);
+  });
+}
+
+// ---------- scheduler ----------
+let schedTimer = null, loopStart = 0, nextBar = 0, barCount = 0;
+const LOOKAHEAD = 0.25, TICK = 60;
+
+function scheduleBar(barIdx, t0, st) {
+  const item = progression[barIdx % progression.length];
+  const beat = 60 / st.bpm;
+  const barDur = beat * 4;
+  const midiRoot = chordMidiRoot(item, st);
+  const ivs = chordIntervals(item);
+  st.layers.forEach(layer => {
+    ivs.forEach(iv => {
+      const m = midiRoot + iv;
+      INSTRUMENTS[layer](m, t0, barDur * 0.95);
+    });
+  });
+  // bass: root on beats 1 & 3 (octave 2)
+  const bassMidi = ((midiRoot - 12) % 24) + 36;
+  playBass(bassMidi, t0, beat * 1.8);
+  playBass(bassMidi, t0 + 2 * beat, beat * 1.8);
+  if (st.drums !== 'none') playDrums(st.drums, t0, beat);
+}
+
+function schedulerTick() {
+  const st = state();
+  if (!progression.length) return;
+  const beat = 60 / st.bpm;
+  while (nextBar < ctx.currentTime + LOOKAHEAD) {
+    scheduleBar(barCount, Math.max(nextBar, ctx.currentTime + 0.05), st);
+    barCount++;
+    nextBar += beat * 4;
+  }
+  // highlight
+  const elapsed = ctx.currentTime - loopStart;
+  const idx = Math.floor(elapsed / (beat * 4)) % progression.length;
+  highlight(idx);
+}
+
+function start() {
+  if (!progression.length) { $('status').textContent = 'Ajoutez au moins un accord.'; return; }
+  $('status').textContent = '';
+  ensureCtx();
+  playing = true;
+  barCount = 0;
+  loopStart = ctx.currentTime + 0.1;
+  nextBar = loopStart;
+  schedulerTick();
+  schedTimer = setInterval(schedulerTick, TICK);
+}
+function stop() {
+  playing = false;
+  clearInterval(schedTimer); schedTimer = null;
+  // fast silence: ramp master down and recreate
+  if (ctx) {
+    master.gain.cancelScheduledValues(ctx.currentTime);
+    master.gain.setValueAtTime(master.gain.value, ctx.currentTime);
+    master.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.08);
+    setTimeout(() => { if (!playing) { master.gain.setValueAtTime(0.9, ctx.currentTime); } }, 150);
+  }
+  highlight(-1);
+}
+function restart() { if (playing) { stop(); setTimeout(start, 200); } }
+
+$('play-btn').addEventListener('click', start);
+$('stop-btn').addEventListener('click', stop);
+
+refresh();
+</script>
+</body>
+</html>
