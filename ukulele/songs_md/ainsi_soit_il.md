@@ -1,9 +1,5 @@
 # Ainsi soit-il (Cric-Crac) - Louis Chedid
 
-Normalement en capo 1
-
-## Paroles:
-
 [C]Moteur   
 
 <uke-chord name="C"></uke-chord> 
