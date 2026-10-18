@@ -5,6 +5,15 @@
 <uke-chord name="E7" frets="1202"></uke-chord> 
 <uke-chord name="Dm" frets="2210"></uke-chord> 
 
+## Accords (variations):
+<uke-chord name="Am" frets="2003"></uke-chord> 
+<uke-chord name="Am (rootless)" frets="1003" position=5></uke-chord> 
+<uke-chord name="Am" frets="2124" position=4></uke-chord> 
+<uke-chord name="E7" frets="1112" position=4></uke-chord> 
+<uke-chord name="Dm6" frets="2212"></uke-chord> 
+<uke-chord name="Dm7" frets="2213"></uke-chord> 
+
+
 ## Instruction:
 
 - Structure
@@ -22,10 +31,10 @@
     E7  E7  Am (E7)
     </pre>
 
-- Rythmique en swing
+- Rythmique en swing (possible de ne faire ▾ que sur la corde 4)
     <pre class="tableau">
     1  &2  &3  &4  & 
-    ▾   ▼  ▴▾   ▲  ▴
+    ▾   ▼  ▴▾   ▼  ▴
     </pre>
 
 ## Paroles:
