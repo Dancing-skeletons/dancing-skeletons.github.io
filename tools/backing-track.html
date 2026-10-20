@@ -483,16 +483,17 @@ function start() {
 function stop() {
   playing = false;
   clearInterval(schedTimer); schedTimer = null;
-  // fast silence: ramp master down and recreate
-  if (ctx) {
-    master.gain.cancelScheduledValues(ctx.currentTime);
-    master.gain.setValueAtTime(master.gain.value, ctx.currentTime);
-    master.gain.linearRampToValueAtTime(0, ctx.currentTime + 0.08);
-    setTimeout(() => { if (!playing) { master.gain.setValueAtTime(0.9, ctx.currentTime); } }, 150);
+  // Cut everything instantly: disconnect the current master (all voices route
+  // through it) and create a fresh one for the next start().
+  if (ctx && master) {
+    try { master.disconnect(); } catch (e) {}
+    master = ctx.createGain();
+    master.gain.value = 0.9;
+    master.connect(ctx.destination);
   }
   highlight(-1);
 }
-function restart() { if (playing) { stop(); setTimeout(start, 200); } }
+function restart() { if (playing) { stop(); start(); } }
 
 $('play-btn').addEventListener('click', start);
 $('stop-btn').addEventListener('click', stop);
