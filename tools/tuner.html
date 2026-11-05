@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>Accordeur — ukulélé & guitare</title>
+<style>
+  :root { font-family: system-ui, -apple-system, sans-serif; background:#f4f6fa; color:#22314a; }
+  * { box-sizing: border-box; }
+  body { margin:0; padding:1rem; }
+  .wrap { max-width: 760px; margin: 0 auto; }
+  h1 { font-size: 1.3rem; margin: 0 0 0.2rem; }
+  .sub { font-size: .85rem; color:#6b7a93; margin:0 0 1rem; }
+
+  .topbar {
+    display:flex; flex-wrap:wrap; gap:.6rem; align-items:end;
+    background:#fff; border:1px solid #e2e8f2; border-radius:10px; padding:.8rem;
+    margin-bottom:1rem;
+  }
+  .field { display:flex; flex-direction:column; gap:.25rem; }
+  .field label { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.03em; color:#6b7a93; }
+  .field select { font-size:.95rem; padding:.35rem; border:1px solid #cdd7e5; border-radius:6px; background:#fff; }
+  button {
+    font-size:1rem; font-weight:700; border:none; border-radius:7px;
+    padding:.5rem 1rem; cursor:pointer;
+  }
+  #mic-btn { background:#00558d; color:#fff; }
+  #mic-btn.on { background:#c0392b; }
+  #play-target { background:#eef2f7; color:#2c4a6e; border:1px solid #cdd7e5; }
+  .status { font-size:.85rem; color:#6b7a93; align-self:center; }
+  .status.err { color:#c0392b; font-weight:700; }
+
+  .section { background:#fff; border:1px solid #e2e8f2; border-radius:10px; padding:.8rem .9rem; margin-bottom:1rem; }
+  .section > h2 { font-size:.78rem; text-transform:uppercase; letter-spacing:.04em; color:#6b7a93; margin:0 0 .6rem; }
+
+  .gauge-section { text-align:center; }
+  #gauge { max-width:100%; height:auto; }
+  .readout { display:flex; flex-wrap:wrap; justify-content:center; align-items:baseline; gap:1rem; margin-top:.2rem; }
+  .note { font-size:3rem; font-weight:800; font-family:ui-monospace,Menlo,monospace; line-height:1; min-width:5rem; }
+  .note.in-tune { color:#0a7d33; }
+  .freq { font-size:1.1rem; font-weight:700; color:#6b7a93; }
+  .cents { font-size:1.1rem; font-weight:700; font-family:ui-monospace,Menlo,monospace; }
+  .cents.flat { color:#c0392b; }
+  .cents.sharp { color:#b8860b; }
+  .cents.in-tune { color:#0a7d33; }
+
+  .level { height:8px; background:#eef2f7; border-radius:4px; margin-top:.7rem; overflow:hidden; }
+  #level-fill { height:100%; width:0%; background:#00558d; transition:width .06s linear; }
+
+  .strings { display:grid; grid-template-columns:repeat(auto-fill,minmax(96px,1fr)); gap:.5rem; }
+  .string-btn {
+    padding:.55rem .3rem; border-radius:8px; border:2px solid #cdd7e5; background:#f4f8fd;
+    cursor:pointer; text-align:center; transition:border-color .12s, background .12s;
+  }
+  .string-btn:hover { border-color:#00558d; }
+  .string-btn .name { display:block; font-size:1.15rem; font-weight:800; font-family:ui-monospace,Menlo,monospace; }
+  .string-btn .target { display:block; font-size:.68rem; color:#6b7a93; }
+  .string-btn .dev { display:block; font-size:.8rem; font-weight:700; font-family:ui-monospace,Menlo,monospace; min-height:1em; }
+  .string-btn.active { border-color:#00558d; background:#dbeaf7; }
+  .string-btn.in-tune { border-color:#0a7d33; background:#def7e6; }
+
+  .target-row { display:flex; gap:.5rem; align-items:center; flex-wrap:wrap; }
+  .target-row select { font-size:.95rem; padding:.35rem; border:1px solid #cdd7e5; border-radius:6px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Accordeur</h1>
+  <p class="sub">Ukulélé &amp; guitare — accordez au micro, ou cliquez sur une corde pour entendre sa note.</p>
+
+  <div class="topbar">
+    <div class="field">
+      <label for="instrument">Instrument</label>
+      <select id="instrument">
+        <option value="uke">Ukulélé (g C E A)</option>
+        <option value="uke_lowg">Ukulélé (G grave C E A)</option>
+        <option value="guitar">Guitare (E A D G B e)</option>
+      </select>
+    </div>
+    <div class="field">
+      <label for="a4">Référence La</label>
+      <select id="a4">
+        <option value="440">440 Hz</option>
+        <option value="432">432 Hz</option>
+      </select>
+    </div>
+    <button id="mic-btn">Démarrer le micro</button>
+    <span id="status" class="status">micro arrêté</span>
+  </div>
+
+  <div class="section gauge-section">
+    <canvas id="gauge" width="320" height="185"></canvas>
+    <div class="readout">
+      <div id="note" class="note">—</div>
+      <div id="freq" class="freq">— Hz</div>
+      <div id="cents" class="cents">—</div>
+    </div>
+    <div class="level"><div id="level-fill"></div></div>
+  </div>
+
+  <div class="section">
+    <h2>Cordes — cliquez pour entendre la note cible</h2>
+    <div id="strings" class="strings"></div>
+  </div>
+
+  <div class="section">
+    <h2>Note cible</h2>
+    <div class="target-row">
+      <select id="target-note"></select>
+      <button id="play-target">Écouter la note</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var NOTE_NAMES = ["C","C#","D","D#","E","F","F#","G","G#","A","A#","B"];
+
+  var TUNINGS = {
+    uke:      [ {name:"G", midi:67}, {name:"C", midi:60}, {name:"E", midi:64}, {name:"A", midi:69} ],
+    uke_lowg: [ {name:"G", midi:55}, {name:"C", midi:60}, {name:"E", midi:64}, {name:"A", midi:69} ],
+    guitar:   [ {name:"E", midi:40}, {name:"A", midi:45}, {name:"D", midi:50}, {name:"G", midi:55}, {name:"B", midi:59}, {name:"e", midi:64} ]
+  };
+
+  var els = {
+    instrument: document.getElementById("instrument"),
+    a4: document.getElementById("a4"),
+    micBtn: document.getElementById("mic-btn"),
+    status: document.getElementById("status"),
+    gauge: document.getElementById("gauge"),
+    note: document.getElementById("note"),
+    freq: document.getElementById("freq"),
+    cents: document.getElementById("cents"),
+    levelFill: document.getElementById("level-fill"),
+    strings: document.getElementById("strings"),
+    targetNote: document.getElementById("target-note"),
+    playTarget: document.getElementById("play-target")
+  };
+
+  var audioCtx = null;
+  var analyser = null;
+  var micStream = null;
+  var running = false;
+  var rafId = null;
+  var freqBuf = [];
+
+  function a4Ref() { return parseFloat(els.a4.value); }
+  function midiToFreq(m) { return a4Ref() * Math.pow(2, (m - 69) / 12); }
+  function freqToMidi(f) { return 69 + 12 * Math.log2(f / a4Ref()); }
+  function noteName(midi) {
+    var r = Math.round(midi);
+    return NOTE_NAMES[((r % 12) + 12) % 12] + (Math.floor(r / 12) - 1);
+  }
+
+  /* ---------- Strings panel ---------- */
+
+  function buildStrings() {
+    els.strings.innerHTML = "";
+    TUNINGS[els.instrument.value].forEach(function (s) {
+      var btn = document.createElement("button");
+      btn.className = "string-btn";
+      btn.dataset.midi = s.midi;
+      var f = midiToFreq(s.midi);
+      btn.innerHTML =
+        '<span class="name">' + s.name + (s.midi >= 60 ? String(Math.floor(s.midi / 12) - 1) : "") + "</span>" +
+        '<span class="target">' + f.toFixed(1) + " Hz</span>" +
+        '<span class="dev"></span>';
+      btn.addEventListener("click", function () { playTone(f); });
+      els.strings.appendChild(btn);
+    });
+  }
+
+  /* ---------- Target note select ---------- */
+
+  function buildTargetNotes() {
+    els.targetNote.innerHTML = "";
+    for (var m = 40; m <= 69; m++) { // E2 .. A4
+      var opt = document.createElement("option");
+      opt.value = m;
+      opt.textContent = noteName(m) + " — " + midiToFreq(m).toFixed(1) + " Hz";
+      if (m === 69) opt.selected = true;
+      els.targetNote.appendChild(opt);
+    }
+  }
+
+  /* ---------- Reference tone (oscillator) ---------- */
+
+  function playTone(freq) {
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) return;
+    if (!audioCtx) audioCtx = new AC();
+    if (audioCtx.state === "suspended") audioCtx.resume();
+    var t0 = audioCtx.currentTime;
+    var osc = audioCtx.createOscillator();
+    var gain = audioCtx.createGain();
+    osc.type = "sine";
+    osc.frequency.value = freq;
+    gain.gain.setValueAtTime(0.0001, t0);
+    gain.gain.exponentialRampToValueAtTime(0.25, t0 + 0.02);
+    gain.gain.setValueAtTime(0.25, t0 + 1.2);
+    gain.gain.exponentialRampToValueAtTime(0.0001, t0 + 1.6);
+    osc.connect(gain).connect(audioCtx.destination);
+    osc.start(t0);
+    osc.stop(t0 + 1.7);
+  }
+
+  els.playTarget.addEventListener("click", function () {
+    playTone(midiToFreq(parseInt(els.targetNote.value, 10)));
+  });
+
+  /* ---------- Pitch detection (autocorrelation / NSDF) ---------- */
+
+  var MIN_FREQ = 60, MAX_FREQ = 1200;
+
+  function detectPitch(buf, sampleRate) {
+    var N = buf.length;
+    var rms = 0;
+    for (var i = 0; i < N; i++) rms += buf[i] * buf[i];
+    rms = Math.sqrt(rms / N);
+    if (rms < 0.01) return null;
+
+    var minLag = Math.max(2, Math.floor(sampleRate / MAX_FREQ));
+    var maxLag = Math.min(N - 1, Math.floor(sampleRate / MIN_FREQ));
+
+    // Normalized autocorrelation (NSDF-like), range [-1, 1]
+    var nsdf = new Float32Array(maxLag + 1);
+    for (var lag = minLag; lag <= maxLag; lag++) {
+      var acf = 0, m0 = 0, m1 = 0;
+      for (var j = 0; j < N - lag; j++) {
+        acf += buf[j] * buf[j + lag];
+        m0 += buf[j] * buf[j];
+        m1 += buf[j + lag] * buf[j + lag];
+      }
+      var denom = m0 + m1;
+      nsdf[lag] = denom > 0 ? (2 * acf) / denom : 0;
+    }
+
+    // Global max, then first local max above 85% of it (avoids octave errors)
+    var globalMax = 0;
+    for (var k = minLag; k <= maxLag; k++) if (nsdf[k] > globalMax) globalMax = nsdf[k];
+    if (globalMax < 0.3) return null;
+
+    var bestLag = -1;
+    for (var l = minLag + 1; l < maxLag; l++) {
+      if (nsdf[l] >= 0.85 * globalMax && nsdf[l] > nsdf[l - 1] && nsdf[l] >= nsdf[l + 1]) {
+        bestLag = l;
+        break;
+      }
+    }
+    if (bestLag < 0) {
+      for (var l2 = minLag; l2 <= maxLag; l2++) if (nsdf[l2] === globalMax) { bestLag = l2; break; }
+    }
+    if (bestLag < 0) return null;
+
+    // Parabolic interpolation for sub-sample lag
+    var y0 = nsdf[bestLag - 1], y1 = nsdf[bestLag], y2 = nsdf[bestLag + 1];
+    var denomP = y0 - 2 * y1 + y2;
+    var shift = Math.abs(denomP) > 1e-12 ? 0.5 * (y0 - y2) / denomP : 0;
+    var lagRef = bestLag + shift;
+
+    return { freq: sampleRate / lagRef, rms: rms };
+  }
+
+  /* ---------- Gauge drawing ---------- */
+
+  var g = els.gauge.getContext("2d");
+
+  function drawGauge(cents, active) {
+    var W = els.gauge.width, H = els.gauge.height;
+    var cx = W / 2, cy = H - 18, R = Math.min(W / 2 - 14, H - 34);
+    g.clearRect(0, 0, W, H);
+
+    function angle(c) { return (-90 + (Math.max(-50, Math.min(50, c)) / 50) * 90) * Math.PI / 180; }
+
+    // Colored zones: green ±5, orange ±20, red beyond
+    var zones = [
+      { from: -50, to: -20, color: "rgba(192,57,43,.25)" },
+      { from: -20, to: -5,  color: "rgba(184,134,11,.25)" },
+      { from: -5,  to: 5,   color: "rgba(10,125,51,.30)" },
+      { from: 5,   to: 20,  color: "rgba(184,134,11,.25)" },
+      { from: 20,  to: 50,  color: "rgba(192,57,43,.25)" }
+    ];
+    zones.forEach(function (z) {
+      g.beginPath();
+      g.arc(cx, cy, R, Math.PI + angle(z.from), Math.PI + angle(z.to));
+      g.strokeStyle = z.color;
+      g.lineWidth = 12;
+      g.stroke();
+    });
+
+    // Ticks every 10 cents
+    g.strokeStyle = "#22314a";
+    g.fillStyle = "#6b7a93";
+    g.lineWidth = 1;
+    g.font = "10px system-ui";
+    g.textAlign = "center";
+    for (var c = -50; c <= 50; c += 10) {
+      var a = angle(c);
+      var r1 = R - 10, r2 = R - (c % 25 === 0 ? 20 : 15);
+      g.beginPath();
+      g.moveTo(cx + r1 * Math.cos(Math.PI + a), cy + r1 * Math.sin(Math.PI + a));
+      g.lineTo(cx + r2 * Math.cos(Math.PI + a), cy + r2 * Math.sin(Math.PI + a));
+      g.stroke();
+      if (c % 25 === 0) {
+        g.fillText((c > 0 ? "+" : "") + c, cx + (R - 28) * Math.cos(Math.PI + a), cy + (R - 28) * Math.sin(Math.PI + a) + 3);
+      }
+    }
+
+    // Needle
+    if (active) {
+      var aN = angle(cents);
+      var inTune = Math.abs(cents) <= 5;
+      g.beginPath();
+      g.moveTo(cx, cy);
+      g.lineTo(cx + (R - 8) * Math.cos(Math.PI + aN), cy + (R - 8) * Math.sin(Math.PI + aN));
+      g.strokeStyle = inTune ? "#0a7d33" : "#c0392b";
+      g.lineWidth = 3;
+      g.stroke();
+      g.beginPath();
+      g.arc(cx, cy, 5, 0, 2 * Math.PI);
+      g.fillStyle = "#22314a";
+      g.fill();
+    }
+  }
+
+  /* ---------- UI update ---------- */
+
+  function setStatus(msg, isErr) {
+    els.status.textContent = msg;
+    els.status.className = "status" + (isErr ? " err" : "");
+  }
+
+  function updateUI(det) {
+    if (!det) {
+      els.note.textContent = "—";
+      els.note.className = "note";
+      els.freq.textContent = "— Hz";
+      els.cents.textContent = "—";
+      els.cents.className = "cents";
+      drawGauge(0, false);
+      markStrings(null);
+      return;
+    }
+    var midi = freqToMidi(det.freq);
+    var nearest = Math.round(midi);
+    var cents = Math.round(100 * (midi - nearest));
+    var name = noteName(midi);
+    var inTune = Math.abs(cents) <= 5;
+
+    els.note.textContent = name;
+    els.note.className = "note" + (inTune ? " in-tune" : "");
+    els.freq.textContent = det.freq.toFixed(1) + " Hz";
+    els.cents.textContent = cents === 0 ? "juste" : (cents > 0 ? "+" + cents + " ¢ (trop haut)" : cents + " ¢ (trop bas)");
+    els.cents.className = "cents" + (inTune ? " in-tune" : (cents > 0 ? " sharp" : " flat"));
+    drawGauge(cents, true);
+    markStrings(nearest, cents);
+  }
+
+  function markStrings(nearestMidi, cents) {
+    var buttons = els.strings.querySelectorAll(".string-btn");
+    buttons.forEach(function (b) {
+      var m = parseInt(b.dataset.midi, 10);
+      var dev = b.querySelector(".dev");
+      if (nearestMidi === m && cents !== null && cents !== undefined) {
+        b.classList.add("active");
+        b.classList.toggle("in-tune", Math.abs(cents) <= 5);
+        dev.textContent = (cents > 0 ? "+" : "") + cents + " ¢";
+      } else {
+        b.classList.remove("active", "in-tune");
+        dev.textContent = "";
+      }
+    });
+  }
+
+  /* ---------- Mic loop ---------- */
+
+  var scratch = null;
+
+  function loop() {
+    if (!running) return;
+    analyser.getFloatTimeDomainData(scratch);
+    var det = detectPitch(scratch, audioCtx.sampleRate);
+    if (det) {
+      freqBuf.push(det.freq);
+      if (freqBuf.length > 4) freqBuf.shift();
+      var sum = 0;
+      freqBuf.forEach(function (f) { sum += f; });
+      det.freq = sum / freqBuf.length;
+      els.levelFill.style.width = Math.min(100, det.rms * 400) + "%";
+    } else {
+      freqBuf.length = 0;
+      els.levelFill.style.width = "0%";
+    }
+    updateUI(det);
+    rafId = requestAnimationFrame(loop);
+  }
+
+  els.micBtn.addEventListener("click", function () {
+    if (running) {
+      running = false;
+      cancelAnimationFrame(rafId);
+      if (micStream) micStream.getTracks().forEach(function (t) { t.stop(); });
+      micStream = null;
+      if (audioCtx) audioCtx.suspend();
+      els.micBtn.textContent = "Démarrer le micro";
+      els.micBtn.classList.remove("on");
+      setStatus("micro arrêté");
+      freqBuf.length = 0;
+      updateUI(null);
+      return;
+    }
+    var AC = window.AudioContext || window.webkitAudioContext;
+    if (!AC) { setStatus("Web Audio non supporté par ce navigateur", true); return; }
+    if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+      setStatus("micro non disponible (HTTPS requis)", true);
+      return;
+    }
+    navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false } })
+      .then(function (stream) {
+        if (!audioCtx) audioCtx = new AC();
+        audioCtx.resume();
+        analyser = audioCtx.createAnalyser();
+        analyser.fftSize = 4096;
+        scratch = new Float32Array(analyser.fftSize);
+        var src = audioCtx.createMediaStreamSource(stream);
+        src.connect(analyser);
+        micStream = stream;
+        running = true;
+        els.micBtn.textContent = "Arrêter le micro";
+        els.micBtn.classList.add("on");
+        setStatus("écoute en cours — jouez une corde");
+        loop();
+      })
+      .catch(function () {
+        setStatus("accès au micro refusé ou introuvable", true);
+      });
+  });
+
+  /* ---------- Init ---------- */
+
+  els.instrument.addEventListener("change", buildStrings);
+  els.a4.addEventListener("change", function () { buildStrings(); buildTargetNotes(); });
+  buildStrings();
+  buildTargetNotes();
+  drawGauge(0, false);
+})();
+</script>
+</body>
+</html>
