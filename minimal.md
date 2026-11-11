@@ -9,7 +9,7 @@
 ## Instructions:
 - Intro: chaque accord dure 4 temps, joué ▼▼▼.
 - Couplets: chaque accord dure 4 temps, arpège du type (4321) pour [C].
-- Ne pas oublier de mettre 2 espaces à la fin de chaque ligne des paroles.
+- Chaque ligne des paroles fait automatiquement un saut de ligne (plus besoin de 2 espaces en fin de ligne).
 - Possibilité de rajouter des accords en changeant la position des frets.
 
 ## Paroles:

@@ -18,7 +18,7 @@ const path =
     ? require('path')
     : null;
 
-const md = new MarkdownIt({ html: true, breaks: false });
+const md = new MarkdownIt({ html: true, breaks: true });
 
 /* -------------------------
    CHORD PLUGINS
@@ -150,6 +150,10 @@ function renderSong(src, title = "Song") {
   }
 
   let body = md.render(src);
+
+  // breaks:true turns every newline into a <br>; keep chord diagrams flowing inline
+  body = body.replace(/<\/uke-chord><br>/g, '</uke-chord>');
+  body = body.replace(/<pre([^>]*)><br>/g, '<pre$1>');
 
   // Single chord-diagram element per <uke-chord>. We remember the author's
   // original name / frets / position in data-* attributes so transposition

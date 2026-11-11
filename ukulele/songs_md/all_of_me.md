@@ -43,8 +43,8 @@ musicxml: ./all_of_me_G.musicxml
 
 ### Verse
 [G]All of me  
-Why not take [B7]all of me  
-[E7]Can't you see  
+Why not take [B7]all of me
+[E7]Can't you see
 That I'm no good with[Am7]out you  
 
 [B7]Take my lips  

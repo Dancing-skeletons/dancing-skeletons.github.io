@@ -135,35 +135,23 @@ function buildIndex() {
 
 ${md.render(mdLines.join("\n"))}
 
-<h2>Mise en page à partir d'un fichier markdown</h2>
-
-<div id="generator">
-
-<ul><li><a href="./minimal.md" download>Exemple minimal</a></li></ul>
-  <input type="file" id="mdUpload" accept=".md">
-  <button id="generateBtn">
-    Mise en page
-  </button>
-</div>
-
-
-
-
-<script src="https://cdn.jsdelivr.net/npm/markdown-it/dist/markdown-it.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/markdown-it-container/dist/markdown-it-container.min.js"></script>
-<script>
-window.siteCSS =
-${JSON.stringify(siteCSS)};
-</script>
-<script src="md_renderer.js"></script>
-<script src="uploader.js"></script>
-
 
 </body>
 </html>`;
 
   const htmlPath = path.join(ROOT_FOLDER, "index.html");
   fs.writeFileSync(htmlPath, htmlContent, "utf8");
+
+  // Inject the current styles.css into the editor page so its live preview
+  // is styled exactly like a generated song page (works offline on file://)
+  const editorPath = path.join(ROOT_FOLDER, "tools", "editor.html");
+  if (fs.existsSync(editorPath)) {
+    const editor = fs.readFileSync(editorPath, "utf8").replace(
+      /^window\.siteCSS = .*$/m,
+      () => "window.siteCSS = " + JSON.stringify(siteCSS) + ";"
+    );
+    fs.writeFileSync(editorPath, editor, "utf8");
+  }
 
   console.log("✅ Index created");
 }
