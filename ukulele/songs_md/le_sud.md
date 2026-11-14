@@ -13,7 +13,7 @@
 ## Paroles:
 
 ### Couplet
-[C]C'est un en[Em]droit qui res[Am]semble à la Louisi[C Adim F]
+[C]C'est un en[Em]droit qui res[Am]semble à la Louisi[C Adim F]ane
 A l'[C]Italie
 [C]Il y a du [Em]linge éten[Am]du sur la ter[C Adim F]rasse
 Et c'est jo[C]li
