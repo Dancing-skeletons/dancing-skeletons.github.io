@@ -60,6 +60,7 @@
       <input type="text" id="filename" value="ma_chanson"/>
     </div>
     <button id="example-btn" class="ghost">Exemple</button>
+    <button id="example-adv-btn" class="ghost">Exemple avancé</button>
     <button id="open-btn" class="ghost">Ouvrir un .md…</button>
     <input type="file" id="open-file" accept=".md" style="display:none"/>
     <button id="dl-md">Télécharger .md</button>
@@ -124,6 +125,54 @@ document.addEventListener("DOMContentLoaded", function () {
     ""
   ].join("\n");
 
+  var EXAMPLE_ADV = [
+    "# Exemple avancé - Mon morceau",
+    "",
+    "## Accords:",
+    '<uke-chord name="Am" frets="2000"></uke-chord>',
+    '<uke-chord name="E7" frets="1202"></uke-chord>',
+    '<uke-chord name="Dm" frets="2210"></uke-chord>',
+    '<uke-chord name="Am (rootless)" frets="1003" position=5></uke-chord>',
+    "",
+    "## Instructions:",
+    "",
+    "- Grille d'accords sur 2 lignes:",
+    '<pre class="tableau">',
+    "Am  Am  E7  Am",
+    "Dm  Dm  Am  E7",
+    "</pre>",
+    "",
+    "- Riff en picking (tab ascii):",
+    '<pre class="tableau">',
+    "  A|—3————5——7———————|",
+    "  E|—0————0——8———————|",
+    "  C|—0————0——0———————|",
+    "  G|—0————0——0———————|",
+    "     Am",
+    "</pre>",
+    "",
+    "- Rythmique de couplet: (▼.▼▲X▲▼▲) x2",
+    "",
+    "## Paroles:",
+    "",
+    "### Intro sans paroles:",
+    ":::highlight",
+    "[[Am E7 Dm E7]]",
+    ":::",
+    "",
+    "### Couplet",
+    "[Am]Slow drag,",
+    "I'm almost [E7]tagging the ground",
+    "When I hear that [Am]blue [E7]drag.",
+    "",
+    ":::highlight",
+    "### Refrain",
+    "[Am]Blue drag,",
+    "You've got my [E7]soul on [Am]fire.",
+    ":::",
+    ""
+  ].join("\n");
+
   var ta = document.getElementById("md");
   var frame = document.getElementById("preview");
   var fname = document.getElementById("filename");
@@ -162,6 +211,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
   document.getElementById("example-btn").addEventListener("click", function () {
     ta.value = EXAMPLE; render();
+  });
+  document.getElementById("example-adv-btn").addEventListener("click", function () {
+    ta.value = EXAMPLE_ADV; render();
   });
   document.getElementById("reset-btn").addEventListener("click", function () {
     localStorage.removeItem("editorDraft");
