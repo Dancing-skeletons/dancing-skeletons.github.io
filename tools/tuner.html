@@ -190,6 +190,8 @@
   var history = [];
   var lastSignalAt = 0;
   var lastUiAt = 0;
+  var lastDebugAt = 0;
+  var lastFreq = null;
   var lastSig = null;
   var VOL_N = 240;          // ~4 s of history at 60 fps
   var volHist = [];
@@ -386,12 +388,22 @@
     volHist.push(rmsNow);
     if (volHist.length > VOL_N) volHist.shift();
     var now = performance.now();
+
+    // Debug plots render continuously on their own throttle, whether or not
+    // a pitch is currently detected — the mic stream itself never stops.
+    if (!els.debugSec.hidden && now - lastDebugAt >= UI_MS) {
+      lastDebugAt = now;
+      drawVol();
+      drawFft(lastFreq);
+    }
+
     var det = detectPitch(scratch, audioCtx.sampleRate);
 
     if (det && det.rms >= GATE_ON) lastSignalAt = now;
     var haveSignal = now - lastSignalAt <= HANG_MS;
     if (!haveSignal) {
       if (history.length) history = [];
+      lastFreq = null;
       updateUI(null);
       return;
     }
@@ -401,9 +413,8 @@
     if (history.length > SMOOTHING) history.shift();
     if (now - lastUiAt < UI_MS) return;
     lastUiAt = now;
-    var f = median(history);
-    updateUI(f);
-    if (!els.debugSec.hidden) { drawVol(); drawFft(f); }
+    lastFreq = median(history);
+    updateUI(lastFreq);
   }
 
   els.micBtn.addEventListener("click", function () {
@@ -536,7 +547,7 @@
   els.debugBtn.addEventListener("click", function () {
     els.debugSec.hidden = !els.debugSec.hidden;
     els.debugBtn.textContent = els.debugSec.hidden ? "Debug" : "Masquer le debug";
-    if (!els.debugSec.hidden) drawVol(), drawFft(history.length ? median(history) : null);
+    if (!els.debugSec.hidden) { drawVol(); drawFft(lastFreq); }
   });
 
   /* ---------- Init ---------- */
