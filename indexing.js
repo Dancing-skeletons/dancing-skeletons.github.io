@@ -118,6 +118,7 @@ function buildIndex() {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="/manifest.webmanifest">
   <title>Dancing Skeletons Ukulele Secret Society</title>
   <style>
     body { 
@@ -136,6 +137,7 @@ function buildIndex() {
 ${md.render(mdLines.join("\n"))}
 
 
+<script src="/sw-register.js" defer></script>
 </body>
 </html>`;
 
@@ -151,6 +153,26 @@ ${md.render(mdLines.join("\n"))}
       () => "window.siteCSS = " + JSON.stringify(siteCSS) + ";"
     );
     fs.writeFileSync(editorPath, editor, "utf8");
+  }
+
+  // Inject build version + precache list into sw.js (idempotent regexes)
+  const swPath = path.join(ROOT_FOLDER, "sw.js");
+  if (fs.existsSync(swPath)) {
+    const htmlPages = [];
+    for (const dir of [UKE_SONGS, GUITAR_SONGS, TOOLS]) {
+      if (!fs.existsSync(dir)) continue;
+      for (const f of fs.readdirSync(dir)) {
+        if (f.endsWith(".html")) {
+          htmlPages.push(path.relative(ROOT_FOLDER, path.join(dir, f)).split(path.sep).join("/"));
+        }
+      }
+    }
+    let sw = fs.readFileSync(swPath, "utf8");
+    sw = sw
+      .replace(/const CACHE = 'dusc-[^']*';/, () => "const CACHE = 'dusc-" + Date.now() + "';")
+      .replace(/\/\*__PRECACHE_URLS__\*\/\[[^\]]*\]/, () => JSON.stringify(htmlPages));
+    fs.writeFileSync(swPath, sw, "utf8");
+    console.log("sw.js: " + htmlPages.length + " pages precached");
   }
 
   console.log("✅ Index created");
