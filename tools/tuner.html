@@ -23,6 +23,7 @@
   button { font-size:1rem; font-weight:700; border:none; border-radius:7px; padding:.5rem 1rem; cursor:pointer; }
   #mic-btn { background:#00558d; color:#fff; }
   #mic-btn.on { background:#c0392b; }
+  #debug-btn { background:#eef2f7; color:#2c4a6e; border:1px solid #cdd7e5; }
   .status { font-size:.85rem; color:#6b7a93; align-self:center; min-height:1.2em; }
   .status.err { color:#c0392b; font-weight:700; }
 
@@ -81,7 +82,6 @@
 
   .hintbar { font-size:.75rem; color:#6b7a93; margin:.6rem 0 0; text-align:center; }
 
-  #debug-btn { background:#eef2f7; color:#2c4a6e; border:1px solid #cdd7e5; }
   #debug-sec canvas { width:100%; height:auto; display:block; background:#fbfcfe; border:1px solid #cdd7e5; border-radius:8px; }
   .dbg-label { font-size:.72rem; color:#6b7a93; margin:.5rem 0 .2rem; }
 
@@ -139,7 +139,7 @@
   <div class="section" id="debug-sec" hidden>
     <h2>Debug</h2>
     <div class="dbg-label" id="debug-info"></div>
-    <div class="dbg-label">Volume enregistrée (RMS, ~4 s) — lignes pointillées: seuils on/off</div>
+    <div class="dbg-label">Volume enregistrée (RMS brut, ~4 s) — lignes pointillées: seuils calibrés off/on</div>
     <canvas id="vol-canvas" width="700" height="90"></canvas>
     <div class="dbg-label">Spectre FFT 60–1200 Hz — traits gris: notes cibles des cordes, trait vert: fréquence détectée</div>
     <canvas id="fft-canvas" width="700" height="130"></canvas>
@@ -160,11 +160,18 @@
     guitar:       [ {midi:40}, {midi:45}, {midi:50}, {midi:55}, {midi:59}, {midi:64} ] // E2 A2 D3 G3 B3 E4
   };
 
-  var GATE_ON = 0.012;   // RMS above this: signal present
-  var GATE_OFF = 0.005;  // RMS below this for a while: signal lost
   var HANG_MS = 300;     // keep last reading this long during dropouts (no flicker)
   var SMOOTHING = 5;     // median over this many readings (pravin's SMOOTHING)
   var UI_MS = 100;       // min delay between DOM updates
+  var VOL_N = 240;       // ~4 s of volume history at 60 fps
+
+  // Gate thresholds are auto-calibrated from the measured noise floor when
+  // the mic starts (mobile mics have very different raw levels per browser).
+  var noiseFloor = 0.004;
+  var gateOff = 0.005;
+  var gateOn = 0.012;
+  var calibrating = false;
+  var calSamples = [];
 
   var els = {
     instrument: document.getElementById("instrument"),
@@ -189,16 +196,17 @@
   var running = false;
   var rafId = null;
   var scratch = null;
+  var work = null;    // mean-removed signal
+  var scaled = null;  // gain-normalized signal fed to the detector
+  var fftArr = null;
   var history = [];
   var lastSignalAt = 0;
   var lastUiAt = 0;
   var lastDebugAt = 0;
   var lastFreq = null;
   var lastSig = null;
-  var VOL_N = 240;          // ~4 s of history at 60 fps
   var volHist = [];
   var volYMax = 0.02;
-  var fftArr = null;
 
   function a4Ref() { return parseFloat(els.a4.value); }
   function midiToFreq(m) { return a4Ref() * Math.pow(2, (m - 69) / 12); }
@@ -256,29 +264,14 @@
     osc.stop(t0 + 1.7);
   }
 
-  /* ---------- Pitch detection (normalized autocorrelation, MPM-style) ---------- */
+  /* ---------- Pitch detection on a pre-cleaned buffer ----------
+     x must already be mean-removed and gain-normalized, so detection does
+     not depend on the raw mic level (mobile browsers vary a lot).        */
 
   var MIN_FREQ = 60, MAX_FREQ = 1200;
-  var work = null;
 
-  function detectPitch(buf, sampleRate) {
-    var N = buf.length;
-    if (!work || work.length !== N) work = new Float32Array(N);
-
-    // Remove DC offset first (Firefox mic pipelines can add one) — same as
-    // pravin/Ukulele-Tuner's mean removal before the FFT.
-    var mean = 0;
-    for (var i = 0; i < N; i++) mean += buf[i];
-    mean /= N;
-    var rms = 0;
-    for (var j = 0; j < N; j++) {
-      var d = buf[j] - mean;
-      work[j] = d;
-      rms += d * d;
-    }
-    rms = Math.sqrt(rms / N);
-    if (rms < GATE_OFF) return null;
-
+  function detectPitch(x, sampleRate) {
+    var N = x.length;
     var minLag = Math.max(2, Math.floor(sampleRate / MAX_FREQ));
     var maxLag = Math.min(N - 1, Math.floor(sampleRate / MIN_FREQ));
 
@@ -286,9 +279,9 @@
     for (var lag = minLag; lag <= maxLag; lag++) {
       var acf = 0, m0 = 0, m1 = 0;
       for (var j = 0; j < N - lag; j++) {
-        acf += work[j] * work[j + lag];
-        m0 += work[j] * work[j];
-        m1 += work[j + lag] * work[j + lag];
+        acf += x[j] * x[j + lag];
+        m0 += x[j] * x[j];
+        m1 += x[j + lag] * x[j + lag];
       }
       var denom = m0 + m1;
       nsdf[lag] = denom > 0 ? (2 * acf) / denom : 0;
@@ -296,7 +289,7 @@
 
     var globalMax = 0;
     for (var k = minLag; k <= maxLag; k++) if (nsdf[k] > globalMax) globalMax = nsdf[k];
-    if (globalMax < 0.3) return null;
+    if (globalMax < 0.3) return null; // noise, not a periodic signal
 
     // First local max above 85% of global max -> the fundamental, not a harmonic
     var bestLag = -1;
@@ -315,7 +308,7 @@
     var denomP = y0 - 2 * y1 + y2;
     var shift = Math.abs(denomP) > 1e-12 ? 0.5 * (y0 - y2) / denomP : 0;
 
-    return { freq: sampleRate / (bestLag + shift), rms: rms };
+    return sampleRate / (bestLag + shift);
   }
 
   /* ---------- UI update (only when quantized values change) ---------- */
@@ -390,20 +383,39 @@
     });
   }
 
-  /* ---------- Mic loop with gate hysteresis + median smoothing ---------- */
+  /* ---------- Mic loop: calibrate gate, normalize level, detect ---------- */
 
   function loop() {
     if (!running) return;
     rafId = requestAnimationFrame(loop);
     analyser.getFloatTimeDomainData(scratch);
-    var meanNow = 0;
-    for (var mi = 0; mi < scratch.length; mi++) meanNow += scratch[mi];
-    meanNow /= scratch.length;
+    var N = scratch.length;
+
+    // DC removal + raw RMS (used for the gate and the volume plot)
+    var mean = 0;
+    for (var i = 0; i < N; i++) mean += scratch[i];
+    mean /= N;
     var rmsNow = 0;
-    for (var ri = 0; ri < scratch.length; ri++) { var dd = scratch[ri] - meanNow; rmsNow += dd * dd; }
-    rmsNow = Math.sqrt(rmsNow / scratch.length);
+    for (var j = 0; j < N; j++) {
+      var d = scratch[j] - mean;
+      work[j] = d;
+      rmsNow += d * d;
+    }
+    rmsNow = Math.sqrt(rmsNow / N);
     volHist.push(rmsNow);
     if (volHist.length > VOL_N) volHist.shift();
+
+    // Calibrate the gate from the ambient noise floor (first ~30 frames)
+    if (calibrating) {
+      calSamples.push(rmsNow);
+      if (calSamples.length >= 30) {
+        calibrating = false;
+        noiseFloor = median(calSamples);
+        gateOff = Math.max(0.0015, noiseFloor * 2);
+        gateOn = Math.max(0.003, noiseFloor * 4);
+      }
+    }
+
     var now = performance.now();
 
     // Debug plots render continuously on their own throttle, whether or not
@@ -413,14 +425,23 @@
       drawVol();
       drawFft(lastFreq);
       els.debugInfo.textContent =
-        "AudioContext " + audioCtx.sampleRate + " Hz · fftSize " + analyser.fftSize +
-        " · baseLatency " + (audioCtx.baseLatency * 1000).toFixed(1) + " ms" +
-        " · rms " + rmsNow.toFixed(4);
+        "ctx " + audioCtx.sampleRate + " Hz · fftSize " + analyser.fftSize +
+        " · rms " + rmsNow.toFixed(4) +
+        " · bruit " + noiseFloor.toFixed(4) +
+        " · seuils off/on " + gateOff.toFixed(4) + " / " + gateOn.toFixed(4);
     }
 
-    var det = detectPitch(scratch, audioCtx.sampleRate);
+    // Software gain: normalize the frame to ~0.05 RMS before detection, so a
+    // quiet mobile mic is detected exactly like a loud desktop one.
+    var det = null;
+    if (rmsNow >= gateOff) {
+      var gain = Math.min(100, Math.max(1, 0.05 / rmsNow));
+      for (var k = 0; k < N; k++) scaled[k] = work[k] * gain;
+      var f = detectPitch(scaled, audioCtx.sampleRate);
+      if (f) det = { freq: f, rms: rmsNow };
+    }
 
-    if (det && det.rms >= GATE_ON) lastSignalAt = now;
+    if (det && det.rms >= gateOn) lastSignalAt = now;
     var haveSignal = now - lastSignalAt <= HANG_MS;
     if (!haveSignal) {
       if (history.length) history = [];
@@ -464,7 +485,6 @@
         echoCancellation: false,
         noiseSuppression: false,
         autoGainControl: false   // AGC pumps the level -> gate/hang misbehave
-        //channelCount: 1
       }
     })
       .then(function (stream) {
@@ -476,12 +496,16 @@
         analyser.maxDecibels = -20;
         analyser.smoothingTimeConstant = 0;
         scratch = new Float32Array(analyser.fftSize);
+        work = new Float32Array(analyser.fftSize);
+        scaled = new Float32Array(analyser.fftSize);
         fftArr = new Float32Array(analyser.frequencyBinCount);
         var src = audioCtx.createMediaStreamSource(stream);
         src.connect(analyser);
         micStream = stream;
         running = true;
         lastSignalAt = performance.now();
+        calibrating = true;
+        calSamples = [];
         els.micBtn.textContent = "Arrêter le micro";
         els.micBtn.classList.add("on");
         setStatus("écoute en cours — jouez une corde");
@@ -510,12 +534,12 @@
 
     g.lineWidth = 1; g.font = "10px system-ui"; g.textAlign = "left";
     g.strokeStyle = "#c0392b"; g.setLineDash([4, 3]);
-    g.beginPath(); g.moveTo(0, y(GATE_ON)); g.lineTo(W, y(GATE_ON)); g.stroke();
-    g.fillStyle = "#c0392b"; g.fillText("on " + GATE_ON, 4, y(GATE_ON) - 3);
+    g.beginPath(); g.moveTo(0, y(gateOn)); g.lineTo(W, y(gateOn)); g.stroke();
+    g.fillStyle = "#c0392b"; g.fillText("on " + gateOn.toFixed(4), 4, y(gateOn) - 3);
     g.strokeStyle = "#b8860b";
-    g.beginPath(); g.moveTo(0, y(GATE_OFF)); g.lineTo(W, y(GATE_OFF)); g.stroke();
+    g.beginPath(); g.moveTo(0, y(gateOff)); g.lineTo(W, y(gateOff)); g.stroke();
     g.setLineDash([]);
-    g.fillStyle = "#b8860b"; g.fillText("off " + GATE_OFF, 4, y(GATE_OFF) + 10);
+    g.fillStyle = "#b8860b"; g.fillText("off " + gateOff.toFixed(4), 4, y(gateOff) + 10);
 
     g.beginPath();
     for (var j = 0; j < volHist.length; j++) {

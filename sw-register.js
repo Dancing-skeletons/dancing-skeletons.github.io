@@ -7,6 +7,7 @@
   if (window.self !== window.top) return; // don't run inside the editor preview iframe
 
   var applyingUpdate = false;
+  var reg = null;
 
   var btn = document.createElement('button');
   btn.id = 'sw-update-btn';
@@ -29,8 +30,6 @@
   function mount() { document.body.appendChild(btn); }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount);
   else mount();
-
-  var reg = null;
 
   navigator.serviceWorker.addEventListener('controllerchange', function () {
     // only reload when we asked for the update ourselves (avoids loops)
@@ -59,13 +58,25 @@
   btn.addEventListener('click', function () {
     if (!reg) return;
     if (reg.waiting && navigator.serviceWorker.controller) { activate(reg.waiting); return; }
+
     btn.textContent = '…';
-    reg.update().then(function () {
-      setTimeout(function () {
-        if (reg.waiting && navigator.serviceWorker.controller) { activate(reg.waiting); return; }
-        btn.textContent = 'à jour';
-        setTimeout(function () { setReady(false); }, 2000);
-      }, 600);
-    });
+    var settled = false;
+    function finish(label) {
+      if (settled) return;
+      settled = true;
+      btn.textContent = label;
+      if (label === 'à jour') setTimeout(function () { setReady(false); }, 2000);
+    }
+    try {
+      Promise.resolve(reg.update()).then(function () {
+        setTimeout(function () {
+          if (reg.waiting && navigator.serviceWorker.controller) { activate(reg.waiting); return; }
+          finish('à jour');
+        }, 800);
+      }).catch(function () { finish('MAJ'); });
+    } catch (e) {
+      finish('MAJ');
+    }
+    setTimeout(function () { finish('à jour'); }, 6000); // watchdog: never stay on "…"
   });
 })();
