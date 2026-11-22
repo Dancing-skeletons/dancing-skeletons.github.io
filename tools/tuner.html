@@ -138,6 +138,7 @@
 
   <div class="section" id="debug-sec" hidden>
     <h2>Debug</h2>
+    <div class="dbg-label" id="debug-info"></div>
     <div class="dbg-label">Volume enregistrée (RMS, ~4 s) — lignes pointillées: seuils on/off</div>
     <canvas id="vol-canvas" width="700" height="90"></canvas>
     <div class="dbg-label">Spectre FFT 60–1200 Hz — traits gris: notes cibles des cordes, trait vert: fréquence détectée</div>
@@ -178,7 +179,8 @@
     debugBtn: document.getElementById("debug-btn"),
     debugSec: document.getElementById("debug-sec"),
     volCanvas: document.getElementById("vol-canvas"),
-    fftCanvas: document.getElementById("fft-canvas")
+    fftCanvas: document.getElementById("fft-canvas"),
+    debugInfo: document.getElementById("debug-info")
   };
 
   var audioCtx = null;
@@ -238,7 +240,7 @@
   function playTone(freq) {
     var AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) return;
-    if (!audioCtx) audioCtx = new AC();
+    if (!audioCtx) audioCtx = new AC({ latencyHint: "interactive" });
     if (audioCtx.state === "suspended") audioCtx.resume();
     var t0 = audioCtx.currentTime;
     var osc = audioCtx.createOscillator();
@@ -257,11 +259,23 @@
   /* ---------- Pitch detection (normalized autocorrelation, MPM-style) ---------- */
 
   var MIN_FREQ = 60, MAX_FREQ = 1200;
+  var work = null;
 
   function detectPitch(buf, sampleRate) {
     var N = buf.length;
+    if (!work || work.length !== N) work = new Float32Array(N);
+
+    // Remove DC offset first (Firefox mic pipelines can add one) — same as
+    // pravin/Ukulele-Tuner's mean removal before the FFT.
+    var mean = 0;
+    for (var i = 0; i < N; i++) mean += buf[i];
+    mean /= N;
     var rms = 0;
-    for (var i = 0; i < N; i++) rms += buf[i] * buf[i];
+    for (var j = 0; j < N; j++) {
+      var d = buf[j] - mean;
+      work[j] = d;
+      rms += d * d;
+    }
     rms = Math.sqrt(rms / N);
     if (rms < GATE_OFF) return null;
 
@@ -272,9 +286,9 @@
     for (var lag = minLag; lag <= maxLag; lag++) {
       var acf = 0, m0 = 0, m1 = 0;
       for (var j = 0; j < N - lag; j++) {
-        acf += buf[j] * buf[j + lag];
-        m0 += buf[j] * buf[j];
-        m1 += buf[j + lag] * buf[j + lag];
+        acf += work[j] * work[j + lag];
+        m0 += work[j] * work[j];
+        m1 += work[j + lag] * work[j + lag];
       }
       var denom = m0 + m1;
       nsdf[lag] = denom > 0 ? (2 * acf) / denom : 0;
@@ -382,8 +396,11 @@
     if (!running) return;
     rafId = requestAnimationFrame(loop);
     analyser.getFloatTimeDomainData(scratch);
+    var meanNow = 0;
+    for (var mi = 0; mi < scratch.length; mi++) meanNow += scratch[mi];
+    meanNow /= scratch.length;
     var rmsNow = 0;
-    for (var ri = 0; ri < scratch.length; ri++) rmsNow += scratch[ri] * scratch[ri];
+    for (var ri = 0; ri < scratch.length; ri++) { var dd = scratch[ri] - meanNow; rmsNow += dd * dd; }
     rmsNow = Math.sqrt(rmsNow / scratch.length);
     volHist.push(rmsNow);
     if (volHist.length > VOL_N) volHist.shift();
@@ -395,6 +412,10 @@
       lastDebugAt = now;
       drawVol();
       drawFft(lastFreq);
+      els.debugInfo.textContent =
+        "AudioContext " + audioCtx.sampleRate + " Hz · fftSize " + analyser.fftSize +
+        " · baseLatency " + (audioCtx.baseLatency * 1000).toFixed(1) + " ms" +
+        " · rms " + rmsNow.toFixed(4);
     }
 
     var det = detectPitch(scratch, audioCtx.sampleRate);
@@ -438,9 +459,16 @@
       setStatus("micro non disponible (HTTPS requis)", true);
       return;
     }
-    navigator.mediaDevices.getUserMedia({ audio: { echoCancellation: false, noiseSuppression: false } })
+    navigator.mediaDevices.getUserMedia({
+      audio: {
+        echoCancellation: false,
+        noiseSuppression: false,
+        autoGainControl: false,   // AGC pumps the level -> gate/hang misbehave
+        channelCount: 1
+      }
+    })
       .then(function (stream) {
-        if (!audioCtx) audioCtx = new AC();
+        if (!audioCtx) audioCtx = new AC({ latencyHint: "interactive" });
         audioCtx.resume();
         analyser = audioCtx.createAnalyser();
         analyser.fftSize = 4096;
