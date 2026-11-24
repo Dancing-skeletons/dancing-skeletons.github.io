@@ -2,7 +2,7 @@
 // indexing.js injects the cache version (build timestamp) and the list of
 // song pages to precache, replacing __CACHE_VERSION__ / __PRECACHE_URLS__.
 
-const CACHE = 'dusc-1795342039422';
+const CACHE = 'dusc-1795556173892';
 
 const CORE = [
   './',
