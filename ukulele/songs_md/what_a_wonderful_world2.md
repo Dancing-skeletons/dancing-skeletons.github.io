@@ -40,7 +40,7 @@ I see [Am] friends shaking [Em] hands, [Am]saying, "How [Em] do you do?"
 :::
 
 ### Couplet
-I hear [C] babies [Emm] crying, I [F] watch them [C] grow  
+I hear [C] babies [Em] crying, I [F] watch them [C] grow  
 [F] They'll learn [C]so much more [E7] than I'll ever [Am] know,  
 And I [F] think to [F] myself  
 [G7] what a [G7] wonderful [C] world [C]  
