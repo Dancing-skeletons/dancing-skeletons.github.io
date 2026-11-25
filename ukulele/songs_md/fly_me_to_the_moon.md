@@ -31,4 +31,4 @@ And let me [D7] sing for ever more [Gmaj7]
 All I [B7] worship and [(Em7)] adore [(E7)]
 In [Am] other words [D7] please be [Gmaj7] true [E7]
 In [Am] other words [Am]...
-In [Am] other words [D7] I love [Gmaj7] you [Gmaj7]
+In [Am] other words [D7] I love [Gmaj7] you &nbsp; &nbsp; [Gmaj7]
